@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>incident_body_header</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(current, template, email, email_action, event) {
+	//template.print('<p><font size="6" color="#808080" face="helvetica">');
+	//template.print('${task_effective_number} test - ${short_description}');
+	//template.print('</font></p>');
+	template.print('<table width="100%"><tr><td width="20%" style="padding: 10px 10px 10px 10px;"><img src="/APiGroupLogo.png" width="100%" style="vertical-align: middle;"></td><td style="font-weight: 600; font-size: 20px;">Incident ${task_effective_number} has been opened</td></tr></table>');
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-01-29 11:24:25</sys_created_on>
+        <sys_id>f53056b0d711120035ae23c7ce610348</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>incident_body_header</sys_name>
+        <sys_package display_value="Incident Management Notification" source="com.snc.incident_notification">9218acab1be11010e7004229bc4bcbc1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_email_f53056b0d711120035ae23c7ce610348</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-12 21:43:13</sys_updated_on>
+    </sys_script_email>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
+        <claim_timestamp>17c7675a22e0000001</claim_timestamp>
+        <metadata_update_name>sys_script_email_f53056b0d711120035ae23c7ce610348</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Modular Notifications</previous_claim_name>
+        <previous_claim_scope>9433631b1bcf30508c5143f3cc4bcbfc</previous_claim_scope>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-12 21:43:13</sys_created_on>
+        <sys_id>6f75ab9b1bcf30508c5143f3cc4bcbf3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-12 21:43:13</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
+        <claim_timestamp>17c7675a22d0000001</claim_timestamp>
+        <metadata_update_name>sys_script_email_f53056b0d711120035ae23c7ce610348</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.incident_notification</previous_claim_name>
+        <previous_claim_scope>com.snc.incident_notification</previous_claim_scope>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-12 21:43:13</sys_created_on>
+        <sys_id>2375ab9b1bcf30508c5143f3cc4bcbf4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-12 21:43:13</sys_updated_on>
+    </sys_claim>
+</record_update>

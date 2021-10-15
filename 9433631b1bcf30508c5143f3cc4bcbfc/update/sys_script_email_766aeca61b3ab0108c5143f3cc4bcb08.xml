@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>new_approval_request</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+/* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+/* Optional GlideRecord */ event) {
+	////////////////
+	//Logic for body
+	////////////////
+	
+	//Service Portal URL
+	var baseURL = gs.getProperty('glide.servlet.uri');
+	var url = "<a href='";
+		url += baseURL + '/sp?id=approval&table=sysapproval_approver&sys_id=' + '${sys_id}';
+		url += "'>LINK</a>";
+	
+	//Logo
+	template.print('<img src="/API%20logo.png" width="150" height="82"><br>');
+	//Opening
+	template.print('<b>Service Desk</b><br><br>${approver.name},<br>');
+
+	//Lines different if invoice or external user access request
+	template.print('<br>${sysapproval.opened_by.name} has submitted the following ');
+
+	if(current.source_table == 'u_invoice'){//invoice
+		var invGr = new GlideRecord('u_invoice');
+		invGr.Get(current.sysapproval.number);
+		template.print('invoice from ${sysapproval.company.name}');
+		template.print(' for your review.<br>');
+		template.print('Please click here to review the request: ' + url);
+	}
+	else if(current.source_table == 'u_external_account_request'){//external user account request
+		template.print('account request for your review.<br>');
+		template.print('Please click here to review the request: ${sysapproval.URI}');
+	}
+	else if(current.source_table == 'change_request'){//external user account request
+		template.print('change request for your review.<br>');
+		template.print('Please click here to review the request: ${sysapproval.URI}');
+	}
+	else{//all other approvals
+		template.print('request:<br>');
+		//If it's a ritm then add the requestor
+		if(current.source_table == 'sc_req_item'){
+			var reqItemGr = new GlideRecord('sc_req_item');
+			reqItemGr.get(current.sysapproval.number);
+			template.print('Who is this request for? ');
+			template.print(reqItemGr.requested_for.name);
+		}
+		template.print('<br>Request: ${sysapproval.short_description}<br><br>');
+		template.print('<b>Your approval is required to process this request.</b><br>');
+		template.print('Please click here to review and manage this approval request: ' + url);
+	}
+	
+	///////////////////
+	//Logic for subject
+	///////////////////
+	var reqFor = 'ACTION REQUIRED: APi Connect Approval Request ';
+	
+	if(current.source_table == 'u_invoice'){//invoice
+		var invoGr = new GlideRecord('u_invoice');
+		invoGr.get(current.sysapproval.number);
+		if(invoGr.company.name == undefined || invoGr.company.name == null){//If requested for is not set
+		reqFor += 'by ' + current.sysapproval.opened_by.name;	
+		}
+		else{
+		reqFor += 'for ' + invoGr.company.name;
+		}
+	}
+	else if(current.source_table == 'u_external_account_request'){//external account request
+		reqFor += ' - Account Request';
+	}
+	else if(current.source_table == 'sc_req_item'){//ritms
+		var requItemGr = new GlideRecord('sc_req_item');
+		requItemGr.get(current.sysapproval.number);
+		if(requItemGr.requested_for.name == undefined || requItemGr.requested_for.name == null){//If requested for is not set
+		requFor += 'by ' + current.sysapproval.opened_by.name;
+		}
+		else{
+		requFor += 'for ' + requItemGr.requested_for.name;
+		}
+	}
+	else{//all others
+		reqFor += 'by ' + current.sysapproval.opened_by.name;
+	}
+	email.setSubject(reqFor);
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-09-27 13:55:53</sys_created_on>
+        <sys_id>766aeca61b3ab0108c5143f3cc4bcb08</sys_id>
+        <sys_mod_count>29</sys_mod_count>
+        <sys_name>new_approval_request</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_email_766aeca61b3ab0108c5143f3cc4bcb08</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-12 21:43:13</sys_updated_on>
+    </sys_script_email>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
+        <claim_timestamp>17c7675a1b00000001</claim_timestamp>
+        <metadata_update_name>sys_script_email_766aeca61b3ab0108c5143f3cc4bcb08</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Modular Notifications</previous_claim_name>
+        <previous_claim_scope>9433631b1bcf30508c5143f3cc4bcbfc</previous_claim_scope>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-12 21:43:13</sys_created_on>
+        <sys_id>e375ab9b1bcf30508c5143f3cc4bcbe9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-12 21:43:13</sys_updated_on>
+    </sys_claim>
+</record_update>

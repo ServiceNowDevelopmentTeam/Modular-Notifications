@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>request.itil.approve.role_script_1</name>
+        <new_lines_to_html>true</new_lines_to_html>
+        <script><![CDATA[template.print("Summary of Requested items:\n");  
+  var item = new GlideRecord("sc_req_item");
+  item.addQuery("request", current.sysapproval);
+  item.query();
+  while(item.next()) {
+      template.print(item.number + ":  " + item.quantity + " X " + item.cat_item.getDisplayValue() + " at " + item.price.getDisplayValue() + " each \n");
+      template.print("    Options:\n");
+      var keys = new Array();
+      var set = new GlideappVariablePoolQuestionSet();
+      set.setRequestID(item.sys_id);
+      set.load();
+      var vs = set.getFlatQuestions();
+      for (var i=0; i < vs.size(); i++) {
+        if(vs.get(i).getLabel() != '') {
+           template.space(4);
+           template.print('     ' +  vs.get(i).getLabel() + " = " + vs.get(i).getDisplayValue() + "\n");  
+        }
+      }
+  }]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>aaron.wolfcale@cdw.com</sys_created_by>
+        <sys_created_on>2020-12-10 15:50:13</sys_created_on>
+        <sys_id>d53e9ef41bc5ec10e7004229bc4bcb3a</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>request.itil.approve.role_script_1</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_email_d53e9ef41bc5ec10e7004229bc4bcb3a</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-12 21:43:12</sys_updated_on>
+    </sys_script_email>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
+        <claim_timestamp>17c76759f120000001</claim_timestamp>
+        <metadata_update_name>sys_script_email_d53e9ef41bc5ec10e7004229bc4bcb3a</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Modular Notifications</previous_claim_name>
+        <previous_claim_scope>9433631b1bcf30508c5143f3cc4bcbfc</previous_claim_scope>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-12 21:43:12</sys_created_on>
+        <sys_id>6375ab9b1bcf30508c5143f3cc4bcb97</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-12 21:43:12</sys_updated_on>
+    </sys_claim>
+</record_update>

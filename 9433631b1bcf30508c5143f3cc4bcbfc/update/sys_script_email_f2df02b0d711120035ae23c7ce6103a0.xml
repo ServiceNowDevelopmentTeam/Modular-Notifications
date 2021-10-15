@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>incident_additional_details</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(current, template, email, email_action, event) {
+	template.print('<p><font size="4" color="#999999" face="helvetica"><strong>');
+	template.print(gs.getMessage('Additional Details:'));
+	template.print('</strong></font></p>');
+	template.print('<font size="3" color="#999999" face="helvetica">');
+	var link='/incident.do?sys_id=' + current.sys_id;
+	var i18nCaller = gs.getMessage('Caller: {0}', '${caller_id}');
+	var i18nCagegory = gs.getMessage('Category: {0}', '${category}');
+	var i18nSeverity = gs.getMessage('Severity: {0}', '${severity}');
+	var i18nPriority = gs.getMessage('Priority: {0}', '${priority}');
+	var i18nDescription = gs.getMessage('Description: {0}', '${short_description}');
+	var i18nLink = gs.getMessage('Incident Link: {0}', '<a href="' + link + '">${task_effective_number}</a>');
+	template.print('<p>' + i18nCaller + '<br/>');
+	template.print('<p>' + i18nCagegory + '</p>');
+	template.print('<p>' + i18nSeverity + '</p>');
+	template.print('<p>' + i18nPriority + '</p>');
+	template.print('<p>' + i18nDescription + '</p>');
+	template.print('<p>' + i18nLink + '</p>');
+	template.print('</font>');
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-01-29 11:22:50</sys_created_on>
+        <sys_id>f2df02b0d711120035ae23c7ce6103a0</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>incident_additional_details</sys_name>
+        <sys_package display_value="Incident Management Notification" source="com.snc.incident_notification">9218acab1be11010e7004229bc4bcbc1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_email_f2df02b0d711120035ae23c7ce6103a0</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-12 21:43:13</sys_updated_on>
+    </sys_script_email>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
+        <claim_timestamp>17c7675a1880000002</claim_timestamp>
+        <metadata_update_name>sys_script_email_f2df02b0d711120035ae23c7ce6103a0</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Modular Notifications</previous_claim_name>
+        <previous_claim_scope>9433631b1bcf30508c5143f3cc4bcbfc</previous_claim_scope>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-12 21:43:13</sys_created_on>
+        <sys_id>e775ab9b1bcf30508c5143f3cc4bcbe5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-12 21:43:13</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
+        <claim_timestamp>17c7675a1880000001</claim_timestamp>
+        <metadata_update_name>sys_script_email_f2df02b0d711120035ae23c7ce6103a0</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.snc.incident_notification</previous_claim_name>
+        <previous_claim_scope>com.snc.incident_notification</previous_claim_scope>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-12 21:43:13</sys_created_on>
+        <sys_id>ab75ab9b1bcf30508c5143f3cc4bcbe5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-12 21:43:13</sys_updated_on>
+    </sys_claim>
+</record_update>
