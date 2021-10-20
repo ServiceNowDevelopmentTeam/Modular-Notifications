@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>modular_notifications_open_close_update_template</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[//Do not edit this, change the name then insert and stay to create a new script.
+//This is for regular out of the box opened, closed, or updated notifications. For anything other than that, use the modular_notifications_custom_template email script as a starter.
+
+
+(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template, /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action, /* Optional GlideRecord */ event) {
+	//These variables will control the different sections of the modular notifications
+	//Subject will also control the email subject, don't include HTML there
+	var notification =new ModularNotificationsBuilder();
+	
+	//URL that can be universally used for viewing a ticket on the portal
+	notification.table = event.table;
+	notification.documentID = event.instance;
+	notification.setGlobalUrl();
+	
+	notification.action = 'opened';//Change to opened, closed, or updated depending on action taken
+	
+	//Put it all together to get the full HTML template
+	var html = notification.getHTML();
+	
+	//Print HTML to the body
+	template.print(html);
+	
+	//Set email subject
+	email.setSubject(notification.subject);
+
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 14:09:36</sys_created_on>
+        <sys_id>456a87b91b9fbc5062e50ed2cd4bcbed</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>modular_notifications_open_close_update_template</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_email_456a87b91b9fbc5062e50ed2cd4bcbed</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 14:30:05</sys_updated_on>
+    </sys_script_email>
+</record_update>
