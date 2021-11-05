@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>global.CustomSurveyAdaptiveCardGenerator</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>CustomSurveyAdaptiveCardGenerator</name>
+        <script><![CDATA[var CustomSurveyAdaptiveCardGenerator = Class.create();
+CustomSurveyAdaptiveCardGenerator.prototype = {
+	initialize: function(instanceId) {
+		this.instanceId = instanceId;
+		var instanceGr = new GlideRecord('asmt_assessment_instance');
+		if ((!instanceId || !instanceGr.get(instanceId) || instanceGr.getTableName() !== 'asmt_assessment_instance')) {
+			this.abort = true;
+			gs.info("OAM - aborting due to invalid survey instance record: " + instanceId);
+			return;
+		}
+		this.instanceGr = instanceGr;
+		this.surveyGr = instanceGr.metric_type.getRefRecord();
+		if (!this.surveyGr || !this.surveyGr.isValidRecord() || !this.surveyGr.ms_adaptive_cards) {
+			this.abort = true;
+			gs.info("OAM - aborting due to invalid survey definition record or oam flag not checked");
+			return;
+		}
+
+		this.surveyId = this.surveyGr.getUniqueValue();
+		this.actionBody = {};
+		this.card = {};
+		this.baseURI = new global.CustomAdaptiveCardCustomURLHelper().getServiceNowURL();
+	},
+
+	abort: false,
+	metrixAnswerPrefix: "ASMTQUESTION:",
+	metricAddInfoPrefix: "ADDINFO:ASMTQUESTION:",
+	metrixMultiAnswerPrefix: "ASMTDEFINITION:",
+	metricMultiAddInfoPrefix: "ADDINFO:ASMTDEFINITION:",
+	datePrefix: "OAM_Date", // Only for "Date/Time" question, or "Date" question
+	timePrefix: "OAM_Time", // Only for "Date/Time" question
+
+	generate: function() {
+		return this.generateSurveyCard();
+	},
+	
+	getRecipients: function() {
+		return this._getExpectedActors();
+	},
+	generateSurveyCard: function() {
+		if (this.abort)
+			return "";
+		if (!new global.CustomOAMSurveyUtil().allInstanceQuestionsSupported(this.instanceId)){
+			gs.info("OAM - survey instance " + this.instanceId + " contains unsupported survey questions. Aborting.");
+			return "";
+		}
+
+		this.card = {
+			"type": "AdaptiveCard",
+			"version": "1.0",
+			"originator": gs.getProperty('sn_ms_oam.outlookactionable.originator'),
+			"padding": "none",
+			"expectedActors": this._getExpectedActors(),
+			"hideOriginalBody": true,
+			"body": []
+		};
+
+		this._addIntroduction();
+		this._processSurveyCategories();
+		this._addActions(this.surveyGr);
+		return JSON.stringify(this.card);
+	},
+	
+	_getExpectedActors: function(){
+		var actors = [], email;
+		email = this.instanceGr.user.email.toString();
+		if(email) {
+			actors.push(email);
+		}
+		return actors;
+	},
+
+	getSuccessResponseBody: function() {
+		if (this.abort)
+			return "";
+
+		this.card = {
+			"type": "AdaptiveCard",
+			"version": "1.0",
+			"originator": gs.getProperty('sn_ms_oam.outlookactionable.originator'),
+			"style": "emphasis",
+			"hideOriginalBody": true,
+			"body": [],
+		};
+		this._addCompleteMessage();
+		this._addEndNote();
+		return JSON.stringify(this.card);
+	},
+
+	getErrorResponseBody: function() {
+		if (this.abort)
+			return "";
+
+		this.card = {
+			"type": "AdaptiveCard",
+			"version": "1.0",
+			"originator": gs.getProperty('sn_ms_oam.outlookactionable.originator'),
+			"style": "emphasis",
+			"hideOriginalBody": true,
+			"body": [],
+		};
+		return JSON.stringify(this.card);
+	},
+
+	_addCompleteMessage: function() {
+		var messageObj = {
+			"type": "TextBlock",
+			"text": "You have completed this survey",
+			"weight": "bolder",
+			"size": "default",
+			"color": "default",
+			"wrap": true,
+			"separator": true
+		};
+		this.card.body.push(messageObj);
+	},
+
+	_addEndNote: function() {
+		var endNote = this.surveyGr.end_note.toString();
+		if (!endNote)
+			return;
+
+		var endNoteObj = {
+			"type": "TextBlock",
+			"text": this._html2Markdown(endNote),
+			"size": "large",
+			"color": "default",
+			"wrap": true,
+			"separator": true
+		};
+		this.card.body.push(endNoteObj);
+	},
+
+	_html2Markdown: function(str) {
+		//strip html for now
+		return str.replace(/<(?:.|\n)*?>/gm, '');
+	},
+
+	_addIntroduction: function() {
+		var introduction = this.surveyGr.introduction.toString(),
+			introductionObj;
+		if (!introduction)
+			return;
+
+		introductionObj = {
+            "type": "Container",
+            "style": "emphasis",
+            "padding": "default",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": this._html2Markdown(introduction),                 
+                    "size": "large",
+                    "wrap": true,
+                    "color": "default"
+                }
+            ]
+        };
+		this.card.body.push(introductionObj);
+	},
+
+	_processSurveyCategories: function() {
+		var gr = new GlideRecord('asmt_metric_category'),
+			categoryNode;
+		gr.addQuery('metric_type', this.surveyId);
+		gr.orderBy('order');
+		gr.query();
+		while (gr.next()) {
+			categoryNode = {
+				"type": "Container",
+				"style": "default",
+				"separator": true,
+				"spacing": "none",
+				"padding": "default",
+				"items": [{
+					"type": "TextBlock",
+					"text": gr.name.toString(),
+					"weight": "bolder",
+					"size": "medium"
+				}]
+			};
+			this._addCategoryQuestions(gr.sys_id.toString(), categoryNode);
+			this.card.body.push(categoryNode);
+		}
+	},
+
+	_addCategoryQuestions: function(categoryId, categoryNode) {
+		var question = new GlideRecord('asmt_assessment_instance_question');
+		var questionNode;
+		var questionCallbackNode;
+		question.addQuery('instance', this.instanceId);
+		question.addQuery('category', categoryId);
+		question.orderBy('metric.order');
+		question.query();
+		while (question.next())
+			this._addQuestion(question, categoryNode);
+	},
+
+	_addQuestion: function(questionGr, categoryNode) {
+		var questionNode = this._getQuestionNode(questionGr);
+		if (questionNode) {
+			this._addQuestionToAction(questionGr);
+			categoryNode.items.push(questionNode);
+		}
+	},
+
+	_addQuestionToAction: function(questionGr) {
+		var metricGr = questionGr.metric.getRefRecord();
+		var metricId = metricGr.getUniqueValue();
+		var datatype = metricGr.datatype.toString();
+		var addInfo = metricGr.allow_add_info;
+		var questionId = questionGr.getUniqueValue();
+		var questionNode;
+		var questionInfoNode;
+
+		switch (datatype) {
+			case 'string':
+			case 'boolean':
+			case 'choice':
+			case 'long':
+			case 'percentage':
+			case 'checkbox':
+			case 'scale':
+			case 'numericscale':
+				this.actionBody[this.metrixAnswerPrefix + questionId + ''] = "{{" + questionId + ".value}}";
+				if (addInfo)
+					this.actionBody[this.metricAddInfoPrefix + questionId + ''] = "{{" + questionId + "_ADDINFO.value}}";
+				break;
+			case 'multiplecheckbox':
+				this.actionBody[this.metrixMultiAnswerPrefix + metricId + ''] = "{{" + metricId + ".value}}";
+				if (addInfo)
+					this.actionBody[this.metricMultiAddInfoPrefix + metricId] = "{{" + metricId + "_ADDINFO.value}}";
+				break;
+			case 'date':
+				this.actionBody[this.metrixAnswerPrefix + this.datePrefix + questionId] = "{{" + this.datePrefix + questionId + ".value}}";
+				if (addInfo)
+					this.actionBody[this.metricAddInfoPrefix + questionId + ''] = "{{" + questionId + "_ADDINFO.value}}";
+				break;
+			case 'datetime':
+				this.actionBody[this.metrixAnswerPrefix + this.timePrefix + questionId] = "{{" + this.timePrefix + questionId + ".value}}";
+				this.actionBody[this.metrixAnswerPrefix + this.datePrefix + questionId] = "{{" + this.datePrefix + questionId + ".value}}";
+				if (addInfo)
+					this.actionBody[this.metricAddInfoPrefix + questionId + ''] = "{{" + questionId + "_ADDINFO.value}}";
+				break;
+			case 'template':
+				// The template question with image option, or image scale question is only supported in one click survey.
+				// Also, template question doesn't have additional information field.
+				// The template question without image option should build body here.
+				this.actionBody[this.metrixAnswerPrefix + questionId + ''] = "{{" + questionId + ".value}}";
+				break;
+		}
+	},
+
+	_getQuestionCallbackNode: function(questionGr) {
+		var node = {
+			"id": questionGr.sys_id.toString(),
+			"value": "{{" + questionGr.sys_id + ".value}}"
+		};
+		return node;
+	},
+
+	_getQuestionNode: function(questionGr) {
+		var node;
+		var addInfoNode;
+		var metricGr = questionGr.metric.getRefRecord();
+		var addInfo = metricGr.allow_add_info;
+		if (addInfo)
+			addInfoNode = {
+				"type": "Input.Text",
+				"id": questionGr.sys_id + "_ADDINFO",
+				"placeholder": "Additional Information"
+			};
+		var datatype = metricGr.datatype.toString();
+		var questionLabel = '';
+		try{
+			questionLabel = new global.AssessmentUtils().getQuestionLabel(questionGr);
+		}catch(e){
+			questionLabel = 'addInfoNode.placeholder';
+			gs.log('error: ' + e);
+		}
+
+		var questionNode = {
+			"type": "Container",
+			"items": []
+		};
+
+		if (datatype !== 'checkbox') {
+			questionNode.items.push({
+				"type": "TextBlock",
+				"wrap": true,
+				"text": (metricGr.mandatory.toString() === 'true' ? '(Mandatory) ' : '') + questionLabel
+			});
+		}
+
+		switch (datatype) {
+			case 'string':
+				node = {
+					"type": "Input.Text",
+					"id": questionGr.getUniqueValue(),
+					"isMultiline": metricGr.string_option.toString() === 'multiline'
+				};
+				break;
+			case 'boolean':
+				node = {
+					"type": "Input.ChoiceSet",
+					"id": questionGr.getUniqueValue(),
+					"style": "expanded",
+					"choices": [{
+							"title": "Yes",
+							"value": "1"
+						},
+						{
+							"title": "No",
+							"value": "0"
+						}
+					]
+				};
+				break;
+			case 'multiplecheckbox':
+				node = {
+					"type": "Input.ChoiceSet",
+					"id": questionGr.metric.toString(),
+					"style": "expanded",
+					"choices": this._getChoicesForQuestion(metricGr.sys_id.toString()),
+					"isMultiSelect": true
+				};
+				break;
+			case 'choice':
+				node = {
+					"type": "Input.ChoiceSet",
+					"id": questionGr.getUniqueValue(),
+					"style": "compact",
+					"choices": this._getChoicesForQuestion(metricGr.sys_id.toString())
+				};
+				break;
+			case 'long':
+				node = {
+					"type": "Input.Number",
+					"id": questionGr.getUniqueValue(),
+					"min": metricGr.min.toString(),
+					"max": metricGr.max.toString(),
+					"placeholder": "Range: " + metricGr.min.toString() + " - " + metricGr.max.toString()
+				};
+				break;
+			case 'percentage':
+				node = {
+					"type": "Input.Number",
+					"id": questionGr.getUniqueValue(),
+					"placeholder": "%",
+					"min": metricGr.min.toString(),
+					"max": metricGr.max.toString()
+				};
+				break;
+			case 'date':
+				node = {
+					"type": "Input.Date",
+					"id": this.datePrefix + questionGr.getUniqueValue()
+				};
+				break;
+			case 'datetime':
+				node = {
+					"type": "ColumnSet",
+					"columns": [
+						{
+							"type": "Column",
+							"items": [
+								{
+									"type": "Input.Date",
+									"id": this.datePrefix + questionGr.getUniqueValue()
+								}
+							]
+						},
+						{
+							"type": "Column",
+							"items": [
+								{
+									"type": "Input.Time",
+									"id": this.timePrefix + questionGr.getUniqueValue(),
+									"placeholder": "Enter a time"
+								}
+							]
+						}
+					]
+				};
+				break;
+			case 'checkbox':
+				node = {
+					"type": "Input.Toggle",
+					"id": questionGr.getUniqueValue(),
+					"title": questionLabel
+				};
+				break;
+			case 'scale':
+			case 'numericscale':
+				node = {
+					"type": "Input.ChoiceSet",
+					"id": questionGr.getUniqueValue(),
+					"style": "expanded",
+					"isMultiSelect": false,
+					"choices": this._getChoicesForQuestion(metricGr.getUniqueValue())
+				};
+				break;
+			case 'imagescale':
+				node = this._buildNodeForImageOptionQuestion(questionGr, metricGr, "asmt_metric_definition", addInfo, addInfoNode);
+				break;
+			case 'template':
+				var templateGr = metricGr.template.getRefRecord();
+				if (templateGr.allow_image)
+					node = this._buildNodeForImageOptionQuestion(questionGr, metricGr, "asmt_template_definition", addInfo, addInfoNode);
+				else
+					node = {
+						"type": "Input.ChoiceSet",
+						"id": questionGr.getUniqueValue(),
+						"style": "expanded",
+						"choices": this._getChoicesForTemplateQuestion(templateGr)
+					};
+				break;
+		}
+
+		if (node) {
+			questionNode.items.push(node);
+
+			// For image scale question, we added additional information field separately
+			if (addInfo && datatype !== "imagescale")
+				questionNode.items.push(addInfoNode);
+		}
+		return questionNode;
+	},
+	
+	/**
+	* Build the node for image scale question or template question with image option. 
+	*
+	* @param {GlideRecord} questionGr - The glide record of question instance.
+	* @param {GlideRecord} metricGr - The glide record of assessment metric.
+	* @param {String} optionDefTableName - the table that defines question options, such as "asmt_template_definition", or "asmt_metric_definition".
+	* @param {Boolean} addInfo - True if we have additional information field for this question.
+	* @param {Object} addInfoNode - the node for additional information field. Undefined if "addInfo" is false.
+	* @param {Object} node
+	*/
+	_buildNodeForImageOptionQuestion: function(questionGr, metricGr, optionDefTableName, addInfo, addInfoNode) {
+		var node = {
+			"type": "Container",
+			"items": []
+		};
+		var imageIdArr = [];
+		var imageOptions = {};// Used for each submit button
+		var metricSysId = metricGr.getUniqueValue();
+		var grOptionDef = new GlideRecord(optionDefTableName);
+		if (optionDefTableName === "asmt_metric_definition")
+			grOptionDef.addQuery("metric", metricSysId);
+		else if (optionDefTableName === "asmt_template_definition") {
+			var templateGr = metricGr.template.getRefRecord();
+			grOptionDef.addQuery("template", templateGr.getUniqueValue());
+		}
+		grOptionDef.orderBy("value");
+		grOptionDef.query();
+		while (grOptionDef.next()) {
+			var selectedImageValue = grOptionDef.getDisplayValue('selected_image');// something like "a9ecff2087421010adcc66d107cb0b39.iix"
+			var unselectedImageValue = grOptionDef.getDisplayValue('unselected_image');// something like "a9ecff2087421010adcc66d107cb0b39.iix"
+			var imageValue = grOptionDef.getValue("value");
+			var imageDisplayValue = grOptionDef.getValue("display");
+			var optionDefSysId = grOptionDef.getUniqueValue();
+			var columns = [
+				{
+					"type": "Column",
+					"width": "auto",
+					"isVisible": true,// By default, we show unselected image
+					"id": metricSysId + "_" + optionDefSysId + "_unselected",// Template system id may be used by multiple metrics, so adding metric system id here to differentiate.
+					"items": [{
+						"type": "Image",
+						"url": gs.getProperty('glide.servlet.uri') + unselectedImageValue,
+						"size": "small"
+					}]
+				}, {
+					"type": "Column",
+					"width": "auto",
+					"isVisible": false,// By default, we don't show selected image
+					"id": metricSysId + "_" + optionDefSysId + "_selected",// Template system id may be used by multiple metrics, so adding metric system id here to differentiate.
+					"items": [{
+						"type": "Image",
+						"url":  gs.getProperty('glide.servlet.uri') + selectedImageValue,
+						"size": "small"
+					}]
+				}, {
+					"type": "Column",
+					"width": 4,
+					"items": [
+						{
+							"type": "TextBlock",
+							"text": imageDisplayValue,
+							"id": metricSysId + "_" + optionDefSysId + "_text",
+							"horizontalAlignment": "Center"
+						}
+					],
+					"verticalContentAlignment": "Center"
+				}
+			];
+			imageIdArr.push(metricSysId + "_" + optionDefSysId + "_unselected");
+			imageIdArr.push(metricSysId + "_" + optionDefSysId + "_selected");
+			imageOptions[metricSysId + "_" + optionDefSysId + "_submit"] = imageValue;
+			var currentTemplateBody = {
+				"type": "ColumnSet",
+				"columns": columns,
+				"id": metricSysId + "_" + optionDefSysId,
+				"selectAction": {
+					"type":"Action.ToggleVisibility",
+				}
+			};
+			node.items.push(currentTemplateBody);
+		}// end of while loop
+		
+		// Add targetElements for each template body that we implemented above
+		// The targetElements is the pre-set condition to control when to show each image
+		for (var i = 0; i < node["items"].length; i ++) {
+			var body = node["items"][i];
+			var bodyId = body["id"];
+			var sectionAction = body["selectAction"];
+			var targetElements = [];
+			var targetElement;
+			for (var j = 0; j < imageIdArr.length; j ++) {
+				var imageId = imageIdArr[j];
+				// Highlight the correct image, and unhighlight others
+				if (imageId.indexOf("unselected") >= 0 && imageId.indexOf(bodyId) >= 0) {
+					targetElement = {
+						"elementId": imageId,
+						"isVisible": false
+					};
+				}
+				else if (imageId.indexOf("selected") >= 0 && imageId.indexOf(bodyId) >= 0) {
+					targetElement = {
+						"elementId": imageId,
+						"isVisible": true
+					};
+				}
+				else if (imageId.indexOf("unselected") >= 0 && imageId.indexOf(bodyId) === -1) {
+					targetElement = {
+						"elementId": imageId,
+						"isVisible": true
+					};
+				}
+				else if (imageId.indexOf("selected") >= 0 && imageId.indexOf(bodyId) === -1) {
+					targetElement = {
+						"elementId": imageId,
+						"isVisible": false
+					};
+				}
+				targetElements.push(targetElement);
+			}
+
+			// Add targetElement for additional information field if any
+			if (addInfo) {
+				targetElements.push({
+					"elementId": questionGr.sys_id + "_ADDINFO",
+					"isVisible": true
+				});
+			}
+
+			// Add targetElements for submit buttons
+			for (var submitBtnId in imageOptions) {
+				// E.g., bodyId is metricSysId + "_" + optionDefSysId, and submitBtnId is metricSysId + "_" + optionDefSysId + "_submit". So submitBtnId should cover bodyId.
+				if (submitBtnId.indexOf(bodyId) !== -1)
+					targetElements.push({
+						"elementId": submitBtnId,
+						"isVisible": true
+					});
+				else
+					targetElements.push({
+						"elementId": submitBtnId,
+						"isVisible": false
+					});
+			}
+			sectionAction["targetElements"] = targetElements;
+		}
+
+		// Add additional information node here if it's configured.
+		// By default, it shouldn't be displayed until the user makes selection.
+		if (addInfo) {
+			addInfoNode["isVisible"] = false;
+			node.items.push(addInfoNode);
+		}
+
+		// Add individual submit button for each image option
+		for (var submitBtnId in imageOptions) {
+			var imageValue = imageOptions[submitBtnId];
+			var httpBody = {};
+			httpBody.type = "survey";
+			httpBody.sysparm_instance_id = this.instanceId;
+			httpBody.sysparm_action = "submit";
+			httpBody[this.metrixAnswerPrefix + questionGr.getUniqueValue() + ""] = imageValue;
+			if (addInfo)
+				httpBody[this.metricAddInfoPrefix + questionGr.getUniqueValue() + ''] = "{{" + questionGr.getUniqueValue() + "_ADDINFO.value}}";
+			node.items.push(
+				{
+					"type": "ActionSet",
+					"horizontalAlignment": "Left",
+					"id": submitBtnId,
+					"isVisible": false,// By default, we hide submit button for each image option until the user selects an option
+					"actions": [
+						{
+							"type": "Action.Http",
+							"title": "Submit",
+							"url": this.baseURI + "api/sn_ms_oam/oam/survey",
+							"method": "POST",
+							"headers": [
+								{
+									"name": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"body": JSON.stringify(httpBody),
+							"isPrimary": false
+						}
+					]
+				}
+			);
+		}
+		return node;
+	},
+
+	_getChoicesForQuestion: function(questionId) {
+		var choices = [],
+			choice;
+		var gr = new GlideRecord('asmt_metric_definition');
+		gr.addQuery('metric', questionId);
+		gr.orderBy('order');
+		gr.query();
+		while (gr.next()) {
+			choice = {};
+			choice.title = gr.display.toString();
+			choice.value = gr.value.toString();
+			choices.push(choice);
+		}
+		return choices;
+	},
+	
+	/**
+	 * @param {GlideRecord} templateGr - asmt metric's template reference
+     * @return {Object[]} choices - An array of choice nodes
+	*/
+	_getChoicesForTemplateQuestion: function(templateGr) {
+		var choices = [],
+			choice;
+		var grTempDef = new GlideRecord('asmt_template_definition');
+		grTempDef.addQuery("template", templateGr.getUniqueValue());
+		grTempDef.orderBy("value");
+		grTempDef.query();
+		while (grTempDef.next()) {
+			var imageValue = grTempDef.getValue("value");
+			var imageDisplayValue = grTempDef.getValue("display");// Should be translated
+			choice = {};
+			choice.title = imageDisplayValue;
+			choice.value = imageValue;
+			choices.push(choice);
+		}
+		return choices;
+	},
+
+	_addActions: function(grMetricType) {
+		// If it's the one question survey and the question is template or image scale, then we don't show the final submit button. 
+		// Because the template or image scale question already has a submit button for each option.
+		var oamSurveyUtil = new CustomOAMSurveyUtil();
+		if (oamSurveyUtil.isSingleQuestionSurvey(grMetricType)) {
+			var grMetric = new GlideRecord("asmt_metric");
+			grMetric.addQuery("metric_type", grMetricType.getUniqueValue());
+			grMetric.query();
+			if (grMetric.next() && grMetric.getValue("datatype") === "imagescale") {
+				return;
+			}
+			// If it's a template question and it has image option, then ignore as well.
+			if (grMetric.getValue("datatype") === "template") {
+				var templateGr = grMetric.template.getRefRecord();
+				if (templateGr.allow_image)
+					return;
+			}
+		}
+		
+		var actionsContainer = {
+            "type": "Container",
+            "style": "default",
+            "separator": true,
+            "spacing": "none",
+            "padding": "default",
+            "items": [
+                {
+                    "type": "ActionSet",
+                    "actions": []
+                }
+            ]
+        };
+		var action = {
+			"method": "POST",
+			"title": "Submit",
+			"type": "Action.Http",
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"url": this.baseURI + "api/sn_ms_oam/oam/survey"
+		};
+		actionsContainer.items[0].actions.push(action);
+		this.actionBody.type = "survey";
+		this.actionBody.sysparm_instance_id = this.instanceId;
+		this.actionBody.sysparm_action = "submit";
+		action.body = JSON.stringify(this.actionBody);
+		this.card.body.push(actionsContainer);
+	},
+
+	type: 'CustomSurveyAdaptiveCardGenerator'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-28 16:02:07</sys_created_on>
+        <sys_id>43d0b4e41be3fc1062e50ed2cd4bcb58</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>CustomSurveyAdaptiveCardGenerator</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_include_43d0b4e41be3fc1062e50ed2cd4bcb58</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-28 19:00:07</sys_updated_on>
+    </sys_script_include>
+</record_update>

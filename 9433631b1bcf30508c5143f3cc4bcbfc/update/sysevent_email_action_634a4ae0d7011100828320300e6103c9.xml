@@ -38,57 +38,8 @@
         <item>event.parm1</item>
         <item_table/>
         <mandatory>false</mandatory>
-        <message><![CDATA[${mail_script:general_survey}
-${mail_script:incident_take_me_to_the_incident}]]></message>
-        <message_html><![CDATA[<div>
-<div><br /></div>
-<div>
-<div>You have been invited to take the survey: ${metric_type}.</div>
-</div>
-<div><br /></div>
-</div>
-<div>
-<div><br /></div>
-<div>
-<div><br /></div>
-</div>
-<div><br /></div>
-</div>
-<div>
-<div><br /></div>
-<div>
-<div>Click here to take your survey:</div>
-</div>
-<div><br /></div>
-</div>
-<div>
-<div><br /></div>
-<div>
-<div><br /></div>
-</div>
-<div><br /></div>
-</div>
-<div>
-<div><br /></div>
-<div>
-<div>${mail_script:Survey User Invite_script_1}</div>
-</div>
-<div><br /></div>
-</div>
-<div>
-<div><br /></div>
-<div>
-<div><br /></div>
-</div>
-<div><br /></div>
-</div>
-<div>
-<div><br /></div>
-<div>
-<div>To view your survey queue at any time, sign in and navigate to Self-Service &gt; My Assessments &amp; Surveys.</div>
-</div>
-<div><br /></div>
-</div>]]></message_html>
+        <message><![CDATA[${mail_script:modular_notifications_custom_survey}]]></message>
+        <message_html><![CDATA[<p>${mail_script:modular_notifications_custom_survey}</p>]]></message_html>
         <message_list>ca40c70253020200601fa3fc9ec5878d</message_list>
         <message_text/>
         <name>Survey User Invite</name>
@@ -110,7 +61,7 @@ ${mail_script:incident_take_me_to_the_incident}]]></message>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>634a4ae0d7011100828320300e6103c9</sys_id>
-        <sys_mod_count>58</sys_mod_count>
+        <sys_mod_count>63</sys_mod_count>
         <sys_name>Survey User Invite</sys_name>
         <sys_overrides/>
         <sys_package display_value="Assessment" source="com.snc.assessment_core">3158ac2f1be11010e7004229bc4bcb5c</sys_package>
@@ -118,8 +69,8 @@ ${mail_script:incident_take_me_to_the_incident}]]></message>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_634a4ae0d7011100828320300e6103c9</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-12 21:40:43</sys_updated_on>
-        <sys_version>1</sys_version>
+        <sys_updated_on>2021-10-21 15:07:55</sys_updated_on>
+        <sys_version>2</sys_version>
         <template display_value="Unsubscribe and Preferences">7ed0481f3b0b2200c869c2c703efc487</template>
         <type>email</type>
         <weight>0</weight>

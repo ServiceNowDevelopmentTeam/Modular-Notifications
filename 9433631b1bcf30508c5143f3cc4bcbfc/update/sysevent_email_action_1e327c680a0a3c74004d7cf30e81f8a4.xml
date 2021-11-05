@@ -47,8 +47,7 @@ if(!gs.nil(current.request)){
         <item_table/>
         <mandatory>false</mandatory>
         <message/>
-        <message_html><![CDATA[<div>${mail_script:request_updated}</div>
-<div>${mail_script:incident_take_me_to_the_incident}</div>]]></message_html>
+        <message_html><![CDATA[<div>${mail_script:modular_notifications_updated}</div>]]></message_html>
         <message_list>8540c70253020200601fa3fc9ec5874d</message_list>
         <message_text/>
         <name>Request Item commented</name>
@@ -70,7 +69,7 @@ if(!gs.nil(current.request)){
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>1e327c680a0a3c74004d7cf30e81f8a4</sys_id>
-        <sys_mod_count>30</sys_mod_count>
+        <sys_mod_count>32</sys_mod_count>
         <sys_name>Request Item commented</sys_name>
         <sys_overrides/>
         <sys_package display_value="Mobile UI" source="com.glide.ui.m">0bf4e4671b211010e7004229bc4bcb9b</sys_package>
@@ -78,7 +77,7 @@ if(!gs.nil(current.request)){
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_1e327c680a0a3c74004d7cf30e81f8a4</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-12 21:40:43</sys_updated_on>
+        <sys_updated_on>2021-10-20 20:45:04</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="Unsubscribe and Preferences Helvetica">d465111f3b4b2200c869c2c703efc47c</template>
         <type>email</type>

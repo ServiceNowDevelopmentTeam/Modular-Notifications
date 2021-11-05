@@ -22,10 +22,16 @@ ModularNotificationsBuilder.prototype = {
 		this.openRitmInfo = '';
 		this.openRitmVariables = [];
 		this.openRitmMoreInformation = '';
+		this.adaptiveCard = '';
+		this.survey = 'false';
+		this.customVariablesOverride = 'false'; //Setting to true ignores variables normally set
+		this.customVariables = [];//Variables to include if above is true, can be blank for none
 	},
 
-	//Return the HTML for modular notifications
-	getHTML: function(){
+	///////////////////////////////////////////////////////////////////////////////////
+	//////////////Return the HTML for modular notifications////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	getHTML: function() {
 		//Instantiate vars
 		var name = this.name;
 		var table = this.table;
@@ -36,27 +42,72 @@ ModularNotificationsBuilder.prototype = {
 		var varList = this.varList;
 		var moreInformation = this.moreInformation;
 		var variableInformation = '';
-		
 
-		//If RITM, then add template info to it
-		if(table=='sc_req_item' && action!='custom' && documentID != undefined){
+		//If opened RITM, then add template info to it
+		if (table == 'sc_req_item' && action != 'custom' && documentID != undefined) {
 			this.ritmVals(action);
 		}
-
+		//If completed RITM, then add template info to it
+		if (table == 'sc_request' && action == 'completed' && documentID != undefined) {
+			this.ritmVals(action);
+		}
+				//If completed RITM, then add template info to it
+		if (table == 'sc_request' && action == 'opened' && documentID != undefined) {
+			this.ritmVals(action);
+		}
+		//If incident, then add template info to it
+		if (table == 'incident' && action != 'custom' && documentID != undefined) {
+			this.incidentVals(action);
+		}
+		if (action == 'updated') {
+			this.getComments(this.documentID, this.table);
+		}
 		subject += this.subject || '';
 		information += this.information || '';
-		if (this.varList.length > 0){
+		if (this.varList.length > 0) {
 			varList.push(this.varList);
 		}
-	
-		moreInformation += this.moreInformation || '';
 
+		var adaptiveCard ='';
+		//TODO - Add adaptive card later
+
+		moreInformation += this.moreInformation || '';
+		var provideFeedback = '';
+		var surveySysId = '';
+		if (action == 'completed' || this.survey == 'true'){
+			if(this.table == 'sc_req_item'){
+				surveySysId = this.getSurveySysid('sc_request', reqGr.request.sys_id);
+				if(surveySysId){
+					provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
+				}
+				/*var reqGr = new GlideRecord('sc_req_item');
+				reqGr.get(this.documentID);
+				adaptiveCard += this.getSurvey('sc_request', reqGr.request.sys_id);
+				this.adaptiveCard += adaptiveCard.replace('"hideOriginalBody":true','"hideOriginalBody":false');
+				gs.log("OAM card " + this.adaptiveCard);*/
+			}
+			else{
+				surveySysId = this.getSurveySysid(this.table, this.documentID);
+				if(surveySysId){
+					provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
+				}
+				/*adaptiveCard += this.getSurvey(this.table, this.documentID);
+				this.adaptiveCard += adaptiveCard.replace('"hideOriginalBody":true','"hideOriginalBody":false');
+				gs.log("OAM card " + this.adaptiveCard);*/
+
+			}
+		}
 		/*
 	Building out the variables section, we'll loop through the varList variable to build it out
 	*/
-		for (var i=0; i< varList.length; i++){
-			if(varList[i].variableName && varList[i].variableValue){
-			variableInformation += '</td></tr><tr><td><table border=0 cellpadding=0 cellspacing=0 width=100%><tr><td align=center style=padding:0;background-color:transparent><table border=0 cellpadding=0 cellspacing=0 style=width:600px><tr style=background-color:#FDFDFD><td align=center style="width:200px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"valign=top width=200><div style=max-width:320px;min-width:200px;display:table-cell;vertical-align:top class="u-col u-col-33p33"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table border=0 cellpadding=0 cellspacing=0 width=100% id=u_content_image_10 role=presentation style=font-family:arial,helvetica,sans-serif><tr><td align=left style=overflow-wrap:break-word;word-break:break-word;padding-top:10px;padding-right:10px;padding-bottom:10px;font-family:arial,helvetica,sans-serif><table border=0 cellpadding=0 cellspacing=0 width=100%><tr><td align=right style=padding-right:0;padding-left:0 class=v-text-align><img align=right alt=Arrow border=0 class="v-src-max-width v-src-width"src=images/image-1.png style=outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:10%;max-width:18px title=Arrow width=18></table></table></div></div></div><td align=center style="width:400px;padding-top:0;padding-left:0;padding-bottom:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:1px solid #CCC"class="v-col-border v-col-padding"valign=top width=400><div style=max-width:320px;min-width:400px;display:table-cell;vertical-align:top class="u-col u-col-66p67"><div style=width:100%!important><div style="padding:0 20px 0 0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:1px solid #CCC"class="v-col-border v-col-padding"><table border=0 cellpadding=0 cellspacing=0 width=100% id=u_content_heading_3 role=presentation style=font-family:arial,helvetica,sans-serif><tr><td align=left style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0;font-family:arial,helvetica,sans-serif"><h3 class="v-text-align v-font-size"style=margin:0;line-height:140%;text-align:left;word-wrap:break-word;font-weight:400;font-family:Raleway,sans-serif;font-size:18px><strong>' + varList[i].variableName + '</strong></h3></table><table border=0 cellpadding=0 cellspacing=0 width=100% id=u_content_text_3 role=presentation style=font-family:arial,helvetica,sans-serif><tr><td align=left style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif><div style=line-height:140%;text-align:left;word-wrap:break-word class=v-text-align><p style=font-size:14px;line-height:140%>' + varList[i].variableValue + '</div></table></div></div></div></table></table><tr><td>';
+		if(this.customVariablesOverride == 'true'){
+			varList = this.customVariables;
+		}
+		for (var i = 0; i < varList.length; i++) {
+			if (varList[i].variableName && varList[i].variableValue) {
+				variableInformation += '</td></tr><tr><td><table border=0 cellpadding=0 cellspacing=0 width=100%><tr><td align=center style=padding:0;background-color:#FDFDFD><table border=0 cellpadding=0 cellspacing=0 style=width:600px><tr style=background-color:#FDFDFD><td align=center style="width:200px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"valign=top width=200><div style=max-width:320px;min-width:200px;display:table-cell;vertical-align:top class="u-col u-col-33p33"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table border=0 cellpadding=0 cellspacing=0 width=100% id=u_content_image_10 role=presentation style=font-family:arial,helvetica,sans-serif><tr><td align=left style=overflow-wrap:break-word;word-break:break-word;padding-top:10px;padding-right:10px;padding-bottom:10px;font-family:arial,helvetica,sans-serif><table border=0 cellpadding=0 cellspacing=0 width=100%><tr><td align=right style=padding-right:0;padding-left:0 class=v-text-align><img align=right alt=Arrow border=0 class="v-src-max-width v-src-width"src=images/image-1.png style=outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:10%;max-width:18px title=Arrow width=18></table></table></div></div></div><td align=center style="width:400px;padding-top:0;padding-left:0;padding-bottom:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:1px solid #CCC"class="v-col-border v-col-padding"valign=top width=400><div style=max-width:320px;min-width:400px;display:table-cell;vertical-align:top class="u-col u-col-66p67"><div style=width:100%!important><div style="padding:0 20px 0 0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:1px solid #CCC"class="v-col-border v-col-padding"><table border=0 cellpadding=0 cellspacing=0 width=100% id=u_content_heading_3 role=presentation style=font-family:arial,helvetica,sans-serif><tr><td align=left style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0;font-family:arial,helvetica,sans-serif"><h3 class="v-text-align v-font-size"style=margin:0;line-height:140%;text-align:left;word-wrap:break-word;font-weight:400;font-family:Raleway,sans-serif;font-size:18px><strong>' + 
+					varList[i].variableName + '</strong></h3></table><table border=0 cellpadding=0 cellspacing=0 width=100% id=u_content_text_3 role=presentation style=font-family:arial,helvetica,sans-serif><tr><td align=left style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif><div style=line-height:140%;text-align:left;word-wrap:break-word class=v-text-align><p style=font-size:14px;line-height:140%>' + 
+					varList[i].variableValue + '</div></table></div></div></div></table></table><tr><td>';
 			}
 		}
 
@@ -66,62 +117,301 @@ ModularNotificationsBuilder.prototype = {
 	To modify this html section, copy between quotes into a HTML beautifier and edit
 	To pull the edited html back in, copy the edited and beautified HTML into a minifier to remove new lines
 	*/
-		var html = '<!DOCTYPE html><style>table,td{color:#000}a{color:#00e;text-decoration:underline}#u_content_text_7 a{color:#FDFDFD}body{margin:0;padding:0}table,td,tr{vertical-align:top;border-collapse:collapse;padding:0}p{margin:0}</style><body style=margin:0;padding:0;-webkit-text-size-adjust:100%;kground-color:#d0e8f2;color:#000><table cellpadding=0 cellspacing=0 style="border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-table-lspace:0;mso-table-rspace:0;vertical-align:top;min-width:320px;Margin:0 auto;background-color:#d0e8f2;width:100%"><tr style=vertical-align:top><td style=word-break:break-word;border-collapse:collapse!important;vertical-align:top><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=background-color:#d0e8f2 align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr><td><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:#FDFDFD align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px;background-color:#FDFDFD><tr style=background-color:#FDFDFD><td style="width:300px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;background-color:#FDFDFD"align=center class="v-col-border v-col-padding"valign=top width=300><div style=max-width:320px;min-width:300px;display:table-cell;vertical-align:top class="u-col u-col-50"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation id=u_content_image_3><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 10px 20px;font-family:arial,helvetica,sans-serif"align=left><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding-right:0;padding-left:0 align=left class=v-text-align><a href=https://apigroup.service-now.com/ target=_blank><img align=left alt=Logo border=0 class="v-src-max-width v-src-width"src=images/image-5.png style=outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:51%;max-width:137.7px width=137.7 title=Logo></a></table></table></div></div></div><td style="width:300px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;background-color:#FDFDFD"align=center class="v-col-border v-col-padding"valign=top width=300><div style=max-width:320px;min-width:300px;display:table-cell;vertical-align:top class="u-col u-col-50"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><div style=text-align:center class=menu><table cellpadding=0 cellspacing=0 border=0 role=presentation align=center><tr><td style=padding:10><a href=https://apigroup.service-now.com/ target=_blank class=v-font-size style="padding:5px 15px;display:inline-block;color:#34495e;font-family:arial,helvetica,sans-serif;font-size:14px;text-decoration:none">Knowledge</a><td style=padding:10><a href=https://apigroup.service-now.com/ target=_blank class=v-font-size style="padding:5px 15px;display:inline-block;color:#34495e;font-family:arial,helvetica,sans-serif;font-size:14px;text-decoration:none">My Tickets</a><td style=padding:10><a href=https://apigroup.service-now.com/ target=_self class=v-font-size style="padding:5px 15px;display:inline-block;color:#34495e;font-family:arial,helvetica,sans-serif;font-size:14px;text-decoration:none">Portal</a></table></div></table></div></div></div></table></table><tr><td><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#003087><td style="width:600px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top;background-color:#003087 class="u-col u-col-100"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:arial,helvetica,sans-serif"align=left><table cellpadding=0 cellspacing=0 border=0 width=100% style="border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-table-lspace:0;mso-table-rspace:0;vertical-align:top;border-top:1px solid #003087;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%"align=center height=0px><tr style=vertical-align:top><td style=word-break:break-word;border-collapse:collapse!important;vertical-align:top;font-size:0;line-height:0;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%><span></span></table></table><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation id=u_content_heading_1><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0;font-family:arial,helvetica,sans-serif"align=left><h1 class="v-text-align v-font-size"style=margin:0;color:#FDFDFD;line-height:140%;text-align:center;word-wrap:break-word;font-weight:400;font-family:Raleway,sans-serif;font-size:24px><strong>' + this.subject + '</strong></h1></table><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:arial,helvetica,sans-serif"align=left><table cellpadding=0 cellspacing=0 border=0 width=100% style="border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-table-lspace:0;mso-table-rspace:0;vertical-align:top;border-top:1px solid #003087;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%"align=center height=0px><tr style=vertical-align:top><td style=word-break:break-word;border-collapse:collapse!important;vertical-align:top;font-size:0;line-height:0;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%><span></span></table></table></div></div></div></table></table><tr><td><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#FDFDFD><td style="width:600px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top class="u-col u-col-100"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:0;font-family:arial,helvetica,sans-serif align=left><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding-right:0;padding-left:0 align=center class=v-text-align><img align=center alt=Image border=0 class="v-src-max-width v-src-width"src=images/image-4.png style=outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:100%;max-width:600px width=600 title=Image></table></table></div></div></div></table></table><tr><td align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#FDFDFD><td style="width:600px;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top><div style=width:100%!important><div style="border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0;font-family:arial,helvetica,sans-serif"align=left><h1 class="v-text-align v-font-size"style=margin:0;line-height:140%;text-align:left;word-wrap:break-word;font-weight:400;font-family:Raleway,sans-serif;font-size:22px>Dear ' + this.name + ',</h1></table><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><div style=line-height:140%;text-align:left;word-wrap:break-word class=v-text-align><p style=font-size:14px;line-height:140%>' + this.information + '</div></table></div></div></div></table></table>' + variableInformation + '<table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#FDFDFD><td style="width:600px;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top class="u-col u-col-100"id=u_column_19><div style=width:100%!important><div style="border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><div style=line-height:140%;text-align:left;word-wrap:break-word class=v-text-align>' + this.moreInformation + '</div></table><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><div style=line-height:140%;text-align:left;word-wrap:break-word class=v-text-align><p style=font-size:14px;line-height:140%>Best Regards,<p style=font-size:14px;line-height:140%>Field Support</div></table></div></div></div></table></table><tr><td><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#FDFDFD><td style="width:600px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top class="u-col u-col-100"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:arial,helvetica,sans-serif"align=left><table cellpadding=0 cellspacing=0 border=0 width=100% style="border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-table-lspace:0;mso-table-rspace:0;vertical-align:top;border-top:1px solid #FDFDFD;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%"align=center height=0px><tr style=vertical-align:top><td style=word-break:break-word;border-collapse:collapse!important;vertical-align:top;font-size:0;line-height:0;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%><span></span></table></table></div></div></div></table></table><tr><td><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#003087><td style="width:600px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top;background-color:#003087 class="u-col u-col-100"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation id=u_content_text_7><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0;font-family:arial,helvetica,sans-serif"align=left><div style=color:#FDFDFD;line-height:140%;text-align:center;word-wrap:break-word class=v-text-align><p style=font-size:14px;line-height:140%><strong><a href=https://apigroup.service-now.com/ target=_blank rel=noopener>Provide Feedback</a></strong></div></table><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><table cellpadding=0 cellspacing=0 border=0 width=100% style="border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-table-lspace:0;mso-table-rspace:0;vertical-align:top;border-top:1px solid #003087;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%"align=center height=0px><tr style=vertical-align:top><td style=word-break:break-word;border-collapse:collapse!important;vertical-align:top;font-size:0;line-height:0;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%><span></span></table></table></div></div></div></table></table><tr><td><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#003087><td style="width:400px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"align=center class="v-col-border v-col-padding"valign=top width=400><div style=max-width:320px;min-width:400px;display:table-cell;vertical-align:top;background-color:#003087 class="u-col u-col-66p67"><div style=width:100%!important;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:0 10px 10px;font-family:arial,helvetica,sans-serif"align=left><div style=color:#FDFDFD;line-height:140%;text-align:center;word-wrap:break-word class=v-text-align><p style=font-size:14px;line-height:140%><strong><span style=font-size:20px;line-height:28px>BUILDING GREAT LEADERS®</span></strong></div></table></div></div></div><td style="width:200px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"align=center class="v-col-border v-col-padding"valign=top width=200><div style=max-width:320px;min-width:200px;display:table-cell;vertical-align:top;background-color:#003087 class="u-col u-col-33p33"><div style=width:100%!important;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding-right:0;padding-left:0 align=right class=v-text-align><img align=right alt=""border=0 class="v-src-max-width v-src-width"src=images/image-6.png style=outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:30%;max-width:54px width=54></table></table></div></div></div></table></table></table></table></table>';
+		var html = '<!DOCTYPE html><head>' + 
+			this.adaptiveCard + '<style>table,td{color:#000}a{color:#00e;text-decoration:underline}#u_content_text_7 a{color:#FDFDFD}body{margin:0;padding:0}table,td,tr{border-collapse:collapse;padding:0}p{margin:0}</style></head><body style=margin:0;padding:0;-webkit-text-size-adjust:100%;kground-color:#d0e8f2;color:#000><table cellpadding=0 cellspacing=0 style="border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-table-lspace:0;mso-table-rspace:0;vertical-align:top;min-width:320px;Margin:0 auto;background-color:#d0e8f2;width:100%"><tr style=vertical-align:top><td style=word-break:break-word;border-collapse:collapse!important;vertical-align:top><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=background-color:#d0e8f2 align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr><td><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:#FDFDFD align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px;background-color:#FDFDFD><tr style=background-color:#FDFDFD><td style="width:300px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;background-color:#FDFDFD"align=center class="v-col-border v-col-padding"valign=top width=300><div style=max-width:320px;min-width:300px;display:table-cell;vertical-align:top class="u-col u-col-50"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation id=u_content_image_3><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 10px 20px;font-family:arial,helvetica,sans-serif"align=left><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding-right:0;padding-left:0 align=left class=v-text-align><a href=https://apigroup.service-now.com/ target=_blank><img align=left alt=Logo border=0 class="v-src-max-width v-src-width"src=images/image-5.png style=outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:51%;max-width:137.7px width=137.7 title=Logo></a></table></table></div></div></div><td style="width:300px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;background-color:#FDFDFD"align=center class="v-col-border v-col-padding"valign=top width=300><div style=max-width:320px;min-width:300px;display:table-cell;vertical-align:top class="u-col u-col-50"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><div style=text-align:center class=menu><table cellpadding=0 cellspacing=0 border=0 role=presentation align=center><tr><td style=padding:10><a href="https://apigroup.service-now.com/sp?id=kb_view2"target=_blank class=v-font-size style="padding:5px 15px;display:inline-block;color:#34495e;font-family:arial,helvetica,sans-serif;font-size:14px;text-decoration:none">Knowledge</a><td style=padding:10><a href="https://apigroup.service-now.com/sp?id=my_requests"target=_blank class=v-font-size style="padding:5px 15px;display:inline-block;color:#34495e;font-family:arial,helvetica,sans-serif;font-size:14px;text-decoration:none">My Tickets</a><td style=padding:10><a href=https://apigroup.service-now.com/sp target=_self class=v-font-size style="padding:5px 15px;display:inline-block;color:#34495e;font-family:arial,helvetica,sans-serif;font-size:14px;text-decoration:none">Portal</a></table></div></table></div></div></div></table></table><tr><td><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#003087><td style="width:600px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top;background-color:#003087 class="u-col u-col-100"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:arial,helvetica,sans-serif"align=left><table cellpadding=0 cellspacing=0 border=0 width=100% style="border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-table-lspace:0;mso-table-rspace:0;vertical-align:top;border-top:1px solid #003087;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%"align=center height=0px><tr style=vertical-align:top><td style=word-break:break-word;border-collapse:collapse!important;vertical-align:top;font-size:0;line-height:0;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%><span></span></table></table><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation id=u_content_heading_1><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0;font-family:arial,helvetica,sans-serif"align=left><h1 class="v-text-align v-font-size"style=margin:0;color:#FDFDFD;line-height:140%;text-align:center;word-wrap:break-word;font-weight:400;font-family:Raleway,sans-serif;font-size:24px><strong>' + 
+			this.subject + '</strong></h1></table><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:arial,helvetica,sans-serif"align=left><table cellpadding=0 cellspacing=0 border=0 width=100% style="border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-table-lspace:0;mso-table-rspace:0;vertical-align:top;border-top:1px solid #003087;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%"align=center height=0px><tr style=vertical-align:top><td style=word-break:break-word;border-collapse:collapse!important;vertical-align:top;font-size:0;line-height:0;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%><span></span></table></table></div></div></div></table></table><tr><td><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#FDFDFD><td style="width:600px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top class="u-col u-col-100"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:0;font-family:arial,helvetica,sans-serif align=left><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding-right:0;padding-left:0 align=center class=v-text-align><img align=center alt=Image border=0 class="v-src-max-width v-src-width"src=images/image-4.png style=outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:100%;max-width:600px width=600 title=Image></table></table></div></div></div></table></table><tr><td align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr><td style=padding:0;background-color:#FDFDFD align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#FDFDFD><td style="width:600px;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top><div style=width:100%!important><div style="border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0;font-family:arial,helvetica,sans-serif"align=left><h1 class="v-text-align v-font-size"style=margin:0;line-height:140%;text-align:left;word-wrap:break-word;font-weight:400;font-family:Raleway,sans-serif;font-size:22px>Dear ' + 
+			this.name + ',</h1></table><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><div style=line-height:140%;text-align:left;word-wrap:break-word class=v-text-align><p style=font-size:14px;line-height:140%>' + 
+			this.information + '</p></div></table></div></div></div></table></table>' + variableInformation + '<table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#FDFDFD><td style="width:600px;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top class="u-col u-col-100"id=u_column_19><div style=width:100%!important><div style="border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><p style=font-size:14px;line-height:140%>' + 
+			this.moreInformation + '</p></table><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><div style=line-height:140%;text-align:left;word-wrap:break-word class=v-text-align><p style=font-size:14px;line-height:140%>Best Regards,<p style=font-size:14px;line-height:140%>Field Support<br>(651) 925-8511</div></table></div></div></div></table></table><tr><td><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#FDFDFD><td style="width:600px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top class="u-col u-col-100"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:arial,helvetica,sans-serif"align=left><table cellpadding=0 cellspacing=0 border=0 width=100% style="border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-table-lspace:0;mso-table-rspace:0;vertical-align:top;border-top:1px solid #FDFDFD;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%"align=center height=0px><tr style=vertical-align:top><td style=word-break:break-word;border-collapse:collapse!important;vertical-align:top;font-size:0;line-height:0;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%><span></span></table></table></div></div></div></table></table><tr><td><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#003087><td style="width:600px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top;background-color:#003087 class="u-col u-col-100"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation id=u_content_text_7><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0;font-family:arial,helvetica,sans-serif"align=left><div style=color:#FDFDFD;line-height:140%;text-align:center;word-wrap:break-word class=v-text-align><p style=font-size:14px;line-height:140%><strong>' + provideFeedback + '</strong></div></table><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><table cellpadding=0 cellspacing=0 border=0 width=100% style="border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-table-lspace:0;mso-table-rspace:0;vertical-align:bottom;border-top:1px solid #003087;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%"align=center height=0px><tr style=vertical-align:bottom><td style=word-break:break-word;border-collapse:collapse!important;vertical-align:bottom;font-size:0;line-height:0;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%><span></span></table></table></div></div></div></table></table><tr><td valign=bottom><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#003087><td style="width:400px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"align=center class="v-col-border v-col-padding"valign=bottom width=400><div style=max-width:320px;min-width:400px;display:table-cell;vertical-align:bottom;background-color:#003087 class="u-col u-col-66p67"><div style=width:100%!important;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style="vertical-align:bottom;overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif"align=left><img align=left src=BGL_Footer.png height=23></table></div></div></div><td style="width:200px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"align=center class="v-col-border v-col-padding" valign=bottom width=200><div style=max-width:320px;min-width:200px;display:table-cell;vertical-align:bottom;background-color:#003087 class="u-col u-col-33p33"><div style=width:100%!important;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding-right:0;padding-left:0; padding-bottom:3px align=right class=v-text-align><img align=right alt=""border=0 class="v-src-max-width v-src-width"src=images/image-6.png style=outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:30%;max-width:54px width=54></table></table></div></div></div></table></table></table>';
 		return html;
 	},
-	ritmVals: function(action){
+	//////////////////////////////////////////////////////////////////////////////////////
+	/////////////////Setting Email Template for Incidents/////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
+	incidentVals: function(action) {
+		action = action == 'completed' ? 'resolved' : action;
+		//Get ritm
 		var gr = new GlideRecord(this.table);
 		gr.get(this.documentID);
-		var dueDateTime = new GlideDateTime(gr.due_date);
+
+		//Get End Time
+		var slaGr = new GlideRecord("task_sla");
+		slaGr.addQuery("task", current.sys_id);
+		slaGr.query();
+		while (slaGr.next()) {
+			//Get last SLA
+		}
+		if (gr.caller_id != gr.sys_created_by)
+			this.varList.push({
+				variableName: 'Submitted By',
+				variableValue: gr.opened_by.getDisplayValue()
+			});
+
 		this.varList.push({
-			variableName: 'Submitted By',
-			variableValue: gr.opened_by.getDisplayValue()
-		},{
-			variableName: 'Number',
-			variableValue: gr.number.getDisplayValue()
-		},{
-			variableName: 'Description',
+			variableName: 'Incident Description',
 			variableValue: gr.short_description.getDisplayValue()
-		},{
-			variableName: 'Due',
-			variableValue: dueDateTime.getDate()
-		},{
-			variableName: 'Status',
-			variableValue: gr.state.getDisplayValue()
 		});
-		this.getCatItemVals(action);
-		if(this.openRitmSubject){
-			this.subject = this.openRitmSubject;
+		if(action != 'resolved'){
+			this.varList.push({
+				variableName: 'Estimated Delivery Date',
+				variableValue: slaGr.planned_end_time.getDateValue()
+			});
+			this.varList.push({
+				variableName: 'Status',
+				variableValue: gr.state.getDisplayValue()
+			});
 		}
-		else{
-			this.subject = 'Request ' + gr.request.number + ' has been ' + action;
+
+		this.subject = 'Incident ' + current.number + ' has been ' + action;
+		this.information = 'Your incident has been ' + action + '.';
+		this.moreInformation = '';
+		switch (action) {
+			case ('opened'):
+				break;
+			case ('updated'):
+				this.subject = 'Incident ' + current.number + ' has new comments';
+				break;
+			case ('resolved'):
+				var reopenSysID = '6c9635d61b5774108c5143f3cc4bcbda';
+				var reopenINC = gr.sys_id;
+				var reopenURL = '/sp?id=sc_cat_item&sys_id=' + 
+					reopenSysID + 
+					'&sysparm_variables=%7B%22related_inc%22:%22' + reopenINC +'%22%7D';
+				this.moreInformation += 'If this issue still needs attention, <a href="' + reopenURL + '">click here</a> to reopen the incident.<br><br>This incident will automatically close after 3 business days. If you still need assistance after it closes, a new incident will be required.<br>';
+				this.varList.push({
+					variableName: 'Resolution Note',
+					variableValue: gr.u_customer_notes.getDisplayValue()
+				});
+				break;
+			case ('closed'):
+				break;
+			default:
+				break;
 		}
-		if(this.openRitmInfo){
-		this.information = this.openRitmInfo;
+		if(action != 'resolved'){
+			this.moreInformation += '<br><a href="' + this.globalURL + '">Click here</a> to add a comment or view all comment history for this incident.';
 		}
-		else{
-			this.information = 'Your request has been received:';
-		}
-		if(this.openRitmMoreInformation){
-		this.moreInformation = this.openRitmMoreInformation;	
-		}
-		else{
-			this.moreInformation = '<a href="' + this.globalURL + '">Click here</a> to update or review the latest details of this request.';
-		}
-		//!!TODO for loop for varlist this.varList.push(this.openRitmVariables);!!
 	},
-	getCatItemVals: function(action){
+	////////////////////////////////////////////////////////////////////////////////////
+	////////////////Setting Email Template for REQ/RITMs////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////
+	ritmVals: function(action) {
+		//Get ritm
+			gs.log('req table ' + this.table);
+			gs.log('req number ' + this.documentID);
 		var gr = new GlideRecord(this.table);
 		gr.get(this.documentID);
-		this.openRitmSubject = gr.u_subject;
-		this.openRitmInfo = gr.u_info;
-		this.openRitmVariables = gr.u_variables;
-		this.openRitmMoreInformation = gr.u_additional_info;
+			gs.log('req number ' + gr.getValue('number'));
+		if (this.table == 'sc_request') {
+			gr=new GlideRecord('sc_req_item');
+			gr.addQuery('request', this.documentID);
+			gr.query();
+			gr.next();
+		}
+		var grSysId = gr.getValue('sys_id');
+		var schedTools = new ScheduleTools();
+		var ritmDur = schedTools.getRitmDuration(grSysId);
+		var sixToSixSchedule = '581ec9791b88bc10e7004229bc4bcb2c';
+		var estDeliveryDate = (schedTools.getEndDateFromNow(sixToSixSchedule,ritmDur).toString());
+		if (action == 'updated') {
+			this.varList.push({
+				variableName: 'Number',
+				variableValue: 'Request: ' + gr.request.number.getDisplayValue() + '<br>Request Item: ' + gr.number.getDisplayValue()
+			}, {
+				variableName: 'Status',
+				variableValue: gr.state.getDisplayValue()
+			}, {
+				variableName: 'Description',
+				variableValue: gr.request.short_description.getDisplayValue()
+			}, {
+				variableName: 'Estimated Delivery Date',
+				variableValue: estDeliveryDate
+			});
+		} else if (action == 'completed'){
+			this.varList.push({
+				variableName: 'Submitted By',
+				variableValue: gr.opened_by.getDisplayValue()
+			}, {
+				variableName: 'Number',
+				variableValue: 'Request: ' + gr.request.number.getDisplayValue() + '<br>Request Item: ' + gr.number.getDisplayValue()
+			}, {
+				variableName: 'Description',
+				variableValue: gr.request.short_description.getDisplayValue()
+			});			
+		} else {
+			this.varList.push({
+				variableName: 'Submitted By',
+				variableValue: gr.opened_by.getDisplayValue()
+			}, {
+				variableName: 'Number',
+				variableValue: 'Request: ' + gr.request.number.getDisplayValue() + '<br>Request Item: ' + gr.number.getDisplayValue()
+			}, {
+				variableName: 'Description',
+				variableValue: gr.request.short_description.getDisplayValue()
+			}, {
+				variableName: 'Estimated Delivery Date',
+				variableValue: estDeliveryDate
+			}, {
+				variableName: 'Status',
+				variableValue: gr.state.getDisplayValue()
+			});
+		}
+
+		//Get catalog item variable values
+		this.getCatItemVals(action);
+
+
+		this.subject = this.customRitmSubject ? this.customRitmSubject : 'Request ' + gr.request.number + ' has been ' + action;
+		this.information = this.customRitmInfo ? this.customRitmInfo : 'Your request has been ' + action + '.';
+		this.moreInformation = this.moreInformation || '';
+		this.moreInformation += action == 'updated' ? '<a href="' + this.globalURL + '">Click here</a> to add a comment or view all comment history for this request.<br>' : this.customRitmMoreInformation ? this.customRitmMoreInformation : '<a href="' + this.globalURL + '">Click here</a> to update or review the latest details of this request.';
+
+		//!!TODO for loop for varlist this.varList.push(this.customRitmVariables);!!
 	},
-	setGlobalUrl: function(){
-		if (this.table && this.documentID){
+	/////////////////////////////////////////////////////////////////////////////////////
+	//////////////Get custom email sections for cat items, this applies to ritm and req//
+	/////////////////////////////////////////////////////////////////////////////////////
+	getCatItemVals: function(action) {
+		//get ritm
+		var gr = new GlideRecord(this.table);
+		gr.get(this.documentID);
+		if (this.table == 'sc_request' && gr.getRowCount() == 1) {
+			gr = new GlideRecord('sc_req_item');
+			gr.addQuery('request', this.documentID);
+			gr.query();
+			gr.next();
+		}
+		switch (action) {
+			case ('opened'):
+				this.customRitmSubject = gr.cat_item.u_custom_subject ? gr.cat_item.u_subject : '';
+				this.customRitmInfo = gr.cat_item.u_custom_info ? gr.cat_item.u_info : '';
+				//this.customRitmVariables = gr.cat_item.u_variables; //u_custom_variables
+				this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info ? gr.cat_item.u_additional_info : '';
+				break;
+			case ('updated'):
+				this.customRitmSubject = gr.cat_item.u_custom_subject_updated ? gr.cat_item.u_subject_updated : '';
+				this.customRitmInfo = gr.cat_item.u_custom_info_updated ? gr.cat_item.u_info_updated : '';
+				//this.customRitmVariables = this.getComments(this.documentID,this.table);
+				this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info_updated ? gr.cat_item.u_additional_info_updated : '';
+				break;
+			case ('completed'):
+				if (gr.getRowCount() == 1) {
+					var reopenSysID = '6c9635d61b5774108c5143f3cc4bcbda';
+					var reopenRITM = gr.sys_id;
+					var reopenURL = '/sp?id=sc_cat_item&sys_id=' + 
+						reopenSysID + 
+						'&sysparm_variables=%7B%22related_ritm%22:%22' + reopenRITM +'%22%7D';
+					this.customRitmSubject = gr.cat_item.u_custom_subject_completed ? gr.cat_item.u_subject_completed : '';
+					this.customRitmInfo = gr.cat_item.u_custom_info_completed ? gr.cat_item.u_info_completed : '';
+					//this.customRitmVariables = gr.cat_item.u_variables_completed;//u_custom_variables_completed
+					this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info_completed ? gr.cat_item.u_additional_info_completed : 'If this request still needs attention, please <a href="' + reopenURL + '">click here</a> to reopen.';
+				}
+				break;
+			default:
+				this.customRitmSubject = '';
+				this.customRitmInfo = '';
+				//this.customRitmVariables = [];
+				this.customRitmMoreInformation = '';
+				break;
+		}
+	},
+	///////////////////////////////////////////////////////////////////////////////////
+	////////Get comments to add to variables section, this applies to all tables///////
+	///////////////////////////////////////////////////////////////////////////////////
+	getComments: function(documentID, table) {
+		var gr = new GlideRecord('sys_journal_field');
+		gr.addQuery('element_id', documentID);
+		gr.addQuery('element', 'comments');
+		gr.addQuery('name', table);
+		gr.orderByDesc('sys_created_on');
+		gr.query();
+		if(gr.hasNext()){
+			this.varList.push({
+				variableName: "Comments",
+				variableValue: "Related comments below:"
+			});
+		}
+		var i = 0;
+		while (gr.next() && i < 5) {
+			var commenter = '';
+			var commentedBy = gr.sys_created_by.toString();
+			if (commentedBy){
+				var userGr = new GlideRecord('sys_user');
+				userGr.addQuery('user_name',commentedBy);
+				userGr.addQuery('user_name','!=','');
+				userGr.addActiveQuery();
+				userGr.query();
+				userGr.next();
+				commenter = userGr.name.toString();
+			}
+			else{
+				commenter = commentedBy;
+			}
+			commenter = commenter || 'System';
+			var createdOn = new GlideDateTime(gr.sys_created_on);
+			var schedTools = new ScheduleTools();
+			createdOn = new GlideDateTime(schedTools.timeZoneDiff(createdOn,'-5'));
+			
+			var createdOnDate = createdOn.getDate();
+			var createdOnTime = new GlideTime();
+			createdOnTime.setValue(createdOn.getTime());
+			
+			
+			this.varList.push({
+				variableName: createdOnDate + ' ' + createdOnTime.getByFormat('hh:mm a') + ' - ' + commenter,
+				variableValue: gr.value.toString()
+			});
+			i++;
+		}
+	},
+	////////////////////////////////////////////////////////////////////////////////////
+	//Create a URL that should work for viewing all tickets on the portal///////////////
+	////////////////////////////////////////////////////////////////////////////////////
+	setGlobalUrl: function() {
+		if (this.table && this.documentID) {
 			this.globalURL = '/sp/?id=ticket&table=' + this.table + '&sys_id=' + this.documentID + '&sysparm_view=portal';
 		}
+	},	
+	///////////////////////////////////////////////////////////////////////////////////
+	///////////// Create outlook actionable message survey/////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	getSurvey: function(table, documentID) {
+		var surveyContent = '';
+
+		var asmtGr = new GlideRecord('asmt_assessment_instance');//Get survey instance
+		asmtGr.addQuery('trigger_table',table);
+		asmtGr.addQuery('trigger_id',documentID);
+		asmtGr.query();
+		asmtGr.next();
+
+		var asmtSysId = asmtGr.sys_id.toString();
+		var generator = new global.CustomSurveyAdaptiveCardGenerator(asmtSysId);//Instantiate survey generator
+		generator.instanceId = asmtSysId;
+		var content = generator.generate();//Start generating 
+		if(content){
+			surveyContent = '<script type="application/adaptivecard+json">' + content + '</script>';
+		}
+
+		return surveyContent;
+	},	
+	///////////////////////////////////////////////////////////////////////////////////////
+	//////////////////// Return survey sysid  /////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////
+	getSurveySysid: function(table, documentID) {
+		gs.log('oam table: ' + table);
+		gs.log('oam documentID: ' + documentID);
+
+		var asmtGr = new GlideRecord('asmt_assessment_instance');//Get survey instance
+		asmtGr.addQuery('trigger_table',table);
+		asmtGr.addQuery('trigger_id',documentID);
+		asmtGr.query();
+		asmtGr.next();
+
+		var asmtSysId = asmtGr.sys_id.toString();
+		gs.log('oam asmtSysId: ' + asmtSysId);
+
+
+		return asmtSysId;
 	},
 
 	type: 'ModularNotificationsBuilder'
@@ -130,13 +420,13 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>48</sys_mod_count>
+        <sys_mod_count>242</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-20 15:07:44</sys_updated_on>
+        <sys_updated_on>2021-11-05 20:57:13</sys_updated_on>
     </sys_script_include>
 </record_update>

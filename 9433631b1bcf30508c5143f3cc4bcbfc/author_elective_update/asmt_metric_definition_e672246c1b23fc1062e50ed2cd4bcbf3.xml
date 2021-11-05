@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="asmt_metric_definition">
+    <asmt_metric_definition action="DELETE">
+        <display>0</display>
+        <metric display_value="New Numeric Scale">6672a42c1b23fc1062e50ed2cd4bcb3d</metric>
+        <normalization_input>0</normalization_input>
+        <order>0</order>
+        <selected_image/>
+        <sys_class_name>asmt_metric_definition</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-28 14:59:16</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>e672246c1b23fc1062e50ed2cd4bcbf3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>0</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>asmt_metric_definition_e672246c1b23fc1062e50ed2cd4bcbf3</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-28 14:59:16</sys_updated_on>
+        <unselected_image/>
+        <value>0</value>
+    </asmt_metric_definition>
+    <sys_translated_text action="DELETE" query="documentkey=e672246c1b23fc1062e50ed2cd4bcbf3"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</application>
+        <file_path/>
+        <instance_id>37412023db6dd890ad8dd7c8f49619a0</instance_id>
+        <instance_name>apigroupdev</instance_name>
+        <name>asmt_metric_definition_e672246c1b23fc1062e50ed2cd4bcbf3</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="asmt_metric_definition"><asmt_metric_definition action="INSERT_OR_UPDATE"><display>0</display><metric display_value="New Numeric Scale">6672a42c1b23fc1062e50ed2cd4bcb3d</metric><normalization_input>0</normalization_input><order>0</order><selected_image/><sys_class_name>asmt_metric_definition</sys_class_name><sys_created_by>Terry.Lillo</sys_created_by><sys_created_on>2021-10-28 14:59:16</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>e672246c1b23fc1062e50ed2cd4bcbf3</sys_id><sys_mod_count>0</sys_mod_count><sys_name>0</sys_name><sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package><sys_policy/><sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope><sys_update_name>asmt_metric_definition_e672246c1b23fc1062e50ed2cd4bcbf3</sys_update_name><sys_updated_by>Terry.Lillo</sys_updated_by><sys_updated_on>2021-10-28 14:59:16</sys_updated_on><unselected_image/><value>0</value></asmt_metric_definition><sys_translated_text action="delete_multiple" query="documentkey=e672246c1b23fc1062e50ed2cd4bcbf3"/></record_update>]]></payload>
+        <payload_hash>-45439614</payload_hash>
+        <record_name>0</record_name>
+        <reverted_from/>
+        <source>58298f0f1bab70908c5143f3cc4bcb2e</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-11-05 21:32:15</sys_created_on>
+        <sys_id>c929cf0f1bab70908c5143f3cc4bcb1d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17cf204376c0000001</sys_recorded_at>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-11-05 21:32:15</sys_updated_on>
+        <type>Assessment Metric Definition</type>
+        <update_guid>ee72246cec23fc10d939ee857e416cf6</update_guid>
+        <update_guid_history>ee72246cec23fc10d939ee857e416cf6:-45439614,178624a8cf63fc1086d92139248b556e:385688029,ee72246cec23fc10d939ee857e416cf6:-45439614</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="0">9069474f1bab70908c5143f3cc4bcbb9</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-11-05 21:33:17</sys_created_on>
+        <sys_db_object display_value="" name="asmt_metric_definition">asmt_metric_definition</sys_db_object>
+        <sys_id>2ad9627e02de46b09ab93300f2ba8640</sys_id>
+        <sys_metadata>e672246c1b23fc1062e50ed2cd4bcbf3</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>0</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
+        <sys_update_name>asmt_metric_definition_e672246c1b23fc1062e50ed2cd4bcbf3</sys_update_name>
+        <sys_update_version display_value="asmt_metric_definition_e672246c1b23fc1062e50ed2cd4bcbf3">c929cf0f1bab70908c5143f3cc4bcb1d</sys_update_version>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-11-05 21:33:17</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

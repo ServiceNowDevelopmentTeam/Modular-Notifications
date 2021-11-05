@@ -39,14 +39,14 @@ if (GlidePluginManager.isActive('com.sn_cs_sm')){
         <item_table/>
         <mandatory>false</mandatory>
         <message/>
-        <message_html><![CDATA[<div>${mail_script:modular_notifications_incident_opened}</div>]]></message_html>
+        <message_html><![CDATA[<div>${mail_script:modular_notifications_opened}</div>]]></message_html>
         <message_list>9b40c70253020200601fa3fc9ec587fc</message_list>
         <message_text/>
         <name>Incident opened for me</name>
         <omit_watermark>false</omit_watermark>
         <order>100</order>
         <push_message_only>false</push_message_only>
-        <recipient_fields>caller_id</recipient_fields>
+        <recipient_fields>caller_id,sys_created_by</recipient_fields>
         <recipient_groups/>
         <recipient_users/>
         <reply_to/>
@@ -61,7 +61,7 @@ if (GlidePluginManager.isActive('com.sn_cs_sm')){
         <sys_domain>global</sys_domain>
         <sys_domain_path/>
         <sys_id>8f9389b5c0a8016401715c208ff9bf48</sys_id>
-        <sys_mod_count>27</sys_mod_count>
+        <sys_mod_count>29</sys_mod_count>
         <sys_name>Incident opened for me</sys_name>
         <sys_overrides/>
         <sys_package display_value="Incident Management Notification" source="com.snc.incident_notification">9218acab1be11010e7004229bc4bcbc1</sys_package>
@@ -69,7 +69,7 @@ if (GlidePluginManager.isActive('com.sn_cs_sm')){
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_8f9389b5c0a8016401715c208ff9bf48</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-18 15:19:39</sys_updated_on>
+        <sys_updated_on>2021-10-21 13:17:39</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="Unsubscribe and Preferences Helvetica">d465111f3b4b2200c869c2c703efc47c</template>
         <type>email</type>

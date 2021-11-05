@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>global.CustomOAMSurveyUtil</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>CustomOAMSurveyUtil</name>
+        <script><![CDATA[var CustomOAMSurveyUtil = Class.create();
+CustomOAMSurveyUtil.prototype = {
+	initialize: function() {},
+	supportedMetricTypes: ['imagescale', 'template', 'datetime', 'date', 'choice', 'percentage', 'long', 'boolean', 'string', 'multiplecheckbox', 'checkbox', 'scale', 'numericscale'],
+
+	/*
+	 * verifies if a metric type is compatible with Adaptive Cards
+	 */
+	isMetricTypeSupported: function(metricTypeGr) {
+		var result = {
+			success: true,
+			msg: ''
+		};
+		var unsupportedTypes = [];
+		var dependentQuestion = false;
+		var metric = new GlideRecord('asmt_metric');
+		metric.addQuery('metric_type', metricTypeGr.getUniqueValue());
+		metric.query();
+		while (metric.next()) {
+			if (!dependentQuestion && metric.depends_on)
+				dependentQuestion = true;
+			if (this.supportedMetricTypes.indexOf(metric.datatype.toString()) == -1) {
+				var datatypeLabel = metric.datatype.getDisplayValue();
+				if (unsupportedTypes.indexOf(datatypeLabel) == -1)
+					unsupportedTypes.push(datatypeLabel);
+			}
+			// Corner case: template question with image option can only be used in one question survey
+			if (metric.datatype.toString() === 'template' && metric.template.allow_image && !this.isSingleQuestionSurvey(metricTypeGr)) {
+				result.success = false;
+				result.msg += gs.getMessage("{0} type question with image option is only compatible with one question survey. To support Outlook Actionable Message, please either make sure current survey has only one question or use another template which doesn't allow image", metric.datatype.getDisplayValue());
+				break;
+			}
+			// Corner case: image scale question can only be used in one question survey
+			if (metric.datatype.toString() === 'imagescale' && !this.isSingleQuestionSurvey(metricTypeGr)) {
+				result.success = false;
+				result.msg += gs.getMessage("{0} type question is only compatible with one question survey. To support Outlook Actionable Message, please either make sure current survey has only one question or remove image scale question from your survey", metric.datatype.getDisplayValue());
+				break;
+			}
+		}
+
+		if (dependentQuestion) {
+			result.success = false;
+			if (result.msg)
+				result.msg += ";";
+			result.msg = gs.getMessage("Dependent questions are not compatible with Outlook Actionable Message");
+		}
+
+		if (unsupportedTypes.length > 0) {
+			result.success = false;
+			if (result.msg)
+				result.msg += ";";
+			result.msg += gs.getMessage("The following question types are not compatible with Outlook Actionable Message: {0}.", unsupportedTypes.join(", "));
+		}
+
+		if (result.success)
+			result.msg = gs.getMessage("This survey is compatible with Outlook Actionable Message");
+		return result;
+	},
+	
+	/**
+	 * Verify if a metric type is compatible with Adaptive Cards before we add any new question.
+	 *
+	 * @param metricTypeGr - a glide record of metric type
+	 * @return result - an object which has success boolean value and error message
+	 */
+	isMetricTypeSupportedBeforeAddingQuestion: function(metricTypeGr) {
+		var result = {
+			success: true,
+			msg: ''
+		};
+		var unsupportedTypes = [];
+		var dependentQuestion = false;
+		var metric = new GlideRecord('asmt_metric');
+		metric.addQuery('metric_type', metricTypeGr.getUniqueValue());
+		metric.query();
+		while (metric.next()) {
+			if (!dependentQuestion && metric.depends_on)
+				dependentQuestion = true;
+			if (this.supportedMetricTypes.indexOf(metric.datatype.toString()) == -1) {
+				var datatypeLabel = metric.datatype.getDisplayValue();
+				if (unsupportedTypes.indexOf(datatypeLabel) == -1)
+					unsupportedTypes.push(datatypeLabel);
+			}
+			// Corner case: template question with image option can only be used in one question survey
+			if (metric.datatype.toString() === 'template' && metric.template.allow_image && this.hasQuestionAlready(metricTypeGr)) {
+				result.success = false;
+				result.msg += gs.getMessage("{0} type question with image option is only compatible with one question survey. To support Outlook Actionable Message, please either make sure current survey has only one question or using another template which doesn't allow image", metric.datatype.getDisplayValue());
+				break;
+			}
+			// Corner case: image scale question can only be used in one question survey
+			if (metric.datatype.toString() === 'imagescale' && this.hasQuestionAlready(metricTypeGr)) {
+				result.success = false;
+				result.msg += gs.getMessage("{0} type question is only compatible with one question survey. To support Outlook Actionable Message, please either make sure current survey has only one question or remove image scale question from your survey", metric.datatype.getDisplayValue());
+				break;
+			}
+		}
+
+		if (dependentQuestion) {
+			result.success = false;
+			result.msg = gs.getMessage("Dependent questions are not compatible with Outlook Actionable Message");
+		}
+
+		if (unsupportedTypes.length > 0) {
+			result.success = false;
+			if (result.msg)
+				result.msg += ";";
+			result.msg += gs.getMessage("The following question types are not compatible with Outlook Actionable Message: {0}.", unsupportedTypes.join(", "));
+		}
+
+		if (result.success)
+			result.msg = gs.getMessage("This survey is compatible with Outlook Actionable Message");
+		return result;
+	},
+
+	/*
+	 * verifies if a metric is compatible with Adaptive Cards
+	 */
+	isMetricSupported: function(metric) {
+		var result = {
+			success: true,
+			msg: ''
+		};
+		if (metric.depends_on) {
+			result.success = false;
+			result.msg += gs.getMessage("Dependent questions are not compatible with Outlook Actionable Message");
+		}
+		if (this.supportedMetricTypes.indexOf(metric.datatype.toString()) == -1) {
+			result.success = false;
+			if (result.msg)
+				result.msg += ";";
+			result.msg += gs.getMessage("{0} type questions are not compatible with Outlook Actionable Message", metric.datatype.getDisplayValue());
+		}
+		// Corner case: template question with image option can only be used in one question survey
+		if (metric.datatype.toString() === 'template' && metric.template.allow_image && !this.isSingleQuestionSurvey(metric.metric_type)) {
+			result.success = false;
+			if (result.msg)
+				result.msg += ";";
+			result.msg += gs.getMessage("{0} type question with image option is only compatible with one question survey. To support Outlook Actionable Message, please either make sure current survey has only one question or use another template which doesn't allow image", metric.datatype.getDisplayValue());
+		}
+		// Corner case: image scale question can only be used in one question survey
+		if (metric.datatype.toString() === 'imagescale' && !this.isSingleQuestionSurvey(metric.metric_type)) {
+			result.success = false;
+			if (result.msg)
+				result.msg += ";";
+			result.msg += gs.getMessage("{0} type question is only compatible with one question survey. To support Outlook Actionable Message, please either make sure current survey has only one question or remove image scale question from your survey.", metric.datatype.getDisplayValue());
+		}
+		if (result.success)
+			msg = gs.getMessage("This metric is compatible with Outlook Actionable Message");
+		return result;
+	},
+	
+	/*
+	 * Verify if a metric is compatible with Adaptive Cards before adding it to survey
+	 */
+	isMetricSupportedBeforeAdding: function(metric) {
+		var result = {
+			success: true,
+			msg: ''
+		};
+		if (metric.depends_on) {
+			result.success = false;
+			result.msg += gs.getMessage("Dependent questions are not compatible with Outlook Actionable Message");
+		}
+		if (this.supportedMetricTypes.indexOf(metric.datatype.toString()) == -1) {
+			result.success = false;
+			if (result.msg)
+				result.msg += ";";
+			result.msg += gs.getMessage("{0} type questions are not compatible with Outlook Actionable Message", metric.datatype.getDisplayValue());
+		}
+		// Corner case: template question with image option can only be used in one question survey
+		if (metric.datatype.toString() === 'template' && metric.template.allow_image && this.hasQuestionAlready(metric.metric_type)) {
+			result.success = false;
+			if (result.msg)
+				result.msg += ";";
+			result.msg += gs.getMessage("{0} type question with image option is only compatible with one question survey. To support Outlook Actionable Message, please either make sure current survey has only one question or use another template which doesn't allow image", metric.datatype.getDisplayValue());
+		}
+		// Corner case: image scale question can only be used in one question survey
+		if (metric.datatype.toString() === 'imagescale' && this.hasQuestionAlready(metric.metric_type)) {
+			result.success = false;
+			if (result.msg)
+				result.msg += ";";
+			result.msg += gs.getMessage("{0} type question is only compatible with one question survey. To support Outlook Actionable Message, please either make sure current survey has only one question or remove image scale question from your survey.", metric.datatype.getDisplayValue());
+		}
+		if (result.success)
+			msg = gs.getMessage("This metric is compatible with Outlook Actionable Message.");
+		return result;
+	},
+	
+	/**
+	* Check if a survey has only one question or not. We don't use "One Click Survey" checkbox here because it's just a soft check which doesn't satisfy our requirement.
+	* @param metricTypeGr - a glide record of metric type
+	* @return true if the survey has single question
+	*/
+	isSingleQuestionSurvey: function(metricTypeGr) {
+		var grMetric = new GlideRecord("asmt_metric");
+		grMetric.addActiveQuery();
+		grMetric.addQuery("metric_type", metricTypeGr.sys_id);
+		grMetric.query();
+		return grMetric.getRowCount() === 1;
+	},
+	
+	/**
+	* Check if the survey has had any question yet.
+	* @param metricTypeGr - a glide record of metric type
+	* @return true if survey already has question(s)
+	*/
+	hasQuestionAlready: function(metricTypeGr) {
+		var grMetric = new GlideRecord("asmt_metric");
+		grMetric.addActiveQuery();
+		grMetric.addQuery("metric_type", metricTypeGr.sys_id);
+		grMetric.query();
+		return grMetric.getRowCount() > 0;
+	},
+
+	/*
+	 * Checks whether all questions on an instance are supported
+	 */
+	allInstanceQuestionsSupported: function(instanceId) {
+		//verifies if all the questions are of supported types
+		var question = new GlideRecord('asmt_assessment_instance_question');
+		question.addQuery('instance', instanceId);
+		var qc = question.addQuery('metric.datatype', 'NOT IN', this.supportedMetricTypes.join());
+		qc.addOrCondition('metric.depends_on', '!=', '');
+		question.setLimit(1);
+		question.query();
+		return !question.hasNext();
+	},
+
+	responseValidationCheck: function(payload) {
+		var result = {
+			success: false,
+			msg: ''
+		};
+		var instanceId = payload.sysparm_instance_id;
+		if (!instanceId) {
+			result.success = false;
+			result.msg = gs.getMessage("This Survey is invalid.");
+			return result;
+		}
+		if (!this.isValidInstance(instanceId)) {
+			result.success = false;
+			result.msg = gs.getMessage("This Survey is no longer valid.");
+			return result;
+		}
+		if (!this.mandatoryCheck(payload, instanceId)) {
+			result.success = false;
+			result.msg = gs.getMessage("Please fill in mandatory questions.");
+			return result;
+		}
+		result.success = true;
+		return result;
+	},
+
+
+	isValidInstance: function(instanceId) {
+		var instance = new GlideRecord('asmt_assessment_instance');
+		return instanceId && instance.get(instanceId) && instance.state == 'ready' && instance.user == gs.getUserID();
+	},
+
+	transformPayloadForProcessor: function(payload) {
+		var that = this;
+		var instanceId = payload.sysparm_instance_id;
+		var typeId = this.getTypeId(instanceId);
+		if (!typeId)
+			return payload;
+
+		var questionCount = 0;
+		var questionAnswered = 0;
+
+		for (var key in payload) {
+			if (key.startsWith("ASMTQUESTION")) {
+				questionCount++;
+				if (payload[key])
+					questionAnswered++;
+			}
+			if (key.startsWith("ASMTDEFINITION:")) {
+				questionCount++;
+				if (payload[key])
+					questionAnswered++;
+				transformMultiChoiceData(key);
+			}
+		}
+
+		payload.percent_answered = questionCount === 0 ? 0 : (questionAnswered * 100) / questionCount;
+		return payload;
+
+		function transformMultiChoiceData(key) {
+			var metricId = key.substring("ASMTDEFINITION:".length);
+			if (!metricId)
+				return;
+			var answers = payload[key].split(",");
+			var metricDefinition = that.getMetricDefinitions(metricId);
+			var newKey;
+			while (metricDefinition.next()) {
+				newKey = "ASMTDEFINITION:" + metricDefinition.sys_id + "_" + metricId + "_" + typeId;
+				payload[newKey] = answers.indexOf(metricDefinition.value.toString()) > -1 ? true : "";
+			}
+			delete payload[key];
+
+			if ("ADDINFO:ASMTDEFINITION:" + metricId in payload && newKey) {
+				payload["ADDINFO:" + newKey] = payload["ADDINFO:ASMTDEFINITION:" + metricId];
+				delete payload["ADDINFO:ASMTDEFINITION:" + metricId];
+			}
+		}
+	},
+
+	getTypeId: function(instanceId) {
+		var instance = new GlideRecord('asmt_assessment_instance');
+		if (!instance.get(instanceId))
+			return "";
+		return instance.metric_type + "";
+	},
+
+	getMetricDefinitions: function(metricId) {
+		var gr = new GlideRecord('asmt_metric_definition');
+		gr.addQuery('metric', metricId);
+		gr.query();
+		return gr;
+	},
+
+	mandatoryCheck: function(payload, instanceId) {
+		instanceId = instanceId || payload.sysparm_instance_id;
+		var mandatoryQuestions = this.getMandatoryQuestions(instanceId);
+		var datePlaceholder = "mm/dd/yyyy";
+		for (var i = 0; i < mandatoryQuestions.length; i++) {
+			// DEF0124475: if date value equals to the placeholder, it means there is no user input.
+			if (mandatoryQuestions[i] in payload 
+				&& mandatoryQuestions[i].indexOf("OAM_Date") >= 0
+				&& (payload[mandatoryQuestions[i]].indexOf(datePlaceholder) >= 0))
+				return false;
+			if (mandatoryQuestions[i] in payload && !payload[mandatoryQuestions[i]].trim())
+				return false;
+			// DEF0159095: For mandatory question taken from outlook mobile app, it will be returned with a string of "sys_id.value" as the answer even if they are not answered by user.
+			var sysId = mandatoryQuestions[i].split(":")[1]; // mandatoryQuestions[i].substring(prefix.length); // This could be the system id of asmt_metric or of assessment_instance_question.
+			var fakeAnswer = "{{" + sysId + ".value}}";
+			if (payload[mandatoryQuestions[i]] === fakeAnswer)
+				return false;
+		}
+		return true;
+	},
+
+	getMandatoryQuestions: function(instanceId) {
+		var mandatoryQuestions = [];
+		var question = new GlideRecord('asmt_assessment_instance_question');
+		question.addQuery('instance', instanceId);
+		question.query();
+		while (question.next()) {
+			if (!question.metric.mandatory)
+				continue;
+			if (question.metric.datatype == 'date')
+				mandatoryQuestions.push("ASMTQUESTION:OAM_Date" + question.getUniqueValue());
+			else if (question.metric.datatype == 'datetime') {
+				mandatoryQuestions.push("ASMTQUESTION:OAM_Date" + question.getUniqueValue());
+				mandatoryQuestions.push("ASMTQUESTION:OAM_Time" + question.getUniqueValue());
+			} else if (question.metric.datatype == 'multiplecheckbox')
+				mandatoryQuestions.push("ASMTDEFINITION:" + question.metric);
+			else
+				mandatoryQuestions.push("ASMTQUESTION:" + question.getUniqueValue());
+		}
+		return mandatoryQuestions;
+	},
+
+	type: 'CustomOAMSurveyUtil'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-28 16:06:49</sys_created_on>
+        <sys_id>48f1f8e81be3fc1062e50ed2cd4bcb17</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>CustomOAMSurveyUtil</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_include_48f1f8e81be3fc1062e50ed2cd4bcb17</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-28 16:06:55</sys_updated_on>
+    </sys_script_include>
+</record_update>

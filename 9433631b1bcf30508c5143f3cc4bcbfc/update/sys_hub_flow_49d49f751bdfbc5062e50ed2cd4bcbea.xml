@@ -2,7 +2,7 @@
     <sys_hub_flow action="INSERT_OR_UPDATE">
         <access>public</access>
         <acls/>
-        <active>false</active>
+        <active>true</active>
         <annotation/>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
@@ -11,9 +11,8 @@
         <copied_from_name/>
         <description/>
         <internal_name>send_modular_notification</internal_name>
-        <label_cache>[{"name":"576f4f09-a997-4837-898b-5a793b2f67d7.email","label":"1➛email","reference":"sys_email","reference_display":"email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}}]</label_cache>
-        <latest_snapshot/>
-        <master_snapshot/>
+        <label_cache>[{"name":"subflow.recipients","label":"Input➛Recipients","reference":"sys_user","reference_display":"User","type":"records","base_type":"records","column_name":"","attributes":{"uiType":"records","uiTypeLabel":"Records","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"5bd23f19-da4d-42ba-acd3-ce7654572407","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"576f4f09-a997-4837-898b-5a793b2f67d7.email","label":"1➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"subflow.subject1","label":"Input➛Subject","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"748ba7e5-a8fe-43fd-9dec-746834b83120","sourceUiUniqueId":"","sourceType":"","sourceId":""}}]</label_cache>
+        <master_snapshot>e420ef711b13fc5062e50ed2cd4bcb8a</master_snapshot>
         <name>Send Modular Notification</name>
         <natlang/>
         <outputs/>
@@ -23,14 +22,14 @@
         <sc_callable>false</sc_callable>
         <show_draft_actions>false</show_draft_actions>
         <show_triggered_flows>false</show_triggered_flows>
-        <status>draft</status>
+        <status>published</status>
         <sys_class_name>sys_hub_flow</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-20 14:55:12</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>49d49f751bdfbc5062e50ed2cd4bcbea</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Send Modular Notification</sys_name>
         <sys_overrides/>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
@@ -38,7 +37,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_flow_49d49f751bdfbc5062e50ed2cd4bcbea</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-20 15:00:27</sys_updated_on>
+        <sys_updated_on>2021-11-05 21:30:50</sys_updated_on>
         <type>subflow</type>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=49d49f751bdfbc5062e50ed2cd4bcbea"/>
@@ -55,7 +54,7 @@
         <sys_updated_by>Terry.Lillo</sys_updated_by>
         <sys_updated_on>2021-10-20 14:55:12</sys_updated_on>
     </sys_flow_cat_variable_model>
-    <sys_hub_flow_input action="delete_multiple" query="model=49d49f751bdfbc5062e50ed2cd4bcbea^sys_idNOT IN3506d7f51bdfbc5062e50ed2cd4bcba8,3906d7f51bdfbc5062e50ed2cd4bcbb6,3d06d7f51bdfbc5062e50ed2cd4bcbd5,b106d7f51bdfbc5062e50ed2cd4bcbb0"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=49d49f751bdfbc5062e50ed2cd4bcbea^sys_idNOT IN3506d7f51bdfbc5062e50ed2cd4bcba8,3906d7f51bdfbc5062e50ed2cd4bcbb6,3d06d7f51bdfbc5062e50ed2cd4bcbd5,56efdb711b13fc5062e50ed2cd4bcb84,596ed3311b13fc5062e50ed2cd4bcbb5,b106d7f51bdfbc5062e50ed2cd4bcbb0,d96ed3311b13fc5062e50ed2cd4bcbe1,e47fd3711b13fc5062e50ed2cd4bcb4b"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -118,14 +117,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-20 15:00:27</sys_created_on>
         <sys_id>3506d7f51bdfbc5062e50ed2cd4bcba8</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-20 15:00:27</sys_updated_on>
+        <sys_updated_on>2021-10-20 15:42:24</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -173,15 +172,15 @@
         <help/>
         <hint/>
         <internal_type display_value="String">string</internal_type>
-        <label>Name</label>
-        <mandatory>false</mandatory>
+        <label>First Name</label>
+        <mandatory>true</mandatory>
         <max_length>8000</max_length>
         <model display_value="Send Modular Notification">49d49f751bdfbc5062e50ed2cd4bcbea</model>
         <model_id>49d49f751bdfbc5062e50ed2cd4bcbea</model_id>
         <model_table>sys_hub_flow</model_table>
         <name>var__m_sys_hub_flow_input_49d49f751bdfbc5062e50ed2cd4bcbea</name>
         <next_element/>
-        <order>3</order>
+        <order>8</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -199,14 +198,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-20 15:00:27</sys_created_on>
         <sys_id>3906d7f51bdfbc5062e50ed2cd4bcbb6</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-20 15:00:27</sys_updated_on>
+        <sys_updated_on>2021-10-20 15:42:25</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -262,7 +261,7 @@
         <model_table>sys_hub_flow</model_table>
         <name>var__m_sys_hub_flow_input_49d49f751bdfbc5062e50ed2cd4bcbea</name>
         <next_element/>
-        <order>4</order>
+        <order>3</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -280,6 +279,87 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-20 15:00:27</sys_created_on>
         <sys_id>3d06d7f51bdfbc5062e50ed2cd4bcbd5</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:42:24</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=html,uiTypeLabel=HTML,uiUniqueId=f5665560-8bdc-4e3a-8464-4da958c657ce</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>more_information</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="HTML">html</internal_type>
+        <label>More Information</label>
+        <mandatory>true</mandatory>
+        <max_length>65536</max_length>
+        <model display_value="Send Modular Notification">49d49f751bdfbc5062e50ed2cd4bcbea</model>
+        <model_id>49d49f751bdfbc5062e50ed2cd4bcbea</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_49d49f751bdfbc5062e50ed2cd4bcbea</name>
+        <next_element/>
+        <order>6</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:43:37</sys_created_on>
+        <sys_id>56efdb711b13fc5062e50ed2cd4bcb84</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name/>
         <sys_package/>
@@ -287,7 +367,88 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-20 15:00:27</sys_updated_on>
+        <sys_updated_on>2021-10-20 15:43:37</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=a9cb47ed-3e9b-4f23-922b-69d2b624d83b</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table3</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Table</label>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Send Modular Notification">49d49f751bdfbc5062e50ed2cd4bcbea</model>
+        <model_id>49d49f751bdfbc5062e50ed2cd4bcbea</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_49d49f751bdfbc5062e50ed2cd4bcbea</name>
+        <next_element/>
+        <order>4</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:37:00</sys_created_on>
+        <sys_id>596ed3311b13fc5062e50ed2cd4bcbb5</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:42:24</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -336,7 +497,7 @@
         <hint/>
         <internal_type display_value="HTML">html</internal_type>
         <label>Information</label>
-        <mandatory>false</mandatory>
+        <mandatory>true</mandatory>
         <max_length>65536</max_length>
         <model display_value="Send Modular Notification">49d49f751bdfbc5062e50ed2cd4bcbea</model>
         <model_id>49d49f751bdfbc5062e50ed2cd4bcbea</model_id>
@@ -361,14 +522,176 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-20 15:00:27</sys_created_on>
         <sys_id>b106d7f51bdfbc5062e50ed2cd4bcbb0</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-20 15:00:27</sys_updated_on>
+        <sys_updated_on>2021-10-20 15:43:37</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=ae5e063a-2592-4c52-8fea-54586091f30d</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>document_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Document ID</label>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Send Modular Notification">49d49f751bdfbc5062e50ed2cd4bcbea</model>
+        <model_id>49d49f751bdfbc5062e50ed2cd4bcbea</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_49d49f751bdfbc5062e50ed2cd4bcbea</name>
+        <next_element/>
+        <order>5</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:37:00</sys_created_on>
+        <sys_id>d96ed3311b13fc5062e50ed2cd4bcbe1</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:42:25</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=records,uiTypeLabel=Records,uiUniqueId=5bd23f19-da4d-42ba-acd3-ce7654572407</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table>sys_user</choice_table>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>recipients</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="Records">records</internal_type>
+        <label>Recipients</label>
+        <mandatory>true</mandatory>
+        <max_length>1024</max_length>
+        <model display_value="Send Modular Notification">49d49f751bdfbc5062e50ed2cd4bcbea</model>
+        <model_id>49d49f751bdfbc5062e50ed2cd4bcbea</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_49d49f751bdfbc5062e50ed2cd4bcbea</name>
+        <next_element/>
+        <order>7</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference display_value="" name="sys_user">sys_user</reference>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:41:35</sys_created_on>
+        <sys_id>e47fd3711b13fc5062e50ed2cd4bcb4b</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:43:37</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -383,6 +706,7 @@
     <sys_hub_action_instance action="delete_multiple" query="flow=49d49f751bdfbc5062e50ed2cd4bcbea^sys_idNOT IN0e06d7f51bdfbc5062e50ed2cd4bcbe5"/>
     <sys_hub_action_instance action="INSERT_OR_UPDATE">
         <action_inputs/>
+        <action_inputs/>
         <action_type display_value="Send Email">c1806bf4a70323008299b39f087901cb</action_type>
         <action_type_parent/>
         <comment/>
@@ -395,28 +719,76 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-20 15:00:27</sys_created_on>
         <sys_id>0e06d7f51bdfbc5062e50ed2cd4bcbe5</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-20 15:00:27</sys_updated_on>
+        <sys_updated_on>2021-10-20 15:44:38</sys_updated_on>
         <ui_id>576f4f09-a997-4837-898b-5a793b2f67d7</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=0e06d7f51bdfbc5062e50ed2cd4bcbe5"/>
+    <sys_element_mapping action="delete_multiple" query="id=0e06d7f51bdfbc5062e50ed2cd4bcbe5"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_subject</field>
+        <id>0e06d7f51bdfbc5062e50ed2cd4bcbe5</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:43:01</sys_created_on>
+        <sys_id>29cf5b711b13fc5062e50ed2cd4bcb1f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:43:01</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value>{{subflow.subject1}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_to</field>
+        <id>0e06d7f51bdfbc5062e50ed2cd4bcbe5</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:43:01</sys_created_on>
+        <sys_id>61cf5b711b13fc5062e50ed2cd4bcb1f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:43:01</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value>{{subflow.recipients}} </value>
+    </sys_element_mapping>
     <sys_hub_input_scripts action="delete_multiple" query="instance=0e06d7f51bdfbc5062e50ed2cd4bcbe5^sys_idNOT IN4206d7f51bdfbc5062e50ed2cd4bcbe8"/>
     <sys_hub_input_scripts action="INSERT_OR_UPDATE">
         <active>true</active>
         <input_name>ah_body</input_name>
         <instance>0e06d7f51bdfbc5062e50ed2cd4bcbe5</instance>
         <referenced_table>sys_hub_action_instance</referenced_table>
-        <script>{"ah_body":{"scriptActive":true,"script":"\t//These variables will control the different sections of the modular notifications\n\t//Subject will also control the email subject, don\u0027t include HTML there\n\tvar notification \u003d new ModularNotificationsBuilder();\n\t\n\t//URL that can be universally used for viewing a ticket on the portal\n\tnotification.table \u003d event.table;\n\tnotification.documentID \u003d event.instance;\n\tnotification.setGlobalUrl();\n\tnotification.action \u003d \u0027custom\u0027;\n\tvar link \u003d notification.globalURL;\n\t\n\t//Email subject and subject section\n\tnotification.subject \u003d fd_data.subflow_inputs.subject1;\n\t\n\t//User\u0027s first name\n\tnotification.name \u003d \u0027Name\u0027;\n\t\n\t//Information section\n\tnotification.information \u003d \u0027Information\u0027;\n\t\n\t//variables section\n\tnotification.varList \u003d [\n\t\t{\n\t\t\tvariableName: \u0027varName\u0027,\n\t\t\tvariableValue: \u0027varValue\u0027\n\t\t}\n\t];\n\t//More information section\n\tnotification.moreInformation \u003d \u0027Additional Information\u0027;\n\n\t//Put it all together to get the full HTML template\n\tvar html \u003d notification.getHTML();\n\t\n\t//Print HTML to the body\n\treturn html;"}}</script>
+        <script>{"ah_body":{"scriptActive":true,"script":"\t//These variables will control the different sections of the modular notifications\n\t//Subject will also control the email subject, don\u0027t include HTML there\n\tvar notification \u003d new ModularNotificationsBuilder();\n\t\n\t//URL that can be universally used for viewing a ticket on the portal\n\tnotification.table \u003d fd_data.subflow_inputs.table3;\n\tnotification.documentID \u003d fd_data.subflow_inputs.document_id;\n\tnotification.setGlobalUrl();\n\tnotification.action \u003d \u0027custom\u0027;\n\tvar link \u003d notification.globalURL;\n\t\n\t//Email subject and subject section\n\tnotification.subject \u003d fd_data.subflow_inputs.subject1;\n\t\n\t//User\u0027s first name\n\tnotification.name \u003d fd_data.subflow_inputs.name;\n\t\n\t//Information section\n\tnotification.information \u003d fd_data.subflow_inputs.information;\n\t\n\t//variables section\n\tnotification.varList \u003d fd_data.subflow_inputs.varList;\n\t//More information section\n\tnotification.moreInformation \u003d fd_data.subflow_inputs.more_information;\n\n\t//Put it all together to get the full HTML template\n\tvar html \u003d notification.getHTML();\n\t\n\t//Print HTML to the body\n\treturn html;"}}</script>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-20 15:00:27</sys_created_on>
         <sys_id>4206d7f51bdfbc5062e50ed2cd4bcbe8</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-20 15:00:27</sys_updated_on>
+        <sys_updated_on>2021-10-20 15:39:33</sys_updated_on>
     </sys_hub_input_scripts>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_49d49f751bdfbc5062e50ed2cd4bcbea^sys_idNOT IN7106d7f51bdfbc5062e50ed2cd4bcbb5,7106d7f51bdfbc5062e50ed2cd4bcbdb,7506d7f51bdfbc5062e50ed2cd4bcbd4,b506d7f51bdfbc5062e50ed2cd4bcbae"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_49d49f751bdfbc5062e50ed2cd4bcbea^sys_idNOT IN6c7fd3711b13fc5062e50ed2cd4bcb54,7106d7f51bdfbc5062e50ed2cd4bcbb5,7106d7f51bdfbc5062e50ed2cd4bcbdb,7506d7f51bdfbc5062e50ed2cd4bcbd4,96efdb711b13fc5062e50ed2cd4bcb89,996ed3311b13fc5062e50ed2cd4bcbe6,b506d7f51bdfbc5062e50ed2cd4bcbae,dd6ed3311b13fc5062e50ed2cd4bcbba"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>recipients</element>
+        <help/>
+        <hint/>
+        <label>Recipients</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_49d49f751bdfbc5062e50ed2cd4bcbea</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:41:35</sys_created_on>
+        <sys_id>6c7fd3711b13fc5062e50ed2cd4bcb54</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Recipients</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_49d49f751bdfbc5062e50ed2cd4bcbea_recipients_en</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:41:35</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>information</element>
         <help/>
@@ -430,7 +802,7 @@
         <sys_created_on>2021-10-20 15:00:27</sys_created_on>
         <sys_id>7106d7f51bdfbc5062e50ed2cd4bcbb5</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Information</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -453,7 +825,7 @@
         <sys_created_on>2021-10-20 15:00:27</sys_created_on>
         <sys_id>7106d7f51bdfbc5062e50ed2cd4bcbdb</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>varList</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -467,7 +839,7 @@
         <element>name</element>
         <help/>
         <hint>Person you're sending to</hint>
-        <label>Name</label>
+        <label>First Name</label>
         <language>en</language>
         <name>var__m_sys_hub_flow_input_49d49f751bdfbc5062e50ed2cd4bcbea</name>
         <plural/>
@@ -475,14 +847,60 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-20 15:00:27</sys_created_on>
         <sys_id>7506d7f51bdfbc5062e50ed2cd4bcbd4</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>First Name</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-20 15:00:27</sys_updated_on>
+        <sys_updated_on>2021-10-20 15:42:25</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>more_information</element>
+        <help/>
+        <hint/>
+        <label>More Information</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_49d49f751bdfbc5062e50ed2cd4bcbea</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:43:37</sys_created_on>
+        <sys_id>96efdb711b13fc5062e50ed2cd4bcb89</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>More Information</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_49d49f751bdfbc5062e50ed2cd4bcbea_more_information_en</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:43:37</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>document_id</element>
+        <help/>
+        <hint>sys_id or number of record related to this notification</hint>
+        <label>Document ID</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_49d49f751bdfbc5062e50ed2cd4bcbea</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:37:00</sys_created_on>
+        <sys_id>996ed3311b13fc5062e50ed2cd4bcbe6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Document ID</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_49d49f751bdfbc5062e50ed2cd4bcbea_document_id_en</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:37:00</sys_updated_on>
         <url/>
         <url_target/>
     </sys_documentation>
@@ -499,7 +917,7 @@
         <sys_created_on>2021-10-20 15:00:27</sys_created_on>
         <sys_id>b506d7f51bdfbc5062e50ed2cd4bcbae</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Subject</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -509,4 +927,996 @@
         <url/>
         <url_target/>
     </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>table3</element>
+        <help/>
+        <hint>Table of record related to this notification</hint>
+        <label>Table</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_49d49f751bdfbc5062e50ed2cd4bcbea</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:37:00</sys_created_on>
+        <sys_id>dd6ed3311b13fc5062e50ed2cd4bcbba</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Table</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_49d49f751bdfbc5062e50ed2cd4bcbea_table3_en</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:37:00</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=49d49f751bdfbc5062e50ed2cd4bcbea^sys_idNOT IN452023b11b13fc5062e50ed2cd4bcb57"/>
+    <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
+        <plan>com.snc.process_flow.engine.ProcessPlan@8a6256</plan>
+        <plan_id display_value="Send Modular Notification">49d49f751bdfbc5062e50ed2cd4bcbea</plan_id>
+        <snapshot>e420ef711b13fc5062e50ed2cd4bcb8a</snapshot>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:38</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>452023b11b13fc5062e50ed2cd4bcb57</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:38</sys_updated_on>
+    </sys_flow_subflow_plan>
+    <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <internal_name>send_modular_notification</internal_name>
+        <label_cache>[{"name":"subflow.recipients","label":"Input➛Recipients","reference":"sys_user","reference_display":"User","type":"records","base_type":"records","column_name":"","attributes":{"uiType":"records","uiTypeLabel":"Records","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"5bd23f19-da4d-42ba-acd3-ce7654572407","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"576f4f09-a997-4837-898b-5a793b2f67d7.email","label":"1➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"subflow.subject1","label":"Input➛Subject","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"748ba7e5-a8fe-43fd-9dec-746834b83120","sourceUiUniqueId":"","sourceType":"","sourceId":""}}]</label_cache>
+        <master>true</master>
+        <name>Send Modular Notification</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="Send Modular Notification">49d49f751bdfbc5062e50ed2cd4bcbea</parent_flow>
+        <remote_trigger_id/>
+        <run_as>system</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:36</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>e420ef711b13fc5062e50ed2cd4bcb8a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:36</sys_updated_on>
+        <type>subflow</type>
+    </sys_hub_flow_snapshot>
+    <sys_translated_text action="delete_multiple" query="documentkey=e420ef711b13fc5062e50ed2cd4bcb8a"/>
+    <sys_variable_value action="delete_multiple" query="document_key=e420ef711b13fc5062e50ed2cd4bcb8a"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=e420ef711b13fc5062e50ed2cd4bcb8a^sys_idNOT INe820ef711b13fc5062e50ed2cd4bcb8b"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>e420ef711b13fc5062e50ed2cd4bcb8a</id>
+        <name>Send Modular Notification</name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:36</sys_created_on>
+        <sys_id>e820ef711b13fc5062e50ed2cd4bcb8b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:36</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_hub_flow_input action="delete_multiple" query="model=e420ef711b13fc5062e50ed2cd4bcb8a^sys_idNOT IN3020ef711b13fc5062e50ed2cd4bcbee,342023b11b13fc5062e50ed2cd4bcb17,3c20ef711b13fc5062e50ed2cd4bcbc1,782023b11b13fc5062e50ed2cd4bcb05,b820ef711b13fc5062e50ed2cd4bcb90,b820ef711b13fc5062e50ed2cd4bcbcc,fc20ef711b13fc5062e50ed2cd4bcbd7,fc20ef711b13fc5062e50ed2cd4bcbe2"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=html,uiTypeLabel=HTML,uiUniqueId=f5665560-8bdc-4e3a-8464-4da958c657ce</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>more_information</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="HTML">html</internal_type>
+        <label>More Information</label>
+        <mandatory>true</mandatory>
+        <max_length>65536</max_length>
+        <model display_value="Send Modular Notification">e420ef711b13fc5062e50ed2cd4bcb8a</model>
+        <model_id>e420ef711b13fc5062e50ed2cd4bcb8a</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</name>
+        <next_element/>
+        <order>6</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:37</sys_created_on>
+        <sys_id>3020ef711b13fc5062e50ed2cd4bcbee</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:37</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=b39eb8b7-c8be-42a4-b440-f3f52ec2b602</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>First Name</label>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Send Modular Notification">e420ef711b13fc5062e50ed2cd4bcb8a</model>
+        <model_id>e420ef711b13fc5062e50ed2cd4bcb8a</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</name>
+        <next_element/>
+        <order>8</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:37</sys_created_on>
+        <sys_id>342023b11b13fc5062e50ed2cd4bcb17</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:37</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=html,uiTypeLabel=HTML,uiUniqueId=b1274077-c22a-49b0-89ca-cc0e7b1106d7</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>information</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="HTML">html</internal_type>
+        <label>Information</label>
+        <mandatory>true</mandatory>
+        <max_length>65536</max_length>
+        <model display_value="Send Modular Notification">e420ef711b13fc5062e50ed2cd4bcb8a</model>
+        <model_id>e420ef711b13fc5062e50ed2cd4bcb8a</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:36</sys_created_on>
+        <sys_id>3c20ef711b13fc5062e50ed2cd4bcbc1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:36</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=records,uiTypeLabel=Records,uiUniqueId=5bd23f19-da4d-42ba-acd3-ce7654572407</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table>sys_user</choice_table>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>recipients</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="Records">records</internal_type>
+        <label>Recipients</label>
+        <mandatory>true</mandatory>
+        <max_length>1024</max_length>
+        <model display_value="Send Modular Notification">e420ef711b13fc5062e50ed2cd4bcb8a</model>
+        <model_id>e420ef711b13fc5062e50ed2cd4bcb8a</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</name>
+        <next_element/>
+        <order>7</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference display_value="" name="sys_user">sys_user</reference>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:37</sys_created_on>
+        <sys_id>782023b11b13fc5062e50ed2cd4bcb05</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:37</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=748ba7e5-a8fe-43fd-9dec-746834b83120</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>subject1</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Subject</label>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Send Modular Notification">e420ef711b13fc5062e50ed2cd4bcb8a</model>
+        <model_id>e420ef711b13fc5062e50ed2cd4bcb8a</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:36</sys_created_on>
+        <sys_id>b820ef711b13fc5062e50ed2cd4bcb90</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:36</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>child_label=variable,child_name=variable,child_type=object,child_type_label=Object,child_uiUniqueId=cafd5b44-2501-4b0f-a955-c2b259035e3d,co_type_name=FD2c20ef713b13fc5032f6ccecbe00e18c,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=array.object,uiTypeLabel=Array.Object,uiUniqueId=93a9eb96-99c2-4a7f-ad16-f42bb6aadc22</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>varList</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>varList</label>
+        <mandatory>false</mandatory>
+        <max_length>65000</max_length>
+        <model display_value="Send Modular Notification">e420ef711b13fc5062e50ed2cd4bcb8a</model>
+        <model_id>e420ef711b13fc5062e50ed2cd4bcb8a</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</name>
+        <next_element/>
+        <order>3</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:36</sys_created_on>
+        <sys_id>b820ef711b13fc5062e50ed2cd4bcbcc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:36</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=a9cb47ed-3e9b-4f23-922b-69d2b624d83b</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table3</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Table</label>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Send Modular Notification">e420ef711b13fc5062e50ed2cd4bcb8a</model>
+        <model_id>e420ef711b13fc5062e50ed2cd4bcb8a</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</name>
+        <next_element/>
+        <order>4</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:37</sys_created_on>
+        <sys_id>fc20ef711b13fc5062e50ed2cd4bcbd7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:37</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=ae5e063a-2592-4c52-8fea-54586091f30d</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>document_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Document ID</label>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Send Modular Notification">e420ef711b13fc5062e50ed2cd4bcb8a</model>
+        <model_id>e420ef711b13fc5062e50ed2cd4bcb8a</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</name>
+        <next_element/>
+        <order>5</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:37</sys_created_on>
+        <sys_id>fc20ef711b13fc5062e50ed2cd4bcbe2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:37</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_instance action="delete_multiple" query="flow=e420ef711b13fc5062e50ed2cd4bcb8a^sys_idNOT INc12023b11b13fc5062e50ed2cd4bcb2f"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Send Email">c1806bf4a70323008299b39f087901cb</action_type>
+        <action_type_parent display_value="Send Email">98c181d20b100300d97d8bf637673ab5</action_type_parent>
+        <comment/>
+        <compiled_snapshot>c1806bf4a70323008299b39f087901cb</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Send Modular Notification">e420ef711b13fc5062e50ed2cd4bcb8a</flow>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:37</sys_created_on>
+        <sys_id>c12023b11b13fc5062e50ed2cd4bcb2f</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:37</sys_updated_on>
+        <ui_id>576f4f09-a997-4837-898b-5a793b2f67d7</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=c12023b11b13fc5062e50ed2cd4bcb2f"/>
+    <sys_element_mapping action="delete_multiple" query="id=c12023b11b13fc5062e50ed2cd4bcb2f"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_subject</field>
+        <id>c12023b11b13fc5062e50ed2cd4bcb2f</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:37</sys_created_on>
+        <sys_id>0d2023b11b13fc5062e50ed2cd4bcb31</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:37</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value>{{subflow.subject1}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_to</field>
+        <id>c12023b11b13fc5062e50ed2cd4bcb2f</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:37</sys_created_on>
+        <sys_id>492023b11b13fc5062e50ed2cd4bcb31</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:37</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value>{{subflow.recipients}} </value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=c12023b11b13fc5062e50ed2cd4bcb2f^sys_idNOT IN412023b11b13fc5062e50ed2cd4bcb31"/>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <input_name>ah_body</input_name>
+        <instance>c12023b11b13fc5062e50ed2cd4bcb2f</instance>
+        <referenced_table>sys_hub_action_instance</referenced_table>
+        <script>{"ah_body":{"scriptActive":true,"script":"\t//These variables will control the different sections of the modular notifications\n\t//Subject will also control the email subject, don\u0027t include HTML there\n\tvar notification \u003d new ModularNotificationsBuilder();\n\t\n\t//URL that can be universally used for viewing a ticket on the portal\n\tnotification.table \u003d fd_data.subflow_inputs.table3;\n\tnotification.documentID \u003d fd_data.subflow_inputs.document_id;\n\tnotification.setGlobalUrl();\n\tnotification.action \u003d \u0027custom\u0027;\n\tvar link \u003d notification.globalURL;\n\t\n\t//Email subject and subject section\n\tnotification.subject \u003d fd_data.subflow_inputs.subject1;\n\t\n\t//User\u0027s first name\n\tnotification.name \u003d fd_data.subflow_inputs.name;\n\t\n\t//Information section\n\tnotification.information \u003d fd_data.subflow_inputs.information;\n\t\n\t//variables section\n\tnotification.varList \u003d fd_data.subflow_inputs.varList;\n\t//More information section\n\tnotification.moreInformation \u003d fd_data.subflow_inputs.more_information;\n\n\t//Put it all together to get the full HTML template\n\tvar html \u003d notification.getHTML();\n\t\n\t//Print HTML to the body\n\treturn html;"}}</script>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:37</sys_created_on>
+        <sys_id>412023b11b13fc5062e50ed2cd4bcb31</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:37</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a^sys_idNOT IN7020ef711b13fc5062e50ed2cd4bcbf5,7820ef711b13fc5062e50ed2cd4bcbc8,bc20ef711b13fc5062e50ed2cd4bcbd3,bc20ef711b13fc5062e50ed2cd4bcbde,f02023b11b13fc5062e50ed2cd4bcb13,f42023b11b13fc5062e50ed2cd4bcb1e,f820ef711b13fc5062e50ed2cd4bcbbd,fc20ef711b13fc5062e50ed2cd4bcbe9"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>more_information</element>
+        <help/>
+        <hint/>
+        <label>More Information</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:37</sys_created_on>
+        <sys_id>7020ef711b13fc5062e50ed2cd4bcbf5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>More Information</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:37</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>information</element>
+        <help/>
+        <hint/>
+        <label>Information</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:36</sys_created_on>
+        <sys_id>7820ef711b13fc5062e50ed2cd4bcbc8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Information</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:36</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>varList</element>
+        <help/>
+        <hint/>
+        <label>varList</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:37</sys_created_on>
+        <sys_id>bc20ef711b13fc5062e50ed2cd4bcbd3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>varList</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:37</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>table3</element>
+        <help/>
+        <hint/>
+        <label>Table</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:37</sys_created_on>
+        <sys_id>bc20ef711b13fc5062e50ed2cd4bcbde</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Table</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:37</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>recipients</element>
+        <help/>
+        <hint/>
+        <label>Recipients</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:37</sys_created_on>
+        <sys_id>f02023b11b13fc5062e50ed2cd4bcb13</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Recipients</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:37</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>name</element>
+        <help/>
+        <hint/>
+        <label>First Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:37</sys_created_on>
+        <sys_id>f42023b11b13fc5062e50ed2cd4bcb1e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>First Name</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:37</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>subject1</element>
+        <help/>
+        <hint/>
+        <label>Subject</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:36</sys_created_on>
+        <sys_id>f820ef711b13fc5062e50ed2cd4bcbbd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Subject</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:36</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>document_id</element>
+        <help/>
+        <hint/>
+        <label>Document ID</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-20 15:44:37</sys_created_on>
+        <sys_id>fc20ef711b13fc5062e50ed2cd4bcbe9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Document ID</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-20 15:44:37</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_hub_flow action="update">
+        <sys_id>49d49f751bdfbc5062e50ed2cd4bcbea</sys_id>
+        <latest_snapshot>e420ef711b13fc5062e50ed2cd4bcb8a</latest_snapshot>
+    </sys_hub_flow>
 </record_update>
