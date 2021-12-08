@@ -425,14 +425,14 @@ ModularNotificationsBuilder.prototype = {
 			if(isITIL){
 				this.varList.push({
 					variableName: "Comments and Work Notes",
-					variableValue: "Related comments and work notes below:"
+					variableValue: "Includes up to 5 most recent comments and work notes below:"
 				});
 
 			}
 			else{
 				this.varList.push({
 					variableName: "Comments",
-					variableValue: "Related comments below:"
+					variableValue: "Includes up to 5 most recent comments below:"
 				});
 			}
 		}
@@ -535,13 +535,13 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>255</sys_mod_count>
+        <sys_mod_count>256</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-07 22:37:19</sys_updated_on>
+        <sys_updated_on>2021-12-08 20:56:36</sys_updated_on>
     </sys_script_include>
 </record_update>
