@@ -55,7 +55,7 @@
         <update_guid_history>b348ec37da8bb05085e71fe0bd429015:-533281878,991200b1a28bb410f9f27103e087a085:-292334945</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="Lenovo ThinkPad USB-C Dock Gen 2.SNC External">2cb82c771b8bb0508c5143f3cc4bcb0e</sys_audit_delete>
+        <sys_audit_delete display_value="">2cb82c771b8bb0508c5143f3cc4bcb0e</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-13 21:15:18</sys_created_on>

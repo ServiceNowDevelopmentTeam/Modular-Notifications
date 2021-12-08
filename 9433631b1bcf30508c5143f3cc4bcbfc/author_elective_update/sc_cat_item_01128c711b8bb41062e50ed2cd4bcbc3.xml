@@ -201,7 +201,7 @@
         <update_guid_history>50b8e8774a8bb0507a99d7072a9ac6e5:-570670818,f748ec37958bb0503f0f8131cece4126:625000556,8ac475f919c3f4105c61b109d915b614:-667916836,b59288f1738bb410b5d0fbcd6c1915fc:2004485666,bc8284f1878bb410cbc8eac5670c17e1:-1870963378,8972c471d08bb410c4132d9236c2ac50:-1042505169,f932c4b1038bb410d44a85aac219fed2:2060284302,f532c4b1a48bb410dcfbd28f9a9764c7:-806209261,5d1200b1678bb41076117315c7122092:-1776898119,d51200b16a8bb4102ce63ede9a59e068:-775846397</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="Lenovo ThinkPad USB-C Dock Gen 2">ecb82c771b8bb0508c5143f3cc4bcb2b</sys_audit_delete>
+        <sys_audit_delete display_value="">ecb82c771b8bb0508c5143f3cc4bcb2b</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-13 21:15:18</sys_created_on>
