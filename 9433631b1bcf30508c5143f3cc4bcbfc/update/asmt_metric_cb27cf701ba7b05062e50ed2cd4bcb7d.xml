@@ -28,6 +28,7 @@
         <mandatory>false</mandatory>
         <max>5</max>
         <max_weight/>
+        <maximum_normalization_input>false</maximum_normalization_input>
         <method>assessment</method>
         <metric_type display_value="Quick Survey - INC">3e278b701ba7b05062e50ed2cd4bcb89</metric_type>
         <min>0</min>

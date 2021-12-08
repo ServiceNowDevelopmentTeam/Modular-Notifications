@@ -60,6 +60,7 @@
         <table>asmt_metric_type</table>
         <url/>
         <user_field/>
+        <user_field_business_rule/>
     </asmt_metric_type>
     <sys_translated_text action="delete_multiple" query="documentkey=3e278b701ba7b05062e50ed2cd4bcb89"/>
 </record_update>

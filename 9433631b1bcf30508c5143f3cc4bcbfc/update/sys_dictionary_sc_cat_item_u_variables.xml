@@ -50,7 +50,7 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 13:47:02</sys_created_on>
-        <sys_id>c70278591bdfb85062e50ed2cd4bcbeb</sys_id>
+        <sys_id>ec7d438b1b2f7090622b32ac0a4bcb4c</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Variables</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
@@ -58,7 +58,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_dictionary_sc_cat_item_u_variables</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-11-05 21:30:38</sys_updated_on>
+        <sys_updated_on>2021-12-08 14:27:53</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

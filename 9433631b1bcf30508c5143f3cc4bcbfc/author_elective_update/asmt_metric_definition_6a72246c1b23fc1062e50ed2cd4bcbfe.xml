@@ -49,7 +49,7 @@
         <update_guid_history>a272646c0023fc103ccce848b357f301:-1299399204,978624a88c63fc10076a6505387ad95a:-625050671,a272646c0023fc103ccce848b357f301:-1299399204</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="3">5069474f1bab70908c5143f3cc4bcbb1</sys_audit_delete>
+        <sys_audit_delete display_value="">5069474f1bab70908c5143f3cc4bcbb1</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-11-05 21:33:17</sys_created_on>

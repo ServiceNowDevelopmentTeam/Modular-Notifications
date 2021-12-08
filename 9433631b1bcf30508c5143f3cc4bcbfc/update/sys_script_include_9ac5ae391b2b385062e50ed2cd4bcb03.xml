@@ -28,7 +28,7 @@ ScheduleTools.prototype = {
 	getRitmDuration: function(ritm){
 		var gr = new GlideRecord('sc_req_item');
 		gr.get(ritm);
-
+		
 		var catItemGr = new GlideRecord('sc_cat_item');
 		catItemGr.get(gr.getValue('cat_item'));
 		var deliveryDuration = new GlideDuration(catItemGr.delivery_time.getDurationValue());
@@ -39,28 +39,19 @@ ScheduleTools.prototype = {
 			return deliveryDuration;
 		}
 	},
-	timeZoneDiff: function(dateTime,difference){
-		dateTime = new GlideDateTime(dateTime);
-		var timeval = difference + ":00:00";
-
-		var gtime1 = new GlideTime();
-		gtime1.setValue(timeval);
-		dateTime.add(gtime1);
-		return dateTime.getValue();
-	},
 	type: 'ScheduleTools'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-11-01 21:49:24</sys_created_on>
         <sys_id>9ac5ae391b2b385062e50ed2cd4bcb03</sys_id>
-        <sys_mod_count>17</sys_mod_count>
+        <sys_mod_count>14</sys_mod_count>
         <sys_name>ScheduleTools</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_9ac5ae391b2b385062e50ed2cd4bcb03</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-11-05 20:53:54</sys_updated_on>
+        <sys_updated_on>2021-11-05 16:54:59</sys_updated_on>
     </sys_script_include>
 </record_update>
