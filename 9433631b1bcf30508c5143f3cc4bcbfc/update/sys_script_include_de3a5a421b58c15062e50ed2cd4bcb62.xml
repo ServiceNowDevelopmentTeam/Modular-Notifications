@@ -14,9 +14,9 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 			this.approvalGr = current;
 			this.preferredLanguage = gs.nil(language) ? "en" : language;// This is the targeted language of the email content we gonna generate.
 			this.approvalFor = current.sysapproval.getRefRecord();
-			this.customURLHelper = new AdaptiveCardCustomURLHelper();
+			this.customURLHelper = new global.CustomAdaptiveCardCustomURLHelper();
 			this.useOAMDefinition = false;
-			this.approvalACHelper = new sn_ms_oam.CustomApprovalAdaptiveCardHelper();
+			this.approvalACHelper = new global.CustomApprovalAdaptiveCardHelper();
 		} else {
 			gs.info("OAM: sysapproval_approver with valid sysapproval ref is required for actionable content");
 		}
@@ -897,13 +897,13 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-09 22:20:25</sys_created_on>
         <sys_id>de3a5a421b58c15062e50ed2cd4bcb62</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>CustomApprovalAdaptiveCardGenerator</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_de3a5a421b58c15062e50ed2cd4bcb62</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-09 22:21:21</sys_updated_on>
+        <sys_updated_on>2021-12-10 14:47:52</sys_updated_on>
     </sys_script_include>
 </record_update>
