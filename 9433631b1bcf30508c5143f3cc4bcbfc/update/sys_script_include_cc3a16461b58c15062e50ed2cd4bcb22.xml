@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>global.CustomApprovalAdaptiveCardHelper</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>CustomApprovalAdaptiveCardHelper</name>
+        <script><![CDATA[var CustomApprovalAdaptiveCardHelper = Class.create();
+CustomApprovalAdaptiveCardHelper.prototype = {
+    initialize: function() {
+		this.customURLHelper = new AdaptiveCardCustomURLHelper();
+		this.APPROVAL_TABLE_NAME = "sysapproval_approver";
+		this.EMPTY_STRING = "";
+		this.COLON = ":";
+		this.TEXT_CONTAINER_JSON = {
+				"type": "Container",
+				"padding": {
+					"left": "default",
+					"top": "default"
+				},
+				"items": [{
+					"type": "TextBlock",
+					"text": "",
+					"weight": "bolder",
+					"size": "medium"
+				}]
+			};
+		this.USER_CONTAINER_JSON = {
+			"type": "ColumnSet",
+			"width": "auto",
+			"padding": {
+				"left": "default"
+			},
+			"columns": [
+				{
+					"type": "Column",
+					"width": "auto",
+					"items": [{
+						"type": "Image",
+						"style": "Person",
+						"url": "",
+						"size": "Small"
+					}]
+				},
+				{
+					"type": "Column",
+					"width": "stretch",
+					"items": [{
+							"type": "TextBlock",
+							"weight": "Bolder",
+							"text": "",
+							"wrap": true
+						},
+						{
+							"type": "TextBlock",
+							"spacing": "None",
+							"text": "",
+							"isSubtle": true,
+							"wrap": true
+						}
+					]
+				}
+			]
+		};
+		this.FIELDSET_CONTAINER_JSON = {
+			"type": "ColumnSet",
+			"width": "stretch",
+			"padding": {
+				"left": "default"
+			},
+			"columns": [{
+				"type": "Column",
+				"items": [{
+					"type": "FactSet",
+					"facts": []
+				}]
+			}]
+		};
+		this.FIELD_JSON = {
+			"title": "",
+			"value": ""
+		};
+		this.SPACE = {
+			"padding": "default",
+			"spacing": "Small",
+			"separator": false,
+			"type": "Container"
+		};
+    },
+
+	/**
+	* @return {object} - get a copy of text container's JSON object.
+	*/
+	_getTextContainerJSON: function() {
+		return JSON.parse(JSON.stringify(this.TEXT_CONTAINER_JSON));
+	},
+
+	/**
+	* @return {object} - get a copy of user container's JSON object.
+	*/
+	_getUserContainerJSON: function() {
+		return JSON.parse(JSON.stringify(this.USER_CONTAINER_JSON));
+	},
+
+	/**
+	* @return {object} - get a copy of fieldset container's JSON object.
+	*/
+	_getFieldSetContainerJSON: function() {
+		return JSON.parse(JSON.stringify(this.FIELDSET_CONTAINER_JSON));
+	},
+
+	/**
+	* @return {object} - get a copy of field's JSON object.
+	*/
+	_getFieldJSON: function() {
+		return JSON.parse(JSON.stringify(this.FIELD_JSON));
+	},
+
+	/**
+	* @return {object} - get a copy of Space's JSON object.
+	*/
+	_getSpaceJSON: function() {
+		return JSON.parse(JSON.stringify(this.SPACE));
+	},
+
+	/**
+	* Build message body's paylod by oam containers. The payload will be displayed in script field for customization.
+	* @param {GlideRecord} oamDefinitionGr - a glide record of oam definition
+	* @return {String} body - a string format of JSON Array that can be represented in script field.
+	*/
+	_buildMessagePayloadByOAMContainer: function(oamDefinitionGr) {
+		var body = "[\n";
+		var grContainer = new GlideRecord("oam_container");
+		grContainer.addQuery("oam_definition", oamDefinitionGr.getUniqueValue());
+		grContainer.orderBy("order");
+		grContainer.query();
+		while (grContainer.next()) {
+			var containerType = grContainer.getValue("type");
+			switch (containerType) {
+				case "text":
+					body += this._buildTextContainerJSONForString(grContainer);
+					break;
+				case "user":
+					body += this._buildUserContainerJSONForString(grContainer);
+					break;
+				case "fieldset":
+					body += this._buildFieldSetContainerJSONForString(grContainer);
+					break;
+				default:
+					break;
+			}
+			body += ",\n";
+		}
+		body += "]\n";
+		return body;
+	},
+
+	/**
+	* Build text conatiner JSON in string format that can be displayed in script field.
+	* @param {GlideRecord} grTextContainer - a glide record of text container
+	* @return {String} containerStr - a string of JSON object which represents a text container with executable value.
+	*/
+	_buildTextContainerJSONForString: function(grTextContainer) {
+		var containerStr = "{\n";
+			containerStr += "'type': 'Container',\n";
+			containerStr += "'padding': {\n";
+				containerStr += "'left': 'default',\n";
+				containerStr += "'top': 'default'\n";
+			containerStr += "},\n";
+			containerStr += "'items': [{\n";
+				containerStr += "'type': 'TextBlock',\n";
+				containerStr += "'size': 'Medium',\n";
+				containerStr += "'weight': 'Bolder',\n";
+				containerStr += "'text': " + this._getExecutableValueFromEmailScript(grTextContainer) + "\n";
+			containerStr += "}]\n";
+		containerStr += "}\n";
+		return containerStr;
+	},
+
+	/**
+	* Calculate the executable text value from email script field
+	*
+	* @param {GlideRecord} textGr - a glide record which has email script field
+	* @return {String} a template value that will be executed in payload (script) field.
+	*/
+	_getExecutableValueFromEmailScript: function(textGr) {
+		var templateValue = textGr.getValue("text_value").replace(/[\r\n|\n|\r]/g, " ");
+		var variables = this._getEmailScriptVariables(templateValue);
+		// Get the executable value for each variable and build the final text value
+		var variableArrInStr = "[";
+		if (variables.length > 0) {
+			for (var i = 0; i < variables.length; i ++) {
+				var tableFieldVar = variables[i].replace(/[${}]/g, "");
+				
+				// Check if tableFieldVar points to a reference field and build the executable value accordingly
+				var refTable = this._getRefTableFromVariable(this.APPROVAL_TABLE_NAME, tableFieldVar);
+				var displayValue = "current.getDisplayValue('" + tableFieldVar + "')" ;
+				var systemValue = "current.getValue('" + tableFieldVar + "')" ;
+				var executableValue = gs.nil(refTable) ? "current.getDisplayValue('" + tableFieldVar + "')" : "'[' + " + displayValue + "+ '](' + '" + this.customURLHelper.getCustomURL() + refTable + ".do?sys_id=' + " + systemValue + "+ ')'";
+				variableArrInStr += executableValue + ", ";
+				
+				// Embed executableValue in the template value
+				var splits = templateValue.split(variables[i]);
+				var newTemplateValue = splits.join("{" + i + "}");// Add variable index such as {0} and {1} into the text
+				templateValue = newTemplateValue;
+			}
+		}
+		variableArrInStr += "]";
+		// Put single quote around
+		templateValue = "gs.getMessageLang('" + templateValue + "', languageForApprover, " + variableArrInStr + ")";
+
+		return templateValue;
+	},
+
+	/**
+	* Build user conatiner JSON in string format that can be displayed in script field.
+	* @param {GlideRecord} grUserContainer - a glide record of user container
+	* @return {String} containerStr - a string of JSON object which represents a user container with executable value.
+	*/
+	_buildUserContainerJSONForString: function(grUserContainer) {
+		var userField = grUserContainer.getValue("user");
+		var containerStr = "{\n";
+			containerStr += "'type': 'ColumnSet',\n";
+			containerStr += "'width': 'auto',\n";
+			containerStr += "'padding': {\n";
+				containerStr += "'left': 'default',\n";
+			containerStr += "},\n";
+			containerStr += "'columns': [{\n";
+				containerStr += "'type': 'Column',\n";
+				containerStr += "'width': 'auto',\n";
+				containerStr += "'items': [{\n";
+					containerStr += "'type': 'Image',\n";
+					containerStr += "'style': 'Person',\n";
+					containerStr += "'size': 'Small',\n";
+					containerStr += "'url':" + "'" + this.customURLHelper.getCustomURL() + "' + " + "current." + userField + ".getRefRecord().getDisplayValue('avatar') + '?t=small'\n";
+					containerStr += "}]\n";
+				containerStr += "},\n",
+				containerStr += "{\n";
+					containerStr += "'type': 'Column',\n";
+					containerStr += "'width': 'stretch',\n";
+					containerStr += "'items': [{\n";
+							containerStr += "'type': 'TextBlock',\n";
+							containerStr += "'weight': 'Bolder',\n";
+							containerStr += "'wrap': true,\n";
+							containerStr += "'text':" + "gs.getMessageLang('Requested by {0}', " + "languageForApprover, " + "[" + "current." + userField + ".getRefRecord().getValue('name')])\n";
+						containerStr += "},\n";
+						containerStr += "{\n";
+							containerStr += "'type': 'TextBlock',\n";
+							containerStr += "'spacing': 'None',\n";
+							containerStr += "'isSubtle': true,\n";
+							containerStr += "'wrap': true,\n";
+							containerStr += "'text': " + "current." + userField + ".getRefRecord().getValue('email')\n";
+						containerStr += "}\n";
+					containerStr += "]\n";
+				containerStr += "}\n";
+			containerStr += "]\n";
+		containerStr += "}\n";
+		return containerStr;
+	},
+
+	/**
+	* Build fieldset conatiner JSON in string format that can be displayed in script field.
+	* @param {GlideRecord} grFieldSetContainer - a glide record of fieldset container
+	* @return {Object} containerJSON - a JSON object which represents a fielset container with real-time value.
+	*/
+	_buildFieldSetContainerJSONForString: function(grFieldSetContainer) {
+		var containerStr = "{\n";
+		containerStr += "'type': 'ColumnSet',\n";
+		containerStr += "'width': 'stretch',\n";
+		containerStr += "'padding': {\n";
+		containerStr += "'left': 'default',\n";
+		containerStr += "},\n";
+		containerStr += "'columns': [{\n";
+		containerStr += "'type': 'Column',\n";
+		containerStr += "'items': [{\n";
+		containerStr += "'type': 'FactSet',\n";
+		containerStr += "'facts': [\n";
+
+		// Get all fields
+		var grField = new GlideRecord("oam_field");
+		grField.addQuery("oam_container", grFieldSetContainer.getUniqueValue());
+		grField.orderBy("order");
+		grField.query();
+		while (grField.next()) {
+			var fieldStr = "{\n";
+			fieldStr += "'title': gs.getMessageLang('" + grField.getValue("label") + "', languageForApprover) + '" + this.COLON + "',\n";
+			fieldStr += "'value': " + this._getExecutableValueFromEmailScript(grField) + "\n";
+			fieldStr += "}\n";
+			containerStr += fieldStr;
+			containerStr += ",\n";
+		}
+		containerStr += "]\n";
+		containerStr += "}]\n";
+		containerStr += "}]\n";
+		containerStr += "}\n";
+		return containerStr;
+	},
+
+	/**
+	* Extract all variable tokens from a raw email script value. For example, we will get ["${table.field}"] as the result from the text of "This is my ${table.field}".
+	* @param {String} rawTextValue - a string which may contains token. For example, "This is my ${table.field}".
+	* @return {Array.<string>} a list of variables represented by "${}".
+	*/
+	_getEmailScriptVariables: function(rawTextValue) {
+		var regexp = RegExp('[$]{[a-zA-Z0-9._]*}','g');
+		var variables = [];
+		var myVar;
+		while ((myVar = regexp.exec(rawTextValue)) !== null) {
+			variables.push(myVar[0]);
+		}
+		return variables;
+	},
+	
+	/**
+	* Check if the variable points to a reference field. If it's a reference field, then we return its reference table.
+	* @param {String} tableName - a table's name. For example, "sysapproval_approver"
+	* @param {String} variable - a table's field (This value may contain dot walk. E.g., "syapproval.opened_by").
+	* @return {String} we return the table name of the field that the variable represents if it's a real reference field or empty string if it's not a reference field.
+	*/
+	_getRefTableFromVariable: function(tableName, variable) {
+		var lastField = variable;// Initialize lastField, need further process.
+		if (variable.indexOf('.') >= 0) {
+			var references = variable.split(".");
+			lastField = references[references.length - 1];// The last field. For example, it's "opened_by" for "syapproval.opened_by".
+			for (var i = 0; i < references.length - 1; i ++) {
+				var refField = references[i];
+				tableName = this._getRefTableFromRefField(tableName, refField);
+			}
+		}
+
+		return this._getRefTableFromRefField(tableName, lastField);
+	},
+
+	/**
+	* Get the table name of a reference field
+	* @param {String} tableName - a table's name. For example, "sysapproval_approver"
+	* @param {String} refField - the name of a table field.
+	* @return {String} table name of the reference field. Or empty string if it's not a reference field.
+	*/
+	_getRefTableFromRefField: function(tableName, refField) {
+		var grDic = new GlideRecord("sys_dictionary");
+		grDic.addQuery("name", tableName);
+		grDic.addQuery("element", refField);
+		grDic.query();
+		if (grDic.next()) {
+			if (grDic.getValue("internal_type") !== 'reference')
+				return this.EMPTY_STRING;
+			else
+				return grDic.getValue("reference");
+		} else
+			return this.EMPTY_STRING;
+	},
+
+    type: 'CustomApprovalAdaptiveCardHelper'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-12-09 22:20:16</sys_created_on>
+        <sys_id>cc3a16461b58c15062e50ed2cd4bcb22</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>CustomApprovalAdaptiveCardHelper</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_include_cc3a16461b58c15062e50ed2cd4bcb22</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-12-09 22:21:17</sys_updated_on>
+    </sys_script_include>
+</record_update>

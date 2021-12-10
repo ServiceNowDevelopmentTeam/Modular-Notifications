@@ -1,0 +1,909 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>global.CustomApprovalAdaptiveCardGenerator</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>CustomApprovalAdaptiveCardGenerator</name>
+        <script><![CDATA[var CustomApprovalAdaptiveCardGenerator = Class.create();
+CustomApprovalAdaptiveCardGenerator.prototype = {
+	initialize: function(current, language) {
+		if(current && current.sysapproval) {
+			this.approvalGr = current;
+			this.preferredLanguage = gs.nil(language) ? "en" : language;// This is the targeted language of the email content we gonna generate.
+			this.approvalFor = current.sysapproval.getRefRecord();
+			this.customURLHelper = new AdaptiveCardCustomURLHelper();
+			this.useOAMDefinition = false;
+			this.approvalACHelper = new sn_ms_oam.CustomApprovalAdaptiveCardHelper();
+		} else {
+			gs.info("OAM: sysapproval_approver with valid sysapproval ref is required for actionable content");
+		}
+	},
+	generate: function() {
+		if(this.approvalGr && this.approvalGr.getTableName() === 'sysapproval_approver' && this.approvalFor) {			
+			return JSON.stringify(this._generateJSON());
+		}
+		gs.info("OAM: Not a valid approval record for adding adaptive cards. Adaptive content will not be added.");
+		return;
+	},
+	getRecipients: function() {
+		if(this.approvalGr && this.approvalGr.getTableName() === 'sysapproval_approver' && this.approvalFor) {			
+			return this._getExpectedActors();
+		}
+		gs.info("OAM: Not a valid approval record for adding adaptive cards. No recipients are available");
+		return;
+	},
+	_generateJSON: function() {
+		gs.debug("OAM: Start generating adaptive content");
+		var json = {
+			"$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+			"type": "AdaptiveCard",
+			"version": "1.0",
+			"hideOriginalBody": true,
+			"expectedActors": this._getExpectedActors(),
+			"padding": "none",
+			"originator": gs.getProperty('sn_ms_oam.outlookactionable.originator')
+		};
+		json.body = this._generateBody();
+		return json;
+	},
+	_getExpectedActors: function(){
+		var actors = [], email;
+		email = this.approvalGr.approver.email.toString();
+		if(email) {
+			actors.push(email);
+		}
+		return actors;
+	},
+	_generateBody: function() {
+		gs.debug("OAM: Generating body block for the email");
+		
+		// Check if we have any OAM definition for current approval
+		var body = [];
+		if (this._hasOAMDefinition()) {
+			gs.info("OAM: Generating body block from OAM Definition for the approval");
+
+			var scripted_oam = this.OAMDefinitionGr.scripted_oam;
+			if (scripted_oam) {
+				// Build message from oam script
+				body = this._buildMessageByOAMScript();
+			} else {
+				// Build message by OAM Container
+				body = this._buildMessageByOAMContainer();
+			}
+		} else {
+			gs.info("OAM: Generating body block by default approach for the approval");
+			var i = 0, reqDetails, item;
+			body.push(this._getHeaderBlock());
+			body.push(this._getFactSet());
+			reqDetails = this._getRequestDetails();
+			if(reqDetails) {
+				for(; i<reqDetails.length;i++) {
+					item = reqDetails[i];
+					body.push(item);
+				}
+			}
+		}
+
+		// Add actions
+		if(this.approvalGr.state.toString() === 'requested') {
+			body.push(this._getActionsBlock());
+		}
+
+		// Add approval footer
+		body.push(this._getApprovalFooter());
+		return body;
+	},
+	/**
+	* Build message body by oam script
+	* @return {Array} body - an array of JSON objects.
+	*/
+	_buildMessageByOAMScript: function() {
+		var body = [];
+		var evaluator = new GlideScopedEvaluator();
+		evaluator.putVariable("current", this.approvalGr);
+		evaluator.putVariable("languageForApprover", this.preferredLanguage);
+		evaluator.putVariable("payload", []);
+		evaluator.evaluateScript(this.OAMDefinitionGr, "payload");
+		body = evaluator.getVariable("payload");
+		if (Object.prototype.toString.call(body) !== '[object Array]') {
+			gs.error("OAM: Failed to generate body block from OAM script (Payload) because the returned payload is not an array.");
+			return;
+		}
+		return body;
+	},
+	/**
+	* Build message body by oam containers
+	* @return {Array} body - an array of JSON objects.
+	*/
+	_buildMessageByOAMContainer: function() {
+		var body = [];
+		var grContainer = new GlideRecord("oam_container");
+		grContainer.addQuery("oam_definition", this.OAMDefinitionGr.getUniqueValue());
+		grContainer.orderBy("order");
+		grContainer.query();
+		while (grContainer.next()) {
+			var containerType = grContainer.getValue("type");
+			switch (containerType) {
+				case "text":
+					body.push(this._buildTextContainerJSON(grContainer));
+					break;
+				case "user":
+					body.push(this._buildUserContainerJSON(grContainer));
+					break;
+				case "fieldset":
+					body.push(this._buildFieldSetContainerJSON(grContainer));
+					break;
+				default:
+					break;
+			}
+		}
+		return body;
+	},
+	/**
+	* @param {GlideRecord} grTextContainer - a glide record of text container
+	* @return {Object} containerJSON - a JSON object which represents a text container with real-time value.
+	*/
+	_buildTextContainerJSON: function(grTextContainer) {
+		var containerJSON = this.approvalACHelper._getTextContainerJSON();
+		containerJSON["items"][0]["text"] = this._getRealTextValueFromEmailScript(grTextContainer);
+		return containerJSON;
+	},
+	/**
+	* @param {GlideRecord} grUserContainer - a glide record of user container
+	* @return {Object} containerJSON - a JSON object which represents a user container with real-time value.
+	*/
+	_buildUserContainerJSON: function(grUserContainer) {
+		var containerJSON = this.approvalACHelper._getUserContainerJSON();
+		var userField = grUserContainer.getValue("user");
+		var userRefRecord = this.approvalGr.getElement(userField).getRefRecord();
+		// Add avatar. DEF0171915: use a small size image, an image larger than 1M cannot be rendered by Outlook
+		containerJSON["columns"][0]["items"][0]["url"] = this.customURLHelper.getCustomURL() + userRefRecord.getDisplayValue("avatar") + "?t=small";
+
+		// Add user's name
+		containerJSON["columns"][1]["items"][0]["text"] = gs.getMessageLang("Requested by {0}", this.preferredLanguage, [userRefRecord.getValue("name")]);
+
+		// add user's email
+		containerJSON["columns"][1]["items"][1]["text"] = userRefRecord.getValue("email");
+		return containerJSON;
+	},
+	/**
+	* @param {GlideRecord} grFieldSetContainer - a glide record of fieldset container
+	* @return {Object} containerJSON - a JSON object which represents a fielset container with real-time value.
+	*/
+	_buildFieldSetContainerJSON: function(grFieldSetContainer) {
+		var containerJSON = this.approvalACHelper._getFieldSetContainerJSON();
+		// Get all fields
+		var grField = new GlideRecord("oam_field");
+		grField.addQuery("oam_container", grFieldSetContainer.getUniqueValue());
+		grField.orderBy("order");
+		grField.query();
+		while (grField.next()) {
+			var fieldJS = this.approvalACHelper._getFieldJSON();
+			fieldJS["title"] = gs.getMessageLang(grField.getValue("label"), this.preferredLanguage) + this.approvalACHelper.COLON;
+			fieldJS["value"] = this._getRealTextValueFromEmailScript(grField);
+			containerJSON["columns"][0]["items"][0]["facts"].push(fieldJS);
+		}
+		return containerJSON;
+	},
+	/**
+	* Calculate the real-time text value from email script field
+	*
+	* @param {GlideRecord} textGr - a glide record which has email script field
+	* @return {string} a real-time value that will be shown in the email
+	*/
+	_getRealTextValueFromEmailScript: function(textGr) {
+		var table = textGr.getValue("table");
+		var rawTextValue = textGr.getValue("text_value");
+		var realTextValue = "";
+		var variableArray = [];
+		var variables = this.approvalACHelper._getEmailScriptVariables(rawTextValue);
+		if (variables.length > 0) {
+			// Get the real value for each variable and build the final text value
+			for (var i = 0; i < variables.length; i ++) {
+				var tableField = variables[i].replace(/[${}]/g, "");
+				var systemValue = this.approvalGr.getElement(tableField).toString();
+				var displayValue = this.approvalGr.getElement(tableField).getDisplayValue();
+				var refRecord = this.approvalGr.getElement(tableField).getRefRecord();
+				var internalType = this.approvalGr.getElement(tableField).getED().getInternalType();
+				var realValue = "";
+				if (!gs.nil(refRecord)) {
+					// If this variable represents a reference, then we make this value as a link
+					var refTable = this.approvalGr.getElement(tableField).getReferenceTable();
+					realValue = "[" + displayValue + "](" + this.customURLHelper.getCustomURL() + refTable + ".do?sys_id=" + systemValue + ")";
+				} else
+					realValue = displayValue;
+				variableArray.push(realValue);
+				rawTextValue = rawTextValue.replace(variables[i], "{" + i + "}");
+			}
+		}
+		realTextValue = gs.getMessageLang(rawTextValue, this.preferredLanguage, variableArray);
+		return realTextValue;
+	},
+	/**
+	* Check if we have any matched OAM Definition for this approval.
+	* @retrun true if we find one.
+	*/
+	_hasOAMDefinition: function() {
+		var matchedFound = false;
+		var grOAMDefinition = new GlideRecord("oam_definition");
+		grOAMDefinition.addActiveQuery();
+		grOAMDefinition.addEncodedQuery("table=" + this.approvalGr.getTableName());
+		grOAMDefinition.orderBy("order");
+		grOAMDefinition.query();
+		while (grOAMDefinition.next()) {
+			var condition = grOAMDefinition.getValue("condition");
+			matchedFound = !gs.nil(condition) ? GlideFilter.checkRecord(this.approvalGr, condition) : true;
+			if (matchedFound) {
+				this.OAMDefinitionGr = grOAMDefinition;
+				this.useOAMDefinition = true;
+				break;
+			}
+		}
+		return matchedFound;
+	},
+	_getRequestDetails: function() {
+		var content=[], reqItems;	
+		if(this.approvalFor.getTableName() === 'sc_request') {
+			gs.debug("OAM: Processing request items for the sc_request object");		
+			reqItems = this._getAllRequestItems(this.approvalFor);
+			if(reqItems) {
+				content.push(this._getRequestDetailsExpander());
+				content.push(this._getRequestDetailsCollapser());
+				content.push(reqItems);
+			}
+		}
+		return content;
+	},
+	_getHeaderBlock: function() {
+		gs.debug("OAM: Generating the approval header block");
+		var content = {
+			"type": "Container",
+			"style": "emphasis",
+            "padding": "default",
+			"items":[]
+		};
+		content.items.push({
+			"type": "TextBlock",
+			"text": "Approval Request - [" + this.approvalFor.getDisplayValue() + "]("+ this.customURLHelper.getCustomURL()+ this.approvalFor.getTableName() + ".do?sys_id=" + this.approvalFor.sys_id.toString() + ")",
+			"weight": "bolder",
+			"size": "medium"
+		});
+		return content;
+	},
+	_getFactSet: function() {
+		gs.debug("OAM:Generating the facts for the approval record");
+		var additionalFacts, columnSet, factsObj;
+		var content ={
+			"type": "Container",
+			"style": "default",
+			"separator": "true",
+            "spacing": "none",
+			"padding": "default",
+			"items": []
+		};
+		if(this.approvalFor.short_description.toString().length > 0) {
+			content.items.push({
+				"type": "TextBlock",
+				"text": this.approvalFor.short_description.toString(),
+				"size": "medium",
+				"weight": "bolder",
+				"wrap": true
+			});
+		}
+		
+		if(this.approvalFor.description.toString().length > 0) {
+			content.items.push({					
+				"type": "TextBlock",
+				"text": this.approvalFor.description.toString(),
+				"wrap": true				
+			});
+		}
+		//create two column layout
+		columnSet = {
+			"type": "ColumnSet",
+			"columns": [
+				{
+					"type": "Column",
+					"items": [],
+					"width": "stretch"
+				},
+				{
+					"type": "Column",
+					"items": [],
+					"width": "stretch"
+				}
+			]
+		};
+		//add basic facts to first column
+		factsObj = {
+			"type": "FactSet",
+			"facts": [{
+				"title":this.approvalFor.number.getLabel(),
+				"value": this.approvalFor.number.toString()
+			},{
+				"title": this.approvalGr.state.getLabel(),
+				"value": this.approvalGr.state.getDisplayValue()
+			},{
+				"title": this.approvalFor.priority.getLabel(),
+				"value": this.approvalFor.priority.getDisplayValue()
+			}]
+		};		
+		columnSet.columns[0].items.push(factsObj);
+		
+		//add REQ or CHG facts to second column
+		additionalFacts = {
+			"type": "FactSet",
+			"facts": this._getAdditionalFacts()
+		};		
+		columnSet.columns[1].items.push(additionalFacts);
+		
+		content.items.push(columnSet);
+		content.items.push(this._getApprovalActivityBlock());
+		return content;
+	},
+	_getAdditionalFacts: function() {
+		var taskType = this.approvalFor.getTableName();
+		gs.debug("OAM: Getting additional facts based on the task type: " + taskType);
+		if(taskType === 'change_request') {
+			return this._getCHGFacts();
+		} else if(taskType === 'sc_request' || taskType === 'sc_req_item' ) {
+			return this._getReqFacts();
+		}
+		gs.debug("OAM: No additional facts are generated for this type");		
+		return [];
+	},
+	_getAllRequestItems: function(request) {
+		var curItem, gr, content, variables, columnSet;		
+		gr = new GlideRecord("sc_req_item");		
+		gr.addQuery("request", request.sys_id.toString());
+		gr.query();
+		while(gr.next()) {
+			if(!content) {
+				content = {			
+					"type": "Container",
+					"padding":"default",
+					"separator": "true",
+					"spacing": "none",
+					"id": "detailsContent",
+					"isVisible": false,
+					"items": [{					
+						"type": "TextBlock",
+						"text": "Requested Items",
+						"weight": "bolder",
+						"size": "medium"
+					}]
+				};
+			}
+			columnSet = {
+				"type": "ColumnSet",
+				"columns": [
+					{
+						"type": "Column",
+						"items": [
+							{
+								"type": "FactSet",
+								"spacing": "small",
+								"facts": [{
+									"title": gr.number.getLabel(),
+									"value": gr.number.getDisplayValue()
+								},{
+									"title": gr.cat_item.getLabel(),
+									"value": gr.cat_item.getDisplayValue()
+								}]
+							}
+						],
+						"width": "stretch"
+					},
+					{
+						"type": "Column",
+						"items": [
+							{
+								"type": "FactSet",
+								"spacing": "small",
+								"facts": [{
+									"title": gr.quantity.getLabel(),
+									"value": gr.quantity.getDisplayValue()
+								},{
+									"title": gr.price.getLabel(),
+									"value": gr.price.getDisplayValue()
+								}]
+							}
+						],
+						"width": "stretch"
+					}
+				]
+			};
+			
+			content.items.push(columnSet);
+			
+			variables = this._getVariables(gr);
+			if(variables) {
+				content.items.push(variables);
+			}			
+		}		
+		return content;
+	},
+	_getVariables: function(gr) {
+		gs.debug("OAM: Adding request variables for the requested item");
+		var i = 0, curVar, question, variablesContainer, varItem, variables;
+		
+		variables = gr.variables.getElements();
+		if(variables.length === 0) {
+			return null;
+		}
+		
+		variablesContainer = {
+			"type": "Container",
+			"items":[{
+					"type":"TextBlock",
+					"spacing": "small",
+					"text": "Options",
+					"weight": "bolder",
+					"size": "default"
+				},
+				{
+					"type": "ColumnSet",					
+                    "spacing": "default",
+					"columns": [
+						{
+							"type": "Column",
+							"spacing": "small",
+							"width": "auto",
+							"items": []
+						}
+					]
+				}
+
+			]
+		};
+		
+		for(;i<variables.length;i++) {
+			curVar = variables[i];
+			question = curVar.getQuestion();
+			if(question && question.isVisibleSummary()) {				
+				varItem = {
+					"type": "TextBlock",
+					"spacing": "small",
+					"text": question.getLabel() +": "+curVar.getDisplayValue()
+				};
+				variablesContainer.items[1].columns[0].items.push(varItem);
+			}			
+		}
+		return variablesContainer;
+	},	
+	_getReqFacts: function() {
+		var facts = [{
+			"title": this.approvalFor.requested_for.getLabel(),
+			"value": this.approvalFor.requested_for.getDisplayValue()
+		},{
+			"title": this.approvalFor.opened_by.getLabel(),
+			"value": this.approvalFor.opened_by.getDisplayValue()			
+		},{
+			"title": this.approvalFor.price.getLabel(),
+			"value": this.approvalFor.price.getDisplayValue()
+		}];		
+		return facts;
+	},
+	_getCHGFacts: function() {
+		var facts = [{
+			"title": this.approvalFor.category.getLabel(),
+			"value": this.approvalFor.category.getDisplayValue()
+		},{
+			"title": this.approvalFor.requested_by.getLabel(),
+			"value": this.approvalFor.requested_by.getDisplayValue()			
+		}];		
+		return facts;
+	},
+	_getActionsBlock: function() {
+		var content = !this.useOAMDefinition ? {
+            "type": "Container",
+            "padding": "default",
+            "separator": "true",
+            "spacing": "none",
+            "items": [{
+				"type": "ActionSet",
+				"padding": "default",
+                "spacing": "default",
+				"actions": []
+			}]
+		} : {
+            "type": "Container",
+            "padding": "default",
+            "separator": "false",
+            "spacing": "none",
+            "items": [{
+				"type": "ActionSet",
+				"padding": "default",
+                "spacing": "Medium",
+				"actions": []
+			}]
+		};
+		
+		content.items[0].actions.push(this._getApproveAction());
+		content.items[0].actions.push(this._getRejectAction());
+		
+		// Add "View Details" action button for sc_request and sc_req_item if it's built by OAM Definition
+		var taskType = this.approvalFor.getTableName();
+		if (this.useOAMDefinition && (taskType === 'sc_request' || taskType === 'sc_req_item')){
+			gs.info("OAM: Add 'View Details' action button for sc_request and sc_req_item if it's built by OAM Definition");
+			content.items[0].actions.push(this._getViewDetailsAction());
+		}
+
+		return content;
+	},
+	_getApprovalFooter: function() {
+		var content = {
+            "type": "Container",
+            "padding": {
+                "left": "default",
+                "top": "small",
+                "bottom": "small",
+                "right": "default"
+            },
+            "separator": true,
+            "spacing": "none",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "[" + gs.getMessageLang("View Approval Request", this.preferredLanguage) + "](" + this.customURLHelper.getCustomURL() + "sysapproval_approver.do?sys_id=" + this.approvalGr.sys_id.toString() + ")",
+                    "size": "small"
+                }
+            ]
+        };
+		
+		return content;
+	},
+	
+	_getApproveAction: function() {
+		var body = {
+			"sys_id":this.approvalGr.sys_id.toString(),
+			"action":"approve",
+			"comments": "{{approve_note.value}}",
+			"language": this.preferredLanguage
+		};
+		var content = {
+			"type": "Action.ShowCard",
+			"title": gs.getMessageLang("Approve", this.preferredLanguage),
+			"card": {
+				"type": "AdaptiveCard",
+				"body": [
+					{
+						"type": "Input.Text",
+						"id": "approve_note",
+						"isMultiline": true,
+						"placeholder": gs.getMessageLang("Enter approval comments", this.preferredLanguage)
+					}
+				],
+				"actions": [
+					{
+						"type": "Action.Http",
+						"method":"POST",
+						"title": gs.getMessageLang("Submit", this.preferredLanguage),
+						"url": this.customURLHelper.getServiceNowURL()+"api/sn_ms_oam/oam/approval",
+						"body": JSON.stringify(body),
+						"headers": [
+                          { "name": "Content-Type", "value": "application/json" }
+                        ]
+					}
+				]
+			}
+		};
+		return content;
+	},
+	_getRejectAction: function() {
+		var body = {
+			"sys_id":this.approvalGr.sys_id.toString(),
+			"action":"reject",
+			"comments": "{{reject_note.value}}",
+			"language": this.preferredLanguage
+		};
+		var content = {
+			"type": "Action.ShowCard",
+			"title": gs.getMessageLang("Reject", this.preferredLanguage),
+			"card": {
+				"type": "AdaptiveCard",
+				"body": [
+					{
+						"type": "Input.Text",
+						"id": "reject_note",
+						"isMultiline": true,
+						"placeholder": gs.getMessageLang("Enter rejection comments", this.preferredLanguage)
+					}
+				],
+				"actions": [
+					{
+						"type": "Action.Http",
+						"method":"POST",
+						"title": gs.getMessageLang("Submit", this.preferredLanguage),
+						"url": this.customURLHelper.getServiceNowURL()+"api/sn_ms_oam/oam/approval",
+						"body": JSON.stringify(body),
+						"headers": [
+                          { "name": "Content-Type", "value": "application/json" }
+                        ]
+					}
+				]
+			}
+		};
+		return content;
+	},
+	/**
+	* Build a "View Details" action button
+	* @return {object} content - a JSON object which represents the action button of "View Details"
+	*/
+	_getViewDetailsAction: function() {
+		var content = {
+			"title": gs.getMessageLang("View Details", this.preferredLanguage),
+			"isPrimary": false,
+			"type": "Action.ShowCard",
+			"card": {
+				"type": "AdaptiveCard",
+				"autoInvokeAction": null,
+				"autoInvokeOptions": null,
+				"body": [{
+					"padding": "default",
+					"id": "detailsContent",
+					"spacing": "None",
+					"separator": true,
+					"isVisible": true,
+					"type": "Container",
+					"items": [{
+						"size": "Medium",
+						"text": gs.getMessageLang("Requested Item(s)", this.preferredLanguage),
+						"weight": "Bolder",
+						"type": "TextBlock"
+					}]
+				}]
+			}
+		};
+		
+		// Get the detail information of requested items
+		var requestedItems = this._getRequestedItems();
+		for (var i = 0; i < requestedItems.length; i++) {
+			content.card.body[0].items.push(requestedItems[i]);
+		}
+		return content;
+	},
+	/**
+	* @return {Array.<object>} requestedItems - a list of JSON objects that represent requested items
+	*/
+	_getRequestedItems: function() {
+		var requestedItems = []; // Applied in buttons below
+		var approvalForTable = this.approvalFor.getTableName();
+		gs.debug("OAM: Get request items for View Details action: " + approvalForTable);			
+		var grRequestedItems = new GlideRecord("sc_req_item");
+		if (approvalForTable === 'sc_req_item') {
+			grRequestedItems.addQuery("sys_id", this.approvalGr.sysapproval);
+		} else {
+			grRequestedItems.addQuery("request", this.approvalFor.getUniqueValue());
+		}
+		grRequestedItems.query();
+		while (grRequestedItems.next()) {
+			var grCatItem = grRequestedItems.cat_item.getRefRecord();
+			var item = {
+				"columns": [{
+						"width": "auto",
+						"type": "Column",
+						"items": [{
+							"type": "Image",
+							"url": this.customURLHelper.getCustomURL() + grCatItem.getDisplayValue("picture"),
+							"size": "Medium"
+						}]
+					},
+					{
+						"width": "stretch",
+						"type": "Column",
+						"items": [{
+							"facts": [{
+									"title": gs.getMessageLang("Quantity:", this.preferredLanguage),
+									"value": grRequestedItems.getValue("quantity")
+								},
+								{
+									"title": gs.getMessageLang("Price:", this.preferredLanguage),
+									"value": grCatItem.getDisplayValue("price")
+								},
+								{
+									"title": gs.getMessageLang("Number:", this.preferredLanguage),
+									"value": grRequestedItems.getValue("number")
+								},
+								{
+									"title": gs.getMessageLang("Item:", this.preferredLanguage),
+									"value": grRequestedItems.getDisplayValue("cat_item")
+								}
+							],
+							"spacing": "Small",
+							"type": "FactSet"
+						}]
+					}
+				],
+				"type": "ColumnSet"
+			};
+			requestedItems.push(item);
+		}
+		return requestedItems;
+	},
+	_getApprovalActivityBlock: function() {
+		var activities = [], curItem, i, approvers, content = {
+			"type": "Container",			
+			"style": "default",
+			"items":[]
+		};
+		content.items.push({
+			"type": "TextBlock",
+			"text": "**Approval Activity**"
+		});		
+		
+		approvers = new GlideRecord('sysapproval_approver');
+		approvers.addNotNullQuery('approver');
+		approvers.addQuery('approver', '!=', this.approvalGr.approver);
+		approvers.addQuery('sysapproval', this.approvalGr.sysapproval);
+		approvers.addQuery('state', 'IN', 'approved,rejected,requested');
+		approvers.orderBy('approver');
+		approvers.query();
+		var limit = 20;
+		approvers.setLimit(limit);
+		if (approvers.getRowCount() > 0) {
+			while (approvers.next()) {
+				curItem = {
+						"type": "TextBlock",
+						"text": approvers.approver.getDisplayValue() + ' - ' + approvers.state.getDisplayValue(),
+						"wrap": true
+					};
+				if(activities.length > 0) {
+					curItem.spacing = "none";
+				}
+				
+				activities.push(curItem);
+			}
+			if (approvers.getRowCount() > limit) {
+				curItem = {
+						"type": "TextBlock",
+						"text": "Additional approvers are available and require viewing the record.",
+						"wrap": true
+					};
+				activities.push(curItem);
+			}
+		} else {
+			curItem = {
+				"type": "TextBlock",
+				"text": "You are the sole approver.",
+				"wrap": true
+			};
+			activities.push(curItem);
+		}
+		
+		for(i=0;i<activities.length;i++) {
+			content.items.push(activities[i]);
+		}
+		
+		return content;
+	},
+	_getRequestDetailsExpander: function() {
+		var content = {
+            "type": "Container",
+            "style": "emphasis",
+            "separator": "true",
+            "spacing": "none",
+            "isVisible": true,
+            "id": "containerDown",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "horizontalAlignment": "Left",
+                            "spacing": "default",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "View Details",
+                                    "wrap": true
+                                }
+                            ],
+                            "width": "stretch"
+                        },
+                        {
+                            "type": "Column",
+                            "spacing": "small",
+                            "verticalContentAlignment": "center",
+                            "id": "chevronDown1",
+                            "isVisible": true,
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "width": "20px",
+                                    "url": this.customURLHelper.getServiceNowURL()+"oam-down.png",
+                                    "altText": "collapsed"
+                                }
+                            ],
+                            "width": "auto"
+                        }
+                    ]
+                }
+            ],
+            "selectAction": {
+                "type": "Action.ToggleVisibility",
+                "title": "collapse",
+                "targetElements": [
+                    "detailsContent",
+                    "containerDown",
+                    "containerUp"
+                ]
+            }
+        };
+		return content;
+	},
+	_getRequestDetailsCollapser: function() {
+		var content = {
+            "type": "Container",
+            "style": "emphasis",
+            "separator": "true",
+            "spacing": "none",
+            "isVisible": false,
+            "id": "containerUp",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "horizontalAlignment": "Left",
+                            "spacing": "default",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "View Details",
+                                    "wrap": true
+                                }
+                            ],
+                            "width": "stretch"
+                        },
+                        {
+                            "type": "Column",
+                            "spacing": "small",
+                            "verticalContentAlignment": "center",
+                            "id": "chevronUp1",
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "width": "20px",
+                                    "url": this.customURLHelper.getServiceNowURL()+"oam-up.png",
+                                    "altText": "expanded"
+                                }
+                            ],
+                            "width": "auto"
+                        }
+                    ]
+                }
+            ],
+            "selectAction": {
+                "type": "Action.ToggleVisibility",
+                "title": "expand",
+                "targetElements": [
+                    "detailsContent",
+                    "containerDown",
+                    "containerUp"
+                ]
+            }
+        };
+		return content;
+	},
+    type: 'CustomApprovalAdaptiveCardGenerator'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-12-09 22:20:25</sys_created_on>
+        <sys_id>de3a5a421b58c15062e50ed2cd4bcb62</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>CustomApprovalAdaptiveCardGenerator</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_include_de3a5a421b58c15062e50ed2cd4bcb62</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-12-09 22:21:21</sys_updated_on>
+    </sys_script_include>
+</record_update>
