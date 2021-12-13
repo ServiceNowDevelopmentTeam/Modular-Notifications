@@ -86,15 +86,14 @@ ModularNotificationsBuilder.prototype = {
 
 			if(!table.nil()){
 				//If opened RITM, then add template info to it
-				if (table == 'sc_req_item' && action != 'custom' && !documentID.nil()) {
-					this.ritmVals(action);
-				}
-				//If completed RITM, then add template info to it
-				if (table == 'sc_request' && action == 'completed' && !documentID.nil()) {
-					this.ritmVals(action);
-				}
-				//If completed RITM, then add template info to it
-				if (table == 'sc_request' && action == 'opened' && !documentID.nil()) {
+				if (
+					(table == 'sc_req_item' && action != 'custom') || 
+					(table == 'sc_request' && (
+						action == 'completed' || 
+						action == 'opened')
+					) && 
+					!documentID.nil()
+				) {
 					this.ritmVals(action);
 				}
 				//If incident, then add template info to it
@@ -342,6 +341,10 @@ ModularNotificationsBuilder.prototype = {
 	//////Internal - Setting Email Template for REQ/RITMs///////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////
 	ritmVals: function(action) {
+
+		//If it's an approval, change wording
+		action = (action =='approvalrequested') ? 'submitted for approval' : action;
+
 		//Get ritm
 		var gr = new GlideRecord(this.table);
 		gr.get(this.documentID);
@@ -356,6 +359,8 @@ ModularNotificationsBuilder.prototype = {
 		var ritmDur = schedTools.getRitmDuration(grSysId);
 		var sixToSixSchedule = '581ec9791b88bc10e7004229bc4bcb2c';
 		var estDeliveryDate = (schedTools.getEndDateFromNow(sixToSixSchedule,ritmDur).toString());
+		var approverStr='';
+
 		if (action == 'updated') {
 			this.varList.push({
 				variableName: 'Number',
@@ -380,6 +385,28 @@ ModularNotificationsBuilder.prototype = {
 			}, {
 				variableName: 'Description',
 				variableValue: gr.request.short_description.getDisplayValue()
+			});			
+		} else if (action == 'submitted for approval'){
+			var approverGr = new GlideRecord('sysapproval_approver');
+			approverGr.addQuery('document_id',grSysId);
+			approverGr.query();
+
+			while(approverGr.next()){
+				approverStr += approverGr.approver.name;
+				approverStr += approverGr.hasNext() ? '<br>' : '';
+			}
+			this.varList.push({
+				variableName: 'Submitted By',
+				variableValue: gr.opened_by.getDisplayValue()
+			}, {
+				variableName: 'Number',
+				variableValue: 'Request: ' + gr.request.number.getDisplayValue() + '<br>Request Item: ' + gr.number.getDisplayValue()
+			}, {
+				variableName: 'Description',
+				variableValue: gr.request.short_description.getDisplayValue()
+			}, {
+				variableName: 'Approval Requested From',
+				variableValue: approverStr
 			});			
 		} else {
 			this.varList.push({
@@ -595,13 +622,13 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>292</sys_mod_count>
+        <sys_mod_count>298</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-10 15:00:28</sys_updated_on>
+        <sys_updated_on>2021-12-13 20:15:09</sys_updated_on>
     </sys_script_include>
 </record_update>
