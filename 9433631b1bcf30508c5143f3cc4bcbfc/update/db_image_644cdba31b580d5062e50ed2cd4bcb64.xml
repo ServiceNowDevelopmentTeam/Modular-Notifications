@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="db_image">
+    <db_image action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category/>
+        <format>png</format>
+        <height>12</height>
+        <image>e95c1fa31b580d5062e50ed2cd4bcb1e</image>
+        <name>APiBlue.png</name>
+        <size_bytes>121</size_bytes>
+        <sys_class_name>db_image</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-12-14 19:00:04</sys_created_on>
+        <sys_id>644cdba31b580d5062e50ed2cd4bcb64</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>APiBlue.png</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>db_image_644cdba31b580d5062e50ed2cd4bcb64</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-12-14 19:00:10</sys_updated_on>
+        <thumbnail/>
+        <width>12</width>
+    </db_image>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#3087</average_image_color>
+        <chunk_size_bytes>700000</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <file_name>image</file_name>
+        <hash>0fcd560114f82b9e418d36a4fd259d6c35f34314abd9ee3d0bfba3f5a59cc70a</hash>
+        <image_height>12</image_height>
+        <image_width>12</image_width>
+        <size_bytes>121</size_bytes>
+        <size_compressed>130</size_compressed>
+        <state>available</state>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-12-14 19:00:10</sys_created_on>
+        <sys_id>e95c1fa31b580d5062e50ed2cd4bcb1e</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-12-14 19:00:10</sys_updated_on>
+        <table_name>ZZ_YYdb_image</table_name>
+        <table_sys_id>644cdba31b580d5062e50ed2cd4bcb64</table_sys_id>
+        <u_table_id/>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="image" sys_id="e95c1fa31b580d5062e50ed2cd4bcb1e">e95c1fa31b580d5062e50ed2cd4bcb1e</sys_attachment>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-12-14 19:00:10</sys_created_on>
+        <sys_id>2d5c1fa31b580d5062e50ed2cd4bcb1e</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>6wzwc+flkuJiYGDg9fRwCQLSPCDMwQYkw0pjngMpzgKPyGIGBqESEGa8lyZfARRkL/H0dWV/ysMnZGV6+NR1kDoJTxfHEI2JySkGGf/POzAlKLl+XNE2cQkjA5s+47kfx1IuAtUweLr6uaxzSmgCADaNT715AAAA</data>
+        <length>160</length>
+        <position>1</position>
+        <sys_attachment display_value="image" sys_id="e95c1fa31b580d5062e50ed2cd4bcb1e">e95c1fa31b580d5062e50ed2cd4bcb1e</sys_attachment>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-12-14 19:00:10</sys_created_on>
+        <sys_id>ad5c1fa31b580d5062e50ed2cd4bcb1e</sys_id>
+    </sys_attachment_doc>
+</record_update>

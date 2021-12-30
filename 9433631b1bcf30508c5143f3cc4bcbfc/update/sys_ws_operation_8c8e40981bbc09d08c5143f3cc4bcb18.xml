@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>apiapproval</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+	
+    var payload = request.body.data, isValidUser, refreshCard, writer;
+	
+	isValidUser = function(current) {		
+		if (current.approver == gs.getUserID())
+			return true;
+
+		// check if the email is from a delegate of the approver
+		var g = new GlideRecord("sys_user_delegate");
+		g.addQuery("user", current.approver.toString());
+		g.addQuery("delegate", gs.getUserID());
+		g.addQuery("approvals", "true");
+		g.addQuery("starts", "<=", gs.daysAgo(0));
+		g.addQuery("ends", ">=", gs.daysAgo(0));
+		g.query();
+		return g.hasNext();
+	};
+	
+	refreshCard = function(gr) {
+		refreshCard = new global.CustomApprovalAdaptiveCardGenerator(gr, payload.language).generate();
+		if(refreshCard) {
+			response.setContentType("application/json");
+			response.setHeader("CARD-UPDATE-IN-BODY", "true");
+			writer = response.getStreamWriter();
+			writer.writeString(refreshCard);
+		}
+	};
+
+	if(!payload.sys_id || !(payload.action ==='approve' || payload.action === 'reject')) {
+		gs.info("OAM: Not a valid approval request");
+		response.setStatus(400);
+		response.setHeader("CARD-ACTION-STATUS", gs.getMessageLang("Not a valid request", payload.language));
+		return;
+	}
+
+	var gr = new GlideRecord('sysapproval_approver');
+	if(!gr.get(payload.sys_id)) {
+		gs.info("OAM: Approval record is invalid");
+		response.setStatus(404);
+		response.setHeader("CARD-ACTION-STATUS", gs.getMessageLang("Invalid Approval Record", payload.language));
+		return;
+	}
+
+	if(!isValidUser(gr)) {
+		//not a valid user for approving this record
+		gs.info("OAM: Not a valid user for approving the record. sys_id="+gr.getUniqueValue()+", userid="+gs.getUserID());
+		response.setStatus(401);
+		response.setHeader("CARD-ACTION-STATUS", gs.getMessageLang("You are not authorized to approve this request", payload.language));
+		return;
+	}
+
+	if(gr.state.toString() === 'cancelled') {
+		gs.info("OAM: Approval record has already been cancelled");
+		response.setStatus(200);
+		response.setHeader("CARD-ACTION-STATUS", gs.getMessageLang("The approval has been cancelled", payload.language));
+		refreshCard(gr);
+		return;
+	}
+	
+	if(payload.action === 'approve') {
+		gr.state = 'approved';
+	} else {
+		// DEF0161722: comments are needed when reject an approval
+		if (gs.nil(payload.comments)) {
+			gs.info("OAM: Comments are required when rejecting an approval");
+			response.setStatus(400);
+			response.setHeader("CARD-ACTION-STATUS", gs.getMessageLang("Comments are required when rejecting an approval", payload.language));
+			refreshCard(gr);
+			return;
+		}
+		gr.state = 'rejected';
+	}
+	gr.comments = payload.comments;
+	gr.update();		
+	response.setStatus(200);
+	refreshCard(gr);
+	
+	// LUA event logging
+	logEvent(gr);
+	
+	function logEvent(approvalGr) {
+		// Only want to track successfully completed ones
+		var eventDataFnInput = {
+			payload: payload,
+			gr: approvalGr
+		};
+		var eventDataFn = function(ctx, input) {
+			var timeMs = 0;
+			var gr = input.gr;
+			// Use current time
+			var takenOn = new GlideDate();
+			var sysCreated = new GlideDate();
+			sysCreated.setValue(gr.sys_created_on);
+			timeMs = GlideDateTime.subtract(sysCreated, takenOn).getNumericValue();
+			return timeMs;
+		};
+		// Log analytics data
+		var timerId = 'approvals.completionTime'; 
+		var luaUtil = new global.OAMUsageAnalytics;
+		luaUtil.logTimerEvent(timerId, eventDataFn, eventDataFnInput);
+	}
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/sn_ms_oam/oam/apiapproval</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/apiapproval</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-12-28 22:12:00</sys_created_on>
+        <sys_id>8c8e40981bbc09d08c5143f3cc4bcb18</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>apiapproval</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_ws_operation_8c8e40981bbc09d08c5143f3cc4bcb18</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-12-28 22:31:52</sys_updated_on>
+        <web_service_definition display_value="Outlook Actionable Message">1f71028073171300295ac1f52ff6a70a</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
+        <claim_timestamp>17e032b715b0000001</claim_timestamp>
+        <metadata_update_name>sys_ws_operation_8c8e40981bbc09d08c5143f3cc4bcb18</metadata_update_name>
+        <previous_claim_app_version>1.1.1</previous_claim_app_version>
+        <previous_claim_name>Modular Notifications</previous_claim_name>
+        <previous_claim_scope>9433631b1bcf30508c5143f3cc4bcbfc</previous_claim_scope>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-12-28 22:31:25</sys_created_on>
+        <sys_id>a4f21c941bfc09d08c5143f3cc4bcbda</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-12-28 22:31:25</sys_updated_on>
+    </sys_claim>
+</record_update>

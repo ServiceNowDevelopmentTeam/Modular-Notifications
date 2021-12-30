@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="io_set_item">
+    <io_set_item action="INSERT_OR_UPDATE">
+        <order>200</order>
+        <sc_cat_item display_value="USB 2.0 A to B Cable">1b8545351b03f4108c5143f3cc4bcb0a</sc_cat_item>
+        <sys_class_name>io_set_item</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-12-15 16:23:54</sys_created_on>
+        <sys_id>9a2204481b248d5062e50ed2cd4bcb01</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Comments.USB 2.0 A to B Cable</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>io_set_item_9a2204481b248d5062e50ed2cd4bcb01</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-12-15 16:23:54</sys_updated_on>
+        <variable_set display_value="Comments">af9731761b5a6010e7004229bc4bcb0d</variable_set>
+    </io_set_item>
+</record_update>

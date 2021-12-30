@@ -17,6 +17,8 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 			this.customURLHelper = new global.CustomAdaptiveCardCustomURLHelper();
 			this.useOAMDefinition = false;
 			this.approvalACHelper = new global.CustomApprovalAdaptiveCardHelper();
+			this.adaptiveCardUtils = new global.CustomAdaptiveCardUtils();
+			this.reqItemUtils = new global.RequestedItemUtils();
 		} else {
 			gs.info("OAM: sysapproval_approver with valid sysapproval ref is required for actionable content");
 		}
@@ -59,7 +61,7 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 	},
 	_generateBody: function() {
 		gs.debug("OAM: Generating body block for the email");
-		
+
 		// Check if we have any OAM definition for current approval
 		var body = [];
 		if (this._hasOAMDefinition()) {
@@ -67,12 +69,15 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 
 			var scripted_oam = this.OAMDefinitionGr.scripted_oam;
 			if (scripted_oam) {
+				gs.info("OAM: Scripted body");
 				// Build message from oam script
 				body = this._buildMessageByOAMScript();
 			} else {
+				gs.info("OAM: Non-Scripted body");
 				// Build message by OAM Container
 				body = this._buildMessageByOAMContainer();
 			}
+			body.push(this._getFactSet());
 		} else {
 			gs.info("OAM: Generating body block by default approach for the approval");
 			var i = 0, reqDetails, item;
@@ -80,7 +85,7 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 			body.push(this._getFactSet());
 			reqDetails = this._getRequestDetails();
 			if(reqDetails) {
-				for(; i<reqDetails.length;i++) {
+				for(i; i<reqDetails.length;i++) {
 					item = reqDetails[i];
 					body.push(item);
 				}
@@ -94,6 +99,11 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 
 		// Add approval footer
 		body.push(this._getApprovalFooter());
+
+		var apiFooter = this.adaptiveCardUtils.getFooter();
+		for (var n = 0; n<apiFooter.length; n++){
+			body.push(apiFooter[n]);
+		}
 		return body;
 	},
 	/**
@@ -120,6 +130,12 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 	*/
 	_buildMessageByOAMContainer: function() {
 		var body = [];
+		//Add APi Custom Header
+		var apiHeader = this.adaptiveCardUtils.getHeader();
+		for (var i = 0; i<apiHeader.length; i++){
+			body.push(apiHeader[i]);
+		}
+
 		var grContainer = new GlideRecord("oam_container");
 		grContainer.addQuery("oam_definition", this.OAMDefinitionGr.getUniqueValue());
 		grContainer.orderBy("order");
@@ -127,6 +143,9 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 		while (grContainer.next()) {
 			var containerType = grContainer.getValue("type");
 			switch (containerType) {
+				case "header" : 
+					body.push(this._buildHeaderContainerJSON(grContainer));
+					break;
 				case "text":
 					body.push(this._buildTextContainerJSON(grContainer));
 					break;
@@ -149,6 +168,15 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 	_buildTextContainerJSON: function(grTextContainer) {
 		var containerJSON = this.approvalACHelper._getTextContainerJSON();
 		containerJSON["items"][0]["text"] = this._getRealTextValueFromEmailScript(grTextContainer);
+		return containerJSON;
+	},
+	/**
+	* @param {GlideRecord} grHeaderContainer - a glide record of text container
+	* @return {Object} containerJSON - a JSON object which represents a text container with real-time value.
+	*/
+	_buildHeaderContainerJSON: function(grHeaderContainer) {
+		var containerJSON = this.approvalACHelper._getHeaderContainerJSON();
+		containerJSON["items"][0]["text"] = this._getRealTextValueFromEmailScript(grHeaderContainer);
 		return containerJSON;
 	},
 	/**
@@ -262,7 +290,7 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 		var content = {
 			"type": "Container",
 			"style": "emphasis",
-            "padding": "default",
+			"padding": "default",
 			"items":[]
 		};
 		content.items.push({
@@ -280,20 +308,22 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 			"type": "Container",
 			"style": "default",
 			"separator": "true",
-            "spacing": "none",
+			"spacing": "none",
 			"padding": "default",
 			"items": []
 		};
+		var shortDescription = this.approvalGr.source_table.toString() == 'sc_req_item' ? this.approvalFor.request.short_description.toString() :this.approvalFor.short_description.toString();
+
 		if(this.approvalFor.short_description.toString().length > 0) {
 			content.items.push({
 				"type": "TextBlock",
-				"text": this.approvalFor.short_description.toString(),
+				"text": shortDescription,
 				"size": "medium",
 				"weight": "bolder",
 				"wrap": true
 			});
 		}
-		
+
 		if(this.approvalFor.description.toString().length > 0) {
 			content.items.push({					
 				"type": "TextBlock",
@@ -326,20 +356,17 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 			},{
 				"title": this.approvalGr.state.getLabel(),
 				"value": this.approvalGr.state.getDisplayValue()
-			},{
-				"title": this.approvalFor.priority.getLabel(),
-				"value": this.approvalFor.priority.getDisplayValue()
 			}]
 		};		
 		columnSet.columns[0].items.push(factsObj);
-		
+
 		//add REQ or CHG facts to second column
 		additionalFacts = {
 			"type": "FactSet",
 			"facts": this._getAdditionalFacts()
 		};		
 		columnSet.columns[1].items.push(additionalFacts);
-		
+
 		content.items.push(columnSet);
 		content.items.push(this._getApprovalActivityBlock());
 		return content;
@@ -350,6 +377,7 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 		if(taskType === 'change_request') {
 			return this._getCHGFacts();
 		} else if(taskType === 'sc_request' || taskType === 'sc_req_item' ) {
+			gs.debug("OAM: Getting req/ritm facts");
 			return this._getReqFacts();
 		}
 		gs.debug("OAM: No additional facts are generated for this type");		
@@ -360,6 +388,7 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 		gr = new GlideRecord("sc_req_item");		
 		gr.addQuery("request", request.sys_id.toString());
 		gr.query();
+
 		while(gr.next()) {
 			if(!content) {
 				content = {			
@@ -406,19 +435,16 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 								"facts": [{
 									"title": gr.quantity.getLabel(),
 									"value": gr.quantity.getDisplayValue()
-								},{
-									"title": gr.price.getLabel(),
-									"value": gr.price.getDisplayValue()
 								}]
 							}
 						],
 						"width": "stretch"
 					}
 				]
-			};
-			
+			};		
+
 			content.items.push(columnSet);
-			
+
 			variables = this._getVariables(gr);
 			if(variables) {
 				content.items.push(variables);
@@ -429,37 +455,37 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 	_getVariables: function(gr) {
 		gs.debug("OAM: Adding request variables for the requested item");
 		var i = 0, curVar, question, variablesContainer, varItem, variables;
-		
+
 		variables = gr.variables.getElements();
 		if(variables.length === 0) {
 			return null;
 		}
-		
+
 		variablesContainer = {
 			"type": "Container",
 			"items":[{
-					"type":"TextBlock",
-					"spacing": "small",
-					"text": "Options",
-					"weight": "bolder",
-					"size": "default"
-				},
-				{
-					"type": "ColumnSet",					
-                    "spacing": "default",
-					"columns": [
-						{
-							"type": "Column",
-							"spacing": "small",
-							"width": "auto",
-							"items": []
-						}
-					]
-				}
+				"type":"TextBlock",
+				"spacing": "small",
+				"text": "Options",
+				"weight": "bolder",
+				"size": "default"
+			},
+					 {
+						 "type": "ColumnSet",					
+						 "spacing": "default",
+						 "columns": [
+							 {
+								 "type": "Column",
+								 "spacing": "small",
+								 "width": "auto",
+								 "items": []
+							 }
+						 ]
+					 }
 
-			]
+					]
 		};
-		
+
 		for(;i<variables.length;i++) {
 			curVar = variables[i];
 			question = curVar.getQuestion();
@@ -481,9 +507,6 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 		},{
 			"title": this.approvalFor.opened_by.getLabel(),
 			"value": this.approvalFor.opened_by.getDisplayValue()			
-		},{
-			"title": this.approvalFor.price.getLabel(),
-			"value": this.approvalFor.price.getDisplayValue()
 		}];		
 		return facts;
 	},
@@ -499,32 +522,32 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 	},
 	_getActionsBlock: function() {
 		var content = !this.useOAMDefinition ? {
-            "type": "Container",
-            "padding": "default",
-            "separator": "true",
-            "spacing": "none",
-            "items": [{
+			"type": "Container",
+			"padding": "default",
+			"separator": "true",
+			"spacing": "none",
+			"items": [{
 				"type": "ActionSet",
 				"padding": "default",
-                "spacing": "default",
+				"spacing": "default",
 				"actions": []
 			}]
 		} : {
-            "type": "Container",
-            "padding": "default",
-            "separator": "false",
-            "spacing": "none",
-            "items": [{
+			"type": "Container",
+			"padding": "default",
+			"separator": "false",
+			"spacing": "none",
+			"items": [{
 				"type": "ActionSet",
 				"padding": "default",
-                "spacing": "Medium",
+				"spacing": "Medium",
 				"actions": []
 			}]
 		};
-		
+
 		content.items[0].actions.push(this._getApproveAction());
 		content.items[0].actions.push(this._getRejectAction());
-		
+
 		// Add "View Details" action button for sc_request and sc_req_item if it's built by OAM Definition
 		var taskType = this.approvalFor.getTableName();
 		if (this.useOAMDefinition && (taskType === 'sc_request' || taskType === 'sc_req_item')){
@@ -536,27 +559,37 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 	},
 	_getApprovalFooter: function() {
 		var content = {
-            "type": "Container",
-            "padding": {
-                "left": "default",
-                "top": "small",
-                "bottom": "small",
-                "right": "default"
-            },
-            "separator": true,
-            "spacing": "none",
-            "items": [
-                {
-                    "type": "TextBlock",
-                    "text": "[" + gs.getMessageLang("View Approval Request", this.preferredLanguage) + "](" + this.customURLHelper.getCustomURL() + "sysapproval_approver.do?sys_id=" + this.approvalGr.sys_id.toString() + ")",
-                    "size": "small"
-                }
-            ]
-        };
+			"type": "Container",
+			"padding": {
+				"left": "default",
+				"top": "small",
+				"bottom": "small",
+				"right": "default"
+			},
+			"separator": true,
+			"spacing": "none",
+			"items": [
+				{
+					"type": "TextBlock",
+					"text": "[" + gs.getMessageLang("View Approval Request", this.preferredLanguage) + "](" + 
+					(this.approvalGr.sys_class_name.toString() == 'sc_req_item'?
+					 this.customURLHelper.getPortalURL(
+					 this.approvalGr.sys_class_name.toString(),
+					 this.approvalGr.sys_id.toString()) : 
+					 this.customURLHelper.getCustomURL() + 
+					 "sysapproval_approver.do?sys_id=" + 
+					 this.approvalGr.sys_id.toString())
+					+ 
+					")",
+					"size": "small"
+				}
+			]
+		};
+
 		
 		return content;
 	},
-	
+
 	_getApproveAction: function() {
 		var body = {
 			"sys_id":this.approvalGr.sys_id.toString(),
@@ -582,11 +615,11 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 						"type": "Action.Http",
 						"method":"POST",
 						"title": gs.getMessageLang("Submit", this.preferredLanguage),
-						"url": this.customURLHelper.getServiceNowURL()+"api/sn_ms_oam/oam/approval",
+						"url": this.customURLHelper.getServiceNowURL()+"api/sn_ms_oam/oam/apiapproval",
 						"body": JSON.stringify(body),
 						"headers": [
-                          { "name": "Content-Type", "value": "application/json" }
-                        ]
+							{ "name": "Content-Type", "value": "application/json" }
+						]
 					}
 				]
 			}
@@ -610,6 +643,7 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 						"type": "Input.Text",
 						"id": "reject_note",
 						"isMultiline": true,
+						"isRequired": true,
 						"placeholder": gs.getMessageLang("Enter rejection comments", this.preferredLanguage)
 					}
 				],
@@ -618,11 +652,11 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 						"type": "Action.Http",
 						"method":"POST",
 						"title": gs.getMessageLang("Submit", this.preferredLanguage),
-						"url": this.customURLHelper.getServiceNowURL()+"api/sn_ms_oam/oam/approval",
+						"url": this.customURLHelper.getServiceNowURL()+"api/sn_ms_oam/oam/apiapproval",
 						"body": JSON.stringify(body),
 						"headers": [
-                          { "name": "Content-Type", "value": "application/json" }
-                        ]
+							{ "name": "Content-Type", "value": "application/json" }
+						]
 					}
 				]
 			}
@@ -658,7 +692,7 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 				}]
 			}
 		};
-		
+
 		// Get the detail information of requested items
 		var requestedItems = this._getRequestedItems();
 		for (var i = 0; i < requestedItems.length; i++) {
@@ -684,42 +718,42 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 			var grCatItem = grRequestedItems.cat_item.getRefRecord();
 			var item = {
 				"columns": [{
-						"width": "auto",
-						"type": "Column",
-						"items": [{
-							"type": "Image",
-							"url": this.customURLHelper.getCustomURL() + grCatItem.getDisplayValue("picture"),
-							"size": "Medium"
-						}]
-					},
-					{
-						"width": "stretch",
-						"type": "Column",
-						"items": [{
-							"facts": [{
-									"title": gs.getMessageLang("Quantity:", this.preferredLanguage),
-									"value": grRequestedItems.getValue("quantity")
-								},
-								{
-									"title": gs.getMessageLang("Price:", this.preferredLanguage),
-									"value": grCatItem.getDisplayValue("price")
-								},
-								{
-									"title": gs.getMessageLang("Number:", this.preferredLanguage),
-									"value": grRequestedItems.getValue("number")
-								},
-								{
-									"title": gs.getMessageLang("Item:", this.preferredLanguage),
-									"value": grRequestedItems.getDisplayValue("cat_item")
-								}
-							],
-							"spacing": "Small",
-							"type": "FactSet"
-						}]
-					}
-				],
+					"width": "auto",
+					"type": "Column",
+					"items": [{
+						"type": "Image",
+						"url": this.customURLHelper.getCustomURL() + grCatItem.getDisplayValue("picture"),
+						"size": "Medium"
+					}]
+				},
+							{
+								"width": "stretch",
+								"type": "Column",
+								"items": [{
+									"facts": [{
+										"title": gs.getMessageLang("Quantity:", this.preferredLanguage),
+										"value": grRequestedItems.getValue("quantity")
+									},
+											  {
+												  "title": gs.getMessageLang("Number:", this.preferredLanguage),
+												  "value": grRequestedItems.getValue("number")
+											  },
+											  {
+												  "title": gs.getMessageLang("Item:", this.preferredLanguage),
+												  "value": grRequestedItems.getDisplayValue("cat_item")
+											  }
+											 ],
+									"spacing": "Small",
+									"type": "FactSet"
+								}]
+							}
+						   ],
 				"type": "ColumnSet"
 			};
+			var itemVariables = this.reqItemUtils.getVariables(grRequestedItems);
+			for (var i=0; i<itemVariables.length;i++){
+				item.columns[1].items[0].facts.push(itemVariables[i]);
+			}
 			requestedItems.push(item);
 		}
 		return requestedItems;
@@ -734,7 +768,7 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 			"type": "TextBlock",
 			"text": "**Approval Activity**"
 		});		
-		
+
 		approvers = new GlideRecord('sysapproval_approver');
 		approvers.addNotNullQuery('approver');
 		approvers.addQuery('approver', '!=', this.approvalGr.approver);
@@ -747,22 +781,22 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 		if (approvers.getRowCount() > 0) {
 			while (approvers.next()) {
 				curItem = {
-						"type": "TextBlock",
-						"text": approvers.approver.getDisplayValue() + ' - ' + approvers.state.getDisplayValue(),
-						"wrap": true
-					};
+					"type": "TextBlock",
+					"text": approvers.approver.getDisplayValue() + ' - ' + approvers.state.getDisplayValue(),
+					"wrap": true
+				};
 				if(activities.length > 0) {
 					curItem.spacing = "none";
 				}
-				
+
 				activities.push(curItem);
 			}
 			if (approvers.getRowCount() > limit) {
 				curItem = {
-						"type": "TextBlock",
-						"text": "Additional approvers are available and require viewing the record.",
-						"wrap": true
-					};
+					"type": "TextBlock",
+					"text": "Additional approvers are available and require viewing the record.",
+					"wrap": true
+				};
 				activities.push(curItem);
 			}
 		} else {
@@ -773,137 +807,137 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 			};
 			activities.push(curItem);
 		}
-		
+
 		for(i=0;i<activities.length;i++) {
 			content.items.push(activities[i]);
 		}
-		
+
 		return content;
 	},
 	_getRequestDetailsExpander: function() {
 		var content = {
-            "type": "Container",
-            "style": "emphasis",
-            "separator": "true",
-            "spacing": "none",
-            "isVisible": true,
-            "id": "containerDown",
-            "items": [
-                {
-                    "type": "ColumnSet",
-                    "columns": [
-                        {
-                            "type": "Column",
-                            "horizontalAlignment": "Left",
-                            "spacing": "default",
-                            "items": [
-                                {
-                                    "type": "TextBlock",
-                                    "text": "View Details",
-                                    "wrap": true
-                                }
-                            ],
-                            "width": "stretch"
-                        },
-                        {
-                            "type": "Column",
-                            "spacing": "small",
-                            "verticalContentAlignment": "center",
-                            "id": "chevronDown1",
-                            "isVisible": true,
-                            "items": [
-                                {
-                                    "type": "Image",
-                                    "width": "20px",
-                                    "url": this.customURLHelper.getServiceNowURL()+"oam-down.png",
-                                    "altText": "collapsed"
-                                }
-                            ],
-                            "width": "auto"
-                        }
-                    ]
-                }
-            ],
-            "selectAction": {
-                "type": "Action.ToggleVisibility",
-                "title": "collapse",
-                "targetElements": [
-                    "detailsContent",
-                    "containerDown",
-                    "containerUp"
-                ]
-            }
-        };
+			"type": "Container",
+			"style": "emphasis",
+			"separator": "true",
+			"spacing": "none",
+			"isVisible": true,
+			"id": "containerDown",
+			"items": [
+				{
+					"type": "ColumnSet",
+					"columns": [
+						{
+							"type": "Column",
+							"horizontalAlignment": "Left",
+							"spacing": "default",
+							"items": [
+								{
+									"type": "TextBlock",
+									"text": "View Details",
+									"wrap": true
+								}
+							],
+							"width": "stretch"
+						},
+						{
+							"type": "Column",
+							"spacing": "small",
+							"verticalContentAlignment": "center",
+							"id": "chevronDown1",
+							"isVisible": true,
+							"items": [
+								{
+									"type": "Image",
+									"width": "20px",
+									"url": this.customURLHelper.getServiceNowURL()+"oam-down.png",
+									"altText": "collapsed"
+								}
+							],
+							"width": "auto"
+						}
+					]
+				}
+			],
+			"selectAction": {
+				"type": "Action.ToggleVisibility",
+				"title": "collapse",
+				"targetElements": [
+					"detailsContent",
+					"containerDown",
+					"containerUp"
+				]
+			}
+		};
 		return content;
 	},
 	_getRequestDetailsCollapser: function() {
 		var content = {
-            "type": "Container",
-            "style": "emphasis",
-            "separator": "true",
-            "spacing": "none",
-            "isVisible": false,
-            "id": "containerUp",
-            "items": [
-                {
-                    "type": "ColumnSet",
-                    "columns": [
-                        {
-                            "type": "Column",
-                            "horizontalAlignment": "Left",
-                            "spacing": "default",
-                            "items": [
-                                {
-                                    "type": "TextBlock",
-                                    "text": "View Details",
-                                    "wrap": true
-                                }
-                            ],
-                            "width": "stretch"
-                        },
-                        {
-                            "type": "Column",
-                            "spacing": "small",
-                            "verticalContentAlignment": "center",
-                            "id": "chevronUp1",
-                            "items": [
-                                {
-                                    "type": "Image",
-                                    "width": "20px",
-                                    "url": this.customURLHelper.getServiceNowURL()+"oam-up.png",
-                                    "altText": "expanded"
-                                }
-                            ],
-                            "width": "auto"
-                        }
-                    ]
-                }
-            ],
-            "selectAction": {
-                "type": "Action.ToggleVisibility",
-                "title": "expand",
-                "targetElements": [
-                    "detailsContent",
-                    "containerDown",
-                    "containerUp"
-                ]
-            }
-        };
+			"type": "Container",
+			"style": "emphasis",
+			"separator": "true",
+			"spacing": "none",
+			"isVisible": false,
+			"id": "containerUp",
+			"items": [
+				{
+					"type": "ColumnSet",
+					"columns": [
+						{
+							"type": "Column",
+							"horizontalAlignment": "Left",
+							"spacing": "default",
+							"items": [
+								{
+									"type": "TextBlock",
+									"text": "View Details",
+									"wrap": true
+								}
+							],
+							"width": "stretch"
+						},
+						{
+							"type": "Column",
+							"spacing": "small",
+							"verticalContentAlignment": "center",
+							"id": "chevronUp1",
+							"items": [
+								{
+									"type": "Image",
+									"width": "20px",
+									"url": this.customURLHelper.getServiceNowURL()+"oam-up.png",
+									"altText": "expanded"
+								}
+							],
+							"width": "auto"
+						}
+					]
+				}
+			],
+			"selectAction": {
+				"type": "Action.ToggleVisibility",
+				"title": "expand",
+				"targetElements": [
+					"detailsContent",
+					"containerDown",
+					"containerUp"
+				]
+			}
+		};
 		return content;
 	},
-    type: 'CustomApprovalAdaptiveCardGenerator'
+	type: 'CustomApprovalAdaptiveCardGenerator'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-09 22:20:25</sys_created_on>
         <sys_id>de3a5a421b58c15062e50ed2cd4bcb62</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>54</sys_mod_count>
         <sys_name>CustomApprovalAdaptiveCardGenerator</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_de3a5a421b58c15062e50ed2cd4bcb62</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-10 14:47:52</sys_updated_on>
+        <sys_updated_on>2021-12-28 22:20:43</sys_updated_on>
     </sys_script_include>
 </record_update>

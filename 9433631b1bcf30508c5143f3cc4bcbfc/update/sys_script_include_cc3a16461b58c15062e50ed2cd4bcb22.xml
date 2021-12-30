@@ -9,24 +9,41 @@
         <name>CustomApprovalAdaptiveCardHelper</name>
         <script><![CDATA[var CustomApprovalAdaptiveCardHelper = Class.create();
 CustomApprovalAdaptiveCardHelper.prototype = {
-    initialize: function() {
+	initialize: function() {
 		this.customURLHelper = new global.CustomAdaptiveCardCustomURLHelper();
 		this.APPROVAL_TABLE_NAME = "sysapproval_approver";
 		this.EMPTY_STRING = "";
 		this.COLON = ":";
 		this.TEXT_CONTAINER_JSON = {
-				"type": "Container",
-				"padding": {
-					"left": "default",
-					"top": "default"
-				},
-				"items": [{
+			"type": "Container",
+			"padding": {
+				"left": "default",
+				"top": "default"
+			},
+			"items": [{
+				"type": "TextBlock",
+				"text": "",
+				"weight": "bolder",
+				"size": "medium"
+			}]
+		};
+		this.HEADER_CONTAINER_JSON =         {
+			"type": "Container",
+			"padding": {
+				"left": "default",
+				"top": "default"
+			},
+			"items": [
+				{
 					"type": "TextBlock",
-					"text": "",
-					"weight": "bolder",
-					"size": "medium"
-				}]
-			};
+					"text": "Pending Approval",
+					"weight": "Bolder",
+					"size": "Medium",
+					"color": "Dark"
+				}
+			],
+			"bleed": true
+		};
 		this.USER_CONTAINER_JSON = {
 			"type": "ColumnSet",
 			"width": "auto",
@@ -48,19 +65,19 @@ CustomApprovalAdaptiveCardHelper.prototype = {
 					"type": "Column",
 					"width": "stretch",
 					"items": [{
-							"type": "TextBlock",
-							"weight": "Bolder",
-							"text": "",
-							"wrap": true
-						},
-						{
-							"type": "TextBlock",
-							"spacing": "None",
-							"text": "",
-							"isSubtle": true,
-							"wrap": true
-						}
-					]
+						"type": "TextBlock",
+						"weight": "Bolder",
+						"text": "",
+						"wrap": true
+					},
+							  {
+								  "type": "TextBlock",
+								  "spacing": "None",
+								  "text": "",
+								  "isSubtle": true,
+								  "wrap": true
+							  }
+							 ]
 				}
 			]
 		};
@@ -88,13 +105,20 @@ CustomApprovalAdaptiveCardHelper.prototype = {
 			"separator": false,
 			"type": "Container"
 		};
-    },
+	},
 
 	/**
 	* @return {object} - get a copy of text container's JSON object.
 	*/
 	_getTextContainerJSON: function() {
 		return JSON.parse(JSON.stringify(this.TEXT_CONTAINER_JSON));
+	},
+
+	/**
+	* @return {object} - get a copy of header container's JSON object.
+	*/
+	_getHeaderContainerJSON: function() {
+		return JSON.parse(JSON.stringify(this.HEADER_CONTAINER_JSON));
 	},
 
 	/**
@@ -164,17 +188,17 @@ CustomApprovalAdaptiveCardHelper.prototype = {
 	*/
 	_buildTextContainerJSONForString: function(grTextContainer) {
 		var containerStr = "{\n";
-			containerStr += "'type': 'Container',\n";
-			containerStr += "'padding': {\n";
-				containerStr += "'left': 'default',\n";
-				containerStr += "'top': 'default'\n";
-			containerStr += "},\n";
-			containerStr += "'items': [{\n";
-				containerStr += "'type': 'TextBlock',\n";
-				containerStr += "'size': 'Medium',\n";
-				containerStr += "'weight': 'Bolder',\n";
-				containerStr += "'text': " + this._getExecutableValueFromEmailScript(grTextContainer) + "\n";
-			containerStr += "}]\n";
+		containerStr += "'type': 'Container',\n";
+		containerStr += "'padding': {\n";
+		containerStr += "'left': 'default',\n";
+		containerStr += "'top': 'default'\n";
+		containerStr += "},\n";
+		containerStr += "'items': [{\n";
+		containerStr += "'type': 'TextBlock',\n";
+		containerStr += "'size': 'Medium',\n";
+		containerStr += "'weight': 'Bolder',\n";
+		containerStr += "'text': " + this._getExecutableValueFromEmailScript(grTextContainer) + "\n";
+		containerStr += "}]\n";
 		containerStr += "}\n";
 		return containerStr;
 	},
@@ -193,14 +217,14 @@ CustomApprovalAdaptiveCardHelper.prototype = {
 		if (variables.length > 0) {
 			for (var i = 0; i < variables.length; i ++) {
 				var tableFieldVar = variables[i].replace(/[${}]/g, "");
-				
+
 				// Check if tableFieldVar points to a reference field and build the executable value accordingly
 				var refTable = this._getRefTableFromVariable(this.APPROVAL_TABLE_NAME, tableFieldVar);
 				var displayValue = "current.getDisplayValue('" + tableFieldVar + "')" ;
 				var systemValue = "current.getValue('" + tableFieldVar + "')" ;
 				var executableValue = gs.nil(refTable) ? "current.getDisplayValue('" + tableFieldVar + "')" : "'[' + " + displayValue + "+ '](' + '" + this.customURLHelper.getCustomURL() + refTable + ".do?sys_id=' + " + systemValue + "+ ')'";
 				variableArrInStr += executableValue + ", ";
-				
+
 				// Embed executableValue in the template value
 				var splits = templateValue.split(variables[i]);
 				var newTemplateValue = splits.join("{" + i + "}");// Add variable index such as {0} and {1} into the text
@@ -222,40 +246,40 @@ CustomApprovalAdaptiveCardHelper.prototype = {
 	_buildUserContainerJSONForString: function(grUserContainer) {
 		var userField = grUserContainer.getValue("user");
 		var containerStr = "{\n";
-			containerStr += "'type': 'ColumnSet',\n";
-			containerStr += "'width': 'auto',\n";
-			containerStr += "'padding': {\n";
-				containerStr += "'left': 'default',\n";
-			containerStr += "},\n";
-			containerStr += "'columns': [{\n";
-				containerStr += "'type': 'Column',\n";
-				containerStr += "'width': 'auto',\n";
-				containerStr += "'items': [{\n";
-					containerStr += "'type': 'Image',\n";
-					containerStr += "'style': 'Person',\n";
-					containerStr += "'size': 'Small',\n";
-					containerStr += "'url':" + "'" + this.customURLHelper.getCustomURL() + "' + " + "current." + userField + ".getRefRecord().getDisplayValue('avatar') + '?t=small'\n";
-					containerStr += "}]\n";
-				containerStr += "},\n",
-				containerStr += "{\n";
-					containerStr += "'type': 'Column',\n";
-					containerStr += "'width': 'stretch',\n";
-					containerStr += "'items': [{\n";
-							containerStr += "'type': 'TextBlock',\n";
-							containerStr += "'weight': 'Bolder',\n";
-							containerStr += "'wrap': true,\n";
-							containerStr += "'text':" + "gs.getMessageLang('Requested by {0}', " + "languageForApprover, " + "[" + "current." + userField + ".getRefRecord().getValue('name')])\n";
-						containerStr += "},\n";
-						containerStr += "{\n";
-							containerStr += "'type': 'TextBlock',\n";
-							containerStr += "'spacing': 'None',\n";
-							containerStr += "'isSubtle': true,\n";
-							containerStr += "'wrap': true,\n";
-							containerStr += "'text': " + "current." + userField + ".getRefRecord().getValue('email')\n";
-						containerStr += "}\n";
-					containerStr += "]\n";
-				containerStr += "}\n";
-			containerStr += "]\n";
+		containerStr += "'type': 'ColumnSet',\n";
+		containerStr += "'width': 'auto',\n";
+		containerStr += "'padding': {\n";
+		containerStr += "'left': 'default',\n";
+		containerStr += "},\n";
+		containerStr += "'columns': [{\n";
+		containerStr += "'type': 'Column',\n";
+		containerStr += "'width': 'auto',\n";
+		containerStr += "'items': [{\n";
+		containerStr += "'type': 'Image',\n";
+		containerStr += "'style': 'Person',\n";
+		containerStr += "'size': 'Small',\n";
+		containerStr += "'url':" + "'" + this.customURLHelper.getCustomURL() + "' + " + "current." + userField + ".getRefRecord().getDisplayValue('avatar') + '?t=small'\n";
+		containerStr += "}]\n";
+		containerStr += "},\n",
+			containerStr += "{\n";
+		containerStr += "'type': 'Column',\n";
+		containerStr += "'width': 'stretch',\n";
+		containerStr += "'items': [{\n";
+		containerStr += "'type': 'TextBlock',\n";
+		containerStr += "'weight': 'Bolder',\n";
+		containerStr += "'wrap': true,\n";
+		containerStr += "'text':" + "gs.getMessageLang('Requested by {0}', " + "languageForApprover, " + "[" + "current." + userField + ".getRefRecord().getValue('name')])\n";
+		containerStr += "},\n";
+		containerStr += "{\n";
+		containerStr += "'type': 'TextBlock',\n";
+		containerStr += "'spacing': 'None',\n";
+		containerStr += "'isSubtle': true,\n";
+		containerStr += "'wrap': true,\n";
+		containerStr += "'text': " + "current." + userField + ".getRefRecord().getValue('email')\n";
+		containerStr += "}\n";
+		containerStr += "]\n";
+		containerStr += "}\n";
+		containerStr += "]\n";
 		containerStr += "}\n";
 		return containerStr;
 	},
@@ -312,7 +336,7 @@ CustomApprovalAdaptiveCardHelper.prototype = {
 		}
 		return variables;
 	},
-	
+
 	/**
 	* Check if the variable points to a reference field. If it's a reference field, then we return its reference table.
 	* @param {String} tableName - a table's name. For example, "sysapproval_approver"
@@ -353,19 +377,19 @@ CustomApprovalAdaptiveCardHelper.prototype = {
 			return this.EMPTY_STRING;
 	},
 
-    type: 'CustomApprovalAdaptiveCardHelper'
+	type: 'CustomApprovalAdaptiveCardHelper'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-09 22:20:16</sys_created_on>
         <sys_id>cc3a16461b58c15062e50ed2cd4bcb22</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>CustomApprovalAdaptiveCardHelper</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_cc3a16461b58c15062e50ed2cd4bcb22</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-10 14:45:51</sys_updated_on>
+        <sys_updated_on>2021-12-20 22:28:15</sys_updated_on>
     </sys_script_include>
 </record_update>
