@@ -11,20 +11,45 @@
 ScheduleTools.prototype = {
 	initialize: function() {
 	},
-	/////////////////////////////////////////////////////////////////////////////////////////
-	///////Pass in a schedule sys_id and a duration value, get back a date by adding/////////
-	/////////////////////////////////////////////////////////////////////////////////////////
+	/**SNDOC
+	@name getEndDateFromNow
+	@description 
+		Pass in a schedule sys_id and a duration value, get back a date by adding duration to the current date/time according to the schedule.
+
+	@param {GlideSchedule} [schedule] - Schedule to follow
+	@param {GlideDuration} [duration] - Duration to add
+
+	@example
+		var grSysId = gr.getUniqueValue();
+		var schedTools = new ScheduleTools();
+		var ritmDur = schedTools.getRitmDuration(grSysId);
+		var sixToSixSchedule = '581ec9791b88bc10e7004229bc4bcb2c';
+		var estDeliveryDate = (schedTools.getEndDateFromNow(sixToSixSchedule,ritmDur).toString());
+
+	@returns {GlideDate} Calculated date
+	*/
 	getEndDateFromNow: function(schedule,duration){
 		var startDate = new GlideDateTime();
 		var dur = new GlideDuration(duration);
 		var sched = new GlideSchedule(schedule);
 		var end = new GlideDateTime(sched.add(startDate, dur));
-		gs.log(end.getDate());
 		return end.getDate();
 	},
-	/////////////////////////////////////////////////////////////////////////////////////////
-	///////Pass in a ritm sys_id and get back the duration value from the catalog item///////
-	/////////////////////////////////////////////////////////////////////////////////////////
+	
+	/**SNDOC
+	@name getRitmDuration
+	@description 
+		Pass in a ritm sys_id and get back the duration value from the catalog item
+
+	@param {string} [ritm] - sys_id of the ritm to evaluate
+
+	@example
+		var grSysId = gr.getUniqueValue();
+		var schedTools = new ScheduleTools();
+		var ritmDur = schedTools.getRitmDuration(grSysId);
+
+	@returns {GlideDuration} GlideDuration object representing the duration from the catalog item
+	*/
 	getRitmDuration: function(ritm){
 		var gr = new GlideRecord('sc_req_item');
 		gr.get(ritm);
@@ -39,19 +64,49 @@ ScheduleTools.prototype = {
 			return deliveryDuration;
 		}
 	},
+	
+	/////////////////////////////////////////////////////////////////////////////////////////
+	///////////
+	/////////////////////////////////////////////////////////////////////////////////////////
+	/**SNDOC
+	@name timeZoneDiff
+	@description
+		Pass in a GlideDateTime object and a difference and get back the adjusted time
+	@param {GlideDateTime} [startDateTime] - Date and time to start from
+	@param {String} [difference] - Offset between timezones you're trying to calculate
+
+	@example
+			var createdOn = new GlideDateTime(gr.sys_created_on);
+			var schedTools = new ScheduleTools();
+			createdOn = new GlideDateTime(schedTools.timeZoneDiff(createdOn,'-6'));
+
+	@returns {type} description
+	*/
+	timeZoneDiff: function(startDateTime, difference){
+		var differenceNumber = parseInt(difference);
+		var differenceMs = differenceNumber * 3600000;
+		
+		if(differenceNumber > 0){
+			startDateTime.add(differenceMs);
+		}
+		else{
+			startDateTime.subtract(Math.abs(differenceMs));
+		}
+		return startDateTime;
+	},
 	type: 'ScheduleTools'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-11-01 21:49:24</sys_created_on>
         <sys_id>9ac5ae391b2b385062e50ed2cd4bcb03</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>21</sys_mod_count>
         <sys_name>ScheduleTools</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_9ac5ae391b2b385062e50ed2cd4bcb03</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-11-05 16:54:59</sys_updated_on>
+        <sys_updated_on>2022-01-04 13:53:50</sys_updated_on>
     </sys_script_include>
 </record_update>
