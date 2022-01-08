@@ -5,7 +5,7 @@
         <api_name>global.ModularNotificationsBuilder</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
-        <description/>
+        <description>Use this to build out a standard Modular Notification, so all notifications match styling and wording.</description>
         <name>ModularNotificationsBuilder</name>
         <script><![CDATA[var ModularNotificationsBuilder = Class.create();
 ModularNotificationsBuilder.prototype = {	
@@ -427,6 +427,8 @@ ModularNotificationsBuilder.prototype = {
 
 		this.subject = this.customRitmSubject ? this.customRitmSubject : 'Request ' + gr.request.number + ' has been ' + action;
 		this.information = this.customRitmInfo ? this.customRitmInfo : 'Your request has been ' + action + '.';
+		this.information += action == 'submitted for approval' ? ' Once approved, your request will be processed.' : '';
+		
 		this.moreInformation = this.moreInformation || '';
 		this.moreInformation += action == 'updated' ? '<a href="' + this.globalURL + '">Click here</a> to add a comment or view all comment history for this request.<br>' : this.customRitmMoreInformation ? this.customRitmMoreInformation : '<a href="' + this.globalURL + '">Click here</a> to update or review the latest details of this request.';
 
@@ -662,13 +664,13 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>357</sys_mod_count>
+        <sys_mod_count>360</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-04 13:55:04</sys_updated_on>
+        <sys_updated_on>2022-01-06 21:41:07</sys_updated_on>
     </sys_script_include>
 </record_update>
