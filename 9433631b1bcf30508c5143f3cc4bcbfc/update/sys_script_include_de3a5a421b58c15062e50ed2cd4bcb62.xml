@@ -572,10 +572,10 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 				{
 					"type": "TextBlock",
 					"text": "[" + gs.getMessageLang("View Approval Request", this.preferredLanguage) + "](" + 
-					(this.approvalGr.sys_class_name.toString() == 'sc_req_item'?
+					(this.approvalGr.source_table.toString() == 'sc_req_item'?
 					 this.customURLHelper.getPortalURL(
-					 this.approvalGr.sys_class_name.toString(),
-					 this.approvalGr.sys_id.toString()) : 
+					 this.approvalGr.source_table.toString(),
+					 this.approvalGr.document_id.toString()) : 
 					 this.customURLHelper.getCustomURL() + 
 					 "sysapproval_approver.do?sys_id=" + 
 					 this.approvalGr.sys_id.toString())
@@ -607,7 +607,7 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 						"type": "Input.Text",
 						"id": "approve_note",
 						"isMultiline": true,
-						"placeholder": gs.getMessageLang("Enter approval comments", this.preferredLanguage)
+						"placeholder": gs.getMessageLang("Approve Comments (Optional)", this.preferredLanguage)
 					}
 				],
 				"actions": [
@@ -644,7 +644,7 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 						"id": "reject_note",
 						"isMultiline": true,
 						"isRequired": true,
-						"placeholder": gs.getMessageLang("Enter rejection comments", this.preferredLanguage)
+						"placeholder": gs.getMessageLang("Rejection Comments (Required)", this.preferredLanguage)
 					}
 				],
 				"actions": [
@@ -766,7 +766,7 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
 		};
 		content.items.push({
 			"type": "TextBlock",
-			"text": "**Approval Activity**"
+			"text": "**Designated Approvers**"
 		});		
 
 		approvers = new GlideRecord('sysapproval_approver');
@@ -931,13 +931,13 @@ CustomApprovalAdaptiveCardGenerator.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-09 22:20:25</sys_created_on>
         <sys_id>de3a5a421b58c15062e50ed2cd4bcb62</sys_id>
-        <sys_mod_count>54</sys_mod_count>
+        <sys_mod_count>57</sys_mod_count>
         <sys_name>CustomApprovalAdaptiveCardGenerator</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_de3a5a421b58c15062e50ed2cd4bcb62</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-28 22:20:43</sys_updated_on>
+        <sys_updated_on>2022-01-11 16:07:14</sys_updated_on>
     </sys_script_include>
 </record_update>

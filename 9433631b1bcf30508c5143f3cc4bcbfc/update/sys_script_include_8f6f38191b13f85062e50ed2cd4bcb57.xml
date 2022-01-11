@@ -93,7 +93,7 @@ ModularNotificationsBuilder.prototype = {
 						action == 'opened')
 					) && 
 					!documentID.nil()
-					
+
 				) {
 					this.ritmVals(action);
 				}
@@ -287,33 +287,91 @@ ModularNotificationsBuilder.prototype = {
 		//Get record
 		var gr = new GlideRecord(this.table);
 		gr.get(this.documentID);
-
-		this.varList.push({
-			variableName: 'Requestor',
-			variableValue: this.requestorName
-		});
-		this.varList.push({
-			variableName: 'Status',
-			variableValue: gr.state.getDisplayValue()
-		});
 		
+		//Get name of table the approval came from
 		var docGr = new GlideRecord('sys_documentation');
 		var encodedQuery = 'name=' + (this.sourceTable || this.table) + '^element=NULL';
 		docGr.addEncodedQuery(encodedQuery);
 		docGr.query();
 		var tableName = (docGr.next() ? docGr.label.toString() : 'request');
+		var ritmGr = new GlideRecord();
 		
+		//Set subject
+		if(this.sourceTable == 'sc_req_item'){
+			ritmGr = new GlideRecord(this.sourceTable);
+			ritmGr.get(gr.document_id.number.getValue());
+			this.subject = 'Request ' + ritmGr.request.number.toString() + ' has been ' + action;
+			this.subject = action == 'created' || action == 'reminder' ? (action == 'reminder'? 'REMINDER' : 'ACTION REQUIRED') + ': APi Connect Approval Request From ' + this.requestorName : this.subject;
+		}
+		else{
 		this.subject = action == 'created' || action == 'reminder' ? (action == 'reminder'? 'REMINDER' : 'ACTION REQUIRED') + ': APi Connect Approval Request From ' + this.requestorName : 'APi Connect ' + tableName + ' ' + action;
-
-		var documentNumber = gr.document_id.number.getValue() || gr.number.getValue();
-		this.information = 'Approval ' + documentNumber + ' has been ' + (action == 'reminder'? 'created' : action) + '.';
-		this.information += action == 'created' ? '<br>' + (this.requestorName || 'An APi Connect user') + ' has submitted the following ' + tableName + ' for your review.' : '';
-
+		}
+		
+		//Set information section
+		var documentNumber = gr.document_id.request.number.getValue() || gr.document_id.number.getValue() || gr.number.getValue();
+		this.information = action == 'created' ? '<br>' + (this.requestorName || 'An APi Connect user') + ' has submitted the following ' + (tableName == 'Requested Item' ? 'Request' : tableName).toLowerCase() + ' for your review. Your approval is required before this request can be processed.' : 'Approval ' + documentNumber + ' has been ' + (action == 'reminder'? 'created' : action) + '.';
+		if(this.sourceTable == 'sc_req_item' && action != 'created' && action != 'reminder'){
+			this.information = 'Your request has been ' + action + '. Please review details below for more information.';
+		}
+			
+		//Set more information section
 		this.moreInformation = '<br>Please click here to review the request: <a href="' + this.globalURL + '">Click here</a>';
 		if (action == 'created' || action == 'reminder'){
-		var generator = new global.CustomApprovalAdaptiveCardGenerator(gr, 'en');
-		var content = generator.generate();
-		this.adaptiveCard = '<script type="application/adaptivecard+json">' + content +'</script>';
+			var generator = new global.CustomApprovalAdaptiveCardGenerator(gr, 'en');
+			var content = generator.generate();
+			this.adaptiveCard = '<script type="application/adaptivecard+json">' + content +'</script>';
+		}
+		
+		//Set variables
+		this.varList.push({
+			variableName: 'Submitted By',
+			variableValue: this.requestorName
+		});
+		if(this.sourceTable && this.sourceTable == 'sc_req_item' && gr.document_id.number.getValue()){
+			//Get delivery date
+			var schedTools = new ScheduleTools();
+			var ritmDur = schedTools.getRitmDuration(ritmGr.getUniqueValue());
+			var sixToSixSchedule = '581ec9791b88bc10e7004229bc4bcb2c';
+			var estDeliveryDate = (schedTools.getEndDateFromNow(sixToSixSchedule,ritmDur).toString());
+
+			//Get approved or rejected approvers and comments
+			var approverEncodedQuery = 'stateINapproved,rejected';
+			approverEncodedQuery += '^sysapproval=' + gr.document_id;
+			var approverGr = new GlideRecord('sysapproval_approver');
+			approverGr.addEncodedQuery(approverEncodedQuery);
+			approverGr.query();
+			
+			var approverString = '';
+			var approverComments = '';
+			
+			while (approverGr.next()){
+				approverString += approverGr.getDisplayValue('approver') + ': ' + approverGr.getDisplayValue('state');
+				approverString += approverGr.hasNext() ? '<br>' : '';
+				
+				approverComments += approverGr.getValue('comments') ? approverGr.getDisplayValue('approver') + ':<br>' + approverGr.getValue('comments') : ''; 
+				approverComments += approverGr.hasNext() && approverGr.getValue('comments') ? '<br>' : '';
+			}
+			
+			this.varList.push({
+				variableName: 'Number',
+				variableValue: 'Request: ' + ritmGr.request.number.getDisplayValue() + '<br>Request Item: ' + ritmGr.number.getDisplayValue()
+			}, {
+				variableName: 'Description',
+				variableValue: ritmGr.request.short_description.getDisplayValue()
+			});
+			if(action != 'rejected'){
+			this.varList.push({
+				variableName: 'Estimated Delivery Date',
+				variableValue: estDeliveryDate
+			});
+			}
+			this.varList.push({
+				variableName: 'Approval Replies',
+				variableValue: approverString
+			}, {
+				variableName: 'Approval Comments',
+				variableValue: approverComments
+			});
 		}
 	},
 	////////////////////////////////////////////////////////////////////////////////////
@@ -331,22 +389,46 @@ ModularNotificationsBuilder.prototype = {
 			gr.next();
 		}
 
-		//Find out if it's an approval using the catalog item's Approval Condition field
+		//Find out if it's an approval using the catalog item's Approval true/false field
+		var isApproval = (gr.cat_item.u_contains_approvals.toString() == 'true');
+		var isConditionalApproval = (gr.cat_item.u_conditional_approvals.toString() == 'true');
 		var approvalCondition = gr.cat_item.u_approval_condition.toString();
-		if(action == 'opened' && approvalCondition){
-			//Re-query the same RITM to see if it matches the Approval Condition field's conditions
-			var approvalGr = new GlideRecord('sc_req_item');
-			approvalGr.addQuery('sys_id', gr.getUniqueValue());
-			approvalGr.addEncodedQuery(approvalCondition);
-			approvalGr.query();
 
-			if(approvalGr.hasNext()){
-				action = 'approvalrequested';
+		//Find out if it's a cascading approval using the catalog item's Cascading Approval true/false field
+		var isCascadingApproval = gr.cat_item.u_is_multiple_approval;
+		var isConditionalCascadingApproval = (gr.cat_item.u_is_not_multiple_approver_conditional.toString() == 'false');
+		var cascadingApprovalCondition = gr.cat_item.u_multiple_approval_condition.toString();
+
+		if(action == 'opened' && isApproval){
+			if(isConditionalApproval && approvalCondition){
+				//Re-query the same RITM to see if it matches the Approval Condition field's conditions
+				var approvalGr = new GlideRecord('sc_req_item');
+				approvalGr.addQuery('sys_id', gr.getUniqueValue());
+				approvalGr.addEncodedQuery(approvalCondition);
+				approvalGr.query();
+
+				if(approvalGr.hasNext()){
+					action = 'submitted for approval';
+					if(isCascadingApproval && isConditionalCascadingApproval && cascadingApprovalCondition){
+						//Re-query the same RITM to see if it matches the Cascading Approval Condition field's conditions
+						approvalGr = new GlideRecord('sc_req_item');
+						approvalGr.addQuery('sys_id', gr.getUniqueValue());
+						approvalGr.addEncodedQuery(cascadingApprovalCondition);
+						approvalGr.query();
+						if(approvalGr.hasNext()){
+							action = 'cascadingapproval';
+						}
+					}
+					else if(isCascadingApproval && !isConditionalCascadingApproval){
+						action = 'cascadingapproval';
+					}
+				}
+			}
+			else{
+				action = 'submitted for approval';
+
 			}
 		}
-
-		//If it's an approval, change wording
-		action = (action == 'approvalrequested') ? 'submitted for approval' : action;
 
 		var grSysId = gr.getUniqueValue();
 		var schedTools = new ScheduleTools();
@@ -355,32 +437,19 @@ ModularNotificationsBuilder.prototype = {
 		var estDeliveryDate = (schedTools.getEndDateFromNow(sixToSixSchedule,ritmDur).toString());
 		var approverStr='';
 
-		if (action == 'updated') {
-			this.varList.push({
-				variableName: 'Number',
-				variableValue: 'Request: ' + gr.request.number.getDisplayValue() + '<br>Request Item: ' + gr.number.getDisplayValue()
-			}, {
-				variableName: 'Status',
-				variableValue: gr.state.getDisplayValue()
-			}, {
-				variableName: 'Description',
-				variableValue: gr.request.short_description.getDisplayValue()
-			}, {
-				variableName: 'Estimated Delivery Date',
-				variableValue: estDeliveryDate
-			});
-		} else if (action == 'completed'){
-			this.varList.push({
-				variableName: 'Submitted By',
-				variableValue: gr.opened_by.getDisplayValue()
-			}, {
-				variableName: 'Number',
-				variableValue: 'Request: ' + gr.request.number.getDisplayValue() + '<br>Request Item: ' + gr.number.getDisplayValue()
-			}, {
-				variableName: 'Description',
-				variableValue: gr.request.short_description.getDisplayValue()
-			});			
-		} else if (action == 'submitted for approval'){
+		this.varList.push({
+			variableName: 'Submitted By',
+			variableValue: gr.opened_by.getDisplayValue()
+		}, {
+			variableName: 'Number',
+			variableValue: 'Request: ' + gr.request.number.getDisplayValue() + '<br>Request Item: ' + gr.number.getDisplayValue()
+		}, {
+			variableName: 'Description',
+			variableValue: gr.request.short_description.getDisplayValue()
+		});
+		if (action == 'completed'){		
+			//Do nothing
+		} else if (action == 'submitted for approval' || action == 'cascadingapproval'){
 			var approverGr = new GlideRecord('sysapproval_approver');
 			approverGr.addQuery('document_id',grSysId);
 			approverGr.query();
@@ -389,30 +458,20 @@ ModularNotificationsBuilder.prototype = {
 				approverStr += approverGr.approver.name;
 				approverStr += approverGr.hasNext() ? '<br>' : '';
 			}
-			this.varList.push({
-				variableName: 'Submitted By',
-				variableValue: gr.opened_by.getDisplayValue()
-			}, {
-				variableName: 'Number',
-				variableValue: 'Request: ' + gr.request.number.getDisplayValue() + '<br>Request Item: ' + gr.number.getDisplayValue()
-			}, {
-				variableName: 'Description',
-				variableValue: gr.request.short_description.getDisplayValue()
-			}, {
-				variableName: 'Approval Requested From',
-				variableValue: approverStr
-			});			
+			if(action == 'cascadingapproval'){
+				this.varList.push({
+					variableName: 'Approval Requested From',
+					variableValue: 'Multiple Approvers'
+				});
+			}
+			else{
+				this.varList.push({
+					variableName: 'Approval Requested From',
+					variableValue: approverStr
+				});
+			}
 		} else {
 			this.varList.push({
-				variableName: 'Submitted By',
-				variableValue: gr.opened_by.getDisplayValue()
-			}, {
-				variableName: 'Number',
-				variableValue: 'Request: ' + gr.request.number.getDisplayValue() + '<br>Request Item: ' + gr.number.getDisplayValue()
-			}, {
-				variableName: 'Description',
-				variableValue: gr.request.short_description.getDisplayValue()
-			}, {
 				variableName: 'Estimated Delivery Date',
 				variableValue: estDeliveryDate
 			}, {
@@ -426,9 +485,11 @@ ModularNotificationsBuilder.prototype = {
 
 
 		this.subject = this.customRitmSubject ? this.customRitmSubject : 'Request ' + gr.request.number + ' has been ' + action;
+		this.subject = action != 'cascadingapproval' ? this.subject : 'Request ' + gr.request.number + ' has been submitted for approval';
 		this.information = this.customRitmInfo ? this.customRitmInfo : 'Your request has been ' + action + '.';
 		this.information += action == 'submitted for approval' ? ' Once approved, your request will be processed.' : '';
-		
+		this.information = action == 'cascadingapproval' ? 'This request requires multiple approvals. Once all approvals are completed, your request will be processed.' : this.information;
+
 		this.moreInformation = this.moreInformation || '';
 		this.moreInformation += action == 'updated' ? '<a href="' + this.globalURL + '">Click here</a> to add a comment or view all comment history for this request.<br>' : this.customRitmMoreInformation ? this.customRitmMoreInformation : '<a href="' + this.globalURL + '">Click here</a> to update or review the latest details of this request.';
 
@@ -664,13 +725,13 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>360</sys_mod_count>
+        <sys_mod_count>388</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-06 21:41:07</sys_updated_on>
+        <sys_updated_on>2022-01-11 17:24:10</sys_updated_on>
     </sys_script_include>
 </record_update>
