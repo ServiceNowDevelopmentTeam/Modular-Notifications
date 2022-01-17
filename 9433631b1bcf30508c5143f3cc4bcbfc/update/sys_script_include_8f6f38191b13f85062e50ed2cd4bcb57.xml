@@ -287,7 +287,7 @@ ModularNotificationsBuilder.prototype = {
 		//Get record
 		var gr = new GlideRecord(this.table);
 		gr.get(this.documentID);
-		
+
 		//Get name of table the approval came from
 		var docGr = new GlideRecord('sys_documentation');
 		var encodedQuery = 'name=' + (this.sourceTable || this.table) + '^element=NULL';
@@ -295,7 +295,7 @@ ModularNotificationsBuilder.prototype = {
 		docGr.query();
 		var tableName = (docGr.next() ? docGr.label.toString() : 'request');
 		var ritmGr = new GlideRecord();
-		
+
 		//Set subject
 		if(this.sourceTable == 'sc_req_item'){
 			ritmGr = new GlideRecord(this.sourceTable);
@@ -304,16 +304,16 @@ ModularNotificationsBuilder.prototype = {
 			this.subject = action == 'created' || action == 'reminder' ? (action == 'reminder'? 'REMINDER' : 'ACTION REQUIRED') + ': APi Connect Approval Request From ' + this.requestorName : this.subject;
 		}
 		else{
-		this.subject = action == 'created' || action == 'reminder' ? (action == 'reminder'? 'REMINDER' : 'ACTION REQUIRED') + ': APi Connect Approval Request From ' + this.requestorName : 'APi Connect ' + tableName + ' ' + action;
+			this.subject = action == 'created' || action == 'reminder' ? (action == 'reminder'? 'REMINDER' : 'ACTION REQUIRED') + ': APi Connect Approval Request From ' + this.requestorName : 'APi Connect ' + tableName + ' ' + action;
 		}
-		
+
 		//Set information section
 		var documentNumber = gr.document_id.request.number.getValue() || gr.document_id.number.getValue() || gr.number.getValue();
 		this.information = action == 'created' ? '<br>' + (this.requestorName || 'An APi Connect user') + ' has submitted the following ' + (tableName == 'Requested Item' ? 'Request' : tableName).toLowerCase() + ' for your review. Your approval is required before this request can be processed.' : 'Approval ' + documentNumber + ' has been ' + (action == 'reminder'? 'created' : action) + '.';
 		if(this.sourceTable == 'sc_req_item' && action != 'created' && action != 'reminder'){
 			this.information = 'Your request has been ' + action + '. Please review details below for more information.';
 		}
-			
+
 		//Set more information section
 		this.moreInformation = '<br>Please click here to review the request: <a href="' + this.globalURL + '">Click here</a>';
 		if (action == 'created' || action == 'reminder'){
@@ -321,7 +321,7 @@ ModularNotificationsBuilder.prototype = {
 			var content = generator.generate();
 			this.adaptiveCard = '<script type="application/adaptivecard+json">' + content +'</script>';
 		}
-		
+
 		//Set variables
 		this.varList.push({
 			variableName: 'Submitted By',
@@ -331,8 +331,8 @@ ModularNotificationsBuilder.prototype = {
 			//Get delivery date
 			var schedTools = new ScheduleTools();
 			var ritmDur = schedTools.getRitmDuration(ritmGr.getUniqueValue());
-			var sixToSixSchedule = '581ec9791b88bc10e7004229bc4bcb2c';
-			var estDeliveryDate = (schedTools.getEndDateFromNow(sixToSixSchedule,ritmDur).toString());
+			var weekdaySchedule = 'f3d80a151b4141108c5143f3cc4bcbf9';
+			var estDeliveryDate = (schedTools.getEndDateFromNow(weekdaySchedule,ritmDur).toString());
 
 			//Get approved or rejected approvers and comments
 			var approverEncodedQuery = 'stateINapproved,rejected';
@@ -340,18 +340,18 @@ ModularNotificationsBuilder.prototype = {
 			var approverGr = new GlideRecord('sysapproval_approver');
 			approverGr.addEncodedQuery(approverEncodedQuery);
 			approverGr.query();
-			
+
 			var approverString = '';
 			var approverComments = '';
-			
+
 			while (approverGr.next()){
 				approverString += approverGr.getDisplayValue('approver') + ': ' + approverGr.getDisplayValue('state');
 				approverString += approverGr.hasNext() ? '<br>' : '';
-				
-				approverComments += approverGr.getValue('comments') ? approverGr.getDisplayValue('approver') + ':<br>' + approverGr.getValue('comments') : ''; 
-				approverComments += approverGr.hasNext() && approverGr.getValue('comments') ? '<br>' : '';
+				var commentString = this.getCommentString(approverGr.getUniqueValue(), 'sysapproval_approver', 'false');
+				approverComments += commentString ? commentString : ''; 
+				approverComments += approverGr.hasNext() && commentString ? '<br>' : '';
 			}
-			
+
 			this.varList.push({
 				variableName: 'Number',
 				variableValue: 'Request: ' + ritmGr.request.number.getDisplayValue() + '<br>Request Item: ' + ritmGr.number.getDisplayValue()
@@ -360,10 +360,10 @@ ModularNotificationsBuilder.prototype = {
 				variableValue: ritmGr.request.short_description.getDisplayValue()
 			});
 			if(action != 'rejected'){
-			this.varList.push({
-				variableName: 'Estimated Delivery Date',
-				variableValue: estDeliveryDate
-			});
+				this.varList.push({
+					variableName: 'Estimated Delivery Date',
+					variableValue: estDeliveryDate
+				});
 			}
 			this.varList.push({
 				variableName: 'Approval Replies',
@@ -433,8 +433,8 @@ ModularNotificationsBuilder.prototype = {
 		var grSysId = gr.getUniqueValue();
 		var schedTools = new ScheduleTools();
 		var ritmDur = schedTools.getRitmDuration(grSysId);
-		var sixToSixSchedule = '581ec9791b88bc10e7004229bc4bcb2c';
-		var estDeliveryDate = (schedTools.getEndDateFromNow(sixToSixSchedule,ritmDur).toString());
+		var weekdaySchedule = 'f3d80a151b4141108c5143f3cc4bcbf9';
+		var estDeliveryDate = (schedTools.getEndDateFromNow(weekdaySchedule,ritmDur).toString());
 		var approverStr='';
 
 		this.varList.push({
@@ -560,7 +560,6 @@ ModularNotificationsBuilder.prototype = {
 					variableName: "Comments and Work Notes",
 					variableValue: "Includes up to 5 most recent comments and work notes below:"
 				});
-
 			}
 			else{
 				this.varList.push({
@@ -601,6 +600,55 @@ ModularNotificationsBuilder.prototype = {
 			});
 			i++;
 		}
+	},
+
+	///////////////////////////////////////////////////////////////////////////////////
+	//Internal - Get comments to add to variables section, this applies to all tables//
+	///////////////////////////////////////////////////////////////////////////////////
+	getCommentString: function(documentID, table, isITIL) {
+		var variableString = '';
+		var gr = new GlideRecord('sys_journal_field');
+		gr.addQuery('element_id', documentID);
+		gr.addQuery('element', 'comments');
+		gr.addQuery('name', table);
+		gr.orderByDesc('sys_created_on');
+		gr.query();
+		if(!gr.hasNext()){
+			return '';
+		}
+		var i = 0;
+		while (gr.next() && i < 5) {
+			var commenter = '';
+			var commentedBy = gr.sys_created_by.toString();
+			if (commentedBy){
+				var userGr = new GlideRecord('sys_user');
+				userGr.addQuery('user_name',commentedBy);
+				userGr.addQuery('user_name','!=','');
+				userGr.addActiveQuery();
+				userGr.query();
+				userGr.next();
+				commenter = userGr.name.toString();
+			}
+			else{
+				commenter = commentedBy;
+			}
+			commenter = commenter || 'System';
+			var createdOn = new GlideDateTime(gr.sys_created_on);
+			var schedTools = new ScheduleTools();
+			createdOn = new GlideDateTime(schedTools.timeZoneDiff(createdOn,'-6'));
+
+			var createdOnDate = createdOn.getDate();
+			var createdOnTime = new GlideTime();
+			createdOnTime.setValue(createdOn.getTime());
+
+			var variableName = createdOnDate + ' ' + createdOnTime.getByFormat('hh:mm a') + ' - ' + commenter;
+			var variableValue = gr.value.toString();
+			if (variableName && variableValue){
+				variableString += variableName + '<br>' + variableValue + '<br>';
+			}
+			i++;
+		}
+		return variableString;
 	},
 	/**SNDOC
 	@name setGlobalUrl
@@ -725,13 +773,13 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>388</sys_mod_count>
+        <sys_mod_count>400</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-11 17:24:10</sys_updated_on>
+        <sys_updated_on>2022-01-13 20:01:49</sys_updated_on>
     </sys_script_include>
 </record_update>

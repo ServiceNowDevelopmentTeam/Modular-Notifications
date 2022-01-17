@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="oam_container">
+    <oam_container action="DELETE">
+        <name>Title</name>
+        <oam_definition display_value="OAM RITM Approval">57586e5b1b5489508c5143f3cc4bcb21</oam_definition>
+        <order>100</order>
+        <sys_class_name>oam_container</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-12-14 14:23:49</sys_created_on>
+        <sys_id>01fcd62f1b900d5062e50ed2cd4bcb9e</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Title</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>oam_container_01fcd62f1b900d5062e50ed2cd4bcb9e</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-13 20:12:58</sys_updated_on>
+        <table>sysapproval_approver</table>
+        <text_value><![CDATA[Request for Approval]]></text_value>
+        <type>header</type>
+        <user/>
+    </oam_container>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</application>
+        <file_path/>
+        <instance_id>37412023db6dd890ad8dd7c8f49619a0</instance_id>
+        <instance_name>apigroupdev</instance_name>
+        <name>oam_container_01fcd62f1b900d5062e50ed2cd4bcb9e</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="oam_container"&gt;&lt;oam_container action="INSERT_OR_UPDATE"&gt;&lt;name&gt;Title&lt;/name&gt;&lt;oam_definition display_value="OAM RITM Approval"&gt;57586e5b1b5489508c5143f3cc4bcb21&lt;/oam_definition&gt;&lt;order&gt;100&lt;/order&gt;&lt;sys_class_name&gt;oam_container&lt;/sys_class_name&gt;&lt;sys_created_by&gt;Terry.Lillo&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-12-14 14:23:49&lt;/sys_created_on&gt;&lt;sys_id&gt;01fcd62f1b900d5062e50ed2cd4bcb9e&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;Title&lt;/sys_name&gt;&lt;sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc"&gt;9433631b1bcf30508c5143f3cc4bcbfc&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Modular Notifications"&gt;9433631b1bcf30508c5143f3cc4bcbfc&lt;/sys_scope&gt;&lt;sys_update_name&gt;oam_container_01fcd62f1b900d5062e50ed2cd4bcb9e&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;Terry.Lillo&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-01-13 20:12:58&lt;/sys_updated_on&gt;&lt;table&gt;sysapproval_approver&lt;/table&gt;&lt;text_value&gt;&lt;![CDATA[Request for Approval]]&gt;&lt;/text_value&gt;&lt;type&gt;header&lt;/type&gt;&lt;user/&gt;&lt;/oam_container&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1196010917</payload_hash>
+        <record_name>Title</record_name>
+        <reverted_from/>
+        <source>f1467baa1b780d1462e50ed2cd4bcbc1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-13 20:12:58</sys_created_on>
+        <sys_id>64bc86951b8141108c5143f3cc4bcb5c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17e55126e740000001</sys_recorded_at>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-13 20:12:58</sys_updated_on>
+        <type>OAM Container</type>
+        <update_guid>6cbc869588814110da5eb8d26982d65b</update_guid>
+        <update_guid_history>6cbc869588814110da5eb8d26982d65b:1196010917,5a95fbf745d08d503e98cb070a43b3e5:-582498458,ad1d526fce900d50ec107fd9c56872d9:-427953274</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Title">c7ecced51b8141108c5143f3cc4bcb19</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-13 20:13:57</sys_created_on>
+        <sys_db_object display_value="" name="oam_container">oam_container</sys_db_object>
+        <sys_id>0c5b3842afb14b10816b5071c2c72f90</sys_id>
+        <sys_metadata>01fcd62f1b900d5062e50ed2cd4bcb9e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Title</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
+        <sys_update_name>oam_container_01fcd62f1b900d5062e50ed2cd4bcb9e</sys_update_name>
+        <sys_update_version display_value="oam_container_01fcd62f1b900d5062e50ed2cd4bcb9e">64bc86951b8141108c5143f3cc4bcb5c</sys_update_version>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-13 20:13:57</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -7,59 +7,66 @@
         <client_callable>false</client_callable>
         <description>Helper to handle Custom URL scenarios.</description>
         <name>CustomAdaptiveCardCustomURLHelper</name>
-        <script><![CDATA[	var CustomAdaptiveCardCustomURLHelper = Class.create();
-	CustomAdaptiveCardCustomURLHelper.prototype = {
-		initialize: function() {
-		},
-		_isCustomURLEnabled: function() {
-			var gr;
-			//this property is like the master switch - this must be enabled for custom urls
-			if(!gs.getProperty("glide.customurl.enabled", false)) {
-				return false;			
-			}
+        <script><![CDATA[var CustomAdaptiveCardCustomURLHelper = Class.create();
+CustomAdaptiveCardCustomURLHelper.prototype = {
+	initialize: function() {
+	},
+	_isCustomURLEnabled: function() {
+		var gr;
+		//this property is like the master switch - this must be enabled for custom urls
+		if(!gs.getProperty("glide.customurl.enabled", false)) {
+			return false;			
+		}
 
-			gr = new GlideRecord('custom_url');
-			if(!gr.isValid()) {
-				return false;
-			}
+		gr = new GlideRecord('custom_url');
+		if(!gr.isValid()) {
+			return false;
+		}
 
-			gr.addQuery("is_instance_url", true);
-			gr.query();
-			return gr.hasNext();
-		},
-		getServiceNowURL: function() {
-			if(this._isCustomURLEnabled()) {
-				//if enabled, use platform method to get the default url
-				return sn_auth.CustomURL.getDefaultInstanceURL();
-			} else {
-				return gs.getProperty("glide.servlet.uri");
-			}
-		},
-		getCustomURL: function() {
-			var emailOverride = gs.getProperty("glide.email.override.url");
-			if(emailOverride) {
-				return emailOverride+"?uri=";
-			}
-			//returns custom url if enabled or returns the default SNC url
+		gr.addQuery("is_instance_url", true);
+		gr.query();
+		return gr.hasNext();
+	},
+	getServiceNowURL: function() {
+		if(this._isCustomURLEnabled()) {
+			//if enabled, use platform method to get the default url
+			return sn_auth.CustomURL.getDefaultInstanceURL();
+		} else {
 			return gs.getProperty("glide.servlet.uri");
-		},
-		getPortalURL: function(table, documentID) {
-		var url = '/sp/?id=ticket&table=' + table + '&sys_id=' + documentID + '&sysparm_view=portal';
-			return url;
-		},
-		type: 'CustomAdaptiveCardCustomURLHelper'
-	};]]></script>
+		}
+	},
+	getCustomURL: function() {
+		var emailOverride = gs.getProperty("glide.email.override.url");
+		if(emailOverride) {
+			return emailOverride+"?uri=";
+		}
+		//returns custom url if enabled or returns the default SNC url
+		return gs.getProperty("glide.servlet.uri");
+	},
+	getPortalURL: function(table, documentID) {
+		var url = gs.getProperty("glide.servlet.uri");
+		if(table == 'sysapproval_approver'){
+			url += '/sp?id=approval&table=' + table + '&sys_id=' +documentID;
+		}
+		else{
+			url += '/sp/?id=ticket&table=' + table + '&sys_id=' + documentID + '&sysparm_view=portal';
+
+		}
+		return url;
+	},
+	type: 'CustomAdaptiveCardCustomURLHelper'
+};]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-28 16:05:11</sys_created_on>
         <sys_id>5c9130e81be3fc1062e50ed2cd4bcb8f</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>CustomAdaptiveCardCustomURLHelper</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_5c9130e81be3fc1062e50ed2cd4bcb8f</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-20 22:53:41</sys_updated_on>
+        <sys_updated_on>2022-01-13 16:47:22</sys_updated_on>
     </sys_script_include>
 </record_update>
