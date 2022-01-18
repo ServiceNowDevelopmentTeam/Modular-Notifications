@@ -11,9 +11,9 @@
         <copied_from_name/>
         <description>Notify users that have pending approvals daily.</description>
         <internal_name>daily_pending_approvals</internal_name>
-        <label_cache>[{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.Records","label":"1➛Approval Records","reference":"sysapproval_approver","reference_display":"Approval","type":"records","base_type":"records","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.Table","label":"1➛Approval Table","reference":"sysapproval_approver","reference_display":"Approval","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.Count","label":"1➛Count","reference_display":"Count","type":"integer","base_type":"integer","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.__action_status__","label":"1➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"co_type_name":"FDACTIONSTATUS","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"object","action_error_output":"true"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.__dont_treat_as_error__","label":"1➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"boolean","visible_in_ui":"false","action_error_output":"true"}},{"name":"ca4c11da-a955-4633-a4b7-95e460d1a3e6.item","label":"2➛Approval Record","reference":"sysapproval_approver","reference_display":"Approval","type":"reference","base_type":"reference","attributes":{"pills_draggable_inside_block":"true","pills_draggable_outside_block":"false"}},{"name":"ca4c11da-a955-4633-a4b7-95e460d1a3e6.item.sys_created_on","label":"2➛Approval Record➛Created","reference":"","reference_display":"Created","type":"glide_date_time","base_type":"glide_date_time","parent_table_name":"sysapproval_approver","column_name":"sys_created_on"},{"name":"Daily_1.run_start_time","label":"Trigger➛Run Start Time","type":"glide_date_time","base_type":"glide_date_time","attributes":{"test_input_hidden":"true"}},{"name":"a877f5e1-72a4-4875-bcd8-80091a44e269.__action_status__","label":"4➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"co_type_name":"FDACTIONSTATUS","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"object","action_error_output":"true"}},{"name":"a877f5e1-72a4-4875-bcd8-80091a44e269.__dont_treat_as_error__","label":"4➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"boolean","visible_in_ui":"false","action_error_output":"true"}},{"name":"ca4c11da-a955-4633-a4b7-95e460d1a3e6.item.approver.sys_id","label":"2➛Approval Record➛Approver➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"sys_user","column_name":"sys_id"}]</label_cache>
+        <label_cache>[{"name":"ca4c11da-a955-4633-a4b7-95e460d1a3e6.item.approver.sys_id","label":"2➛Approval Record➛Approver➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"sys_user","column_name":"sys_id"},{"name":"a877f5e1-72a4-4875-bcd8-80091a44e269.__dont_treat_as_error__","label":"4➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"a877f5e1-72a4-4875-bcd8-80091a44e269.__action_status__","label":"4➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Daily_1.run_start_time","label":"Trigger➛Run Start Time","type":"glide_date_time","base_type":"glide_date_time","attributes":{"test_input_hidden":"true"}},{"name":"ca4c11da-a955-4633-a4b7-95e460d1a3e6.item.sys_created_on","label":"2➛Approval Record➛Created","reference":"","reference_display":"Created","type":"glide_date_time","base_type":"glide_date_time","parent_table_name":"sysapproval_approver","column_name":"sys_created_on"},{"name":"ca4c11da-a955-4633-a4b7-95e460d1a3e6.item","label":"2➛Approval Record","reference":"sysapproval_approver","reference_display":"Approval","type":"reference","base_type":"reference","attributes":{"pills_draggable_inside_block":"true","pills_draggable_outside_block":"false"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.__dont_treat_as_error__","label":"1➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.__action_status__","label":"1➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.Count","label":"1➛Count","reference_display":"Count","type":"integer","base_type":"integer","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.Table","label":"1➛Approval Table","reference":"sysapproval_approver","reference_display":"Approval","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.Records","label":"1➛Approval Records","reference":"sysapproval_approver","reference_display":"Approval","type":"records","base_type":"records","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"ca4c11da-a955-4633-a4b7-95e460d1a3e6.item.source_table","label":"2➛Approval Record➛Source table","reference":"","reference_display":"Source table","type":"table_name","base_type":"table_name","parent_table_name":"sysapproval_approver","column_name":"source_table"}]</label_cache>
         <master_snapshot>bd7a80a01b7c89d08c5143f3cc4bcb81</master_snapshot>
-        <name>Daily Pending Approvals</name>
+        <name>Daily Pending Approval Reminder</name>
         <natlang/>
         <outputs/>
         <remote_trigger_id>867ac0a01b7c89d08c5143f3cc4bcb23</remote_trigger_id>
@@ -29,15 +29,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>3fe34cac1bf889d08c5143f3cc4bcb0b</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_name>Daily Pending Approvals</sys_name>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Daily Pending Approval Reminder</sys_name>
         <sys_overrides/>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_flow_3fe34cac1bf889d08c5143f3cc4bcb0b</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-29 16:32:52</sys_updated_on>
+        <sys_updated_on>2022-01-18 15:39:50</sys_updated_on>
         <type>flow</type>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=3fe34cac1bf889d08c5143f3cc4bcb0b"/>
@@ -102,16 +102,16 @@
     <sys_hub_trigger_instance action="INSERT_OR_UPDATE">
         <comment/>
         <display_text/>
-        <flow display_value="Daily Pending Approvals">3fe34cac1bf889d08c5143f3cc4bcb0b</flow>
+        <flow display_value="Daily Pending Approval Reminder">3fe34cac1bf889d08c5143f3cc4bcb0b</flow>
         <name>Daily</name>
         <remote_sys_id/>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-29 16:32:49</sys_created_on>
         <sys_id>917a40a01b7c89d08c5143f3cc4bcbeb</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_scope/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-29 16:32:52</sys_updated_on>
+        <sys_updated_on>2022-01-18 15:39:50</sys_updated_on>
         <trigger_definition display_value="Daily">89142dc0c32222002841b63b12d3ae8a</trigger_definition>
         <trigger_inputs/>
         <trigger_outputs/>
@@ -153,17 +153,17 @@
         <comment/>
         <compiled_snapshot>df1e239f1b20e850f5a3635bbc4bcb6f</compiled_snapshot>
         <display_text/>
-        <flow display_value="Daily Pending Approvals">3fe34cac1bf889d08c5143f3cc4bcb0b</flow>
+        <flow display_value="Daily Pending Approval Reminder">3fe34cac1bf889d08c5143f3cc4bcb0b</flow>
         <order>4</order>
         <parent_ui_id>34cc02d1-c025-4d09-b6b4-77d1ed516b62</parent_ui_id>
         <sys_class_name>sys_hub_action_instance</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-29 16:32:50</sys_created_on>
         <sys_id>657a80a01b7c89d08c5143f3cc4bcb05</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
-        <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2022-01-10 09:00:10</sys_updated_on>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-18 15:39:50</sys_updated_on>
         <ui_id>a877f5e1-72a4-4875-bcd8-80091a44e269</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=657a80a01b7c89d08c5143f3cc4bcb05"/>
@@ -225,17 +225,17 @@
         <comment/>
         <compiled_snapshot>43400a1587003300663ca1bb36cb0b4b</compiled_snapshot>
         <display_text/>
-        <flow display_value="Daily Pending Approvals">3fe34cac1bf889d08c5143f3cc4bcb0b</flow>
+        <flow display_value="Daily Pending Approval Reminder">3fe34cac1bf889d08c5143f3cc4bcb0b</flow>
         <order>1</order>
         <parent_ui_id/>
         <sys_class_name>sys_hub_action_instance</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-29 16:32:49</sys_created_on>
         <sys_id>d97a40a01b7c89d08c5143f3cc4bcbf3</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
-        <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2022-01-10 09:00:10</sys_updated_on>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-18 15:39:50</sys_updated_on>
         <ui_id>4dc765fb-22e2-4fc0-9e94-71862bbad47c</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=d97a40a01b7c89d08c5143f3cc4bcbf3"/>
@@ -277,7 +277,7 @@
         <decision_table_inputs/>
         <display_text/>
         <extended_inputs/>
-        <flow display_value="Daily Pending Approvals">3fe34cac1bf889d08c5143f3cc4bcb0b</flow>
+        <flow display_value="Daily Pending Approval Reminder">3fe34cac1bf889d08c5143f3cc4bcb0b</flow>
         <flow_variable/>
         <flow_variables_assigned/>
         <inputs/>
@@ -291,10 +291,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-29 16:32:49</sys_created_on>
         <sys_id>5d7a40a01b7c89d08c5143f3cc4bcbf7</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-29 16:32:52</sys_updated_on>
+        <sys_updated_on>2022-01-18 15:39:50</sys_updated_on>
         <ui_id>ca4c11da-a955-4633-a4b7-95e460d1a3e6</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -321,7 +321,7 @@
         <decision_table_inputs/>
         <display_text/>
         <extended_inputs/>
-        <flow display_value="Daily Pending Approvals">3fe34cac1bf889d08c5143f3cc4bcb0b</flow>
+        <flow display_value="Daily Pending Approval Reminder">3fe34cac1bf889d08c5143f3cc4bcb0b</flow>
         <flow_variable/>
         <flow_variables_assigned/>
         <inputs/>
@@ -335,10 +335,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-29 16:32:49</sys_created_on>
         <sys_id>917a40a01b7c89d08c5143f3cc4bcbfc</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-29 16:32:52</sys_updated_on>
+        <sys_updated_on>2022-01-18 15:39:50</sys_updated_on>
         <ui_id>34cc02d1-c025-4d09-b6b4-77d1ed516b62</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -352,10 +352,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-29 16:32:49</sys_created_on>
         <sys_id>e57a40a01b7c89d08c5143f3cc4bcbff</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-29 16:32:49</sys_updated_on>
-        <value>Approval is more than 1 day old</value>
+        <sys_updated_on>2022-01-18 15:39:47</sys_updated_on>
+        <value>Is RITM and Approval is more than 1 day old</value>
         <variable display_value="Condition Label">f0af19c1c32632002841b63b12d3aea3</variable>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=917a40a01b7c89d08c5143f3cc4bcbfc"/>
@@ -365,11 +365,11 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-29 16:32:49</sys_created_on>
         <sys_id>657a40a01b7c89d08c5143f3cc4bcbff</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-29 16:32:49</sys_updated_on>
+        <sys_updated_on>2022-01-18 15:39:47</sys_updated_on>
         <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
-        <value>{{ca4c11da-a955-4633-a4b7-95e460d1a3e6.item.sys_created_on}}&lt;{{fd_transform:f8cec856-49f7-43b8-842e-8e26e3b80559}}</value>
+        <value>{{ca4c11da-a955-4633-a4b7-95e460d1a3e6.item.sys_created_on}}&lt;{{fd_transform:f8cec856-49f7-43b8-842e-8e26e3b80559}}^{{ca4c11da-a955-4633-a4b7-95e460d1a3e6.item.source_table}}=sc_req_item</value>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>condition_name</field>
@@ -423,17 +423,17 @@
         <binding_strategy>com.snc.process_flow.engine.binding.RunAlways</binding_strategy>
         <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_trigger_plan","id":"027ac0a01b7c89d08c5143f3cc4bcb26","name":"plan","plan_signature":null}}</plan>
         <plan_id>3fe34cac1bf889d08c5143f3cc4bcb0b</plan_id>
-        <snapshot>9be514101b0941108c5143f3cc4bcb4b</snapshot>
+        <snapshot>bd7a80a01b7c89d08c5143f3cc4bcb81</snapshot>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-29 16:32:52</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>027ac0a01b7c89d08c5143f3cc4bcb26</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_overrides/>
         <sys_scope/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-29 16:32:52</sys_updated_on>
+        <sys_updated_on>2022-01-18 15:39:50</sys_updated_on>
         <trigger display_value="">867ac0a01b7c89d08c5143f3cc4bcb23</trigger>
     </sys_flow_trigger_plan>
     <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
@@ -447,12 +447,12 @@
         <copied_from_name/>
         <description>Notify users that have pending approvals daily.</description>
         <internal_name>daily_pending_approvals</internal_name>
-        <label_cache>[{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.Records","label":"1➛Approval Records","reference":"sysapproval_approver","reference_display":"Approval","type":"records","base_type":"records","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.Table","label":"1➛Approval Table","reference":"sysapproval_approver","reference_display":"Approval","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.Count","label":"1➛Count","reference_display":"Count","type":"integer","base_type":"integer","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.__action_status__","label":"1➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"co_type_name":"FDACTIONSTATUS","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"object","action_error_output":"true"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.__dont_treat_as_error__","label":"1➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"boolean","visible_in_ui":"false","action_error_output":"true"}},{"name":"ca4c11da-a955-4633-a4b7-95e460d1a3e6.item","label":"2➛Approval Record","reference":"sysapproval_approver","reference_display":"Approval","type":"reference","base_type":"reference","attributes":{"pills_draggable_inside_block":"true","pills_draggable_outside_block":"false"}},{"name":"ca4c11da-a955-4633-a4b7-95e460d1a3e6.item.sys_created_on","label":"2➛Approval Record➛Created","reference":"","reference_display":"Created","type":"glide_date_time","base_type":"glide_date_time","parent_table_name":"sysapproval_approver","column_name":"sys_created_on"},{"name":"Daily_1.run_start_time","label":"Trigger➛Run Start Time","type":"glide_date_time","base_type":"glide_date_time","attributes":{"test_input_hidden":"true"}},{"name":"a877f5e1-72a4-4875-bcd8-80091a44e269.__action_status__","label":"4➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"co_type_name":"FDACTIONSTATUS","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"object","action_error_output":"true"}},{"name":"a877f5e1-72a4-4875-bcd8-80091a44e269.__dont_treat_as_error__","label":"4➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"boolean","visible_in_ui":"false","action_error_output":"true"}},{"name":"ca4c11da-a955-4633-a4b7-95e460d1a3e6.item.approver.sys_id","label":"2➛Approval Record➛Approver➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"sys_user","column_name":"sys_id"}]</label_cache>
+        <label_cache>[{"name":"ca4c11da-a955-4633-a4b7-95e460d1a3e6.item.approver.sys_id","label":"2➛Approval Record➛Approver➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"sys_user","column_name":"sys_id"},{"name":"a877f5e1-72a4-4875-bcd8-80091a44e269.__dont_treat_as_error__","label":"4➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"a877f5e1-72a4-4875-bcd8-80091a44e269.__action_status__","label":"4➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Daily_1.run_start_time","label":"Trigger➛Run Start Time","type":"glide_date_time","base_type":"glide_date_time","attributes":{"test_input_hidden":"true"}},{"name":"ca4c11da-a955-4633-a4b7-95e460d1a3e6.item.sys_created_on","label":"2➛Approval Record➛Created","reference":"","reference_display":"Created","type":"glide_date_time","base_type":"glide_date_time","parent_table_name":"sysapproval_approver","column_name":"sys_created_on"},{"name":"ca4c11da-a955-4633-a4b7-95e460d1a3e6.item","label":"2➛Approval Record","reference":"sysapproval_approver","reference_display":"Approval","type":"reference","base_type":"reference","attributes":{"pills_draggable_inside_block":"true","pills_draggable_outside_block":"false"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.__dont_treat_as_error__","label":"1➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.__action_status__","label":"1➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.Count","label":"1➛Count","reference_display":"Count","type":"integer","base_type":"integer","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.Table","label":"1➛Approval Table","reference":"sysapproval_approver","reference_display":"Approval","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"4dc765fb-22e2-4fc0-9e94-71862bbad47c.Records","label":"1➛Approval Records","reference":"sysapproval_approver","reference_display":"Approval","type":"records","base_type":"records","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"ca4c11da-a955-4633-a4b7-95e460d1a3e6.item.source_table","label":"2➛Approval Record➛Source table","reference":"","reference_display":"Source table","type":"table_name","base_type":"table_name","parent_table_name":"sysapproval_approver","column_name":"source_table"}]</label_cache>
         <master>true</master>
-        <name>Daily Pending Approvals</name>
+        <name>Daily Pending Approval Reminder</name>
         <natlang/>
         <outputs/>
-        <parent_flow display_value="Daily Pending Approvals">3fe34cac1bf889d08c5143f3cc4bcb0b</parent_flow>
+        <parent_flow display_value="Daily Pending Approval Reminder">3fe34cac1bf889d08c5143f3cc4bcb0b</parent_flow>
         <remote_trigger_id/>
         <run_as>system</run_as>
         <run_with_roles/>
@@ -464,7 +464,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>bd7a80a01b7c89d08c5143f3cc4bcb81</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_overrides/>
         <sys_package/>
@@ -472,7 +472,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-29 16:32:51</sys_updated_on>
+        <sys_updated_on>2022-01-18 15:39:49</sys_updated_on>
         <type>flow</type>
     </sys_hub_flow_snapshot>
     <sys_translated_text action="delete_multiple" query="documentkey=bd7a80a01b7c89d08c5143f3cc4bcb81"/>
@@ -481,16 +481,16 @@
     <sys_hub_trigger_instance action="INSERT_OR_UPDATE">
         <comment/>
         <display_text/>
-        <flow display_value="Daily Pending Approvals">bd7a80a01b7c89d08c5143f3cc4bcb81</flow>
+        <flow display_value="Daily Pending Approval Reminder">bd7a80a01b7c89d08c5143f3cc4bcb81</flow>
         <name>Daily</name>
         <remote_sys_id/>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-29 16:32:51</sys_created_on>
         <sys_id>7d7a80a01b7c89d08c5143f3cc4bcb9c</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_scope/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-29 16:32:52</sys_updated_on>
+        <sys_updated_on>2022-01-18 15:39:50</sys_updated_on>
         <trigger_definition display_value="Daily">89142dc0c32222002841b63b12d3ae8a</trigger_definition>
         <trigger_inputs/>
         <trigger_outputs/>
@@ -531,17 +531,17 @@
         <comment/>
         <compiled_snapshot>43400a1587003300663ca1bb36cb0b4b</compiled_snapshot>
         <display_text/>
-        <flow display_value="Daily Pending Approvals">bd7a80a01b7c89d08c5143f3cc4bcb81</flow>
+        <flow display_value="Daily Pending Approval Reminder">bd7a80a01b7c89d08c5143f3cc4bcb81</flow>
         <order>1</order>
         <parent_ui_id/>
         <sys_class_name>sys_hub_action_instance</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-29 16:32:51</sys_created_on>
         <sys_id>317a80a01b7c89d08c5143f3cc4bcb93</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-29 16:32:51</sys_updated_on>
+        <sys_updated_on>2022-01-18 15:39:49</sys_updated_on>
         <ui_id>4dc765fb-22e2-4fc0-9e94-71862bbad47c</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=317a80a01b7c89d08c5143f3cc4bcb93"/>
@@ -582,17 +582,17 @@
         <comment/>
         <compiled_snapshot>df1e239f1b20e850f5a3635bbc4bcb6f</compiled_snapshot>
         <display_text/>
-        <flow display_value="Daily Pending Approvals">bd7a80a01b7c89d08c5143f3cc4bcb81</flow>
+        <flow display_value="Daily Pending Approval Reminder">bd7a80a01b7c89d08c5143f3cc4bcb81</flow>
         <order>4</order>
         <parent_ui_id>34cc02d1-c025-4d09-b6b4-77d1ed516b62</parent_ui_id>
         <sys_class_name>sys_hub_action_instance</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-29 16:32:51</sys_created_on>
         <sys_id>bd7a80a01b7c89d08c5143f3cc4bcb9a</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-29 16:32:51</sys_updated_on>
+        <sys_updated_on>2022-01-18 15:39:49</sys_updated_on>
         <ui_id>a877f5e1-72a4-4875-bcd8-80091a44e269</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=bd7a80a01b7c89d08c5143f3cc4bcb9a"/>
@@ -656,7 +656,7 @@
         <decision_table_inputs/>
         <display_text/>
         <extended_inputs/>
-        <flow display_value="Daily Pending Approvals">bd7a80a01b7c89d08c5143f3cc4bcb81</flow>
+        <flow display_value="Daily Pending Approval Reminder">bd7a80a01b7c89d08c5143f3cc4bcb81</flow>
         <flow_variable/>
         <flow_variables_assigned/>
         <inputs/>
@@ -670,10 +670,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-29 16:32:51</sys_created_on>
         <sys_id>397a80a01b7c89d08c5143f3cc4bcb86</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_scope/>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-29 16:32:51</sys_updated_on>
+        <sys_updated_on>2022-01-18 15:39:49</sys_updated_on>
         <ui_id>ca4c11da-a955-4633-a4b7-95e460d1a3e6</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -700,7 +700,7 @@
         <decision_table_inputs/>
         <display_text/>
         <extended_inputs/>
-        <flow display_value="Daily Pending Approvals">bd7a80a01b7c89d08c5143f3cc4bcb81</flow>
+        <flow display_value="Daily Pending Approval Reminder">bd7a80a01b7c89d08c5143f3cc4bcb81</flow>
         <flow_variable/>
         <flow_variables_assigned/>
         <inputs/>
@@ -714,10 +714,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-29 16:32:51</sys_created_on>
         <sys_id>397a80a01b7c89d08c5143f3cc4bcb89</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_scope/>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-29 16:32:51</sys_updated_on>
+        <sys_updated_on>2022-01-18 15:39:49</sys_updated_on>
         <ui_id>34cc02d1-c025-4d09-b6b4-77d1ed516b62</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -731,10 +731,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-29 16:32:51</sys_created_on>
         <sys_id>b57a80a01b7c89d08c5143f3cc4bcb8c</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-29 16:32:51</sys_updated_on>
-        <value>Approval is more than 1 day old</value>
+        <sys_updated_on>2022-01-18 15:39:49</sys_updated_on>
+        <value>Is RITM and Approval is more than 1 day old</value>
         <variable display_value="Condition Label">f0af19c1c32632002841b63b12d3aea3</variable>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=397a80a01b7c89d08c5143f3cc4bcb89"/>
@@ -744,11 +744,11 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-29 16:32:51</sys_created_on>
         <sys_id>357a80a01b7c89d08c5143f3cc4bcb8c</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-29 16:32:51</sys_updated_on>
+        <sys_updated_on>2022-01-18 15:39:49</sys_updated_on>
         <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
-        <value>{{ca4c11da-a955-4633-a4b7-95e460d1a3e6.item.sys_created_on}}&lt;{{fd_transform:f8cec856-49f7-43b8-842e-8e26e3b80559}}</value>
+        <value>{{ca4c11da-a955-4633-a4b7-95e460d1a3e6.item.sys_created_on}}&lt;{{fd_transform:f8cec856-49f7-43b8-842e-8e26e3b80559}}^{{ca4c11da-a955-4633-a4b7-95e460d1a3e6.item.source_table}}=sc_req_item</value>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>condition_name</field>
