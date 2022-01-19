@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>modular_notifications_mailbox_completed</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[//Do not edit this, change the name then insert and stay to create a new script.
+//This is for custom notifications. For out of the box opened, closed, or updated notifications use the modular_notifications_open_close_update_template email script as a starter.
+
+(function runMailScript( /* GlideRecord */ current, /* TemplatePrinter */ template, /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action, /* Optional GlideRecord */ event) {
+    //gs.log('mail complete triggered');
+    //find RITM since this is called on REQ
+    var gr = new GlideRecord('sc_req_item');
+    gr.addQuery('request', current.sys_id);
+    gr.query();
+    gr.next();
+    var reopen_sys = gr.sys_id;
+
+    //gs.log('no end date: '+ gr.variables.no_end_date);
+
+    //These variables will control the different sections of the modular notifications
+    //Subject will also control the email subject, don't include HTML there
+    var notification = new ModularNotificationsBuilder();
+
+    //URL that can be universally used for viewing a ticket on the portal
+    notification.table = event.table;
+    notification.documentID = event.instance;
+    notification.setGlobalUrl();
+    notification.action = 'custom';
+	notification.survey = 'true';
+
+    //kb for how to use/get mailbox
+    var kb_link = 'https://apigroup.service-now.com/kb_view.do?sysparm_article=KB0012206'; //TODO <---
+    //reopen link
+    var reopen_sys_id = '6c9635d61b5774108c5143f3cc4bcbda';
+    //make url
+    var reopen_url = '/sp?id=sc_cat_item&sys_id=' +
+        reopen_sys_id +
+        '&sysparm_variables=%7B%22related_ritm%22:%22' + reopen_sys + '%22%7D';
+
+
+    //Email subject and subject section
+    notification.subject = 'Request ' + current.number + ' has been completed';
+
+    //User's first name
+    notification.name = current.opened_by.name.toString(); //'Name';
+
+
+    //set notification
+    notification.information = '<p1>Your request has been completed:</p1>';
+
+    //variables section
+
+
+    notification.varList = [{
+            variableName: 'Submitted By',
+            variableValue: gr.requested_for.name,
+        },
+        {
+            variableName: 'Number',
+            variableValue: current.number,
+        },
+        {
+            variableName: 'Description',
+            variableValue: current.short_description,
+        },
+        {
+            variableName: 'Status',
+            variableValue: current.status,
+        },
+    ];
+    //More information section
+
+    //'<p1>It can take up to an hour for the requested mailbox to appear and may require a restart of outlook. </p1>' + '<p1><a href=' + kb_link+ '>Click Here</a> for instructions on how to view the mailbox.</p1>';
+    //change description if no end date is false
+
+    //add beginning section
+    var info_string = '<p1>It can take up to an hour for the requested mailbox to appear and may require a restart of outlook. </p1>' + '<p1><a href=' + kb_link + '>Click here</a> for instructions on how to view the mailbox.</p1><br/><br/>';
+
+    //add dynamic section
+    if (gr.variables.no_end_date == 'false' && gr.variables.access_type == 'new_access') {
+        info_string += '<p1> Please note, a separate IT task has been scheduled to disable access to the requested mailbox on ' +
+            gr.variables.end_date.toString() + 
+			', as stated in this request. You will receive a notification when access has been disabled.</p1><br/><br/>';
+    }
+
+    //add finishing section
+    info_string += '<p1>If this request still needs attention, <a href=' + reopen_url + '>click here</a> to reopen.</p1>';
+
+    notification.moreInformation = info_string;
+
+
+    //Put it all together to get the full HTML template
+    var html = notification.getHTML();
+
+    //Print HTML to the body
+    template.print(html);
+
+    //Set email subject
+    email.setSubject(notification.subject);
+    //gs.log('mail complete finished');
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>John.Schwab</sys_created_by>
+        <sys_created_on>2021-10-25 20:29:59</sys_created_on>
+        <sys_id>796116231bd37c108c5143f3cc4bcb24</sys_id>
+        <sys_mod_count>54</sys_mod_count>
+        <sys_name>modular_notifications_mailbox_completed</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_email_796116231bd37c108c5143f3cc4bcb24</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-19 17:42:45</sys_updated_on>
+    </sys_script_email>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
+        <claim_timestamp>17e736f0eec0000001</claim_timestamp>
+        <metadata_update_name>sys_script_email_796116231bd37c108c5143f3cc4bcb24</metadata_update_name>
+        <previous_claim_app_version>1.3.1</previous_claim_app_version>
+        <previous_claim_name>Modular Notifications</previous_claim_name>
+        <previous_claim_scope>9433631b1bcf30508c5143f3cc4bcbfc</previous_claim_scope>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-19 17:42:45</sys_created_on>
+        <sys_id>aed328171b4d011062e50ed2cd4bcbec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-19 17:42:45</sys_updated_on>
+    </sys_claim>
+</record_update>
