@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>global.CustomOAMUsageAnalytics</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Utlities to log events into our LUA framework for Outlook Actionable Messages</description>
+        <name>CustomOAMUsageAnalytics</name>
+        <script><![CDATA[var OAMUsageAnalytics = Class.create();
+OAMUsageAnalytics.prototype = {
+    type: 'OAMUsageAnalytics',
+	/**
+	* Constants
+	*/
+	STREAMID: 'com.sn_ms_oam',
+	EVENT_TYPES: {
+		TIMERS: 'timers'
+	},
+	FIELDS: {
+		TIME_MS: 'time_ms',
+	},
+	/**
+	* Internal fields
+	*/
+	_isOpen: false,
+	/**
+	* Internal methods
+	*/
+	_log: function(msg, error) {
+		if(gs.isDebugging()) {
+			if(error) {
+				gs.error(this.type + '::' + this.STREAMID + '::' + msg, error);	
+			} else {
+				gs.info(this.type + '::' + this.STREAMID + '::' + msg);	
+			}
+		}
+	},
+	_logEvent: function(eventType, metricId, eventDataFn, eventDataFnInput) {		
+		// Don't cause failure in the caller
+		try {
+			// Fail fast don't do any processing that's not needed if framework is disabled or stream isn't open
+			if(!this._isOpen) {
+				return;
+			}
+			// Run function if passed in to generate additional key value pairs
+			// If done this way we avoid any additional processing if framework is disabled
+			// Also any failures don't affect any processing logic since we're in a try catch
+			var data = {};
+			var eventAttributes = {};
+			// Context object with functions to mutate the json pauyload
+			// Methods wrapping this can override this with named methods 
+			// mapped to named attributes
+			var ctx = {
+				setFieldValue: function(key , value) {
+					// LUA will create a table based on the first set of attributes submitted 
+					// newly added ones after that get dropped keep in mind
+					data[key] = value;
+				},
+				setEventAttribute: function(key, value) {
+					eventAttributes[key] = value;
+				}
+			};
+			if(eventDataFn && 'function' === typeof eventDataFn) {
+				eventDataFn(ctx, eventDataFnInput ? eventDataFnInput : null);
+			}
+			// This is a required field it will drive creation of the final stats table <streamid>_<event.type>
+			data["event.type"] = eventType;
+			// Any additional fields get converted to columns
+			data["metric.id"] = metricId;
+			// Add attribute info which is per event data which could be unsed to create more granular filters. 
+			// This will end up being a free form field with data persisted as json, this is for cases where the 
+			// initial table created may not have newly needed columns
+			data["evt.attributes"] = JSON.stringify(eventAttributes);
+			// Send payload
+			var jsonString =  JSON.stringify(data);
+			this._log('Sending: ' + jsonString);
+			sn_uapaf.ScopedAnalyticsFramework.sendJSON(this.STREAMID, [], jsonString);
+		} catch(e) {
+			this._log("Error sending event (type=" + eventType + ", metricId=" + metricId + ")", e);
+		}
+	},
+    initialize: function() {
+		try {
+			// If framework is disabled don't do any unecsessary work
+			if (sn_uapaf.ScopedAnalyticsFramework.isDisabled()) {
+				this._log('ScopedAnalyticsFramework disabled');				
+				return;
+			}
+			// If stream is disabled don't do any unecsessary work
+			if(sn_uapaf.ScopedAnalyticsFramework.isBlocked(this.STREAMID)) {
+				this._log('ScopedAnalyticsFramework stream blocked');
+				return;
+			} 
+			this._isOpen = true;				
+		} catch(e) {
+			// Ignore
+			this._log('Error opening stream', e);
+		}
+    },
+	/**
+	* Public methods
+	*/
+	logTimerEvent: function(timerMetricId, eventDataFn, eventDataFnInput) {
+		// Expectation here is that the function will return a number
+		var fields = this.FIELDS;
+		var wrapperFunction = function(ctx, input) {
+			// LUA will create a table based on the first set of attributes submitted 
+			// newly added ones after that get dropped so always send all attributes
+			// with defaults
+			ctx.setFieldValue(fields.TIME_MS, 0);
+			if(eventDataFn) {
+				var timeMs = eventDataFn(ctx, input);
+				if(timeMs && 'number' === typeof timeMs) {
+					ctx.setFieldValue(fields.TIME_MS, timeMs);
+				}
+			}
+		};
+		return this._logEvent(this.EVENT_TYPES.TIMERS, timerMetricId, wrapperFunction, eventDataFnInput);
+	}
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-19 15:30:56</sys_created_on>
+        <sys_id>a3a5041b1b49c910b8a1766ecc4bcb8c</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>CustomOAMUsageAnalytics</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_include_a3a5041b1b49c910b8a1766ecc4bcb8c</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-19 15:41:21</sys_updated_on>
+    </sys_script_include>
+</record_update>
