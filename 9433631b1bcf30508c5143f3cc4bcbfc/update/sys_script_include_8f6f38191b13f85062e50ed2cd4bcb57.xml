@@ -420,7 +420,6 @@ ModularNotificationsBuilder.prototype = {
 						}
 					}
 					else if(isCascadingApproval && !isConditionalCascadingApproval){
-			gs.info('Line 392 isCascadingApproval: ' + isCascadingApproval + ' isConditionalCascadingApproval : ' + isConditionalCascadingApproval + 'cascadingApprovalCondition: ' + cascadingApprovalCondition);
 						action = 'cascadingapproval';
 					}
 				}
@@ -448,7 +447,6 @@ ModularNotificationsBuilder.prototype = {
 			variableName: 'Description',
 			variableValue: gr.request.short_description.getDisplayValue()
 		});
-			gs.info('Line 441 Action is: ' + action);
 		if (action == 'completed'){		
 			//Do nothing
 		} else if (action == 'submitted for approval'){
@@ -821,13 +819,13 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>408</sys_mod_count>
+        <sys_mod_count>409</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-20 20:38:19</sys_updated_on>
+        <sys_updated_on>2022-01-20 21:04:23</sys_updated_on>
     </sys_script_include>
 </record_update>
