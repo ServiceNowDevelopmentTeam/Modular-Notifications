@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="message_number" label="Message number" language="en" table="notify_message">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>message_number</element>
+            <help/>
+            <hint/>
+            <label>Message number</label>
+            <language>en</language>
+            <name>notify_message</name>
+            <plural>Message numbers</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>Terry.Lillo</sys_created_by>
+            <sys_created_on>2022-01-20 21:57:51</sys_created_on>
+            <sys_id>4dd7e6a31b85c1108c5143f3cc4bcba2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Message number</sys_name>
+            <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+            <sys_update_name>sys_documentation_notify_message_message_number_en</sys_update_name>
+            <sys_updated_by>Terry.Lillo</sys_updated_by>
+            <sys_updated_on>2022-01-20 21:57:51</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
