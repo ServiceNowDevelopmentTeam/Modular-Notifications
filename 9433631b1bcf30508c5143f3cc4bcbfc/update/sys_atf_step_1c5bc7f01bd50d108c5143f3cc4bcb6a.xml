@@ -2,49 +2,58 @@
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
         <copied_from/>
-        <description>Impersonate the user: Brittany Nesheim with user Id: Brittany.Nesheim
-
-Warning: Impersonating an existing user may cause unexpected behavior for this test. Avoid potential issues by adding a 'Create a User' step instead&#13;
-See the documentation for Test Design Considerations</description>
+        <description>Impersonate the user: {{Step 3: Create a User.User}}</description>
         <display_name>Impersonate</display_name>
+        <inputs/>
         <inputs/>
         <mugshots_cache_json/>
         <notes/>
-        <order>11</order>
+        <order>5</order>
         <snapshot/>
         <step_config display_value="Impersonate">071ee5b253331200040729cac2dc348d</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2022-01-24 20:00:38</sys_created_on>
-        <sys_id>5853fafc1b910d108c5143f3cc4bcb8b</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_created_on>2022-01-24 21:45:26</sys_created_on>
+        <sys_id>1c5bc7f01bd50d108c5143f3cc4bcb6a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Impersonate</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
-        <sys_update_name>sys_atf_step_5853fafc1b910d108c5143f3cc4bcb8b</sys_update_name>
+        <sys_update_name>sys_atf_step_1c5bc7f01bd50d108c5143f3cc4bcb6a</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
         <sys_updated_on>2022-01-24 21:45:26</sys_updated_on>
         <table/>
         <test display_value="TC - 278 - Request - OneStream Approval - IT">6b0e2ab41b910d108c5143f3cc4bcbf5</test>
         <timeout/>
-        <warning_message>Warning: Impersonating an existing user may cause unexpected behavior for this test. Avoid potential issues by adding a 'Create a User' step instead&#13;
-See the documentation for Test Design Considerations</warning_message>
+        <warning_message/>
     </sys_atf_step>
-    <sys_variable_value action="delete_multiple" query="document_key=5853fafc1b910d108c5143f3cc4bcb8b"/>
+    <sys_variable_value action="delete_multiple" query="document_key=1c5bc7f01bd50d108c5143f3cc4bcb6a"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>5853fafc1b910d108c5143f3cc4bcb8b</document_key>
+        <document_key>1c5bc7f01bd50d108c5143f3cc4bcb6a</document_key>
         <order>100</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2022-01-24 20:00:39</sys_created_on>
-        <sys_id>d353b2301bd10d108c5143f3cc4bcbfb</sys_id>
+        <sys_created_on>2022-01-24 21:45:28</sys_created_on>
+        <sys_id>665b8bf01bd50d108c5143f3cc4bcbd5</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-24 20:00:39</sys_updated_on>
-        <value>3b701d141b5a5c50e7004229bc4bcbf7</value>
+        <sys_updated_on>2022-01-24 21:45:28</sys_updated_on>
+        <value/>
         <variable display_value="User">586e2c4253e0220002c6435723dc3415</variable>
     </sys_variable_value>
-    <sys_element_mapping action="delete_multiple" query="table=var__m_atf_input_variable_071ee5b253331200040729cac2dc348d^id=5853fafc1b910d108c5143f3cc4bcb8b"/>
+    <sys_element_mapping action="delete_multiple" query="id=1c5bc7f01bd50d108c5143f3cc4bcb6a"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>user</field>
+        <id>1c5bc7f01bd50d108c5143f3cc4bcb6a</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-24 21:45:28</sys_created_on>
+        <sys_id>e25b8bf01bd50d108c5143f3cc4bcbd5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-24 21:45:28</sys_updated_on>
+        <table>var__m_atf_input_variable_071ee5b253331200040729cac2dc348d</table>
+        <value>{{step['0ddeeeb41b910d108c5143f3cc4bcbfa'].user}}</value>
+    </sys_element_mapping>
 </record_update>

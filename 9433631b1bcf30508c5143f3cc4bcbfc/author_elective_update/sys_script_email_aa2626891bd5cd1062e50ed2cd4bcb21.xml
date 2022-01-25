@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="DELETE">
+        <name>modular_notifications_custom_astea_approval_provision</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[//Do not edit this, change the name then insert and stay to create a new script.
+//This is for regular out of the box opened, closed, or updated notifications. For anything other than that, use the modular_notifications_custom_template email script as a starter.
+
+
+(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template, /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action, /* Optional GlideRecord */ event) {
+	//These variables will control the different sections of the modular notifications
+	//Subject will also control the email subject, don't include HTML there
+	var notification = new ModularNotificationsBuilder();
+	var requestType = current.variables.request_type.toString();
+	var html = '';
+	var conditions = (
+		(current.variables.security_role1.toString() == 'Company_BPO') ||
+		(current.variables.security_role1.toString() == 'IT Support') ||
+		(current.variables.security_role1.toString() == 'MMC_Grunau_BPO') ||
+		(current.variables.security_role1.toString() == 'NSG-Standard')
+	);
+
+	//URL that can be universally used for viewing a ticket on the portal
+	notification.table = current.getTableName();
+	notification.documentID = current.getUniqueValue();
+	notification.setGlobalUrl();
+	notification.action = 'opened';
+
+	//If it's an approval
+	if(requestType == 'New Access' && conditions){
+		notification.moreInformation = 'Once your request is approved and processed, you will receive a follow up email with the following information:<ul><li>Your username.</li><li>Your temporary password. You will be prompted to change the password after your first login.</li><li>A Link to access Astea.</li><li>A PDF containing information about using Astea.</li></ul>';
+	}
+	//If it's a new access request that's not an approval
+	else if(requestType == 'New Access'){
+		notification.moreInformation = 'Once your request is processed, you will receive a follow up email with the following information:<ul><li>Your username.</li><li>Your temporary password. You will be prompted to change the password after your first login.</li><li>A Link to access Astea.</li><li>A PDF containing information about using Astea.</li></ul>';
+	}
+
+	notification.name = current.opened_by.first_name.toString();
+
+	//Put it all together to get the full HTML template
+	html = notification.getHTML();
+
+	//Print HTML to the body
+	template.print(html);
+
+	//Set email subject
+	email.setSubject(notification.subject);
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-25 13:41:27</sys_created_on>
+        <sys_id>aa2626891bd5cd1062e50ed2cd4bcb21</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>modular_notifications_custom_astea_approval_provision</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_email_aa2626891bd5cd1062e50ed2cd4bcb21</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-25 13:52:22</sys_updated_on>
+    </sys_script_email>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</application>
+        <file_path/>
+        <instance_id>37412023db6dd890ad8dd7c8f49619a0</instance_id>
+        <instance_name>apigroupdev</instance_name>
+        <name>sys_script_email_aa2626891bd5cd1062e50ed2cd4bcb21</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_email"&gt;&lt;sys_script_email action="INSERT_OR_UPDATE"&gt;&lt;name&gt;modular_notifications_custom_astea_approval_provision&lt;/name&gt;&lt;new_lines_to_html&gt;false&lt;/new_lines_to_html&gt;&lt;script&gt;&lt;![CDATA[//Do not edit this, change the name then insert and stay to create a new script.
+//This is for regular out of the box opened, closed, or updated notifications. For anything other than that, use the modular_notifications_custom_template email script as a starter.
+
+
+(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template, /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action, /* Optional GlideRecord */ event) {
+	//These variables will control the different sections of the modular notifications
+	//Subject will also control the email subject, don't include HTML there
+	var notification = new ModularNotificationsBuilder();
+	var requestType = current.variables.request_type.toString();
+	var html = '';
+	var conditions = (
+		(current.variables.security_role1.toString() == 'Company_BPO') ||
+		(current.variables.security_role1.toString() == 'IT Support') ||
+		(current.variables.security_role1.toString() == 'MMC_Grunau_BPO') ||
+		(current.variables.security_role1.toString() == 'NSG-Standard')
+	);
+
+	//URL that can be universally used for viewing a ticket on the portal
+	notification.table = current.getTableName();
+	notification.documentID = current.getUniqueValue();
+	notification.setGlobalUrl();
+	notification.action = 'opened';
+
+	//If it's an approval
+	if(requestType == 'New Access' &amp;&amp; conditions){
+		notification.moreInformation = 'Once your request is approved and processed, you will receive a follow up email with the following information:&lt;ul&gt;&lt;li&gt;Your username.&lt;/li&gt;&lt;li&gt;Your temporary password. You will be prompted to change the password after your first login.&lt;/li&gt;&lt;li&gt;A Link to access Astea.&lt;/li&gt;&lt;li&gt;A PDF containing information about using Astea.&lt;/li&gt;&lt;/ul&gt;';
+	}
+	//If it's a new access request that's not an approval
+	else if(requestType == 'New Access'){
+		notification.moreInformation = 'Once your request is processed, you will receive a follow up email with the following information:&lt;ul&gt;&lt;li&gt;Your username.&lt;/li&gt;&lt;li&gt;Your temporary password. You will be prompted to change the password after your first login.&lt;/li&gt;&lt;li&gt;A Link to access Astea.&lt;/li&gt;&lt;li&gt;A PDF containing information about using Astea.&lt;/li&gt;&lt;/ul&gt;';
+	}
+
+	notification.name = current.opened_by.first_name.toString();
+
+	//Put it all together to get the full HTML template
+	html = notification.getHTML();
+
+	//Print HTML to the body
+	template.print(html);
+
+	//Set email subject
+	email.setSubject(notification.subject);
+
+})(current, template, email, email_action, event);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_email&lt;/sys_class_name&gt;&lt;sys_created_by&gt;Terry.Lillo&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-01-25 13:41:27&lt;/sys_created_on&gt;&lt;sys_id&gt;aa2626891bd5cd1062e50ed2cd4bcb21&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;modular_notifications_custom_astea_approval_provision&lt;/sys_name&gt;&lt;sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc"&gt;9433631b1bcf30508c5143f3cc4bcbfc&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Modular Notifications"&gt;9433631b1bcf30508c5143f3cc4bcbfc&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_email_aa2626891bd5cd1062e50ed2cd4bcb21&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;Terry.Lillo&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-01-25 13:52:22&lt;/sys_updated_on&gt;&lt;/sys_script_email&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>800779121</payload_hash>
+        <record_name>modular_notifications_custom_astea_approval_provision</record_name>
+        <reverted_from/>
+        <source>f1467baa1b780d1462e50ed2cd4bcbc1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-25 13:52:22</sys_created_on>
+        <sys_id>62a82e8d1bd5cd1062e50ed2cd4bcb16</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17e91824d070000001</sys_recorded_at>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-25 13:52:22</sys_updated_on>
+        <type>Email Script</type>
+        <update_guid>e6a82e8d24d5cd105349cc85ca696515</update_guid>
+        <update_guid_history>e6a82e8d24d5cd105349cc85ca696515:800779121,2a262689f7d5cd109a4bac8a9d8b8324:-43209860</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-25 14:17:35</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_email">sys_script_email</sys_db_object>
+        <sys_id>3056e3e8620e41f29ba786510aa0bd81</sys_id>
+        <sys_metadata>aa2626891bd5cd1062e50ed2cd4bcb21</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>modular_notifications_custom_astea_approval_provision</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
+        <sys_update_name>sys_script_email_aa2626891bd5cd1062e50ed2cd4bcb21</sys_update_name>
+        <sys_update_version display_value="sys_script_email_aa2626891bd5cd1062e50ed2cd4bcb21">62a82e8d1bd5cd1062e50ed2cd4bcb16</sys_update_version>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-25 14:17:35</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

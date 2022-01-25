@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="DELETE">
+        <active>true</active>
+        <copied_from display_value="Impersonate">8f6336fc1b910d108c5143f3cc4bcb86</copied_from>
+        <description>Impersonate the user: Yang Li with user Id: Yang.Li
+
+Warning: Impersonating an existing user may cause unexpected behavior for this test. Avoid potential issues by adding a 'Create a User' step instead&#13;
+See the documentation for Test Design Considerations</description>
+        <display_name>Impersonate</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>15</order>
+        <snapshot/>
+        <step_config display_value="Impersonate">071ee5b253331200040729cac2dc348d</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-24 21:55:06</sys_created_on>
+        <sys_id>4c9d07381bd50d108c5143f3cc4bcbd5</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Impersonate</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_atf_step_4c9d07381bd50d108c5143f3cc4bcbd5</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-24 22:11:33</sys_updated_on>
+        <table/>
+        <test display_value="TC - 278 - Request - Astea Approval - IT">5f8d07381bd50d108c5143f3cc4bcb32</test>
+        <timeout/>
+        <warning_message>Warning: Impersonating an existing user may cause unexpected behavior for this test. Avoid potential issues by adding a 'Create a User' step instead&#13;
+See the documentation for Test Design Considerations</warning_message>
+    </sys_atf_step>
+    <sys_variable_value action="DELETE" query="document_key=4c9d07381bd50d108c5143f3cc4bcbd5"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>4c9d07381bd50d108c5143f3cc4bcbd5</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-24 21:55:06</sys_created_on>
+        <sys_id>089d07381bd50d108c5143f3cc4bcbd6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-24 21:55:06</sys_updated_on>
+        <value>dff255981b442050f5a3635bbc4bcb36</value>
+        <variable display_value="User">586e2c4253e0220002c6435723dc3415</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="DELETE" query="table=var__m_atf_input_variable_071ee5b253331200040729cac2dc348d^id=4c9d07381bd50d108c5143f3cc4bcbd5"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</application>
+        <file_path/>
+        <instance_id>37412023db6dd890ad8dd7c8f49619a0</instance_id>
+        <instance_name>apigroupdev</instance_name>
+        <name>sys_atf_step_4c9d07381bd50d108c5143f3cc4bcbd5</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step"><sys_atf_step action="INSERT_OR_UPDATE"><active>true</active><copied_from display_value="Impersonate">8f6336fc1b910d108c5143f3cc4bcb86</copied_from><description>Impersonate the user: Yang Li with user Id: Yang.Li
+
+Warning: Impersonating an existing user may cause unexpected behavior for this test. Avoid potential issues by adding a 'Create a User' step instead&#13;
+See the documentation for Test Design Considerations</description><display_name>Impersonate</display_name><inputs/><mugshots_cache_json/><notes/><order>15</order><snapshot/><step_config display_value="Impersonate">071ee5b253331200040729cac2dc348d</step_config><sys_class_name>sys_atf_step</sys_class_name><sys_created_by>Terry.Lillo</sys_created_by><sys_created_on>2022-01-24 21:55:06</sys_created_on><sys_id>4c9d07381bd50d108c5143f3cc4bcbd5</sys_id><sys_mod_count>4</sys_mod_count><sys_name>Impersonate</sys_name><sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package><sys_policy/><sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope><sys_update_name>sys_atf_step_4c9d07381bd50d108c5143f3cc4bcbd5</sys_update_name><sys_updated_by>Terry.Lillo</sys_updated_by><sys_updated_on>2022-01-24 22:11:33</sys_updated_on><table/><test display_value="TC - 278 - Request - Astea Approval - IT">5f8d07381bd50d108c5143f3cc4bcb32</test><timeout/><warning_message>Warning: Impersonating an existing user may cause unexpected behavior for this test. Avoid potential issues by adding a 'Create a User' step instead&#13;
+See the documentation for Test Design Considerations</warning_message></sys_atf_step><sys_variable_value action="delete_multiple" query="document_key=4c9d07381bd50d108c5143f3cc4bcbd5"/><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>4c9d07381bd50d108c5143f3cc4bcbd5</document_key><order>100</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>Terry.Lillo</sys_created_by><sys_created_on>2022-01-24 21:55:06</sys_created_on><sys_id>089d07381bd50d108c5143f3cc4bcbd6</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>Terry.Lillo</sys_updated_by><sys_updated_on>2022-01-24 21:55:06</sys_updated_on><value>dff255981b442050f5a3635bbc4bcb36</value><variable display_value="User">586e2c4253e0220002c6435723dc3415</variable></sys_variable_value><sys_element_mapping action="delete_multiple" query="table=var__m_atf_input_variable_071ee5b253331200040729cac2dc348d^id=4c9d07381bd50d108c5143f3cc4bcbd5"/></record_update>]]></payload>
+        <payload_hash>530173998</payload_hash>
+        <record_name>Impersonate</record_name>
+        <reverted_from/>
+        <source>f1467baa1b780d1462e50ed2cd4bcbc1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-24 22:11:33</sys_created_on>
+        <sys_id>3c519bbc1bd50d108c5143f3cc4bcb1c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17e8e24f3fb0000001</sys_recorded_at>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-24 22:11:33</sys_updated_on>
+        <type>Test Step</type>
+        <update_guid>b0519bbc13d50d10ed1a89775875771c</update_guid>
+        <update_guid_history>b0519bbc13d50d10ed1a89775875771c:530173998,55301b3cc7d50d100a9e08af1ec9ec4e:-2132942547,809d07384cd50d10b4b87298d02bd7d9:1215325099</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-24 22:17:18</sys_created_on>
+        <sys_db_object display_value="" name="sys_atf_step">sys_atf_step</sys_db_object>
+        <sys_id>5c183fb193e546a290093e739d718b04</sys_id>
+        <sys_metadata>4c9d07381bd50d108c5143f3cc4bcbd5</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Impersonate</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
+        <sys_update_name>sys_atf_step_4c9d07381bd50d108c5143f3cc4bcbd5</sys_update_name>
+        <sys_update_version display_value="sys_atf_step_4c9d07381bd50d108c5143f3cc4bcbd5">3c519bbc1bd50d108c5143f3cc4bcb1c</sys_update_version>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-24 22:17:18</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

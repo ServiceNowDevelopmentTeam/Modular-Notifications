@@ -4,28 +4,29 @@
         <copied_from/>
         <description>Answer the questions on the form as follows:
 Access Name = Onestream
-and Requested For = A DeLeonSandoval
+and Requested For = 
 and Access Type = New Access
 and Access Detailed Requirements = Test!</description>
         <display_name>Set Variable Values (SP)</display_name>
         <inputs/>
+        <inputs/>
         <mugshots_cache_json/>
         <notes/>
-        <order>5</order>
+        <order>7</order>
         <snapshot/>
         <step_config display_value="Set Variable Values (SP)">2e4229b48703030070870cf888cb0b5c</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-24 19:40:38</sys_created_on>
         <sys_id>325eeeb41b910d108c5143f3cc4bcb86</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>Set Variable Values (SP)</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_atf_step_325eeeb41b910d108c5143f3cc4bcb86</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-24 19:48:34</sys_updated_on>
+        <sys_updated_on>2022-01-24 21:45:27</sys_updated_on>
         <table/>
         <test display_value="TC - 278 - Request - OneStream Approval - IT">6b0e2ab41b910d108c5143f3cc4bcbf5</test>
         <timeout/>
@@ -68,11 +69,23 @@ and Access Detailed Requirements = Test!</description>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-24 19:40:38</sys_created_on>
         <sys_id>cece62f41b910d108c5143f3cc4bcbb6</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-24 19:40:38</sys_updated_on>
-        <value>IO:437853601b76345062e50ed2cd4bcba6=cbabd9bc1bf47410e7004229bc4bcb42^IO:6680d3441ba274108c5143f3cc4bcb39=758050ea1b52741062e50ed2cd4bcbf6^IO:349917601b76345062e50ed2cd4bcb1b=1^IO:796a9be01b76345062e50ed2cd4bcb51=Test!^EQ</value>
+        <sys_updated_on>2022-01-24 21:43:42</sys_updated_on>
+        <value>IO:437853601b76345062e50ed2cd4bcba6=cbabd9bc1bf47410e7004229bc4bcb42^IO:6680d3441ba274108c5143f3cc4bcb39={{step['253feaf41b910d108c5143f3cc4bcb85'].user}}^IO:349917601b76345062e50ed2cd4bcb1b=1^IO:796a9be01b76345062e50ed2cd4bcb51=Test!^EQ</value>
         <variable display_value="Variable Values">3f3525f48703030070870cf888cb0b37</variable>
     </sys_variable_value>
-    <sys_element_mapping action="delete_multiple" query="table=var__m_atf_input_variable_2e4229b48703030070870cf888cb0b5c^id=325eeeb41b910d108c5143f3cc4bcb86"/>
+    <sys_element_mapping action="delete_multiple" query="id=325eeeb41b910d108c5143f3cc4bcb86"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>variable_values</field>
+        <id>325eeeb41b910d108c5143f3cc4bcb86</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-24 19:40:38</sys_created_on>
+        <sys_id>8ace62f41b910d108c5143f3cc4bcbb6</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-24 21:43:42</sys_updated_on>
+        <table>var__m_atf_input_variable_2e4229b48703030070870cf888cb0b5c</table>
+        <value>IO:437853601b76345062e50ed2cd4bcba6=cbabd9bc1bf47410e7004229bc4bcb42^IO:6680d3441ba274108c5143f3cc4bcb39={{step['253feaf41b910d108c5143f3cc4bcb85'].user}}^IO:349917601b76345062e50ed2cd4bcb1b=1^IO:796a9be01b76345062e50ed2cd4bcb51=Test!^EQ</value>
+    </sys_element_mapping>
 </record_update>
