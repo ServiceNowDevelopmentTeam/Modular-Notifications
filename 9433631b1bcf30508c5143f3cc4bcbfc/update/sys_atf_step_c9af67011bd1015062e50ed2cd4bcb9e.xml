@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from display_value="Impersonate">a3d553f41b190d108c5143f3cc4bcbec</copied_from>
+        <description>Impersonate the user: {{Step 3: Create a User.User}}</description>
+        <display_name>Impersonate</display_name>
+        <inputs/>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>16</order>
+        <snapshot/>
+        <step_config display_value="Impersonate">071ee5b253331200040729cac2dc348d</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-25 19:02:28</sys_created_on>
+        <sys_id>c9af67011bd1015062e50ed2cd4bcb9e</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>Impersonate</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_atf_step_c9af67011bd1015062e50ed2cd4bcb9e</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-25 19:20:39</sys_updated_on>
+        <table/>
+        <test display_value="TC - 280 - Request - AX Approval - IT">14af27011bd1015062e50ed2cd4bcba3</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=c9af67011bd1015062e50ed2cd4bcb9e"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>c9af67011bd1015062e50ed2cd4bcb9e</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-25 19:02:28</sys_created_on>
+        <sys_id>0daf67011bd1015062e50ed2cd4bcb9f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-25 19:02:28</sys_updated_on>
+        <value/>
+        <variable display_value="User">586e2c4253e0220002c6435723dc3415</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=c9af67011bd1015062e50ed2cd4bcb9e"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>user</field>
+        <id>c9af67011bd1015062e50ed2cd4bcb9e</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-25 19:02:28</sys_created_on>
+        <sys_id>01af67011bd1015062e50ed2cd4bcba0</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-25 19:02:28</sys_updated_on>
+        <table>var__m_atf_input_variable_071ee5b253331200040729cac2dc348d</table>
+        <value>{{step['6caf27011bd1015062e50ed2cd4bcbc6'].user}}</value>
+    </sys_element_mapping>
+</record_update>

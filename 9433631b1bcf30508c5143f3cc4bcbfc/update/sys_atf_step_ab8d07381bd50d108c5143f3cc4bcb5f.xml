@@ -147,6 +147,42 @@ With roles: itil, snc_internal</description>
         <value>active=true^locked_out=false^company={{step['238d07381bd50d108c5143f3cc4bcb39'].record_id}}^EQ</value>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>first_name</field>
+        <id>ab8d07381bd50d108c5143f3cc4bcb5f</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-25 19:02:26</sys_created_on>
+        <sys_id>a4af27011bd1015062e50ed2cd4bcbc8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-25 19:02:26</sys_updated_on>
+        <table>var__m_atf_input_variable_d9bc5f21ff6033008d3f5d9ad53bf12d</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>groups</field>
+        <id>ab8d07381bd50d108c5143f3cc4bcb5f</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-25 19:02:26</sys_created_on>
+        <sys_id>20af27011bd1015062e50ed2cd4bcbc8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-25 19:02:26</sys_updated_on>
+        <table>var__m_atf_input_variable_d9bc5f21ff6033008d3f5d9ad53bf12d</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>last_name</field>
+        <id>ab8d07381bd50d108c5143f3cc4bcb5f</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-25 19:02:26</sys_created_on>
+        <sys_id>e0af27011bd1015062e50ed2cd4bcbc8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-25 19:02:26</sys_updated_on>
+        <table>var__m_atf_input_variable_d9bc5f21ff6033008d3f5d9ad53bf12d</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>roles</field>
         <id>ab8d07381bd50d108c5143f3cc4bcb5f</id>
         <sys_created_by>Terry.Lillo</sys_created_by>
