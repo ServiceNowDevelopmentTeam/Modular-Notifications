@@ -4,14 +4,14 @@
         <action_update>true</action_update>
         <active>true</active>
         <advanced_condition><![CDATA[(function() {
-	//Only send email if there are 1 or more ritms that are not rejected
+	//Only send email if there are no rejected ritms
 	var reqItemSysId = current.sys_id.toString();
-	var encodedQuery = 'approval!=rejected^request=' + reqItemSysId;
+	var encodedQuery = 'approval=rejected^request=' + reqItemSysId;
 	var ritmGr = new GlideRecord('sc_req_item');
 	ritmGr.addEncodedQuery(encodedQuery);
 	ritmGr.query();
 
-	return ritmGr.hasNext();
+	return !ritmGr.hasNext();
 })();]]></advanced_condition>
         <affected_field_on_event/>
         <category display_value="Service Catalog" name="Service Catalog">be9d02137f232200ee2e108c3ffa9155</category>
@@ -69,7 +69,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path/>
         <sys_id>2da1e256c6112284000b4c69dab7e993</sys_id>
-        <sys_mod_count>56</sys_mod_count>
+        <sys_mod_count>57</sys_mod_count>
         <sys_name>Request Completed</sys_name>
         <sys_overrides/>
         <sys_package display_value="Mobile UI" source="com.glide.ui.m">0bf4e4671b211010e7004229bc4bcb9b</sys_package>
@@ -77,7 +77,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_2da1e256c6112284000b4c69dab7e993</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-24 21:00:21</sys_updated_on>
+        <sys_updated_on>2022-01-25 16:51:10</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="Unsubscribe and Preferences Helvetica">d465111f3b4b2200c869c2c703efc47c</template>
         <type>email</type>

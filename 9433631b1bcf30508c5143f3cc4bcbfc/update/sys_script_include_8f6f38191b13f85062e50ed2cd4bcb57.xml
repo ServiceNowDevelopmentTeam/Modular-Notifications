@@ -603,9 +603,35 @@ ModularNotificationsBuilder.prototype = {
 		}
 	},
 
-	///////////////////////////////////////////////////////////////////////////////////
-	//Internal - Get comments to add to variables section, this applies to all tables//
-	///////////////////////////////////////////////////////////////////////////////////
+
+	/**SNDOC
+	@name getCommentString
+	@description Returns comments from the sys_journal_field table
+	
+	@param {string} [documentID] - sys_id of the record on the table
+	@param {string} [table] - table the record exists on
+	@param {bool} [isITIL] - If true, it returns work notes and comments
+	
+	@example
+	//Get approved or rejected approvers and comments
+	var approverEncodedQuery = 'stateINapproved';
+	approverEncodedQuery += '^sysapproval=' + current.sys_id.toString();
+	var approverGr = new GlideRecord('sysapproval_approver');
+	approverGr.addEncodedQuery(approverEncodedQuery);
+	approverGr.query();
+
+	var approverString = '';
+	var approverComments = '';
+	
+		while (approverGr.next()){
+		var commentString = new global.ModularNotificationsBuilder().getCommentString(approverGr.getUniqueValue(), 'sysapproval_approver', 'false');
+		approverString += approverGr.getDisplayValue('approver') + ': ' + approverGr.getDisplayValue('state');
+		approverComments += commentString ? commentString : '';
+	}
+	gs.info(approverComments);
+
+	@returns {string} HTML formatted text comments
+	*/
 	getCommentString: function(documentID, table, isITIL) {
 		var variableString = '';
 		var gr = new GlideRecord('sys_journal_field');
@@ -646,6 +672,83 @@ ModularNotificationsBuilder.prototype = {
 			var variableValue = gr.value.toString();
 			if (variableName && variableValue){
 				variableString += variableName + '<br>' + variableValue + '<br>';
+			}
+			i++;
+		}
+		return variableString;
+	},
+	
+	/**SNDOC
+	@name getNoHTMLCommentString
+	@description Returns comments from the sys_journal_field table
+	
+	@param {string} [documentID] - sys_id of the record on the table
+	@param {string} [table] - table the record exists on
+	@param {bool} [isITIL] - If true, it returns work notes and comments
+	
+	@example
+	//Get approved or rejected approvers and comments
+	var approverEncodedQuery = 'stateINapproved';
+	approverEncodedQuery += '^sysapproval=' + current.sys_id.toString();
+	var approverGr = new GlideRecord('sysapproval_approver');
+	approverGr.addEncodedQuery(approverEncodedQuery);
+	approverGr.query();
+
+	var approverString = '';
+	var approverComments = '';
+	
+		while (approverGr.next()){
+		var commentString = new global.ModularNotificationsBuilder().getNoHTMLCommentString(approverGr.getUniqueValue(), 'sysapproval_approver', 'false');
+		approverString += approverGr.getDisplayValue('approver') + ': ' + approverGr.getDisplayValue('state');
+		approverComments += commentString ? commentString : '';
+	}
+	gs.info(approverComments);
+
+	@returns {string} Plain text comments
+	*/
+	///////////////////////////////////////////////////////////////////////////////////
+	//Internal - Get comments to add to variables section, this applies to all tables//
+	///////////////////////////////////////////////////////////////////////////////////
+	getNoHTMLCommentString: function(documentID, table, isITIL) {
+		var variableString = '';
+		var gr = new GlideRecord('sys_journal_field');
+		gr.addQuery('element_id', documentID);
+		gr.addQuery('element', 'comments');
+		gr.addQuery('name', table);
+		gr.orderByDesc('sys_created_on');
+		gr.query();
+		if(!gr.hasNext()){
+			return '';
+		}
+		var i = 0;
+		while (gr.next() && i < 5) {
+			var commenter = '';
+			var commentedBy = gr.sys_created_by.toString();
+			if (commentedBy){
+				var userGr = new GlideRecord('sys_user');
+				userGr.addQuery('user_name',commentedBy);
+				userGr.addQuery('user_name','!=','');
+				userGr.addActiveQuery();
+				userGr.query();
+				userGr.next();
+				commenter = userGr.name.toString();
+			}
+			else{
+				commenter = commentedBy;
+			}
+			commenter = commenter || 'System';
+			var createdOn = new GlideDateTime(gr.sys_created_on);
+			var schedTools = new ScheduleTools();
+			createdOn = new GlideDateTime(schedTools.timeZoneDiff(createdOn,'-6'));
+
+			var createdOnDate = createdOn.getDate();
+			var createdOnTime = new GlideTime();
+			createdOnTime.setValue(createdOn.getTime());
+
+			var variableName = createdOnDate + ' ' + createdOnTime.getByFormat('hh:mm a') + ' - ' + commenter;
+			var variableValue = gr.value.toString();
+			if (variableName && variableValue){
+				variableString += variableName + '\n' + variableValue + '\n';
 			}
 			i++;
 		}
@@ -819,13 +922,13 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>409</sys_mod_count>
+        <sys_mod_count>411</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-20 21:04:23</sys_updated_on>
+        <sys_updated_on>2022-01-25 16:42:57</sys_updated_on>
     </sys_script_include>
 </record_update>
