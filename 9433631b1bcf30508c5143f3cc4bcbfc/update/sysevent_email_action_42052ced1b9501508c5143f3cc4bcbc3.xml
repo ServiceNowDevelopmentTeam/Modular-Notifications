@@ -3,7 +3,13 @@
         <action_insert>true</action_insert>
         <action_update>true</action_update>
         <active>true</active>
-        <advanced_condition/>
+        <advanced_condition><![CDATA[//Don't send if opened by is requested for
+if(current.opened_by.toString() != current.requested_for.toString()){
+	answer = true;
+}
+else{
+	answer = false;
+}]]></advanced_condition>
         <affected_field_on_event/>
         <category display_value="Uncategorized" name="Uncategorized">c97d83137f4432005f58108c3ffa917a</category>
         <collection>sc_req_item</collection>
@@ -40,14 +46,14 @@
         <item_table/>
         <mandatory>false</mandatory>
         <message/>
-        <message_html><![CDATA[<p>${mail_script:modular_notifications_opened}</p>]]></message_html>
+        <message_html><![CDATA[<p>${mail_script:modular_notifications_opened_req_for}</p>]]></message_html>
         <message_list/>
         <message_text/>
-        <name>Request Item Opened - Requestor</name>
+        <name>Request Item Opened - Requested For</name>
         <omit_watermark>false</omit_watermark>
         <order>100</order>
         <push_message_only>false</push_message_only>
-        <recipient_fields>opened_by</recipient_fields>
+        <recipient_fields>requested_for</recipient_fields>
         <recipient_groups/>
         <recipient_users/>
         <reply_to/>
@@ -57,37 +63,23 @@
         <subject>Request ${request.number} has been opened</subject>
         <subscribable>false</subscribable>
         <sys_class_name>sysevent_email_action</sys_class_name>
-        <sys_created_by>ryan.myers1</sys_created_by>
-        <sys_created_on>2020-09-18 17:29:11</sys_created_on>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-26 17:34:14</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>84c853861b571410e7004229bc4bcb8d</sys_id>
-        <sys_mod_count>32</sys_mod_count>
-        <sys_name>Request Item Opened - Requestor</sys_name>
+        <sys_id>42052ced1b9501508c5143f3cc4bcbc3</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Request Item Opened - Requested For</sys_name>
         <sys_overrides/>
-        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
-        <sys_update_name>sysevent_email_action_84c853861b571410e7004229bc4bcb8d</sys_update_name>
+        <sys_update_name>sysevent_email_action_42052ced1b9501508c5143f3cc4bcbc3</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-26 17:29:12</sys_updated_on>
+        <sys_updated_on>2022-01-26 17:40:56</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="Unsubscribe and Preferences Helvetica">d465111f3b4b2200c869c2c703efc47c</template>
         <type>email</type>
         <weight>0</weight>
     </sysevent_email_action>
-    <sys_claim action="INSERT_OR_UPDATE">
-        <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
-        <claim_timestamp>17c76735de20000001</claim_timestamp>
-        <metadata_update_name>sysevent_email_action_84c853861b571410e7004229bc4bcb8d</metadata_update_name>
-        <previous_claim_app_version>1.0.0</previous_claim_app_version>
-        <previous_claim_name>Modular Notifications</previous_claim_name>
-        <previous_claim_scope>9433631b1bcf30508c5143f3cc4bcbfc</previous_claim_scope>
-        <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2021-10-12 21:40:44</sys_created_on>
-        <sys_id>97e4ef5b1bcf30508c5143f3cc4bcbf3</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-12 21:40:44</sys_updated_on>
-    </sys_claim>
 </record_update>
