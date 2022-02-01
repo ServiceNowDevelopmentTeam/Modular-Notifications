@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>modular_notifications_custom_incident_to_request</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template, /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action, /* Optional GlideRecord */ event) {
+	var state = current.u_state.getDisplayValue();
+	var remindNumber = '';
+	var remindNotice = '';
+	////////////////////////////////////////////////////////////////////////////
+	//If this should be a reminder(after 24 hours), then build reminder notice//
+	////////////////////////////////////////////////////////////////////////////
+	if(state == 'New' && current.u_reminded.getValue() && current.u_reminded.getValue()>0){
+		state = 'Reminder';
+		remindNumber = 'Reminder Number ' + current.u_reminded.getValue();
+		var remindCount = 'in ' + (4 - current.u_reminded.getValue());
+		remindCount += (4 - current.u_reminded.getValue()) == 1 ?' business day' : ' business days';
+
+		remindNotice = 'Please note, if you don\'t take action, this request conversion will expire ' + remindCount + ' and our support team will contact you.';
+	}
+	////////////////////////////////////////////////////////////////////////////////
+	//If this should not be a reminder(after 24 hours), then build reminder notice//
+	////////////////////////////////////////////////////////////////////////////////
+	if(state == 'New' && current.u_reminded.getValue() && current.u_reminded.getValue()==0){
+		remindNumber = 'Notice';
+		remindNotice = 'Please note, if you don\'t take action, this request conversion will expire in 3 business days.';
+	}
+	
+	//These variables will control the different sections of the modular notifications
+	//Subject will also control the email subject, don't include HTML there
+	var notification =new ModularNotificationsBuilder();
+
+	//URL that can be universally used for viewing a ticket on the portal
+	notification.table = event.table;
+	notification.documentID = event.instance;
+	notification.setGlobalUrl();
+	notification.action = 'custom';
+	var link = '/sp?id=sc_cat_item&sys_id=${u_catalog_item.sys_id}&sysparm_category=${u_catalog_item.category.sys_id}&sysparm_variables=%7B%22related_inc%22:%22${u_incident.sys_id}%22%7D';
+
+	//User's first name
+	notification.name = '${u_incident.caller_id.name}';
+
+	switch(state){
+		case 'New':
+			notification.subject = 'Action Required: Incident ' + current.u_incident.number + ' to Request conversion has started';
+			notification.information = 'We have converted the incident below to a request so our support teams can provide the best service possible.  We need more information from you to proceed. <a href="' + link + '">Click here</a> to finalize your request.';
+			notification.moreInformation = '<b>Why a Request?</b><br><a href="https://apigroup.service-now.com/kb_view.do?sysparm_article=KB0012205">Click here</a> for more information on why we made this change and how to submit requests in the future.';
+			//variables section
+			notification.varList = [
+				{
+					variableName: 'Incident ID',
+					variableValue: '${u_incident.number}'
+				},
+				{
+					variableName: 'Incident Description',
+					variableValue: '${u_incident.short_description}'
+				},
+				{
+					variableName: remindNumber,
+					variableValue: remindNotice
+				}];
+			break;
+
+		case 'Reminder':
+
+			notification.subject = current.u_reminded.getValue() == 3 ? 'Final Reminder: More information still needed on your Incident to Request conversion' : 'More information still needed on your Incident to Request conversion';
+			notification.information = 'We have converted the incident below to a request so our support teams can provide the best service possible.  We need more information from you to proceed. <a href="' + link + '">Click here</a> to finalize your request.';
+			notification.moreInformation = '<b>Why a Request?</b><br><a href="https://apigroup.service-now.com/kb_view.do?sysparm_article=KB0012205">Click here</a> for more information on why we made this change and how to submit requests in the future.';
+			//variables section
+			notification.varList = [
+				{
+					variableName: 'Incident ID',
+					variableValue: '${u_incident.number}'
+				},
+				{
+					variableName: 'Incident Description',
+					variableValue: '${u_incident.short_description}'
+				},
+				{
+					variableName: remindNumber,
+					variableValue: remindNotice
+				}];
+			break;
+
+		case 'Converted':
+			var dueDateTime = new GlideDateTime(current.due_date);
+			notification.subject = 'Incident ' + current.u_incident.number + ' has been converted to Request ' + current.u_request.number;
+			notification.information = 'We have converted the incident below to a request so our support teams can provide the best service possible.  The incident has been cancelled, and your request is underway.';
+			notification.moreInformation = '<b>Why a Request?</b><br><a href="https://apigroup.service-now.com/kb_view.do?sysparm_article=KB0012205">Click here</a> for more information on why we made this change and how to submit requests in the future.';
+			//variables section
+			notification.varList = [
+				{
+					variableName: 'Incident ID',
+					variableValue: '${u_incident.number}'
+				},
+				{
+					variableName: 'Incident Description',
+					variableValue: '${u_incident.short_description}'
+				}
+			];
+			notification.varList.push({
+				variableName: 'Incident Status',
+				variableValue: '${u_incident.state}'
+			});
+			notification.varList.push({
+				variableName: 'Request ID',
+				variableValue: current.u_request.getDisplayValue()
+			});
+			notification.varList.push({
+				variableName: 'Request Description',
+				variableValue: current.u_request.request.short_description.getDisplayValue()
+			});
+			notification.varList.push({
+				variableName: 'Estimated Delivery Date',
+				variableValue: dueDateTime.getDate()
+			});
+			break;
+
+		default:
+			notification.subject = 'Action Required: Incident ' + current.u_incident.number + ' to Request conversion has started';
+			notification.information = 'We have converted the incident below to a request so our support teams can provide the best service possible.  We need more information from you to proceed. <a href="' + link + '">Click here</a> to finalize your request.';
+			notification.moreInformation = '<b>Why a Request?</b><br><a href="https://apigroup.service-now.com/kb_view.do?sysparm_article=KB0012205">Click here</a> for more information on why we made this change and how to submit requests in the future.';
+			//variables section
+			notification.varList = [
+				{
+					variableName: 'Incident ID',
+					variableValue: '${u_incident.number}'
+				},
+				{
+					variableName: 'Incident Description',
+					variableValue: '${u_incident.short_description}'
+				}
+			];
+			break;
+	}
+
+
+
+	//Put it all together to get the full HTML template
+	var html = notification.getHTML();
+
+	//Print HTML to the body
+	template.print(html);
+
+	//Set email subject
+	email.setSubject(notification.subject);
+
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-10-21 15:42:32</sys_created_on>
+        <sys_id>0c4964921bdb301062e50ed2cd4bcb57</sys_id>
+        <sys_mod_count>36</sys_mod_count>
+        <sys_name>modular_notifications_custom_incident_to_request</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_email_0c4964921bdb301062e50ed2cd4bcb57</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-28 22:12:40</sys_updated_on>
+    </sys_script_email>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
+        <claim_timestamp>17ea2beb6740000001</claim_timestamp>
+        <metadata_update_name>sys_script_email_0c4964921bdb301062e50ed2cd4bcb57</metadata_update_name>
+        <previous_claim_app_version>1.3.11</previous_claim_app_version>
+        <previous_claim_name>Modular Notifications</previous_claim_name>
+        <previous_claim_scope>9433631b1bcf30508c5143f3cc4bcbfc</previous_claim_scope>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-28 22:11:54</sys_created_on>
+        <sys_id>85c7bf861b9945508c5143f3cc4bcb33</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-28 22:11:54</sys_updated_on>
+    </sys_claim>
+</record_update>
