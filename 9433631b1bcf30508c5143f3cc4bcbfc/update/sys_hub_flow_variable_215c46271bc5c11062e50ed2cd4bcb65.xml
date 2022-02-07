@@ -38,7 +38,7 @@
         <label>Has Approvers</label>
         <mandatory>false</mandatory>
         <max_length>40</max_length>
-        <model display_value="Wait For RITM Approvers">37dac6631bc5c11062e50ed2cd4bcbd4</model>
+        <model display_value="RITM Opened Approval Notification">37dac6631bc5c11062e50ed2cd4bcbd4</model>
         <model_id>37dac6631bc5c11062e50ed2cd4bcbd4</model_id>
         <model_table>sys_hub_flow_snapshot</model_table>
         <name>var__m_sys_hub_flow_variable_37dac6631bc5c11062e50ed2cd4bcbd4</name>

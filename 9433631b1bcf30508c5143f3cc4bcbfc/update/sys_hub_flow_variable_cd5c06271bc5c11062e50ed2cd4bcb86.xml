@@ -38,7 +38,7 @@
         <label>Is Timed Out</label>
         <mandatory>false</mandatory>
         <max_length>40</max_length>
-        <model display_value="Wait For RITM Approvers">7f7a0eef1b85c11062e50ed2cd4bcb99</model>
+        <model display_value="RITM Opened Approval Notification">7f7a0eef1b85c11062e50ed2cd4bcb99</model>
         <model_id>7f7a0eef1b85c11062e50ed2cd4bcb99</model_id>
         <model_table>sys_hub_flow</model_table>
         <name>var__m_sys_hub_flow_variable_7f7a0eef1b85c11062e50ed2cd4bcb99</name>
@@ -61,14 +61,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-20 19:57:41</sys_created_on>
         <sys_id>cd5c06271bc5c11062e50ed2cd4bcb86</sys_id>
-        <sys_mod_count>22</sys_mod_count>
+        <sys_mod_count>44</sys_mod_count>
         <sys_name>Is Timed Out</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_flow_variable_cd5c06271bc5c11062e50ed2cd4bcb86</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-20 20:53:16</sys_updated_on>
+        <sys_updated_on>2022-02-04 22:06:04</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

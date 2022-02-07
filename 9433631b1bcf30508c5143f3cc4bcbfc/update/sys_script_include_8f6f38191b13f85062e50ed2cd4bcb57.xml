@@ -450,7 +450,7 @@ ModularNotificationsBuilder.prototype = {
 		if (action == 'completed'){		
 			//Do nothing
 		} else if (action == 'submitted for approval'){
-			this.waitForRitmApprovers(grSysId);
+			this.getRitmApprovers(grSysId);
 			var approverGr = new GlideRecord('sysapproval_approver');
 			approverGr.addQuery('document_id',grSysId);
 			approverGr.query();
@@ -789,20 +789,21 @@ ModularNotificationsBuilder.prototype = {
 		}
 	},	
 	/**SNDOC
-	@name waitForRitmApprovers
-	@description Runs a flow that waits for approvers to appear on a record, or 5 minutes, which ever comes first. Then returns the encoded user query for querying sys_user with.
+	@name getRitmApprovers
+	@description Runs a flow that looks for approvers to appear on a record returns the encoded user query for querying sys_user with.
 
 	@example
 		var grRitm = new GlideRecord('sc_req_item');
 		grRitm.get('RITM0030262');
 		var notification = new ModularNotificationsBuilder();
-		notification.waitForRitmApprovers(grRitm.getUniqueValue());
+		notification.getRitmApprovers(grRitm.getUniqueValue());
 
 	@returns {string}
 	*/
 
-	waitForRitmApprovers: function(document_id) {
+	getRitmApprovers: function(document_id) {
 		try {
+			
 			var inputs = {};
 			inputs['document_id'] = document_id; // String 
 
@@ -811,7 +812,7 @@ ModularNotificationsBuilder.prototype = {
 
 			// Execute Synchronously: Run in foreground. Code snippet has access to outputs.
 			var result = sn_fd.FlowAPI.getRunner()
-			.subflow('global.wait_for_record_approvers')
+			.subflow('global.look_up_ritm_approvers')
 			.inForeground()
 			.timeout(600000)
 			.withInputs(inputs)
@@ -824,6 +825,7 @@ ModularNotificationsBuilder.prototype = {
 			var approver_user_query = outputs['approver_user_query']; // String
 
 			var userQuery = has_approvals ? approver_user_query : '';
+			userQuery ='';
 			return userQuery;
 
 		} catch (ex) {
@@ -933,13 +935,13 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>412</sys_mod_count>
+        <sys_mod_count>414</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-31 20:09:51</sys_updated_on>
+        <sys_updated_on>2022-02-07 15:56:25</sys_updated_on>
     </sys_script_include>
 </record_update>
