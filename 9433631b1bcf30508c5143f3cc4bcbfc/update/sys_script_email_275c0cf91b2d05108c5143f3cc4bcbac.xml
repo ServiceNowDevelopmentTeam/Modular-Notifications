@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>modular_notifications_incident_to_request_conversion_new</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[//Do not edit this, change the name then insert and stay to create a new script.
+//This is for custom notifications. For out of the box opened, closed, or updated notifications use the modular_notifications_open_close_update_template email script as a starter.
+
+(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template, /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action, /* Optional GlideRecord */ event) {
+
+	//These variables will control the different sections of the modular notifications
+	//Subject will also control the email subject, don't include HTML there
+	var notification = new ModularNotificationsBuilder();
+	
+	//URL that can be universally used for viewing a ticket on the portal
+	notification.table = event.table;
+	notification.documentID = event.instance;
+	notification.setGlobalUrl();
+	notification.action = 'custom';
+	var link = notification.globalURL;
+	
+	//Email subject and subject section
+	notification.subject = 'Action Required: Converting Incident to Request';
+	
+	//User's first name
+	notification.name = 'Name';
+	var requestUrl = 'https://' + gs.getProperty('instance_name') +  '.service-now.com/sp?id=sc_cat_item&amp;sys_id=${u_catalog_item.sys_id}&amp;sysparm_category=${u_catalog_item.category.sys_id}&amp;sysparm_variables=%7B%22related_inc%22:%22${u_incident.sys_id}%22%7D';
+	
+	//Information section
+	notification.information = 'Your incident has been closed, because it should be a request. Please submit a request <a href="' + requestUrl + '">here</a>, and we will get to it as soon as possible.';
+	
+	//variables section
+	notification.varList = [
+		{
+			variableName: 'Incident Number',
+			variableValue: current.u_incident.number
+		},
+		{
+			variableName: 'Incident Description',
+			variableValue: current.u_incident.short_description
+		},
+		{
+			variableName: 'Catalog Item',
+			variableValue: '<a href="' + requestUrl + '">' + current.u_catalog_item.name + '</a>'
+		}
+	];
+	//More information section
+	notification.moreInformation = 'When you are requesting access, or need something, please submit a request. When something isn\'t working properly, or something is wrong, please submit an incident.';
+
+	//Put it all together to get the full HTML template
+	var html = notification.getHTML();
+	
+	//Print HTML to the body
+	template.print(html);
+	
+	//Set email subject
+	email.setSubject(notification.subject);
+
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-02-08 20:40:39</sys_created_on>
+        <sys_id>275c0cf91b2d05108c5143f3cc4bcbac</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>modular_notifications_incident_to_request_conversion_new</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_email_275c0cf91b2d05108c5143f3cc4bcbac</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-02-08 20:57:37</sys_updated_on>
+    </sys_script_email>
+</record_update>

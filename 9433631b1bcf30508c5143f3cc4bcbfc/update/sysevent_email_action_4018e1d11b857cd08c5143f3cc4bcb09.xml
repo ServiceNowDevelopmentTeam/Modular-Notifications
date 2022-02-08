@@ -14,9 +14,9 @@
         <digest_from/>
         <digest_html/>
         <digest_reply_to/>
-        <digest_separator_html><![CDATA[<p><br /></p>
+        <digest_separator_html><![CDATA[<p>&nbsp;</p>
 <hr />
-<p><br /></p>]]></digest_separator_html>
+<p>&nbsp;</p>]]></digest_separator_html>
         <digest_separator_text><![CDATA[\n--------------------------------------------------------------------------------\n]]></digest_separator_text>
         <digest_subject/>
         <digest_template/>
@@ -29,53 +29,14 @@
         <force_delivery>false</force_delivery>
         <from/>
         <generation_type>engine</generation_type>
-        <importance>high</importance>
+        <importance/>
         <include_attachments>false</include_attachments>
         <item>event.parm1</item>
         <item_table/>
         <mandatory>false</mandatory>
         <message/>
-        <message_html><![CDATA[<p><br /></p>
-<table width="100%">
-<tbody>
-<tr>
-<td style="padding: 10px 10px 10px 10px;" width="20%"><img style="vertical-align: middle;" src="/APiGroupLogo.png" width="100%" /></td>
-<td style="font-weight: 600; font-size: 20px;">Action Required:<br />An Incident to Request Conversion Has Started</td>
-</tr>
-</tbody>
-</table>
-<table width="100%">
-<tbody>
-<tr>
-<td style="padding: 0px 25px 0px 25px;">
-<table style="padding: 10px; border-top: medium solid #003087; width: 100%;" width="100%">
-<tbody>
-<tr>
-<td style="border-right: medium solid #003087; width: 60%;" width="60%">
-<div style="font-weight: 600;">Your incident has been closed, because it should be a request. Please submit a request <a title="Here" href="/sp?id=sc_cat_item&amp;sys_id=${u_catalog_item.sys_id}&amp;sysparm_category=${u_catalog_item.category.sys_id}&amp;sysparm_variables=%7B%22related_inc%22:%22${u_incident.sys_id}%22%7D" target="_blank" rel="noopener">here</a>, and we will get to it as soon as possible. (Insert sox reason here)</div>
-<div style="font-weight: 600;"><br /></div>
-<div style="font-weight: 600;">When you are requesting access, or need something, please submit a request. When something isn't working properly, or something is wrong, please submit an incident.</div>
-<br />
-<div style="font-weight: 600;">Incident Short description: ${u_incident.short_description}<br /></div>
-<div style="font-weight: 600;">Catalog Item: ${u_catalog_item.name}</div>
-<div style="font-weight: 600;"><br /></div>
-</td>
-<td style="width: 38.3281%;">
-<div style="font-weight: 600; font-size: 20px;">Incident Information</div>
-Incident ID: ${u_incident.task_effective_number}<br />Opened By: ${u_incident.opened_by.name}<br /><br /><br /><br />
-<div style="font-weight: 600; font-size: 20px;">Incident Status</div>
-${u_incident.state}<br /><br /><br />
-<div style="font-weight: 600; font-size: 20px;">Last Updated:</div>
-${u_incident.sys_updated_on}<br />Updated By ${u_incident.sys_updated_by}
-<div align="right"><br /></div>
-</td>
-</tr>
-</tbody>
-</table>
-<br /></td>
-</tr>
-</tbody>
-</table>]]></message_html>
+        <message_html><![CDATA[<p>${mail_script:modular_notifications_custom_incident_to_request} <br /><br /></p>
+<p><br /><br /></p>]]></message_html>
         <message_list/>
         <message_text/>
         <name>New Incident To Request Conversion</name>
@@ -97,7 +58,7 @@ ${u_incident.sys_updated_on}<br />Updated By ${u_incident.sys_updated_by}
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>4018e1d11b857cd08c5143f3cc4bcb09</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>14</sys_mod_count>
         <sys_name>New Incident To Request Conversion</sys_name>
         <sys_overrides/>
         <sys_package display_value="Global" source="global">global</sys_package>
@@ -105,7 +66,7 @@ ${u_incident.sys_updated_on}<br />Updated By ${u_incident.sys_updated_by}
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_4018e1d11b857cd08c5143f3cc4bcb09</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-12 21:40:44</sys_updated_on>
+        <sys_updated_on>2022-02-08 21:16:57</sys_updated_on>
         <sys_version>2</sys_version>
         <template/>
         <type>email</type>
