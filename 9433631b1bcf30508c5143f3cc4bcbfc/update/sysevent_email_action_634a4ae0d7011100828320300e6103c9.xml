@@ -7,7 +7,7 @@
         <affected_field_on_event/>
         <category display_value="Assessment" name="Assessment">a69d02137f232200ee2e108c3ffa9124</category>
         <collection>asmt_assessment_instance</collection>
-        <condition table="asmt_assessment_instance">metric_type.evaluation_method=survey^userISNOTEMPTY^metric_type.notify_user=true^stateCHANGESTOready^ORuserVALCHANGES^EQ<item display_value="survey" endquery="false" field="metric_type.evaluation_method" goto="false" newquery="false" operator="=" or="false" value="survey"/>
+        <condition table="asmt_assessment_instance">metric_type.evaluation_method=survey^userISNOTEMPTY^metric_type.notify_user=true^stateCHANGESTOready^ORuserVALCHANGES^EQ<item display_value="Survey" endquery="false" field="metric_type.evaluation_method" goto="false" newquery="false" operator="=" or="false" value="survey"/>
             <item endquery="false" field="user" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/>
             <item endquery="false" field="metric_type.notify_user" goto="false" newquery="false" operator="=" or="false" value="true"/>
             <item display_value="Ready to take" endquery="false" field="state" goto="false" newquery="false" operator="CHANGESTO" or="false" value="ready"/>
@@ -26,6 +26,7 @@
         <digest_template/>
         <digest_text/>
         <digestable>false</digestable>
+        <enable_dynamic_translation>false</enable_dynamic_translation>
         <event_name>approval.cancelled</event_name>
         <event_parm_1>false</event_parm_1>
         <event_parm_2>false</event_parm_2>
@@ -61,15 +62,12 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>634a4ae0d7011100828320300e6103c9</sys_id>
-        <sys_mod_count>63</sys_mod_count>
         <sys_name>Survey User Invite</sys_name>
         <sys_overrides/>
         <sys_package display_value="Assessment" source="com.snc.assessment_core">3158ac2f1be11010e7004229bc4bcb5c</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_634a4ae0d7011100828320300e6103c9</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-21 15:07:55</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="Unsubscribe and Preferences">7ed0481f3b0b2200c869c2c703efc487</template>
         <type>email</type>
@@ -85,9 +83,6 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-12 21:40:43</sys_created_on>
         <sys_id>83e4ef5b1bcf30508c5143f3cc4bcba2</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-12 21:40:43</sys_updated_on>
     </sys_claim>
     <sys_claim action="INSERT_OR_UPDATE">
         <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
@@ -99,8 +94,5 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-12 21:40:43</sys_created_on>
         <sys_id>cbe4ef5b1bcf30508c5143f3cc4bcba2</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-12 21:40:43</sys_updated_on>
     </sys_claim>
 </record_update>

@@ -46,14 +46,13 @@
         <update_guid_history>6cbc869588814110da5eb8d26982d65b:1196010917,5a95fbf745d08d503e98cb070a43b3e5:-582498458,ad1d526fce900d50ec107fd9c56872d9:-427953274</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="Title">c7ecced51b8141108c5143f3cc4bcb19</sys_audit_delete>
+        <sys_audit_delete display_value="">c7ecced51b8141108c5143f3cc4bcb19</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-13 20:13:57</sys_created_on>
         <sys_db_object display_value="" name="oam_container">oam_container</sys_db_object>
         <sys_id>0c5b3842afb14b10816b5071c2c72f90</sys_id>
         <sys_metadata>01fcd62f1b900d5062e50ed2cd4bcb9e</sys_metadata>
-        <sys_mod_count>0</sys_mod_count>
         <sys_name>Title</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_parent/>
@@ -62,7 +61,5 @@
         <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
         <sys_update_name>oam_container_01fcd62f1b900d5062e50ed2cd4bcb9e</sys_update_name>
         <sys_update_version display_value="oam_container_01fcd62f1b900d5062e50ed2cd4bcb9e">64bc86951b8141108c5143f3cc4bcb5c</sys_update_version>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-13 20:13:57</sys_updated_on>
     </sys_metadata_delete>
 </record_update>

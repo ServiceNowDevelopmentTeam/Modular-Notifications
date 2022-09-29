@@ -56,7 +56,6 @@
         <sys_db_object display_value="" name="asmt_metric_definition">asmt_metric_definition</sys_db_object>
         <sys_id>99480f2d7ae94f0099003f7ced4b8400</sys_id>
         <sys_metadata>6a72246c1b23fc1062e50ed2cd4bcbfe</sys_metadata>
-        <sys_mod_count>0</sys_mod_count>
         <sys_name>3</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_parent/>
@@ -65,7 +64,5 @@
         <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
         <sys_update_name>asmt_metric_definition_6a72246c1b23fc1062e50ed2cd4bcbfe</sys_update_name>
         <sys_update_version display_value="asmt_metric_definition_6a72246c1b23fc1062e50ed2cd4bcbfe">4129cf0f1bab70908c5143f3cc4bcb18</sys_update_version>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-11-05 21:33:17</sys_updated_on>
     </sys_metadata_delete>
 </record_update>

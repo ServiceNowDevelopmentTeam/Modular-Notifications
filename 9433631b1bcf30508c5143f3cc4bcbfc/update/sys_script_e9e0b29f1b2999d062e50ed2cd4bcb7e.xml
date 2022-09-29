@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>false</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>sc_request</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition table="sc_request">u_cdw_orderCHANGESTOtrue^u_cdw_orderCHANGESFROMfalse^EQ<item endquery="false" field="u_cdw_order" goto="false" newquery="false" operator="CHANGESTO" or="false" value="true"/>
+            <item endquery="false" field="u_cdw_order" goto="false" newquery="false" operator="CHANGESFROM" or="false" value="false"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Approval REQ Opened</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	try {
+		var inputs = {};
+		inputs['document_id'] = current.getUniqueValue();
+		sn_fd.FlowAPI.getRunner().subflow('global.wait_for_record_approvers').inBackground().withInputs(inputs).run();
+		var has_approvals = outputs['has_approvals'];
+		var approver_user_query = outputs['approver_user_query'];
+
+	} catch (ex) {
+		var message = ex.getMessage();
+		gs.error(message);
+	}
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-08-31 20:41:32</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>e9e0b29f1b2999d062e50ed2cd4bcb7e</sys_id>
+        <sys_name>Approval REQ Opened</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_e9e0b29f1b2999d062e50ed2cd4bcb7e</sys_update_name>
+        <template/>
+        <when>async_always</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=e9e0b29f1b2999d062e50ed2cd4bcb7e"/>
+</record_update>

@@ -11,20 +11,16 @@ Confirm the record was successfully updated</description>
         <mugshots_cache_json/>
         <notes/>
         <order>15</order>
-        <snapshot/>
         <step_config display_value="Record Update">17a72288df60220062fe6c7a4df26397</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-25 19:20:38</sys_created_on>
         <sys_id>8bc337491bd1015062e50ed2cd4bcb64</sys_id>
-        <sys_mod_count>1</sys_mod_count>
         <sys_name>Record Update</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_atf_step_8bc337491bd1015062e50ed2cd4bcb64</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-25 19:20:49</sys_updated_on>
         <table>sysapproval_approver</table>
         <test display_value="TC - 280 - Request - AX Approval - IT">14af27011bd1015062e50ed2cd4bcba3</test>
         <timeout/>

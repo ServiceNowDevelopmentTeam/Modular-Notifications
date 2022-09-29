@@ -43,6 +43,7 @@ ModularNotificationsBuilder.prototype = {
 		this.type = 'sp';
 		this.sourceTable = '';
 		this.adaptiveCard = '';
+		this.signature = '<div style=line-height:140%;text-align:left;word-wrap:break-word class=v-text-align><p style=font-size:14px;line-height:140%>Best Regards,<p style=font-size:14px;line-height:140%>Field Support<br>(651) 925-8511</div>';
 		this.survey = 'false';
 		this.customVariablesOverride = 'false'; //Setting to true ignores variables normally set
 		this.customVariables = [];//Variables to include if above is true, can be blank for none
@@ -51,6 +52,14 @@ ModularNotificationsBuilder.prototype = {
 			{label:'My Tickets', url:'https://apigroup.service-now.com/sp?id=my_requests'},
 			{label:'Portal', url:'https://apigroup.service-now.com/sp'}
 		];
+		this.colors = {
+			apiBlue : '#2A3E6D'
+		};
+		this.images = {
+			apiLogo : 'images/APiLogo.png',
+			footerImageLeft : 'images/SN_Building_Great_Leaders.png',
+			footerImageRight : 'images/SN_APi_Connect_Logo.png'
+		};
 	},
 
 	/**SNDOC
@@ -184,6 +193,7 @@ ModularNotificationsBuilder.prototype = {
 		//Get End Time
 		var slaGr = new GlideRecord("task_sla");
 		slaGr.addQuery("task", current.sys_id);
+		slaGr.addEncodedQuery('sla=35420982d732220035ae23c7ce610393^ORsla=af420982d732220035ae23c7ce6103f3^ORsla=d1524982d732220035ae23c7ce61035d^ORsla=b12a37e0d7322200f2d224837e6103ea^ORsla=44005d3d1b88bc10e7004229bc4bcb02');
 		slaGr.query();
 		while (slaGr.next()) {
 			//Get last SLA
@@ -296,6 +306,22 @@ ModularNotificationsBuilder.prototype = {
 		var tableName = (docGr.next() ? docGr.label.toString() : 'request');
 		var ritmGr = new GlideRecord();
 
+		//Get base table
+		var tu = new TableUtils((this.sourceTable || this.table));
+		var baseTable = tu.getAbsoluteBase();
+
+		var sourceGr = gr;
+		if(this.table=='sysapproval_approver'){
+			sourceGr = new GlideRecord(gr.source_table);
+			sourceGr.get(this.document_id.sys_id.toString());
+		}
+		//Set subject
+		if(this.sourceTable == 'sc_req_item' || this.table == 'sc_req_item'){
+			ritmGr = new GlideRecord('sc_req_item');
+			ritmGr.get(gr.document_id.number.getValue() || gr.number.getValue());
+			this.signature = this.getSignature(ritmGr);
+		}
+
 		//Set subject
 		if(this.sourceTable == 'sc_req_item'){
 			ritmGr = new GlideRecord(this.sourceTable);
@@ -318,6 +344,9 @@ ModularNotificationsBuilder.prototype = {
 		this.moreInformation = '<br>Please click here to review the request: <a href="' + this.globalURL + '">Click here</a>';
 		if (action == 'created' || action == 'reminder'){
 			var generator = new global.CustomApprovalAdaptiveCardGenerator(gr, 'en');
+			if(this.oamRefreshUrl){
+				generator.oamRefreshUrl = this.oamRefreshUrl;
+			}
 			var content = generator.generate();
 			this.adaptiveCard = '<script type="application/adaptivecard+json">' + content +'</script>';
 		}
@@ -328,51 +357,75 @@ ModularNotificationsBuilder.prototype = {
 			variableValue: this.requestorName
 		});
 		if(this.sourceTable && this.sourceTable == 'sc_req_item' && gr.document_id.number.getValue()){
-			//Get delivery date
-			var schedTools = new ScheduleTools();
-			var ritmDur = schedTools.getRitmDuration(ritmGr.getUniqueValue());
-			var weekdaySchedule = 'f3d80a151b4141108c5143f3cc4bcbf9';
-			var estDeliveryDate = (schedTools.getEndDateFromNow(weekdaySchedule,ritmDur).toString());
 
-			//Get approved or rejected approvers and comments
-			var approverEncodedQuery = 'stateINapproved,rejected';
-			approverEncodedQuery += '^sysapproval=' + gr.document_id;
-			var approverGr = new GlideRecord('sysapproval_approver');
-			approverGr.addEncodedQuery(approverEncodedQuery);
-			approverGr.query();
+			var estDeliveryDate = '';
+			var startDate = new GlideDateTime();
+			var cat_item = new GlideRecord('sc_cat_item');
+			cat_item.get(ritmGr.cat_item);
+			if(cat_item.getDisplayValue('delivery_time')) {
+				//calculate the duration
+				var dur = cat_item.delivery_time;
+				var dur_in_ms = 60*60*12*1000*(dur.getByFormat('dd')-1);
+				var dur_final = new GlideDuration(dur_in_ms);
 
-			var approverString = '';
-			var approverComments = '';
+				//schedule on 12 hour weekdays
+				var schedRec = new GlideRecord('cmn_schedule');
+				schedRec.get('name', '6-6 Weekdays');
+				var schedule = new GlideSchedule(schedRec.sys_id);
 
-			while (approverGr.next()){
-				approverString += approverGr.getDisplayValue('approver') + ': ' + approverGr.getDisplayValue('state');
-				approverString += approverGr.hasNext() ? '<br>' : '';
-				var commentString = this.getCommentString(approverGr.getUniqueValue(), 'sysapproval_approver', 'false');
-				approverComments += commentString ? commentString : ''; 
-				approverComments += approverGr.hasNext() && commentString ? '<br>' : '';
+				//calc final date
+				var end = schedule.add(startDate, dur_final);
+
+				// return the calculated value without hours
+				estDeliveryDate =  end.getDate().getDisplayValue();
+				// return the calculated value with hours
+				//return end.getDisplayValue();
 			}
-
-			this.varList.push({
-				variableName: 'Number',
-				variableValue: 'Request: ' + ritmGr.request.number.getDisplayValue() + '<br>Request Item: ' + ritmGr.number.getDisplayValue()
-			}, {
-				variableName: 'Description',
-				variableValue: ritmGr.request.short_description.getDisplayValue()
-			});
 			if(action != 'rejected'){
 				this.varList.push({
 					variableName: 'Estimated Delivery Date',
 					variableValue: estDeliveryDate
 				});
 			}
+		}
+
+
+		//Get approved or rejected approvers and comments
+		var approverEncodedQuery = 'stateINapproved,rejected';
+		approverEncodedQuery += '^sysapproval=' + gr.document_id;
+		var approverGr = new GlideRecord('sysapproval_approver');
+		approverGr.addEncodedQuery(approverEncodedQuery);
+		approverGr.query();
+
+		var approverString = '';
+		var approverComments = '';
+
+		while (approverGr.next()){
+			approverString += approverGr.getDisplayValue('approver') + ': ' + approverGr.getDisplayValue('state');
+			approverString += approverGr.hasNext() ? '<br>' : '';
+			var commentString = this.getCommentString(approverGr.getUniqueValue(), 'sysapproval_approver', 'false');
+			approverComments += commentString ? commentString : ''; 
+			approverComments += approverGr.hasNext() && commentString ? '<br>' : '';
+		}
+
+		if(baseTable == 'task'){
+			var taskNumber = this.sourceTable == 'sc_req_item' ? 'Request: ' + ritmGr.request.number.getDisplayValue() + '<br>Request Item: ' + ritmGr.number.getDisplayValue() : gr.document_id.number.toString();
+			var taskShortDescription = this.sourceTable == 'sc_req_item' ? ritmGr.request.short_description.getDisplayValue() : gr.document_id.short_description.toString();
 			this.varList.push({
-				variableName: 'Approval Replies',
-				variableValue: approverString
+				variableName: 'Number',
+				variableValue: taskNumber
 			}, {
-				variableName: 'Approval Comments',
-				variableValue: approverComments
+				variableName: 'Description',
+				variableValue: taskShortDescription
 			});
 		}
+		this.varList.push({
+			variableName: 'Approval Replies',
+			variableValue: approverString
+		}, {
+			variableName: 'Approval Comments',
+			variableValue: approverComments
+		});
 	},
 	////////////////////////////////////////////////////////////////////////////////////
 	//////Internal - Setting Email Template for REQ/RITMs///////////////////////////////
@@ -388,9 +441,10 @@ ModularNotificationsBuilder.prototype = {
 			gr.query();
 			gr.next();
 		}
+		this.signature = this.getSignature(gr);
 
 		//Find out if it's an approval using the catalog item's Approval true/false field
-		var isApproval = (gr.cat_item.u_contains_approvals.toString() == 'true');
+		var isApproval = this.table == 'sc_request' ? (gr.request.u_cdw_order.toString() == 'true') : (gr.cat_item.u_contains_approvals.toString() == 'true');
 		var isConditionalApproval = (gr.cat_item.u_conditional_approvals.toString() == 'true');
 		var approvalCondition = gr.cat_item.u_approval_condition.toString();
 
@@ -399,7 +453,7 @@ ModularNotificationsBuilder.prototype = {
 		var isConditionalCascadingApproval = (gr.cat_item.u_is_not_multiple_approver_conditional.toString() == 'false');
 		var cascadingApprovalCondition = gr.cat_item.u_multiple_approval_condition.toString();
 
-		if(action == 'opened' && isApproval && this.hasApprovers()){
+		if(action == 'opened' && isApproval){
 			if(isConditionalApproval && approvalCondition){
 				//Re-query the same RITM to see if it matches the Approval Condition field's conditions
 				var approvalGr = new GlideRecord('sc_req_item');
@@ -431,10 +485,30 @@ ModularNotificationsBuilder.prototype = {
 		}
 
 		var grSysId = gr.getUniqueValue();
-		var schedTools = new ScheduleTools();
-		var ritmDur = schedTools.getRitmDuration(grSysId);
-		var weekdaySchedule = 'f3d80a151b4141108c5143f3cc4bcbf9';
-		var estDeliveryDate = (schedTools.getEndDateFromNow(weekdaySchedule,ritmDur).toString());
+		var estDeliveryDate = '';
+		var startDate = new GlideDateTime();
+		var cat_item = new GlideRecord('sc_cat_item');
+		cat_item.get(gr.cat_item);
+		if(cat_item.getDisplayValue('delivery_time')) {
+			//calculate the duration
+			var dur = cat_item.delivery_time;
+			var dur_in_ms = 60*60*12*1000*(dur.getByFormat('dd')-1);
+			var dur_final = new GlideDuration(dur_in_ms);
+
+			//schedule on 12 hour weekdays
+			var schedRec = new GlideRecord('cmn_schedule');
+			schedRec.get('name', '6-6 Weekdays');
+			var schedule = new GlideSchedule(schedRec.sys_id);
+
+			//calc final date
+			var end = schedule.add(startDate, dur_final);
+
+			// return the calculated value without hours
+			estDeliveryDate =  end.getDate().getDisplayValue();
+			// return the calculated value with hours
+			//return end.getDisplayValue();
+		}
+
 		var approverStr='';
 
 		this.varList.push({
@@ -449,7 +523,7 @@ ModularNotificationsBuilder.prototype = {
 		});
 		if (action == 'completed'){		
 			//Do nothing
-		} else if (action == 'submitted for approval'){
+		} else if (action == 'submitted for approval' || action == 'cascadingapproval'){
 			this.getRitmApprovers(grSysId);
 			var approverGr = new GlideRecord('sysapproval_approver');
 			approverGr.addQuery('document_id',grSysId);
@@ -493,8 +567,6 @@ ModularNotificationsBuilder.prototype = {
 
 		this.moreInformation = this.moreInformation || '';
 		this.moreInformation += action == 'updated' ? '<a href="' + this.globalURL + '">Click here</a> to add a comment or view all comment history for this request.<br>' : this.customRitmMoreInformation ? this.customRitmMoreInformation : '<a href="' + this.globalURL + '">Click here</a> to update or review the latest details of this request.';
-
-		//!!TODO for loop for varlist this.varList.push(this.customRitmVariables);!!
 	},
 	/////////////////////////////////////////////////////////////////////////////////////
 	///Internal - Get custom email sections for cat items, this applies to ritm and req//
@@ -509,6 +581,7 @@ ModularNotificationsBuilder.prototype = {
 			gr.query();
 			gr.next();
 		}
+		this.signature = this.getSignature(gr);
 		switch (action) {
 			case ('opened'):
 				this.customRitmSubject = gr.cat_item.u_custom_subject ? gr.cat_item.u_subject : '';
@@ -535,7 +608,6 @@ ModularNotificationsBuilder.prototype = {
 			default:
 				this.customRitmSubject = '';
 				this.customRitmInfo = '';
-				//this.customRitmVariables = [];
 				this.customRitmMoreInformation = '';
 				break;
 		}
@@ -594,10 +666,17 @@ ModularNotificationsBuilder.prototype = {
 			var createdOnTime = new GlideTime();
 			createdOnTime.setValue(createdOn.getTime());
 
+			//remove '[code]' and '[/code]' from gr
 
+			var gr_val = gr.value.toString();
+			var gr_final = gr_val;
+			while(gr_final.includes('[code]')){
+				var r = new SNC.Regex('/\\[\/?code\\]/');
+				var gr_final = r.replaceAll(gr_val, '');
+			}
 			this.varList.push({
 				variableName: createdOnDate + ' ' + createdOnTime.getByFormat('hh:mm a') + ' - ' + commenter,
-				variableValue: gr.value.toString()
+				variableValue: gr_final
 			});
 			i++;
 		}
@@ -803,13 +882,10 @@ ModularNotificationsBuilder.prototype = {
 
 	getRitmApprovers: function(document_id) {
 		try {
-			
+
 			var inputs = {};
 			inputs['document_id'] = document_id; // String 
-
-			// Start Asynchronously: Uncomment to run in background. Code snippet will not have access to outputs.
-			// sn_fd.FlowAPI.getRunner().subflow('global.wait_for_record_approvers').inBackground().withInputs(inputs).run();
-
+			
 			// Execute Synchronously: Run in foreground. Code snippet has access to outputs.
 			var result = sn_fd.FlowAPI.getRunner()
 			.subflow('global.look_up_ritm_approvers')
@@ -834,6 +910,16 @@ ModularNotificationsBuilder.prototype = {
 			return '';
 		}
 
+	},	
+	///////////////////////////////////////////////////////////////////////////////////
+	///////////// Set signature area of email//////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	getSignature: function(ritm) {
+		var signatureContent = this.signature ? this.signature : '';
+		if((ritm.cat_item.u_custom_signature.toString() == 'true' || ritm.cat_item.u_custom_signature.toString() == 'True') && !gs.nil(ritm.cat_item.u_signature.toString())){
+			signatureContent = ritm.cat_item.u_signature.toString();
+		}
+		return signatureContent;
 	},	
 	///////////////////////////////////////////////////////////////////////////////////
 	///////////// Create outlook actionable message survey/////////////////////////////
@@ -875,11 +961,21 @@ ModularNotificationsBuilder.prototype = {
 	//////////////////// Returns true if approver records exist for record ////////////////
 	///////////////////////////////////////////////////////////////////////////////////////
 	hasApprovers: function() {
-		var query = 'sysapproval=' + current.sys_id.toString();
+		var query = 'sysapproval=';
+		query += !gs.nil(current) && !gs.nil(current.sys_id) ? current.sys_id.toString() : this.documentID;
 		var approverGr = new GlideRecord('sysapproval_approver');
 		approverGr.addEncodedQuery(query);
 		approverGr.query();
-		return approverGr.hasNext();
+
+		if(this.table == 'sc_req_item'){
+			var approvalTaskQuery = 'request_item=' + current.sys_id.toString() + '^short_descriptionLIKEapprov^active=true';
+			var approvalTaskGr = new GlideRecord('sc_task');
+			approvalTaskGr.addEncodedQuery(approvalTaskQuery);
+			approvalTaskGr.query();
+		}
+		var taskQuery = '';
+
+		return approverGr.hasNext() || (this.table == 'sc_req_item' && approvalTaskGr.hasNext());
 	},
 
 	///////////////////////////////////////////////////////////////////////////////////
@@ -901,7 +997,7 @@ ModularNotificationsBuilder.prototype = {
 		var variableInformation = '';
 		for (var i = 0; i < varList.length; i++) {
 			if (varList[i].variableName && varList[i].variableValue) {
-				variableInformation += '</td></tr><tr><td><table border=0 cellpadding=0 cellspacing=0 width=100%><tr><td align=center style=padding:0;background-color:#FDFDFD><table border=0 cellpadding=0 cellspacing=0 style=width:600px><tr style=background-color:#FDFDFD><td align=center style="width:200px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"valign=top width=200><div style=max-width:320px;min-width:200px;display:table-cell;vertical-align:top class="u-col u-col-33p33"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table border=0 cellpadding=0 cellspacing=0 width=100% id=u_content_image_10 role=presentation style=font-family:arial,helvetica,sans-serif><tr><td align=left style=overflow-wrap:break-word;word-break:break-word;padding-top:10px;padding-right:10px;padding-bottom:10px;font-family:arial,helvetica,sans-serif><table border=0 cellpadding=0 cellspacing=0 width=100%><tr><td align=right style=padding-right:0;padding-left:0 class=v-text-align><img align=right alt=Arrow border=0 class="v-src-max-width v-src-width"src=images/image-1.png style=outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:10%;max-width:18px title=Arrow width=18></table></table></div></div></div><td align=center style="width:400px;padding-top:0;padding-left:0;padding-bottom:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:1px solid #CCC"class="v-col-border v-col-padding"valign=top width=400><div style=max-width:320px;min-width:400px;display:table-cell;vertical-align:top class="u-col u-col-66p67"><div style=width:100%!important><div style="padding:0 20px 0 0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:1px solid #CCC"class="v-col-border v-col-padding"><table border=0 cellpadding=0 cellspacing=0 width=100% id=u_content_heading_3 role=presentation style=font-family:arial,helvetica,sans-serif><tr><td align=left style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0;font-family:arial,helvetica,sans-serif"><h3 class="v-text-align v-font-size"style=margin:0;line-height:140%;text-align:left;word-wrap:break-word;font-weight:400;font-family:Raleway,sans-serif;font-size:18px><strong>' + 
+				variableInformation += '</td></tr><tr><td><table border=0 cellpadding=0 cellspacing=0 width=100%><tr><td align=center style=padding:0;><table border=0 cellpadding=0 cellspacing=0 style=width:600px><tr style=background-color:#FDFDFD><td align=center style="width:200px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"valign=top width=200><div style=max-width:320px;min-width:200px;display:table-cell;vertical-align:top class="u-col u-col-33p33"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"><table border=0 cellpadding=0 cellspacing=0 width=100% id=u_content_image_10 role=presentation style=font-family:arial,helvetica,sans-serif><tr><td align=left style=overflow-wrap:break-word;word-break:break-word;padding-top:10px;padding-right:10px;padding-bottom:10px;font-family:arial,helvetica,sans-serif><table border=0 cellpadding=0 cellspacing=0 width=100%><tr><td align=right style=padding-right:0;padding-left:0 class=v-text-align style=color:#' + this.colors.apiBlue + '>&#10148;</td></table></table></div></div></div><td align=center style="width:400px;padding-top:0;padding-left:0;padding-bottom:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:1px solid #CCC"valign=top width=400><div style=max-width:320px;min-width:400px;display:table-cell;vertical-align:top class="u-col u-col-66p67"><div style=width:100%!important><div style="padding:0 20px 0 0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:1px solid #CCC"><table border=0 cellpadding=0 cellspacing=0 width=100% id=u_content_heading_3 role=presentation style=font-family:arial,helvetica,sans-serif><tr><td align=left style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0;font-family:arial,helvetica,sans-serif"><h3 class="v-text-align v-font-size"style=margin:0;line-height:140%;text-align:left;word-wrap:break-word;font-weight:400;font-family:Raleway,sans-serif;font-size:18px><strong>' + 
 					varList[i].variableName + '</strong></h3></table><table border=0 cellpadding=0 cellspacing=0 width=100% id=u_content_text_3 role=presentation style=font-family:arial,helvetica,sans-serif><tr><td align=left style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif><div style=line-height:140%;text-align:left;word-wrap:break-word class=v-text-align><p style=font-size:14px;line-height:140%>' + 
 					varList[i].variableValue + '</div></table></div></div></div></table></table><tr><td>';
 			}
@@ -919,14 +1015,28 @@ ModularNotificationsBuilder.prototype = {
 			To modify this html section, copy between quotes into a HTML beautifier and edit
 			To pull the edited html back in, copy the edited and beautified HTML into a minifier to remove new lines
 			*/
-		var html = '<!DOCTYPE html><head>' + 
-			this.adaptiveCard + '<style>table,td{color:#000}a{color:#00e;text-decoration:underline}#u_content_text_7 a{color:#FDFDFD}body{margin:0;padding:0}table,td,tr{border-collapse:collapse;padding:0}p{margin:0}</style></head><body style=margin:0;padding:0;-webkit-text-size-adjust:100%;kground-color:#d0e8f2;color:#000><table cellpadding=0 cellspacing=0 style="border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-table-lspace:0;mso-table-rspace:0;vertical-align:top;min-width:320px;Margin:0 auto;background-color:#d0e8f2;width:100%"><tr style=vertical-align:top><td style=word-break:break-word;border-collapse:collapse!important;vertical-align:top><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=background-color:#d0e8f2 align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr><td><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:#FDFDFD align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px;background-color:#FDFDFD><tr style=background-color:#FDFDFD><td style="width:300px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;background-color:#FDFDFD"align=center class="v-col-border v-col-padding"valign=top width=300><div style=max-width:320px;min-width:300px;display:table-cell;vertical-align:top class="u-col u-col-50"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation id=u_content_image_3><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 10px 20px;font-family:arial,helvetica,sans-serif"align=left><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding-right:0;padding-left:0 align=left class=v-text-align><a href=https://apigroup.service-now.com/ target=_blank><img align=left alt=Logo border=0 class="v-src-max-width v-src-width"src=images/image-5.png style=outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:51%;max-width:137.7px width=137.7 title=Logo></a></table></table></div></div></div><td style="width:300px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;background-color:#FDFDFD"align=center class="v-col-border v-col-padding"valign=top width=300><div style=max-width:320px;min-width:300px;display:table-cell;vertical-align:top class="u-col u-col-50"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><div style=text-align:center class=menu><table cellpadding=0 cellspacing=0 border=0 role=presentation align=center><tr> ' + 
-			this.urlHTML + '</tr></table></div></table></div></div></div></table></table><tr><td><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#003087><td style="width:600px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top;background-color:#003087 class="u-col u-col-100"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:arial,helvetica,sans-serif"align=left><table cellpadding=0 cellspacing=0 border=0 width=100% style="border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-table-lspace:0;mso-table-rspace:0;vertical-align:top;border-top:1px solid #003087;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%"align=center height=0px><tr style=vertical-align:top><td style=word-break:break-word;border-collapse:collapse!important;vertical-align:top;font-size:0;line-height:0;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%><span></span></table></table><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation id=u_content_heading_1><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0;font-family:arial,helvetica,sans-serif"align=left><h1 class="v-text-align v-font-size"style=margin:0;color:#FDFDFD;line-height:140%;text-align:center;word-wrap:break-word;font-weight:400;font-family:Raleway,sans-serif;font-size:24px><strong>' + 
-			this.subject + '</strong></h1></table><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:arial,helvetica,sans-serif"align=left><table cellpadding=0 cellspacing=0 border=0 width=100% style="border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-table-lspace:0;mso-table-rspace:0;vertical-align:top;border-top:1px solid #003087;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%"align=center height=0px><tr style=vertical-align:top><td style=word-break:break-word;border-collapse:collapse!important;vertical-align:top;font-size:0;line-height:0;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%><span></span></table></table></div></div></div></table></table><tr><td><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#FDFDFD><td style="width:600px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top class="u-col u-col-100"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:0;font-family:arial,helvetica,sans-serif align=left><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding-right:0;padding-left:0 align=center class=v-text-align><img align=center alt=Image border=0 class="v-src-max-width v-src-width"src=images/image-4.png style=outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:100%;max-width:600px width=600 title=Image></table></table></div></div></div></table></table><tr><td align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr><td style=padding:0;background-color:#FDFDFD align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#FDFDFD><td style="width:600px;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top><div style=width:100%!important><div style="border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0;font-family:arial,helvetica,sans-serif"align=left><h1 class="v-text-align v-font-size"style=margin:0;line-height:140%;text-align:left;word-wrap:break-word;font-weight:400;font-family:Raleway,sans-serif;font-size:22px>Dear ' + 
-			this.name + ',</h1></table><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><div style=line-height:140%;text-align:left;word-wrap:break-word class=v-text-align><p style=font-size:14px;line-height:140%>' + 
-			this.information + '</p></div></table></div></div></div></table></table>' + this.variableInformation + '<table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#FDFDFD><td style="width:600px;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top class="u-col u-col-100"id=u_column_19><div style=width:100%!important><div style="border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><p style=font-size:14px;line-height:140%>' + 
-			this.moreInformation + '</p></table><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><div style=line-height:140%;text-align:left;word-wrap:break-word class=v-text-align><p style=font-size:14px;line-height:140%>Best Regards,<p style=font-size:14px;line-height:140%>Field Support<br>(651) 925-8511</div></table></div></div></div></table></table><tr><td><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#FDFDFD><td style="width:600px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top class="u-col u-col-100"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:arial,helvetica,sans-serif"align=left><table cellpadding=0 cellspacing=0 border=0 width=100% style="border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-table-lspace:0;mso-table-rspace:0;vertical-align:top;border-top:1px solid #FDFDFD;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%"align=center height=0px><tr style=vertical-align:top><td style=word-break:break-word;border-collapse:collapse!important;vertical-align:top;font-size:0;line-height:0;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%><span></span></table></table></div></div></div></table></table><tr><td><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#003087><td style="width:600px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"align=center class="v-col-border v-col-padding"valign=top width=600><div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top;background-color:#003087 class="u-col u-col-100"><div style=width:100%!important><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation id=u_content_text_7><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0;font-family:arial,helvetica,sans-serif"align=left><div style=color:#FDFDFD;line-height:140%;text-align:center;word-wrap:break-word class=v-text-align><p style=font-size:14px;line-height:140%><strong>' + 
-			this.provideFeedback + '</strong></div></table><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><table cellpadding=0 cellspacing=0 border=0 width=100% style="border-collapse:collapse;table-layout:fixed;border-spacing:0;mso-table-lspace:0;mso-table-rspace:0;vertical-align:bottom;border-top:1px solid #003087;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%"align=center height=0px><tr style=vertical-align:bottom><td style=word-break:break-word;border-collapse:collapse!important;vertical-align:bottom;font-size:0;line-height:0;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%><span></span></table></table></div></div></div></table></table><tr><td valign=bottom><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding:0;background-color:transparent align=center><table cellpadding=0 cellspacing=0 border=0 style=width:600px><tr style=background-color:#003087><td style="width:400px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"align=center class="v-col-border v-col-padding"valign=bottom width=400><div style=max-width:320px;min-width:400px;display:table-cell;vertical-align:bottom;background-color:#003087 class="u-col u-col-66p67"><div style=width:100%!important;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style="vertical-align:bottom;overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif"align=left><img align=left src=BGL_Footer.png height=23></table></div></div></div><td style="width:200px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"align=center class="v-col-border v-col-padding" valign=bottom width=200><div style=max-width:320px;min-width:200px;display:table-cell;vertical-align:bottom;background-color:#003087 class="u-col u-col-33p33"><div style=width:100%!important;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0><div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"class="v-col-border v-col-padding"><table cellpadding=0 cellspacing=0 border=0 width=100% style=font-family:arial,helvetica,sans-serif role=presentation><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif align=left><table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td style=padding-right:0;padding-left:0; padding-bottom:3px align=right class=v-text-align><img align=right alt=""border=0 class="v-src-max-width v-src-width"src=images/image-6.png style=outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:30%;max-width:54px width=54></table></table></div></div></div></table></table></table>';
+		
+		var html = '<!DOCTYPE html><head> ' + 
+			this.adaptiveCard + ' <style>table, td{color: #000}a{color: #00e; text-decoration: underline}#u_content_text_7 a{color: #FDFDFD}body{margin: 0; padding: 0}table, td, tr{border-collapse: collapse; padding: 0}p{margin: 0}</style></head><body style=margin:0;padding:0;-webkit-text-size-adjust:100%;color:#000;font-family:arial,helvetica,sans-serif;> <table style="border-collapse:collapse;table-layout:fixed;border-spacing:0;vertical-align:top;min-width:320px;Margin:0 auto;background-color:#d0e8f2;width:100%"> <tr style=vertical-align:top> <td style=word-break:break-word;border-collapse:collapse!important;vertical-align:top> <table style="border-collapse:collapse;border-spacing:0;width:100%"> <tr> <td style=text-align:center> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=padding:0; align=center> <table style=border-collapse:collapse;border-spacing:0;width:600px;background-color:#FDFDFD> <tr style=background-color:#FDFDFD> <td style="width:300px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;background-color:#FDFDFD" align=center valign=top width=300> <div style=max-width:320px;min-width:300px;display:table-cell;vertical-align:top> <div style=width:100%!important> <div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 10px 20px;" align=left> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=padding-right:0;padding-left:0 align=left class=v-text-align> <a href=https://apigroup.service-now.com/ target=_blank><img alt=Logo class="v-src-max-width v-src-width" src=' + 
+			this.images.apiLogo + ' style=text-align:left;outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:51%;max-width:65px width=65px title=Logo></a> </td></tr></table> </td></tr></table> </div></div></div><td style="width:300px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;background-color:#FDFDFD" align=center valign=top width=300> <div style=max-width:320px;min-width:300px;display:table-cell;vertical-align:top class="u-col u-col-50"> <div style=width:100%!important> <div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=overflow-wrap:break-word;word-break:break-word;padding:10px;text-align:left> <div style=text-align:center class=menu> <table style=border-collapse:collapse;border-spacing:0;text-align:center> <tr> ' + 
+			this.urlHTML + ' </tr></table> </div></td></tr></table> </div></div></div></td></tr></table> </td></tr></table> <tr> <td> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=padding:0;background-color:transparent align=center> <table style=border-collapse:collapse;border-spacing:0;width:600px> <tr style=background-color: ' + 
+			this.colors.apiBlue + '> <td style="width:600px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent; background-color: ' + 
+			this.colors.apiBlue + '" align=center valign=top width=600> <div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:middle; class="u-col u-col-100"> <div style=width:100%!important> <div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style="overflow-wrap:break-word;word-break:break-word;text-align:center;color:#FDFDFD; margin:0;color:#FDFDFD;word-wrap:break-word;padding-top:20px;padding-bottom:10px;"> <h2><strong> ' + 
+			this.subject + ' </strong> </h2> </table> </div></div></div></td></tr></table> </td></tr></table> <tr> <td> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=padding:0;background-color:transparent align=center> <table style=border-collapse:collapse;border-spacing:0;width:600px> <tr style=background-color:#FDFDFD> <td style="width:600px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent" align=center valign=top width=600> <div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top class="u-col u-col-100"> <div style=width:100%!important> <div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"><table style=border-collapse:collapse;border-spacing:0;width:100%><tr><td style=overflow-wrap:break-word;word-break:break-word;padding:0;text-align:left><table style=border-collapse:collapse;border-spacing:0;width:600px><tr><td style=padding-right:0;padding-left:0 align=center class=v-text-align></table></table></div></div></div></table></table><tr><td align=center><table style=border-collapse:collapse;border-spacing:0;width:600px><tr><td style=padding:0;background-color:#FDFDFD align=center><table style=border-collapse:collapse;border-spacing:0;width:600px><tr style=background-color:#FDFDFD><td style="width:600px;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent" align=center valign=top width=600> <div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top> <div style=width:100%!important> <div style="border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0;" align=left> <h1 class="v-text-align v-font-size" style=margin:0;line-height:140%;text-align:left;word-wrap:break-word;font-weight:400;font-size:22px> Dear ' + 
+			this.name + ' , </h1> </table> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=overflow-wrap:break-word;word-break:break-word;padding:10px;text-align:left> <div style=line-height:140%;text-align:left;word-wrap:break-word class=v-text-align> <p style=font-size:14px;line-height:140%> ' + 
+			this.information + ' </p></div></table> </div></div></div></div></div></div></td></tr></table> </td></tr></table> ' + 
+			this.variableInformation + ' <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=padding:0;background-color:transparent align=center> <table style=border-collapse:collapse;border-spacing:0;width:600px> <tr style=background-color:#FDFDFD> <td style="width:600px;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent" align=center valign=top width=600> <div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top class="u-col u-col-100" id=u_column_19> <div style=width:100%!important> <div style="border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=overflow-wrap:break-word;word-break:break-word;padding:10px;text-align:left> <p style=font-size:14px;line-height:140%> ' + 
+			this.moreInformation + ' </p></table> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=overflow-wrap:break-word;word-break:break-word;padding:10px;text-align:left> ' + 
+			this.signature + ' </table></div></div></div></td></tr></table></td></tr></table></td></tr></table></td></tr><tr> <td> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=padding:0; align=center> <table style=border-collapse:collapse;border-spacing:0;width:600px> <tr> <td style="width:600px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;background-color: ' + 
+			this.colors.apiBlue + '" align=center valign=top width=600> <div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top;background-color: ' + 
+			this.colors.apiBlue + ' class="u-col u-col-100"> <div style=width:100%!important> <div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0;text-align:left"> <div style=color:#FDFDFD;line-height:140%;text-align:center;word-wrap:break-word class=v-text-align> <p style=font-size:14px;line-height:140%> <strong> ' + 
+			this.provideFeedback + ' </strong> </div></td></tr></table> </div></div></div></td></tr></table> </td></tr></table> </td></tr><tr> <td style=padding:0;background-color: ' + 
+			this.colors.apiBlue + ' > <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=padding:0;background-color: ' + 
+			this.colors.apiBlue + ' align=center> <table style=border-collapse:collapse;border-spacing:0;width:600px> <tr> <td style="width:400px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0;background-color: ' + 
+			this.colors.apiBlue + '" align=center valign=bottom width=400> <div style=max-width:320px;min-width:400px;display:table-cell;vertical-align:bottom; class="u-col u-col-66p67"> <div style=width:100%!important;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0> <div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0;"> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style="vertical-align:bottom;overflow-wrap:break-word;word-break:break-word;padding: 0px 0px 10px 10px;text-align:left"> <img src=' + 
+			this.images.footerImageLeft + ' height=23> </td></tr></table> </div></div></div><td style=" width:200px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0;background-color: ' + 
+			this.colors.apiBlue + '" align=center valign=bottom width=200> <div style=max-width:320px;min-width:200px;display:table-cell;vertical-align:bottom; class="u-col u-col-33p33"> <div style=width:100%!important;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0> <div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=overflow-wrap:break-word;word-break:break-word;padding:10px;text-align:left> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=padding-right:0;padding-left:0; padding-bottom:3px align=right class=v-text-align> <img class="v-src-max-width v-src-width" src=' + 
+			this.images.footerImageRight + ' style=text-align:right;outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:30%;max-width:54px width=54> </td></tr></table> </td></tr></table> </div></div></div></td></tr></table> </div></div></div></td></tr></table> </td></tr></table></td></tr></table></td></tr></table></body>';
 		return html;
 	},
 	type: 'ModularNotificationsBuilder'
@@ -935,13 +1045,10 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>416</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-02-08 17:48:26</sys_updated_on>
     </sys_script_include>
 </record_update>

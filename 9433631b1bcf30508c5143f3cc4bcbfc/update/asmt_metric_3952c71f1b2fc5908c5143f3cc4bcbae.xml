@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="asmt_metric">
+    <asmt_metric action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <add_info_label>Additional Information</add_info_label>
+        <allow_add_info>false</allow_add_info>
+        <allow_not_applicable>true</allow_not_applicable>
+        <auto_gen>false</auto_gen>
+        <category display_value="APi Group IT Workshop 2022">713679ad1ba7c5508c5143f3cc4bcba5</category>
+        <cond_question>always</cond_question>
+        <condition/>
+        <context/>
+        <correct_answer/>
+        <correct_answer_checkbox>1</correct_answer_checkbox>
+        <correct_answer_choice/>
+        <correct_answer_template/>
+        <correct_answer_yesno>1</correct_answer_yesno>
+        <custom_metric/>
+        <datatype>string</datatype>
+        <default_value_field/>
+        <depends_on/>
+        <description/>
+        <details/>
+        <displayed_when/>
+        <displayed_when_checkbox/>
+        <displayed_when_template/>
+        <displayed_when_yesno/>
+        <duration/>
+        <field_validation/>
+        <mandatory>false</mandatory>
+        <max>10</max>
+        <max_weight/>
+        <maximum_normalization_input>false</maximum_normalization_input>
+        <method>assessment</method>
+        <metric_type display_value="APi Group IT Workshop 2022">bd3631e91ba7c5508c5143f3cc4bcbcc</metric_type>
+        <min>1</min>
+        <name>Would you like information about any of the other ServiceNow modules we're not currently using?</name>
+        <order>700</order>
+        <plugin/>
+        <question>Would you like information about any of the other ServiceNow modules we're not currently using?</question>
+        <randomize_answers>false</randomize_answers>
+        <read_only>false</read_only>
+        <reference_table/>
+        <scale>low</scale>
+        <scored>false</scored>
+        <script><![CDATA[// The following variables are available:  // - primary: contains the sys_id of the assessable object to be evaluated  // - string_result: the script sets the display string value for this metric to this variable  // - actual_result: the script sets the actual value for this metric to this variable  // - scaled_result: the script sets the scaled value (used in calculations) for this metric to this variable  //  // For example: // var gr = new GlideRecord('cmdb_ci'); // gr.addQuery('manufacturer', primary); // gr.query(); // actual_result = gr.getRowCount(); // string_result = actual_result + ''; // if (actual_result &gt; 100) scaled_result = 5; // else scaled_result = 1;]]></script>
+        <source_field/>
+        <string_option>wide</string_option>
+        <sys_class_name>asmt_metric</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-05-24 11:52:10</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>3952c71f1b2fc5908c5143f3cc4bcbae</sys_id>
+        <sys_name>Would you like information about any of the other ServiceNow modules we're not currently using?</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>asmt_metric_3952c71f1b2fc5908c5143f3cc4bcbae</sys_update_name>
+        <template/>
+        <value_parameters/>
+        <weight>10</weight>
+    </asmt_metric>
+    <sys_translated_text action="delete_multiple" query="documentkey=3952c71f1b2fc5908c5143f3cc4bcbae"/>
+</record_update>

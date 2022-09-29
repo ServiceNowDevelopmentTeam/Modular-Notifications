@@ -2,7 +2,7 @@
     <sysevent_email_action action="INSERT_OR_UPDATE">
         <action_insert>false</action_insert>
         <action_update>false</action_update>
-        <active>true</active>
+        <active>false</active>
         <advanced_condition/>
         <affected_field_on_event/>
         <category display_value="Service Catalog" name="Service Catalog">be9d02137f232200ee2e108c3ffa9155</category>
@@ -22,6 +22,7 @@
         <digest_template/>
         <digest_text/>
         <digestable>false</digestable>
+        <enable_dynamic_translation>false</enable_dynamic_translation>
         <event_name>generic.request.notification</event_name>
         <event_parm_1>true</event_parm_1>
         <event_parm_2>false</event_parm_2>
@@ -57,15 +58,12 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>3e2f636b1bace850f5a3635bbc4bcb77</sys_id>
-        <sys_mod_count>22</sys_mod_count>
         <sys_name>APi General Request Notification</sys_name>
         <sys_overrides/>
         <sys_package display_value="Global" source="global">global</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_3e2f636b1bace850f5a3635bbc4bcb77</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-12 21:40:44</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="request_item.general">704bb0b1c611227d01b8b5cddd16c84d</template>
         <type>email</type>
@@ -81,8 +79,5 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-12 21:40:44</sys_created_on>
         <sys_id>13e4ef5b1bcf30508c5143f3cc4bcbca</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-12 21:40:44</sys_updated_on>
     </sys_claim>
 </record_update>

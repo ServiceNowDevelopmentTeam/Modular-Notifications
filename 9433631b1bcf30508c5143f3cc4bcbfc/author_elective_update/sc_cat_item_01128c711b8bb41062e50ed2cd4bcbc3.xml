@@ -208,7 +208,6 @@
         <sys_db_object display_value="" name="sc_cat_item">sc_cat_item</sys_db_object>
         <sys_id>2dc69ac682ec42bbbcfa72eb6a698f61</sys_id>
         <sys_metadata>01128c711b8bb41062e50ed2cd4bcbc3</sys_metadata>
-        <sys_mod_count>0</sys_mod_count>
         <sys_name>Lenovo ThinkPad USB-C Dock Gen 2</sys_name>
         <sys_package display_value="Global" source="global">global</sys_package>
         <sys_parent/>
@@ -217,7 +216,5 @@
         <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
         <sys_update_name>sc_cat_item_01128c711b8bb41062e50ed2cd4bcbc3</sys_update_name>
         <sys_update_version display_value="sc_cat_item_01128c711b8bb41062e50ed2cd4bcbc3">58b8e8771b8bb0508c5143f3cc4bcbe5</sys_update_version>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-13 21:15:18</sys_updated_on>
     </sys_metadata_delete>
 </record_update>

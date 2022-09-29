@@ -19,14 +19,11 @@
         <sys_created_by>aaron.wolfcale@cdw.com</sys_created_by>
         <sys_created_on>2020-12-17 16:13:47</sys_created_on>
         <sys_id>4d36e2cb1b452c10f5a3635bbc4bcb67</sys_id>
-        <sys_mod_count>1</sys_mod_count>
         <sys_name>all_ritm_variables</sys_name>
         <sys_package display_value="Global" source="global">global</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_email_4d36e2cb1b452c10f5a3635bbc4bcb67</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-12 21:43:12</sys_updated_on>
     </sys_script_email>
     <sys_claim action="INSERT_OR_UPDATE">
         <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
@@ -38,8 +35,5 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-12 21:43:12</sys_created_on>
         <sys_id>1f75ab9b1bcf30508c5143f3cc4bcb88</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-12 21:43:12</sys_updated_on>
     </sys_claim>
 </record_update>

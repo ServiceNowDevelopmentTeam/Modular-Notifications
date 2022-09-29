@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="u_signature" label="Signature" language="en" table="sc_cat_item">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>u_signature</element>
+            <help/>
+            <hint/>
+            <label>Signature</label>
+            <language>en</language>
+            <name>sc_cat_item</name>
+            <plural>Signatures</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>Terry.Lillo</sys_created_by>
+            <sys_created_on>2022-03-04 22:05:06</sys_created_on>
+            <sys_name>Signature</sys_name>
+            <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+            <sys_update_name>sys_documentation_sc_cat_item_u_signature_en</sys_update_name>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

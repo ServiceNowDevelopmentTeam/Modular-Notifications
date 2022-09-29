@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="DELETE">
+        <active>true</active>
+        <copied_from display_value="Set Variable Values (SP)">325eeeb41b910d108c5143f3cc4bcb86</copied_from>
+        <description>Answer the questions on the form as follows:
+Company Number = 1025 - Viking Automatic Sprinkler</description>
+        <display_name>Set Variable Values (SP)</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>8</order>
+        <snapshot/>
+        <step_config display_value="Set Variable Values (SP)">2e4229b48703030070870cf888cb0b5c</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-24 22:11:33</sys_created_on>
+        <sys_id>bc5197bc1bd50d108c5143f3cc4bcbe0</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Set Variable Values (SP)</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_atf_step_bc5197bc1bd50d108c5143f3cc4bcbe0</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-21 21:13:31</sys_updated_on>
+        <table/>
+        <test display_value="TC - 279 - Astea Access - Request - Astea Approval - IT">5f8d07381bd50d108c5143f3cc4bcb32</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="DELETE" query="document_key=bc5197bc1bd50d108c5143f3cc4bcbe0"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>bc5197bc1bd50d108c5143f3cc4bcbe0</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-24 22:11:34</sys_created_on>
+        <sys_id>05519bbc1bd50d108c5143f3cc4bcb8e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-24 22:11:34</sys_updated_on>
+        <value>8cb8e26a1b1478508c5143f3cc4bcb52</value>
+        <variable display_value="Item">d164adb48703030070870cf888cb0b30</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>bc5197bc1bd50d108c5143f3cc4bcbe0</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-24 22:11:34</sys_created_on>
+        <sys_id>41519bbc1bd50d108c5143f3cc4bcb8e</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-21 21:13:31</sys_updated_on>
+        <value>IO:196f6ea61b5478508c5143f3cc4bcb57=7a239b301be4fc90e7004229bc4bcbef^EQ</value>
+        <variable display_value="Variable Values">3f3525f48703030070870cf888cb0b37</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>bc5197bc1bd50d108c5143f3cc4bcbe0</document_key>
+        <order>150</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-01-24 22:11:34</sys_created_on>
+        <sys_id>8d519bbc1bd50d108c5143f3cc4bcb8d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-24 22:11:34</sys_updated_on>
+        <value/>
+        <variable display_value="Multi-row Variable Set">2fba49d673142300688e0d573cf6a748</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="DELETE" query="table=var__m_atf_input_variable_2e4229b48703030070870cf888cb0b5c^id=bc5197bc1bd50d108c5143f3cc4bcbe0"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</application>
+        <file_path/>
+        <instance_id>37412023db6dd890ad8dd7c8f49619a0</instance_id>
+        <instance_name>apigroupdev</instance_name>
+        <name>sys_atf_step_bc5197bc1bd50d108c5143f3cc4bcbe0</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step"><sys_atf_step action="INSERT_OR_UPDATE"><active>true</active><copied_from display_value="Set Variable Values (SP)">325eeeb41b910d108c5143f3cc4bcb86</copied_from><description>Answer the questions on the form as follows:
+Company Number = 1025 - Viking Automatic Sprinkler</description><display_name>Set Variable Values (SP)</display_name><inputs/><mugshots_cache_json/><notes/><order>8</order><snapshot/><step_config display_value="Set Variable Values (SP)">2e4229b48703030070870cf888cb0b5c</step_config><sys_class_name>sys_atf_step</sys_class_name><sys_created_by>Terry.Lillo</sys_created_by><sys_created_on>2022-01-24 22:11:33</sys_created_on><sys_id>bc5197bc1bd50d108c5143f3cc4bcbe0</sys_id><sys_mod_count>5</sys_mod_count><sys_name>Set Variable Values (SP)</sys_name><sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package><sys_policy/><sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope><sys_update_name>sys_atf_step_bc5197bc1bd50d108c5143f3cc4bcbe0</sys_update_name><sys_updated_by>Terry.Lillo</sys_updated_by><sys_updated_on>2022-09-21 21:13:31</sys_updated_on><table/><test display_value="TC - 279 - Astea Access - Request - Astea Approval - IT">5f8d07381bd50d108c5143f3cc4bcb32</test><timeout/><warning_message/></sys_atf_step><sys_variable_value action="delete_multiple" query="document_key=bc5197bc1bd50d108c5143f3cc4bcbe0"/><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>bc5197bc1bd50d108c5143f3cc4bcbe0</document_key><order>100</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>Terry.Lillo</sys_created_by><sys_created_on>2022-01-24 22:11:34</sys_created_on><sys_id>05519bbc1bd50d108c5143f3cc4bcb8e</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>Terry.Lillo</sys_updated_by><sys_updated_on>2022-01-24 22:11:34</sys_updated_on><value>8cb8e26a1b1478508c5143f3cc4bcb52</value><variable display_value="Item">d164adb48703030070870cf888cb0b30</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>bc5197bc1bd50d108c5143f3cc4bcbe0</document_key><order>200</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>Terry.Lillo</sys_created_by><sys_created_on>2022-01-24 22:11:34</sys_created_on><sys_id>41519bbc1bd50d108c5143f3cc4bcb8e</sys_id><sys_mod_count>5</sys_mod_count><sys_updated_by>Terry.Lillo</sys_updated_by><sys_updated_on>2022-09-21 21:13:31</sys_updated_on><value>IO:196f6ea61b5478508c5143f3cc4bcb57=7a239b301be4fc90e7004229bc4bcbef^EQ</value><variable display_value="Variable Values">3f3525f48703030070870cf888cb0b37</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>bc5197bc1bd50d108c5143f3cc4bcbe0</document_key><order>150</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>Terry.Lillo</sys_created_by><sys_created_on>2022-01-24 22:11:34</sys_created_on><sys_id>8d519bbc1bd50d108c5143f3cc4bcb8d</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>Terry.Lillo</sys_updated_by><sys_updated_on>2022-01-24 22:11:34</sys_updated_on><value/><variable display_value="Multi-row Variable Set">2fba49d673142300688e0d573cf6a748</variable></sys_variable_value><sys_element_mapping action="delete_multiple" query="table=var__m_atf_input_variable_2e4229b48703030070870cf888cb0b5c^id=bc5197bc1bd50d108c5143f3cc4bcbe0"/></record_update>]]></payload>
+        <payload_hash>776181845</payload_hash>
+        <record_name>Set Variable Values (SP)</record_name>
+        <reverted_from/>
+        <source>42252f9c1b98d91062e50ed2cd4bcb20</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-09-21 21:13:31</sys_created_on>
+        <sys_id>72918f061bced55062e50ed2cd4bcbf3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18361e613f20000001</sys_recorded_at>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-21 21:13:31</sys_updated_on>
+        <type>Test Step</type>
+        <update_guid>7a918f0676ced550f048e5f6244217f2</update_guid>
+        <update_guid_history>7a918f0676ced550f048e5f6244217f2:776181845,2ec2fcb0e89b41d02803637ec3913f57:1623632448,0382f0b0ab9b41d01dcd4ca336c0e260:376304221,53a13cfc615b41d0213dab071950467d:-328663250,9fa193fc28d50d10b3e4225a33e390bc:-890054952,41519bbc81d50d105be04c53254dc1aa:473829200</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-09-21 21:19:39</sys_created_on>
+        <sys_db_object display_value="" name="sys_atf_step">sys_atf_step</sys_db_object>
+        <sys_id>168d0e2a5554417a853704463fea9e24</sys_id>
+        <sys_metadata>bc5197bc1bd50d108c5143f3cc4bcbe0</sys_metadata>
+        <sys_name>Set Variable Values (SP)</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
+        <sys_update_name>sys_atf_step_bc5197bc1bd50d108c5143f3cc4bcbe0</sys_update_name>
+        <sys_update_version display_value="sys_atf_step_bc5197bc1bd50d108c5143f3cc4bcbe0">72918f061bced55062e50ed2cd4bcbf3</sys_update_version>
+    </sys_metadata_delete>
+</record_update>

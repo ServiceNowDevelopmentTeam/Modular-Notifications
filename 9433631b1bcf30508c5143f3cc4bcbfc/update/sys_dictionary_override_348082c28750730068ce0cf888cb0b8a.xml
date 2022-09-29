@@ -16,20 +16,17 @@
         <name>sc_req_item</name>
         <read_only>false</read_only>
         <read_only_override>false</read_only_override>
-        <reference_qual>roles=itil^ORroles=sn_request_write</reference_qual>
+        <reference_qual>javascript: new global.u_filterAssignedTo().u_filterAssignedTo();</reference_qual>
         <reference_qual_override>true</reference_qual_override>
         <sys_class_name>sys_dictionary_override</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2019-03-21 15:32:30</sys_created_on>
         <sys_id>348082c28750730068ce0cf888cb0b8a</sys_id>
-        <sys_mod_count>2</sys_mod_count>
         <sys_name>assigned_to</sys_name>
         <sys_package display_value="ITSM Roles - Request Management (do not activate, see plugin description)" source="com.snc.itsm.roles.request_management">685c6cef1b651010e7004229bc4bcb7b</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_dictionary_override_348082c28750730068ce0cf888cb0b8a</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-13 23:01:31</sys_updated_on>
     </sys_dictionary_override>
     <sys_claim action="INSERT_OR_UPDATE">
         <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
@@ -41,9 +38,6 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-13 23:01:31</sys_created_on>
         <sys_id>1ff9831b1bdc895062e50ed2cd4bcb08</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-13 23:01:31</sys_updated_on>
     </sys_claim>
     <sys_claim action="INSERT_OR_UPDATE">
         <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
@@ -55,8 +49,5 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-13 23:01:31</sys_created_on>
         <sys_id>57f9831b1bdc895062e50ed2cd4bcb09</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-13 23:01:31</sys_updated_on>
     </sys_claim>
 </record_update>

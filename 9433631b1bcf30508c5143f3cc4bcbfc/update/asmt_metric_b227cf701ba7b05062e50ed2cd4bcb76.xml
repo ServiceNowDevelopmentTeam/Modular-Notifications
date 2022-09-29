@@ -14,6 +14,7 @@
         <correct_answer_choice/>
         <correct_answer_template/>
         <correct_answer_yesno>1</correct_answer_yesno>
+        <custom_metric/>
         <datatype>string</datatype>
         <default_value_field/>
         <depends_on/>
@@ -50,15 +51,13 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>b227cf701ba7b05062e50ed2cd4bcb76</sys_id>
-        <sys_mod_count>0</sys_mod_count>
         <sys_name>Comments</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>asmt_metric_b227cf701ba7b05062e50ed2cd4bcb76</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-29 21:37:18</sys_updated_on>
         <template/>
+        <value_parameters/>
         <weight>10</weight>
     </asmt_metric>
     <sys_translated_text action="delete_multiple" query="documentkey=b227cf701ba7b05062e50ed2cd4bcb76"/>

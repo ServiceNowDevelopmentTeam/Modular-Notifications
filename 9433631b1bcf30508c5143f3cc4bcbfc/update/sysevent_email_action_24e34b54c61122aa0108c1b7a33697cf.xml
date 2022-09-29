@@ -26,6 +26,7 @@ if (GlidePluginManager.isActive('com.sn_cs_sm')){
         <digest_template/>
         <digest_text/>
         <digestable>false</digestable>
+        <enable_dynamic_translation>false</enable_dynamic_translation>
         <event_name>incident.updated</event_name>
         <event_parm_1>false</event_parm_1>
         <event_parm_2>false</event_parm_2>
@@ -63,15 +64,12 @@ if (GlidePluginManager.isActive('com.sn_cs_sm')){
         <sys_domain>global</sys_domain>
         <sys_domain_path/>
         <sys_id>24e34b54c61122aa0108c1b7a33697cf</sys_id>
-        <sys_mod_count>26</sys_mod_count>
         <sys_name>Incident Closed</sys_name>
         <sys_overrides/>
         <sys_package display_value="Mobile UI" source="com.glide.ui.m">0bf4e4671b211010e7004229bc4bcb9b</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_24e34b54c61122aa0108c1b7a33697cf</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-12 21:40:44</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="Unsubscribe and Preferences Helvetica">d465111f3b4b2200c869c2c703efc47c</template>
         <type>email</type>
@@ -87,9 +85,6 @@ if (GlidePluginManager.isActive('com.sn_cs_sm')){
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-12 21:40:44</sys_created_on>
         <sys_id>2fe4239b1bcf30508c5143f3cc4bcb07</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-12 21:40:44</sys_updated_on>
     </sys_claim>
     <sys_claim action="INSERT_OR_UPDATE">
         <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
@@ -101,8 +96,5 @@ if (GlidePluginManager.isActive('com.sn_cs_sm')){
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-12 21:40:44</sys_created_on>
         <sys_id>efe4239b1bcf30508c5143f3cc4bcb07</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-12 21:40:44</sys_updated_on>
     </sys_claim>
 </record_update>

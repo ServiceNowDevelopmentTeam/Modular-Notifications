@@ -24,6 +24,7 @@
         <digest_template/>
         <digest_text/>
         <digestable>false</digestable>
+        <enable_dynamic_translation>false</enable_dynamic_translation>
         <event_name>mailbox_finished</event_name>
         <event_parm_1>false</event_parm_1>
         <event_parm_2>false</event_parm_2>
@@ -59,15 +60,12 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>634f06631bd37c108c5143f3cc4bcb16</sys_id>
-        <sys_mod_count>16</sys_mod_count>
         <sys_name>Mailbox Access Request Completed</sys_name>
         <sys_overrides/>
         <sys_package display_value="Global" source="global">global</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_634f06631bd37c108c5143f3cc4bcb16</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-19 17:42:14</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="Unsubscribe and Preferences Helvetica">d465111f3b4b2200c869c2c703efc47c</template>
         <type>email</type>
@@ -83,8 +81,5 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-19 17:42:14</sys_created_on>
         <sys_id>0fb364171b4d011062e50ed2cd4bcb4e</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-19 17:42:14</sys_updated_on>
     </sys_claim>
 </record_update>

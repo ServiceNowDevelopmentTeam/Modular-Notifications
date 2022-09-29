@@ -5,20 +5,17 @@
         <format>png</format>
         <height>110</height>
         <image>edca0d911b53f85062e50ed2cd4bcb94</image>
-        <name>images/image-6.png</name>
+        <name>images/SN_APi_Connect_Logo.png</name>
         <size_bytes>6963</size_bytes>
         <sys_class_name>db_image</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 15:34:59</sys_created_on>
         <sys_id>1cca09911b53f85062e50ed2cd4bcbfa</sys_id>
-        <sys_mod_count>3</sys_mod_count>
-        <sys_name>images/image-6.png</sys_name>
+        <sys_name>images/SN_APi_Connect_Logo.png</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>db_image_1cca09911b53f85062e50ed2cd4bcbfa</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-18 15:35:05</sys_updated_on>
         <thumbnail/>
         <width>200</width>
     </db_image>

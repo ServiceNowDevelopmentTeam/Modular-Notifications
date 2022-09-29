@@ -20,7 +20,9 @@
 		incReqNumber = current.task_id.number.toString();
 		//User's first name
 		notification.name = current.task_id.caller_id.first_name;
-	} else {
+	//Information section
+	notification.information = 'Your ' + incReq + ' has been ' + incReqCompleted + '. Please take this short 60 second survey to share your experience.';
+	} else if (current.trigger_table.toString().includes("sc_request") || current.trigger_table.toString().includes("sc_req_item")) {
 		incReq = "request";
 		inc = false;
 		shortDesc = current.task_id.short_description;
@@ -28,6 +30,17 @@
 		incReqNumber = current.task_id.number.toString();
 		//User's first name
 		notification.name = current.task_id.requested_for.first_name;
+	//Information section
+	notification.information = 'Your ' + incReq + ' has been ' + incReqCompleted + '. Please take this short 60 second survey to share your experience.';
+	} else {
+		incReq = "assessment";
+		inc = false;
+		shortDesc = current.task_id.short_description;
+		incReqCompleted = 'completed';
+		incReqNumber = current.number.toString();
+		//User's first name
+		notification.name = current.user.first_name;
+		notification.information = 'A new survey has been assigned to you, please provide your feedback so we can continue to improve your support experience.';
 	}
 	incReqUpper = incReq;
 	incReqUpper = incReqUpper.charAt(0).toUpperCase() + incReqUpper.slice(1);
@@ -53,8 +66,6 @@
 	notification.subject = 'APi Connect Customer Satisfaction Survey';
 
 
-	//Information section
-	notification.information = 'Your ' + incReq + ' has been ' + incReqCompleted + '. Please take this short 60 second survey to share your experience.';
 
 	//variables section
 	notification.varList = [
@@ -68,7 +79,8 @@
 		}
 	];
 	//More information section
-	notification.moreInformation = '<b>Have any questions?</b><br><a href="' + link + '">Click here</a> to comment on this ' + incReq + ' or call us at (651) 925-8511.';
+	notification.moreInformation = '<a href="/sp?id=take_survey&instance_id=${sys_id}"><img src="/TakeTheSurveyNow.png" width="200" style="vertical-align: middle;"></a><br>';
+	notification.moreInformation += '<b>Have any questions?</b><br><a href="' + link + '">Click here</a> to comment on this ' + incReq + ' or call us at (651) 925-8511.';
 
 	//Put it all together to get the full HTML template
 	var html = notification.getHTML();
@@ -84,13 +96,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-21 14:53:33</sys_created_on>
         <sys_id>620e98561b5b301062e50ed2cd4bcb3a</sys_id>
-        <sys_mod_count>16</sys_mod_count>
         <sys_name>modular_notifications_custom_survey</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_email_620e98561b5b301062e50ed2cd4bcb3a</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-28 14:27:57</sys_updated_on>
     </sys_script_email>
 </record_update>

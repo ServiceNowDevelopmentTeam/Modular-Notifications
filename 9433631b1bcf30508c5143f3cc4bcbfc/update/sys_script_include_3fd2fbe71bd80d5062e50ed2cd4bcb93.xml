@@ -17,6 +17,56 @@ RequestedItemUtils.prototype = {
 		];
 	},
 	/**SNDOC
+	@name getVariablesString
+	@description Gets all variables for a ritm sorted like they would be on a form and generates an HTML table for them.
+
+	@param {GlideRecord} [gr] - GlideRecord of a sc_req_item record
+
+	@example
+		var gr = new GlideRecord('sc_req_item');
+		gr.get('9113c3eb1b940d5062e50ed2cd4bcbee');
+
+		var requestedItemUtils = new global.RequestedItemUtils();
+		var catItemVars = requestedItemUtils.getVariablesHTML(gr);
+		gs.info(catItemVars);
+
+	@returns {string} 
+	*/
+	getVariablesString : function(gr){
+		var variableList = this.getVariables(gr);
+		var varString = 'Your approval is required before this request can be processed.\r\n';
+		for (var i = 0; i < variableList.length; i++) {
+			varString += '\r\n' + variableList[i].title + ' : ' + variableList[i].value;
+		}
+		return varString;
+	},
+	/**SNDOC
+	@name getVariablesHTML
+	@description Gets all variables for a ritm sorted like they would be on a form and generates an HTML table for them.
+
+	@param {GlideRecord} [gr] - GlideRecord of a sc_req_item record
+
+	@example
+		var gr = new GlideRecord('sc_req_item');
+		gr.get('9113c3eb1b940d5062e50ed2cd4bcbee');
+
+		var requestedItemUtils = new global.RequestedItemUtils();
+		var catItemVars = requestedItemUtils.getVariablesHTML(gr);
+		gs.info(catItemVars);
+
+	@returns {string} 
+	*/
+	getVariablesHTML : function(gr){
+		var html = '<table>';
+		var variableList = this.getVariables(gr);
+		for (var i = 0; i < variableList.length; i++) {
+			html += '<tr><td>' + variableList[i].title + '</td><td>' + variableList[i].value + '</td>';
+		}
+		html += '</table>';
+		//html = html.replaceAll(' ', '%22').replaceAll('<','&lt;').replaceAll('>','&gt;');
+		return html;
+	},
+	/**SNDOC
 	@name getVariables
 	@description Gets all variables for a ritm sorted like they would be on a form
 
@@ -86,16 +136,18 @@ RequestedItemUtils.prototype = {
 							title = catItemVariables[index]["display_name"];
 							value = catItemVariables[index]["value"];
 						}
-						
-						varArray.push({
-							"title": (title == '' || title == undefined) ? question.getLabel() : title, 
-							"value": (value == '' || value == undefined) ? question.getDisplayValue() : value, 
-							"section":section, 
-							"order":itemOrder, 
-							"type":itemType, 
-							"variable_set":variableSet, 
-							"variable_set_order":variableSetOrder
-						});
+
+						if(question.getLabel() != 'Quantity'){
+							varArray.push({
+								"title": (title == '' || title == undefined) ? question.getLabel() : title, 
+								"value": (value == '' || value == undefined) ? question.getDisplayValue() : value, 
+								"section":section, 
+								"order":itemOrder, 
+								"type":itemType, 
+								"variable_set":variableSet, 
+								"variable_set_order":variableSetOrder
+							});
+						}
 					}
 				}
 			}
@@ -146,7 +198,6 @@ RequestedItemUtils.prototype = {
 					break;
 				}
 			}
-
 			variablesList.push({
 				"display_name" : variablesGr.getValue('question_text'), 
 				"order" : variablesGr.getValue('order'),
@@ -396,13 +447,10 @@ RequestedItemUtils.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-14 20:44:23</sys_created_on>
         <sys_id>3fd2fbe71bd80d5062e50ed2cd4bcb93</sys_id>
-        <sys_mod_count>172</sys_mod_count>
         <sys_name>RequestedItemUtils</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_3fd2fbe71bd80d5062e50ed2cd4bcb93</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-20 16:38:03</sys_updated_on>
     </sys_script_include>
 </record_update>

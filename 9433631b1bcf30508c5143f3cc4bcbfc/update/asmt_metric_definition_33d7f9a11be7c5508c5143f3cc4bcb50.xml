@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="asmt_metric_definition">
+    <asmt_metric_definition action="INSERT_OR_UPDATE">
+        <display>Virtual Agent</display>
+        <metric display_value="Client Opportunities">23d7b9a11be7c5508c5143f3cc4bcbee</metric>
+        <normalization_input>0</normalization_input>
+        <order>3</order>
+        <selected_image/>
+        <sys_class_name>asmt_metric_definition</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-05-18 19:57:26</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>33d7f9a11be7c5508c5143f3cc4bcb50</sys_id>
+        <sys_name>Virtual Agent</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>asmt_metric_definition_33d7f9a11be7c5508c5143f3cc4bcb50</sys_update_name>
+        <unselected_image/>
+        <value>4</value>
+    </asmt_metric_definition>
+    <sys_translated_text action="delete_multiple" query="documentkey=33d7f9a11be7c5508c5143f3cc4bcb50"/>
+</record_update>

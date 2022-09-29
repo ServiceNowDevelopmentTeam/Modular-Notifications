@@ -41,6 +41,7 @@
         <mask_use_encryption>false</mask_use_encryption>
         <name>test_variable</name>
         <order>0</order>
+        <post_insert_script/>
         <price_if_checked>0</price_if_checked>
         <pricing_implications>false</pricing_implications>
         <published_ref/>
@@ -68,14 +69,11 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-20 19:19:01</sys_created_on>
         <sys_id>642118421b17fc5062e50ed2cd4bcb7f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
         <sys_name>Test Variable</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>item_option_new_642118421b17fc5062e50ed2cd4bcb7f</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-10-20 19:19:01</sys_updated_on>
         <table/>
         <tooltip/>
         <type>6</type>

@@ -8,18 +8,18 @@
         <annotation/>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
-        <compiler_build>glide-rome-06-23-2021__patch4-hotfix1-12-10-2021_12-15-2021_1427.zip</compiler_build>
         <copied_from>1b5bdae51b0d81108c5143f3cc4bcb64</copied_from>
         <copied_from_name>Set Flow Data Field Value</copied_from_name>
         <description/>
         <ih_action>false</ih_action>
         <internal_name>get_flow_data_field_value</internal_name>
-        <label_cache>[{"name":"{{action.flow_data_record}}","label":"action➛Flow Data Record","type":"action","ref":"","reference_display":"Flow Data","base_type":"reference","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.field_name}}","label":"action➛Field Name","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.field_value}}","label":"action➛Field Value","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.flow_data_record.sys_id}}","label":"action➛Flow Data Record➛Sys ID","type":"action","ref":"","reference_display":"Sys ID","base_type":"GUID","parent_table_name":"sys_flow_data","column_name":"sys_id","choices":null,"attributes":{}},{"name":"{{step[90e75050-9c48-4963-8994-ff0909b3b5e1].variable}}","label":"step➛Script step➛variable","type":"step","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{step[90e75050-9c48-4963-8994-ff0909b3b5e1].field_value}}","label":"step➛Script step➛Field Value","type":"step","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"sourceId":"","sourceUiUniqueId":"","sourceType":""}}]</label_cache>
+        <label_cache>[{"name":"{{action.flow_data_record}}","label":"action➛Flow Data Record","type":"action","ref":"","reference_display":"Flow Data","base_type":"reference","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.field_name}}","label":"action➛Field Name","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"string","uiUniqueId":"059a09a5-7719-45b4-a538-3a072e4ea695"}},{"name":"{{action.field_value}}","label":"action➛Field Value","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.flow_data_record.sys_id}}","label":"action➛Flow Data Record➛Sys ID","type":"action","ref":"","reference_display":"Sys ID","base_type":"GUID","parent_table_name":"sys_flow_data","column_name":"sys_id","choices":null,"attributes":{}},{"name":"{{step[90e75050-9c48-4963-8994-ff0909b3b5e1].variable}}","label":"step➛Script step➛variable","type":"step","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{step[90e75050-9c48-4963-8994-ff0909b3b5e1].field_value}}","label":"step➛Script step➛Field Value","type":"step","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"sourceId":"","sourceUiUniqueId":"","sourceType":""}}]</label_cache>
         <master_snapshot>2710826a1b89415062e50ed2cd4bcbd0</master_snapshot>
         <name>Get Flow Data Field Value</name>
         <natlang/>
         <outputs/>
         <outputs/>
+        <pre_compiled>false</pre_compiled>
         <state>published</state>
         <sys_class_name>sys_hub_action_type_definition</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
@@ -27,15 +27,12 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>d6affde61b89415062e50ed2cd4bcb4a</sys_id>
-        <sys_mod_count>16</sys_mod_count>
         <sys_name>Get Flow Data Field Value</sys_name>
         <sys_overrides/>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_d6affde61b89415062e50ed2cd4bcb4a</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-17 16:33:54</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -49,10 +46,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-17 16:28:27</sys_created_on>
         <sys_id>aaaffde61b89415062e50ed2cd4bcbab</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-17 16:30:25</sys_updated_on>
-        <value>{"version":"1.0","complexObjectSchema":{"FlowDesigner:FD26affde6a28941505ff09bda9c281990":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"mapped\":\"{}\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"mapped\":\"{}\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FD26affde6a28941505ff09bda9c281990.$type_facets":{"SimpleMapFacet":"{\"sourceId\":\"\",\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"6d4b4dab-3dd5-42f0-b9e2-07eba97d1df5\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FD26affde6a28941505ff09bda9c281990\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"sourceUiUniqueId\":\"\",\"sourceType\":\"\",\"hint\":\"\",\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"serializationFormat":"JSON"}</value>
+        <sys_updated_on>2022-02-11 21:07:54</sys_updated_on>
+        <value>{"version":"1.0","complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"complexObjectSchema":{"FlowDesigner:FD26affde6a28941505ff09bda9c281990":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"mapped\":\"{}\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"mapped\":\"{}\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FD26affde6a28941505ff09bda9c281990.$type_facets":{"SimpleMapFacet":"{\"sourceId\":\"\",\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"6d4b4dab-3dd5-42f0-b9e2-07eba97d1df5\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FD26affde6a28941505ff09bda9c281990\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"sourceUiUniqueId\":\"\",\"sourceType\":\"\",\"hint\":\"\",\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"serializationFormat":"JSON"}</value>
         <variable display_value="Action Status">e6affde61b89415062e50ed2cd4bcb94</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -190,18 +187,6 @@ if (variableNameGr.next()) {
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=9eaffde61b89415062e50ed2cd4bcb6f"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>application</field>
-        <id>9eaffde61b89415062e50ed2cd4bcb6f</id>
-        <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2022-01-17 16:28:26</sys_created_on>
-        <sys_id>6eaffde61b89415062e50ed2cd4bcb8b</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-17 16:28:26</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>Field</field>
         <id>9eaffde61b89415062e50ed2cd4bcb6f</id>
         <sys_created_by>Terry.Lillo</sys_created_by>
@@ -224,18 +209,6 @@ if (variableNameGr.next()) {
         <sys_updated_on>2022-01-17 16:28:26</sys_updated_on>
         <table>var__m_sys_hub_step_ext_input_9eaffde61b89415062e50ed2cd4bcb6f</table>
         <value>{{action.flow_data_record.sys_id}}</value>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>script</field>
-        <id>9eaffde61b89415062e50ed2cd4bcb6f</id>
-        <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2022-01-17 16:28:26</sys_created_on>
-        <sys_id>26affde61b89415062e50ed2cd4bcb8c</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-17 16:28:26</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>Value</field>
@@ -283,6 +256,7 @@ if (variableNameGr.next()) {
         <element>FlowDataSysId</element>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <formula/>
         <function_definition/>
         <function_field>false</function_field>
         <help/>
@@ -329,6 +303,7 @@ if (variableNameGr.next()) {
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
@@ -364,6 +339,7 @@ if (variableNameGr.next()) {
         <element>Field</element>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <formula/>
         <function_definition/>
         <function_field>false</function_field>
         <help/>
@@ -410,6 +386,7 @@ if (variableNameGr.next()) {
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
@@ -446,6 +423,7 @@ if (variableNameGr.next()) {
         <element>field_value</element>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <formula/>
         <function_definition/>
         <function_field>false</function_field>
         <help/>
@@ -492,10 +470,12 @@ if (variableNameGr.next()) {
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_step_ext_output>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=9eaffde61b89415062e50ed2cd4bcb6f"/>
     <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_step_ext_output_9eaffde61b89415062e50ed2cd4bcb6f^sys_idNOT IN5b10826a1b89415062e50ed2cd4bcb90"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>field_value</element>
@@ -510,7 +490,7 @@ if (variableNameGr.next()) {
         <sys_created_on>2022-01-17 16:30:24</sys_created_on>
         <sys_id>5b10826a1b89415062e50ed2cd4bcb90</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Field Value</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -552,6 +532,7 @@ if (variableNameGr.next()) {
         <element>flow_data_record</element>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <formula/>
         <function_definition/>
         <function_field>false</function_field>
         <help/>
@@ -598,10 +579,12 @@ if (variableNameGr.next()) {
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_action_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=16affde61b89415062e50ed2cd4bcb52"/>
     <sys_hub_action_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -633,6 +616,7 @@ if (variableNameGr.next()) {
         <element>field_name</element>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <formula/>
         <function_definition/>
         <function_field>false</function_field>
         <help/>
@@ -679,10 +663,12 @@ if (variableNameGr.next()) {
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_action_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=56affde61b89415062e50ed2cd4bcb5f"/>
     <sys_hub_action_output action="delete_multiple" query="model=d6affde61b89415062e50ed2cd4bcb4a^sys_idNOT INaeaffde61b89415062e50ed2cd4bcb9c,d2e0c2ea1b89415062e50ed2cd4bcb52,e6affde61b89415062e50ed2cd4bcb94"/>
     <sys_hub_action_output action="INSERT_OR_UPDATE">
         <active>true</active>
@@ -716,6 +702,7 @@ if (variableNameGr.next()) {
         <element_prototype/>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <formula/>
         <function_definition/>
         <function_field>false</function_field>
         <help/>
@@ -763,10 +750,13 @@ if (variableNameGr.next()) {
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_action_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=aeaffde61b89415062e50ed2cd4bcb9c"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=aeaffde61b89415062e50ed2cd4bcb9c"/>
     <sys_hub_action_output action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -799,6 +789,7 @@ if (variableNameGr.next()) {
         <element_prototype/>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <formula/>
         <function_definition/>
         <function_field>false</function_field>
         <help/>
@@ -846,10 +837,12 @@ if (variableNameGr.next()) {
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_action_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=d2e0c2ea1b89415062e50ed2cd4bcb52"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=d2e0c2ea1b89415062e50ed2cd4bcb52^sys_idNOT IN9ae0c2ea1b89415062e50ed2cd4bcb67"/>
     <sys_hub_input_scripts action="INSERT_OR_UPDATE">
         <active>false</active>
@@ -896,6 +889,7 @@ if (variableNameGr.next()) {
         <element_prototype/>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <formula/>
         <function_definition/>
         <function_field>false</function_field>
         <help/>
@@ -943,10 +937,14 @@ if (variableNameGr.next()) {
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_action_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=e6affde61b89415062e50ed2cd4bcb94"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=e6affde61b89415062e50ed2cd4bcb94"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=d6affde61b89415062e50ed2cd4bcb4a"/>
     <sys_hub_action_status_metadata action="delete_multiple" query="action_type_id=d6affde61b89415062e50ed2cd4bcb4a^sys_idNOT IN66affde61b89415062e50ed2cd4bcbad"/>
     <sys_hub_action_status_metadata action="INSERT_OR_UPDATE">
         <action_type_id display_value="Get Flow Data Field Value">d6affde61b89415062e50ed2cd4bcb4a</action_type_id>
@@ -957,6 +955,7 @@ if (variableNameGr.next()) {
         <sys_updated_by>Terry.Lillo</sys_updated_by>
         <sys_updated_on>2022-01-17 16:28:27</sys_updated_on>
     </sys_hub_action_status_metadata>
+    <sys_hub_status_condition action="delete_multiple" query="action_status_metadata_id=66affde61b89415062e50ed2cd4bcbad"/>
     <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_input_d6affde61b89415062e50ed2cd4bcb4a^sys_idNOT IN1aaffde61b89415062e50ed2cd4bcb65,9eaffde61b89415062e50ed2cd4bcb5d"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>field_name</element>
@@ -971,7 +970,7 @@ if (variableNameGr.next()) {
         <sys_created_on>2022-01-17 16:28:26</sys_created_on>
         <sys_id>1aaffde61b89415062e50ed2cd4bcb65</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Field Name</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -994,7 +993,7 @@ if (variableNameGr.next()) {
         <sys_created_on>2022-01-17 16:28:26</sys_created_on>
         <sys_id>9eaffde61b89415062e50ed2cd4bcb5d</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Flow Data Record</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1004,6 +1003,7 @@ if (variableNameGr.next()) {
         <url/>
         <url_target/>
     </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_input_d6affde61b89415062e50ed2cd4bcb4a"/>
     <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_output_d6affde61b89415062e50ed2cd4bcb4a^sys_idNOT IN22affde61b89415062e50ed2cd4bcba8,9ae0c2ea1b89415062e50ed2cd4bcb64,e6affde61b89415062e50ed2cd4bcb9b"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>__dont_treat_as_error__</element>
@@ -1018,7 +1018,7 @@ if (variableNameGr.next()) {
         <sys_created_on>2022-01-17 16:28:27</sys_created_on>
         <sys_id>22affde61b89415062e50ed2cd4bcba8</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Don't Treat as Error</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1041,7 +1041,7 @@ if (variableNameGr.next()) {
         <sys_created_on>2022-01-17 16:33:53</sys_created_on>
         <sys_id>9ae0c2ea1b89415062e50ed2cd4bcb64</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Value</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1064,7 +1064,7 @@ if (variableNameGr.next()) {
         <sys_created_on>2022-01-17 16:28:27</sys_created_on>
         <sys_id>e6affde61b89415062e50ed2cd4bcb9b</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Action Status</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1074,21 +1074,22 @@ if (variableNameGr.next()) {
         <url/>
         <url_target/>
     </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_output_d6affde61b89415062e50ed2cd4bcb4a"/>
     <sys_hub_action_plan action="delete_multiple" query="action_id=d6affde61b89415062e50ed2cd4bcb4a^sys_idNOT INc820c26a1b89415062e50ed2cd4bcbae"/>
     <sys_hub_action_plan action="INSERT_OR_UPDATE">
         <action_id display_value="Get Flow Data Field Value">d6affde61b89415062e50ed2cd4bcb4a</action_id>
         <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_hub_action_plan","id":"c820c26a1b89415062e50ed2cd4bcbae","name":"plan","plan_signature":null}}</plan>
-        <snapshot>eae006ea1b89415062e50ed2cd4bcb00</snapshot>
+        <snapshot>506f63e61b21411062e50ed2cd4bcb47</snapshot>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-17 16:30:28</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>c820c26a1b89415062e50ed2cd4bcbae</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_overrides/>
         <sys_scope/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-17 16:33:55</sys_updated_on>
+        <sys_updated_on>2022-02-11 21:07:56</sys_updated_on>
     </sys_hub_action_plan>
     <sys_hub_action_type_snapshot action="INSERT_OR_UPDATE">
         <access>public</access>
@@ -1102,7 +1103,7 @@ if (variableNameGr.next()) {
         <copied_from_name/>
         <description/>
         <internal_name>get_flow_data_field_value</internal_name>
-        <label_cache>[{"name":"{{action.flow_data_record}}","label":"action➛Flow Data Record","type":"action","ref":"","reference_display":"Flow Data","base_type":"reference","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.field_name}}","label":"action➛Field Name","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.field_value}}","label":"action➛Field Value","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.flow_data_record.sys_id}}","label":"action➛Flow Data Record➛Sys ID","type":"action","ref":"","reference_display":"Sys ID","base_type":"GUID","parent_table_name":"sys_flow_data","column_name":"sys_id","choices":null,"attributes":{}},{"name":"{{step[90e75050-9c48-4963-8994-ff0909b3b5e1].variable}}","label":"step➛Script step➛variable","type":"step","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{step[90e75050-9c48-4963-8994-ff0909b3b5e1].field_value}}","label":"step➛Script step➛Field Value","type":"step","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"sourceId":"","sourceUiUniqueId":"","sourceType":""}}]</label_cache>
+        <label_cache>[{"name":"{{action.flow_data_record}}","label":"action➛Flow Data Record","type":"action","ref":"","reference_display":"Flow Data","base_type":"reference","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.field_name}}","label":"action➛Field Name","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"string","uiUniqueId":"059a09a5-7719-45b4-a538-3a072e4ea695"}},{"name":"{{action.field_value}}","label":"action➛Field Value","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.flow_data_record.sys_id}}","label":"action➛Flow Data Record➛Sys ID","type":"action","ref":"","reference_display":"Sys ID","base_type":"GUID","parent_table_name":"sys_flow_data","column_name":"sys_id","choices":null,"attributes":{}},{"name":"{{step[90e75050-9c48-4963-8994-ff0909b3b5e1].variable}}","label":"step➛Script step➛variable","type":"step","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{step[90e75050-9c48-4963-8994-ff0909b3b5e1].field_value}}","label":"step➛Script step➛Field Value","type":"step","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"sourceId":"","sourceUiUniqueId":"","sourceType":""}}]</label_cache>
         <master>true</master>
         <name>Get Flow Data Field Value</name>
         <natlang/>
@@ -1115,7 +1116,7 @@ if (variableNameGr.next()) {
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>2710826a1b89415062e50ed2cd4bcbd0</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_overrides/>
         <sys_package/>
@@ -1123,7 +1124,7 @@ if (variableNameGr.next()) {
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-17 16:30:25</sys_updated_on>
+        <sys_updated_on>2022-02-11 21:07:54</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_snapshot>
@@ -1137,10 +1138,10 @@ if (variableNameGr.next()) {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-17 16:30:27</sys_created_on>
         <sys_id>b310c26a1b89415062e50ed2cd4bcb62</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-17 16:30:27</sys_updated_on>
-        <value>{"version":"1.0","complexObjectSchema":{"FlowDesigner:FDff10c26acf8941506dc6d953c022a23a":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"mapped\":\"{}\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"mapped\":\"{}\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDff10c26acf8941506dc6d953c022a23a.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"6d4b4dab-3dd5-42f0-b9e2-07eba97d1df5\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDff10c26acf8941506dc6d953c022a23a\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"serializationFormat":"JSON"}</value>
+        <sys_updated_on>2022-02-11 21:07:55</sys_updated_on>
+        <value>{"version":"1.0","complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"complexObjectSchema":{"FlowDesigner:FDff10c26acf8941506dc6d953c022a23a":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"mapped\":\"{}\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"mapped\":\"{}\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDff10c26acf8941506dc6d953c022a23a.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"6d4b4dab-3dd5-42f0-b9e2-07eba97d1df5\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDff10c26acf8941506dc6d953c022a23a\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"serializationFormat":"JSON"}</value>
         <variable display_value="Action Status">b310c26a1b89415062e50ed2cd4bcb3f</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -1278,18 +1279,6 @@ if (variableNameGr.next()) {
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=6710826a1b89415062e50ed2cd4bcbe9"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>application</field>
-        <id>6710826a1b89415062e50ed2cd4bcbe9</id>
-        <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2022-01-17 16:30:26</sys_created_on>
-        <sys_id>f310c26a1b89415062e50ed2cd4bcb11</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-17 16:30:26</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>Field</field>
         <id>6710826a1b89415062e50ed2cd4bcbe9</id>
         <sys_created_by>Terry.Lillo</sys_created_by>
@@ -1312,18 +1301,6 @@ if (variableNameGr.next()) {
         <sys_updated_on>2022-01-17 16:30:26</sys_updated_on>
         <table>var__m_sys_hub_step_ext_input_6710826a1b89415062e50ed2cd4bcbe9</table>
         <value>{{action.flow_data_record.sys_id}}</value>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>script</field>
-        <id>6710826a1b89415062e50ed2cd4bcbe9</id>
-        <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2022-01-17 16:30:26</sys_created_on>
-        <sys_id>bb10c26a1b89415062e50ed2cd4bcb11</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-17 16:30:26</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
     </sys_element_mapping>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_step_ext_output_6710826a1b89415062e50ed2cd4bcbe9^id=6710826a1b89415062e50ed2cd4bcbe9"/>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=6710826a1b89415062e50ed2cd4bcbe9"/>
@@ -1359,6 +1336,7 @@ if (variableNameGr.next()) {
         <element>FlowDataSysId</element>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <formula/>
         <function_definition/>
         <function_field>false</function_field>
         <help/>
@@ -1405,6 +1383,7 @@ if (variableNameGr.next()) {
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
@@ -1440,6 +1419,7 @@ if (variableNameGr.next()) {
         <element>Field</element>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <formula/>
         <function_definition/>
         <function_field>false</function_field>
         <help/>
@@ -1486,6 +1466,7 @@ if (variableNameGr.next()) {
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
@@ -1522,6 +1503,7 @@ if (variableNameGr.next()) {
         <element>field_value</element>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <formula/>
         <function_definition/>
         <function_field>false</function_field>
         <help/>
@@ -1568,10 +1550,12 @@ if (variableNameGr.next()) {
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_step_ext_output>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=6710826a1b89415062e50ed2cd4bcbe9"/>
     <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_step_ext_output_6710826a1b89415062e50ed2cd4bcbe9^sys_idNOT IN3710c26a1b89415062e50ed2cd4bcb0d"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>field_value</element>
@@ -1586,7 +1570,7 @@ if (variableNameGr.next()) {
         <sys_created_on>2022-01-17 16:30:26</sys_created_on>
         <sys_id>3710c26a1b89415062e50ed2cd4bcb0d</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Field Value</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1628,6 +1612,7 @@ if (variableNameGr.next()) {
         <element>field_name</element>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <formula/>
         <function_definition/>
         <function_field>false</function_field>
         <help/>
@@ -1674,10 +1659,12 @@ if (variableNameGr.next()) {
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_action_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=af10826a1b89415062e50ed2cd4bcbe0"/>
     <sys_hub_action_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -1709,6 +1696,7 @@ if (variableNameGr.next()) {
         <element>flow_data_record</element>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <formula/>
         <function_definition/>
         <function_field>false</function_field>
         <help/>
@@ -1755,10 +1743,12 @@ if (variableNameGr.next()) {
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_action_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=ef10826a1b89415062e50ed2cd4bcbd3"/>
     <sys_hub_action_output action="delete_multiple" query="model=2710826a1b89415062e50ed2cd4bcbd0^sys_idNOT IN26e0c2ea1b89415062e50ed2cd4bcbf5,3f10c26a1b89415062e50ed2cd4bcb53,b310c26a1b89415062e50ed2cd4bcb3f"/>
     <sys_hub_action_output action="INSERT_OR_UPDATE">
         <active>true</active>
@@ -1792,6 +1782,7 @@ if (variableNameGr.next()) {
         <element_prototype/>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <formula/>
         <function_definition/>
         <function_field>false</function_field>
         <help/>
@@ -1839,10 +1830,12 @@ if (variableNameGr.next()) {
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_action_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=26e0c2ea1b89415062e50ed2cd4bcbf5"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=26e0c2ea1b89415062e50ed2cd4bcbf5^sys_idNOT INe2e0c2ea1b89415062e50ed2cd4bcbfe"/>
     <sys_hub_input_scripts action="INSERT_OR_UPDATE">
         <active>false</active>
@@ -1889,6 +1882,7 @@ if (variableNameGr.next()) {
         <element_prototype/>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <formula/>
         <function_definition/>
         <function_field>false</function_field>
         <help/>
@@ -1936,10 +1930,13 @@ if (variableNameGr.next()) {
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_action_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=3f10c26a1b89415062e50ed2cd4bcb53"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=3f10c26a1b89415062e50ed2cd4bcb53"/>
     <sys_hub_action_output action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -1972,6 +1969,7 @@ if (variableNameGr.next()) {
         <element_prototype/>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <formula/>
         <function_definition/>
         <function_field>false</function_field>
         <help/>
@@ -2019,10 +2017,14 @@ if (variableNameGr.next()) {
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_action_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=b310c26a1b89415062e50ed2cd4bcb3f"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=b310c26a1b89415062e50ed2cd4bcb3f"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=2710826a1b89415062e50ed2cd4bcbd0"/>
     <sys_hub_action_status_metadata action="delete_multiple" query="action_type_id=2710826a1b89415062e50ed2cd4bcbd0^sys_idNOT IN7f10c26a1b89415062e50ed2cd4bcb63"/>
     <sys_hub_action_status_metadata action="INSERT_OR_UPDATE">
         <action_type_id display_value="Get Flow Data Field Value">2710826a1b89415062e50ed2cd4bcbd0</action_type_id>
@@ -2033,6 +2035,7 @@ if (variableNameGr.next()) {
         <sys_updated_by>Terry.Lillo</sys_updated_by>
         <sys_updated_on>2022-01-17 16:30:27</sys_updated_on>
     </sys_hub_action_status_metadata>
+    <sys_hub_status_condition action="delete_multiple" query="action_status_metadata_id=7f10c26a1b89415062e50ed2cd4bcb63"/>
     <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_input_2710826a1b89415062e50ed2cd4bcbd0^sys_idNOT IN6f10826a1b89415062e50ed2cd4bcbe6,e710826a1b89415062e50ed2cd4bcbdf"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>field_name</element>
@@ -2047,7 +2050,7 @@ if (variableNameGr.next()) {
         <sys_created_on>2022-01-17 16:30:26</sys_created_on>
         <sys_id>6f10826a1b89415062e50ed2cd4bcbe6</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Field Name</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2070,7 +2073,7 @@ if (variableNameGr.next()) {
         <sys_created_on>2022-01-17 16:30:26</sys_created_on>
         <sys_id>e710826a1b89415062e50ed2cd4bcbdf</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Flow Data Record</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2080,6 +2083,7 @@ if (variableNameGr.next()) {
         <url/>
         <url_target/>
     </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_input_2710826a1b89415062e50ed2cd4bcbd0"/>
     <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_output_2710826a1b89415062e50ed2cd4bcbd0^sys_idNOT IN26e0c2ea1b89415062e50ed2cd4bcbfb,7710c26a1b89415062e50ed2cd4bcb52,bb10c26a1b89415062e50ed2cd4bcb5e"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>value</element>
@@ -2094,7 +2098,7 @@ if (variableNameGr.next()) {
         <sys_created_on>2022-01-17 16:33:54</sys_created_on>
         <sys_id>26e0c2ea1b89415062e50ed2cd4bcbfb</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Value</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2117,7 +2121,7 @@ if (variableNameGr.next()) {
         <sys_created_on>2022-01-17 16:30:26</sys_created_on>
         <sys_id>7710c26a1b89415062e50ed2cd4bcb52</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Action Status</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2140,7 +2144,7 @@ if (variableNameGr.next()) {
         <sys_created_on>2022-01-17 16:30:27</sys_created_on>
         <sys_id>bb10c26a1b89415062e50ed2cd4bcb5e</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Don't Treat as Error</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2150,8 +2154,10 @@ if (variableNameGr.next()) {
         <url/>
         <url_target/>
     </sys_documentation>
-    <sys_hub_action_type_definition action="update">
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_output_2710826a1b89415062e50ed2cd4bcbd0"/>
+    <sys_hub_action_type_definition action="UPDATE">
         <sys_id>d6affde61b89415062e50ed2cd4bcb4a</sys_id>
         <latest_snapshot>2710826a1b89415062e50ed2cd4bcbd0</latest_snapshot>
+        <compiler_build>glide-rome-06-23-2021__patch4-hotfix1a-12-17-2021_01-11-2022_1246.zip</compiler_build>
     </sys_hub_action_type_definition>
 </record_update>

@@ -11,22 +11,18 @@ With a failure timeout of 5 Seconds</description>
         <mugshots_cache_json/>
         <notes/>
         <order>16</order>
-        <snapshot/>
         <step_config display_value="Record Query">2d82e3c7531400109e02ddeeff7b12a7</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-24 19:58:31</sys_created_on>
         <sys_id>31c27ebc1b910d108c5143f3cc4bcb1f</sys_id>
-        <sys_mod_count>15</sys_mod_count>
         <sys_name>Record Query</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_atf_step_31c27ebc1b910d108c5143f3cc4bcb1f</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-24 21:45:28</sys_updated_on>
         <table>sc_task</table>
-        <test display_value="TC - 278 - Request - OneStream Approval - IT">6b0e2ab41b910d108c5143f3cc4bcbf5</test>
+        <test display_value="TC - 278 - Request - OneStream Approval - IT - REDIRECT">6b0e2ab41b910d108c5143f3cc4bcbf5</test>
         <timeout>1970-01-01 00:00:05</timeout>
         <warning_message/>
     </sys_atf_step>

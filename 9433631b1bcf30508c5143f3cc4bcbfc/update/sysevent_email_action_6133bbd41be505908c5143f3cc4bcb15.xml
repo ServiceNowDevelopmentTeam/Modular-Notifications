@@ -4,20 +4,39 @@
         <action_update>true</action_update>
         <active>true</active>
         <advanced_condition><![CDATA[//Don't send if opened by is requested for
-if(current.opened_by.toString() != current.requested_for.toString()){
+if(current.opened_by.toString() != current.requested_for.toString() && (current.cat_item.u_contains_approvals.toString() == 'false')){
 	answer = true;
 }
 else{
-	answer = false;
+	if(current.cat_item.u_contains_approvals.toString() == 'true' && !isApprovalConditionMet()){
+		answer = true;
+	}
+	else{
+		answer = false;
+	}
+}
+function isApprovalConditionMet(){
+	var approvalCondition = current.cat_item.u_approval_condition.toString();
+	//Re-query the same RITM to see if it matches the Approval Condition field's conditions
+	var ritmGr = new GlideRecord('sc_req_item');
+	ritmGr.addQuery('sys_id', current.getUniqueValue());
+	ritmGr.addEncodedQuery(approvalCondition);
+	ritmGr.query();
+
+	if(ritmGr.hasNext()) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }]]></advanced_condition>
         <affected_field_on_event/>
         <category display_value="Uncategorized" name="Uncategorized">c97d83137f4432005f58108c3ffa917a</category>
         <collection>sc_req_item</collection>
-        <condition table="sc_req_item">requested_forISNOTEMPTY^requested_forVALCHANGES^requested_forCHANGESFROM^cat_item.u_cdw_item!=true^cat_item.u_contains_approvals=false^EQ<item endquery="false" field="requested_for" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/>
+        <condition table="sc_req_item">requested_forISNOTEMPTY^requested_forVALCHANGES^requested_forCHANGESFROM^cat_item.u_cdw_item!=true^EQ<item endquery="false" field="requested_for" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/>
             <item endquery="false" field="requested_for" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/>
             <item endquery="false" field="requested_for" goto="false" newquery="false" operator="CHANGESFROM" or="false" value=""/>
             <item endquery="false" field="cat_item.u_cdw_item" goto="false" newquery="false" operator="!=" or="false" value="true"/>
-            <item endquery="false" field="cat_item.u_contains_approvals" goto="false" newquery="false" operator="=" or="false" value="false"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </condition>
         <content_type>text/html</content_type>
@@ -34,6 +53,7 @@ else{
         <digest_template/>
         <digest_text/>
         <digestable>false</digestable>
+        <enable_dynamic_translation>false</enable_dynamic_translation>
         <event_name>task.approved</event_name>
         <event_parm_1>false</event_parm_1>
         <event_parm_2>false</event_parm_2>
@@ -69,15 +89,12 @@ else{
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>6133bbd41be505908c5143f3cc4bcb15</sys_id>
-        <sys_mod_count>1</sys_mod_count>
         <sys_name>Request Item Opened - Requested For</sys_name>
         <sys_overrides/>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_6133bbd41be505908c5143f3cc4bcb15</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-02-04 21:40:27</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="Unsubscribe and Preferences Helvetica">d465111f3b4b2200c869c2c703efc47c</template>
         <type>email</type>

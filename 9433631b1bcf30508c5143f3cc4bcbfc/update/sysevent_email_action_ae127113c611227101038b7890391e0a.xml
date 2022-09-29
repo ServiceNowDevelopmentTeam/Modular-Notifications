@@ -23,6 +23,7 @@
         <digest_template/>
         <digest_text/>
         <digestable>false</digestable>
+        <enable_dynamic_translation>false</enable_dynamic_translation>
         <event_name>change.approved</event_name>
         <event_parm_1>false</event_parm_1>
         <event_parm_2>false</event_parm_2>
@@ -58,15 +59,12 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path/>
         <sys_id>ae127113c611227101038b7890391e0a</sys_id>
-        <sys_mod_count>16</sys_mod_count>
         <sys_name>Change approved</sys_name>
         <sys_overrides/>
         <sys_package display_value="Mobile UI" source="com.glide.ui.m">0bf4e4671b211010e7004229bc4bcb9b</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_ae127113c611227101038b7890391e0a</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-28 16:59:01</sys_updated_on>
         <sys_version>2</sys_version>
         <template/>
         <type>email</type>
@@ -82,9 +80,6 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-28 16:45:16</sys_created_on>
         <sys_id>0eb303801b3809d08c5143f3cc4bcbb2</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-28 16:45:16</sys_updated_on>
     </sys_claim>
     <sys_claim action="INSERT_OR_UPDATE">
         <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
@@ -96,8 +91,5 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-28 16:45:16</sys_created_on>
         <sys_id>46b303801b3809d08c5143f3cc4bcbb3</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-28 16:45:16</sys_updated_on>
     </sys_claim>
 </record_update>

@@ -14,7 +14,7 @@
         <mandatory>false</mandatory>
         <mandatory_override>false</mandatory_override>
         <name>sc_req_item</name>
-        <read_only>true</read_only>
+        <read_only>false</read_only>
         <read_only_override>true</read_only_override>
         <reference_qual/>
         <reference_qual_override>false</reference_qual_override>
@@ -22,14 +22,11 @@
         <sys_created_by>John.Schwab</sys_created_by>
         <sys_created_on>2021-09-08 15:08:08</sys_created_on>
         <sys_id>f8054b9c1beab4108c5143f3cc4bcbf4</sys_id>
-        <sys_mod_count>2</sys_mod_count>
         <sys_name>state</sys_name>
         <sys_package display_value="Global" source="global">global</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_dictionary_override_f8054b9c1beab4108c5143f3cc4bcbf4</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-13 23:01:31</sys_updated_on>
     </sys_dictionary_override>
     <sys_claim action="INSERT_OR_UPDATE">
         <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
@@ -41,8 +38,5 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-13 23:01:31</sys_created_on>
         <sys_id>d3f9439b1bdc895062e50ed2cd4bcb14</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-13 23:01:31</sys_updated_on>
     </sys_claim>
 </record_update>

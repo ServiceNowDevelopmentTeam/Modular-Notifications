@@ -11,15 +11,12 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>e02d8e8b1b5dc9508c5143f3cc4bcbdf</sys_id>
-        <sys_mod_count>0</sys_mod_count>
         <sys_name>FD202d8e8bbe5dc950e1ee435c162d84df</sys_name>
         <sys_overrides/>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_complex_object_e02d8e8b1b5dc9508c5143f3cc4bcbdf</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-01-31 16:59:57</sys_updated_on>
         <type>complex_object_schema</type>
     </sys_complex_object>
 </record_update>
