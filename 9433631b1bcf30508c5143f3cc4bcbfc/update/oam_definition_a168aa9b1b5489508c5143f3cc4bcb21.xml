@@ -25,7 +25,7 @@ payload = [
 ;
 })(current, languageForApprover);
 ]]></payload>
-        <scripted_oam>false</scripted_oam>
+        <scripted_oam>true</scripted_oam>
         <sys_class_name>oam_definition</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-13 20:34:47</sys_created_on>
