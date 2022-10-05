@@ -10,7 +10,7 @@
         <copied_from_name/>
         <description/>
         <internal_name>send_delayed_modular_notification</internal_name>
-        <label_cache>[{"name":"dbaa17d7-4cc6-45a6-9112-9ba31006c1dc.total_duration","label":"1 - Wait for a duration of time➛Total Duration","reference_display":"Total Duration","type":"glide_duration","base_type":"glide_duration","attributes":{"pills_draggable_inside_block":"false","pills_draggable_outside_block":"true"}},{"name":"dbaa17d7-4cc6-45a6-9112-9ba31006c1dc.scheduled_end_date_time","label":"1 - Wait for a duration of time➛Scheduled End date/time","reference_display":"Scheduled End date/time","type":"glide_date_time","base_type":"glide_date_time","attributes":{"pills_draggable_inside_block":"false","pills_draggable_outside_block":"true"}},{"name":"subflow.delay_duration","label":"Input➛Delay Duration","reference":"","reference_display":"","type":"glide_duration","base_type":"glide_duration","attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"f1abdaad-ecd6-4220-87ec-ec3d8618af25"}},{"name":"38470b6e-0873-4dc0-8439-043800d74a2e.context","label":"2 - Send Modular Notification➛Context","reference":"sys_flow_context","reference_display":"Flow engine context","type":"reference","base_type":"reference","attributes":{}},{"name":"subflow.subject","label":"Input➛Subject","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"c7be57af-d7b1-43c2-b234-641bf0c68ba8","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.information","label":"Input➛Information","reference":"","reference_display":"","type":"html","base_type":"html","column_name":"","attributes":{"uiType":"html","uiTypeLabel":"HTML","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"743ba6cc-2ad8-43ec-94e4-f1f8c09e17ad","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.varlist","label":"Input➛varList","reference":"","reference_display":"","type":"array.object","base_type":"array.object","column_name":"","attributes":{"uiTypeLabel":"Array.Object","co_type_name":"FDd419e0065792555036c867150c80b7c1","child_label":"variable","child_type_label":"Object","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"array.object","child_type":"object","child_name":"variable","child_uiUniqueId":"2991e745-cd94-4a3d-af9d-b0a2d0e11bbb","uiUniqueId":"6a9a20ca-7e26-408f-87d1-4c97313e28fd","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.table","label":"Input➛Table","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2b327a69-9f74-4013-ad2b-c5abc525c8cd","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.document_id","label":"Input➛Document ID","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"88afc6e3-f77d-4ca4-ba88-5a1d34f630e2","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.more_information","label":"Input➛More Information","reference":"","reference_display":"","type":"html","base_type":"html","column_name":"","attributes":{"uiType":"html","uiTypeLabel":"HTML","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"acd4784e-0609-4ed4-b280-8d45e280afc6","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.first_name","label":"Input➛First Name","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"d0827f79-d2e5-4ca7-99ea-2898cbb3bb45","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.recipient_csv_sys_ids","label":"Input➛Recipient CSV Sys_IDs","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"66b97b38-4c6f-44aa-9e6d-53661b738118","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.recipient_user_records","label":"Input➛Recipient User Records","reference":"sys_user","reference_display":"User","type":"records","base_type":"records","column_name":"","attributes":{"uiType":"records","uiTypeLabel":"Records","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"5f498975-e6c2-421e-9c03-2317e770cc24","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.recipient_csv_emails","label":"Input➛Recipient CSV Emails","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2a45a655-d8b0-4cf7-a525-461184577d5d","sourceUiUniqueId":"","sourceType":"","sourceId":""}}]</label_cache>
+        <label_cache>[{"name":"subflow.recipient_csv_emails","label":"Input➛Recipient CSV Emails","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2a45a655-d8b0-4cf7-a525-461184577d5d","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.recipient_user_records","label":"Input➛Recipient User Records","reference":"sys_user","reference_display":"User","type":"records","base_type":"records","column_name":"","attributes":{"uiType":"records","uiTypeLabel":"Records","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"5f498975-e6c2-421e-9c03-2317e770cc24","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.recipient_csv_sys_ids","label":"Input➛Recipient CSV Sys_IDs","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"66b97b38-4c6f-44aa-9e6d-53661b738118","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.first_name","label":"Input➛First Name","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"d0827f79-d2e5-4ca7-99ea-2898cbb3bb45","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.more_information","label":"Input➛More Information","reference":"","reference_display":"","type":"html","base_type":"html","column_name":"","attributes":{"uiType":"html","uiTypeLabel":"HTML","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"acd4784e-0609-4ed4-b280-8d45e280afc6","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.document_id","label":"Input➛Document ID","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"88afc6e3-f77d-4ca4-ba88-5a1d34f630e2","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.table","label":"Input➛Table","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2b327a69-9f74-4013-ad2b-c5abc525c8cd","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.varlist","label":"Input➛varList","reference":"","reference_display":"","type":"array.object","base_type":"array.object","column_name":"","attributes":{"uiTypeLabel":"Array.Object","co_type_name":"FDd419e0065792555036c867150c80b7c1","child_label":"variable","child_type_label":"Object","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"array.object","child_type":"object","child_name":"variable","child_uiUniqueId":"2991e745-cd94-4a3d-af9d-b0a2d0e11bbb","uiUniqueId":"6a9a20ca-7e26-408f-87d1-4c97313e28fd","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.information","label":"Input➛Information","reference":"","reference_display":"","type":"html","base_type":"html","column_name":"","attributes":{"uiType":"html","uiTypeLabel":"HTML","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"743ba6cc-2ad8-43ec-94e4-f1f8c09e17ad","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.subject","label":"Input➛Subject","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"c7be57af-d7b1-43c2-b234-641bf0c68ba8","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"38470b6e-0873-4dc0-8439-043800d74a2e.context","label":"2 - Send Modular Notification➛Context","reference":"sys_flow_context","reference_display":"Flow engine context","type":"reference","base_type":"reference","attributes":{}},{"name":"subflow.delay_duration","label":"Input➛Delay Duration","reference":"","reference_display":"","type":"glide_duration","base_type":"glide_duration","attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"f1abdaad-ecd6-4220-87ec-ec3d8618af25"}},{"name":"dbaa17d7-4cc6-45a6-9112-9ba31006c1dc.scheduled_end_date_time","label":"1 - Wait for a duration of time➛Scheduled End date/time","reference_display":"Scheduled End date/time","type":"glide_date_time","base_type":"glide_date_time","attributes":{"pills_draggable_inside_block":"false","pills_draggable_outside_block":"true"}},{"name":"dbaa17d7-4cc6-45a6-9112-9ba31006c1dc.total_duration","label":"1 - Wait for a duration of time➛Total Duration","reference_display":"Total Duration","type":"glide_duration","base_type":"glide_duration","attributes":{"pills_draggable_inside_block":"false","pills_draggable_outside_block":"true"}},{"name":"subflow.signature","label":"Input➛Signature","reference":"","reference_display":"","type":"html","base_type":"html","attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"9570a335-5891-4666-be4a-77620f050b97"}}]</label_cache>
         <master_snapshot>50fc24c21bd2555062e50ed2cd4bcb56</master_snapshot>
         <name>Send Delayed Modular Notification</name>
         <natlang/>
@@ -54,7 +54,7 @@
         <sys_updated_on>2022-10-03 20:17:26</sys_updated_on>
     </sys_flow_cat_variable_model>
     <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=8ad7e4ce1b52555062e50ed2cd4bcbd8"/>
-    <sys_hub_flow_input action="delete_multiple" query="model=ced7e4ce1b52555062e50ed2cd4bcbd5^sys_idNOT IN16ba6c8a1b92555062e50ed2cd4bcb66,281924061b92555062e50ed2cd4bcb02,4aec20c21bd2555062e50ed2cd4bcb3f,92ba6c8a1b92555062e50ed2cd4bcb61,9419e0061b92555062e50ed2cd4bcbc5,a019e0061b92555062e50ed2cd4bcbe3,a819e0061b92555062e50ed2cd4bcbdc,ac19e0061b92555062e50ed2cd4bcbdf,d2ba648a1b92555062e50ed2cd4bcbc8,d819e0061b92555062e50ed2cd4bcbc9,ec19e0061b92555062e50ed2cd4bcbcc"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=ced7e4ce1b52555062e50ed2cd4bcbd5^sys_idNOT IN16ba6c8a1b92555062e50ed2cd4bcb66,281924061b92555062e50ed2cd4bcb02,425524121b56d55062e50ed2cd4bcb09,4aec20c21bd2555062e50ed2cd4bcb3f,92ba6c8a1b92555062e50ed2cd4bcb61,9419e0061b92555062e50ed2cd4bcbc5,a019e0061b92555062e50ed2cd4bcbe3,a819e0061b92555062e50ed2cd4bcbdc,ac19e0061b92555062e50ed2cd4bcbdf,d2ba648a1b92555062e50ed2cd4bcbc8,d819e0061b92555062e50ed2cd4bcbc9,ec19e0061b92555062e50ed2cd4bcbcc"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -100,7 +100,7 @@
         <model_table>sys_hub_flow</model_table>
         <name>var__m_sys_hub_flow_input_ced7e4ce1b52555062e50ed2cd4bcbd5</name>
         <next_element/>
-        <order>4</order>
+        <order>5</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -118,14 +118,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:30:01</sys_created_on>
         <sys_id>16ba6c8a1b92555062e50ed2cd4bcb66</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 21:02:21</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:44:59</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -183,7 +183,7 @@
         <model_table>sys_hub_flow</model_table>
         <name>var__m_sys_hub_flow_input_ced7e4ce1b52555062e50ed2cd4bcbd5</name>
         <next_element/>
-        <order>11</order>
+        <order>12</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -201,14 +201,100 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:22:47</sys_created_on>
         <sys_id>281924061b92555062e50ed2cd4bcb02</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 20:39:34</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:00</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=html,uiTypeLabel=HTML,uiUniqueId=9570a335-5891-4666-be4a-77620f050b97</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value>&lt;div class="v-text-align" style="line-height: 140%; text-align: left; word-wrap: break-word;"&gt;
+&lt;p style="font-size: 14px; line-height: 140%;"&gt;Best Regards,&lt;/p&gt;
+&lt;p style="font-size: 14px; line-height: 140%;"&gt;Field Support&lt;br /&gt;(651) 925-8511&lt;/p&gt;
+&lt;/div&gt;</default_value>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>signature</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="HTML">html</internal_type>
+        <label>Signature</label>
+        <mandatory>true</mandatory>
+        <max_length>65536</max_length>
+        <model display_value="Send Delayed Modular Notification">ced7e4ce1b52555062e50ed2cd4bcbd5</model>
+        <model_id>ced7e4ce1b52555062e50ed2cd4bcbd5</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_ced7e4ce1b52555062e50ed2cd4bcbd5</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-10-04 14:44:59</sys_created_on>
+        <sys_id>425524121b56d55062e50ed2cd4bcb09</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-10-04 14:44:59</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -266,7 +352,7 @@
         <model_table>sys_hub_flow</model_table>
         <name>var__m_sys_hub_flow_input_ced7e4ce1b52555062e50ed2cd4bcbd5</name>
         <next_element/>
-        <order>1</order>
+        <order>2</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -284,14 +370,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:39:33</sys_created_on>
         <sys_id>4aec20c21bd2555062e50ed2cd4bcb3f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 20:39:33</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:44:59</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -349,7 +435,7 @@
         <model_table>sys_hub_flow</model_table>
         <name>var__m_sys_hub_flow_input_ced7e4ce1b52555062e50ed2cd4bcbd5</name>
         <next_element/>
-        <order>3</order>
+        <order>4</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -367,14 +453,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:30:00</sys_created_on>
         <sys_id>92ba6c8a1b92555062e50ed2cd4bcb61</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 21:02:21</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:44:59</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -432,7 +518,7 @@
         <model_table>sys_hub_flow</model_table>
         <name>var__m_sys_hub_flow_input_ced7e4ce1b52555062e50ed2cd4bcbd5</name>
         <next_element/>
-        <order>5</order>
+        <order>6</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -450,14 +536,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:22:47</sys_created_on>
         <sys_id>9419e0061b92555062e50ed2cd4bcbc5</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 20:39:34</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:44:59</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -515,7 +601,7 @@
         <model_table>sys_hub_flow</model_table>
         <name>var__m_sys_hub_flow_input_ced7e4ce1b52555062e50ed2cd4bcbd5</name>
         <next_element/>
-        <order>10</order>
+        <order>11</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -533,14 +619,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:22:47</sys_created_on>
         <sys_id>a019e0061b92555062e50ed2cd4bcbe3</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 20:39:34</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:00</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -598,7 +684,7 @@
         <model_table>sys_hub_flow</model_table>
         <name>var__m_sys_hub_flow_input_ced7e4ce1b52555062e50ed2cd4bcbd5</name>
         <next_element/>
-        <order>8</order>
+        <order>9</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -616,14 +702,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:22:47</sys_created_on>
         <sys_id>a819e0061b92555062e50ed2cd4bcbdc</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 20:39:34</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:00</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -681,7 +767,7 @@
         <model_table>sys_hub_flow</model_table>
         <name>var__m_sys_hub_flow_input_ced7e4ce1b52555062e50ed2cd4bcbd5</name>
         <next_element/>
-        <order>9</order>
+        <order>10</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -699,14 +785,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:22:47</sys_created_on>
         <sys_id>ac19e0061b92555062e50ed2cd4bcbdf</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 20:39:34</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:00</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -764,7 +850,7 @@
         <model_table>sys_hub_flow</model_table>
         <name>var__m_sys_hub_flow_input_ced7e4ce1b52555062e50ed2cd4bcbd5</name>
         <next_element/>
-        <order>2</order>
+        <order>3</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -782,14 +868,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:30:00</sys_created_on>
         <sys_id>d2ba648a1b92555062e50ed2cd4bcbc8</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 21:02:21</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:44:59</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -847,7 +933,7 @@
         <model_table>sys_hub_flow</model_table>
         <name>var__m_sys_hub_flow_input_ced7e4ce1b52555062e50ed2cd4bcbd5</name>
         <next_element/>
-        <order>6</order>
+        <order>7</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -865,14 +951,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:22:47</sys_created_on>
         <sys_id>d819e0061b92555062e50ed2cd4bcbc9</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 20:39:34</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:00</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -930,7 +1016,7 @@
         <model_table>sys_hub_flow</model_table>
         <name>var__m_sys_hub_flow_input_ced7e4ce1b52555062e50ed2cd4bcbd5</name>
         <next_element/>
-        <order>7</order>
+        <order>8</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -948,14 +1034,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:22:47</sys_created_on>
         <sys_id>ec19e0061b92555062e50ed2cd4bcbcc</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 20:39:34</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:00</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -986,10 +1072,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:39:34</sys_created_on>
         <sys_id>6eec60c21bd2555062e50ed2cd4bcb03</sys_id>
-        <sys_mod_count>16</sys_mod_count>
+        <sys_mod_count>20</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 21:13:31</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:07</sys_updated_on>
         <ui_id>38470b6e-0873-4dc0-8439-043800d74a2e</ui_id>
     </sys_hub_sub_flow_instance>
     <sys_variable_value action="delete_multiple" query="document_key=6eec60c21bd2555062e50ed2cd4bcb03"/>
@@ -1034,6 +1120,20 @@
         <sys_updated_on>2022-10-03 20:39:35</sys_updated_on>
         <value>1</value>
         <variable display_value="Wait For Completion">e2ec60c21bd2555062e50ed2cd4bcb05</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_sub_flow_instance</document>
+        <document_key>6eec60c21bd2555062e50ed2cd4bcb03</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-10-04 14:45:00</sys_created_on>
+        <sys_id>da5564121b56d55062e50ed2cd4bcb00</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-10-04 14:45:00</sys_updated_on>
+        <value/>
+        <variable display_value="Signature">5105a0de1b16d55062e50ed2cd4bcb78</variable>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=6eec60c21bd2555062e50ed2cd4bcb03"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
@@ -1119,6 +1219,20 @@
         <sys_updated_on>2022-10-03 20:39:35</sys_updated_on>
         <table>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</table>
         <value>{{subflow.recipient_csv_sys_ids}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>signature</field>
+        <id>6eec60c21bd2555062e50ed2cd4bcb03</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-10-04 14:45:00</sys_created_on>
+        <sys_id>565564121b56d55062e50ed2cd4bcb00</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-10-04 14:45:00</sys_updated_on>
+        <table>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</table>
+        <value>&lt;div class="v-text-align" style="line-height: 140%; text-align: left; word-wrap: break-word;"&gt;
+&lt;p style="font-size: 14px; line-height: 140%;"&gt;&lt;span class="data_parent_pill" style="display: inline;" contenteditable="false" data-pillvalue="{{fd_transform:ed6f447e-7f53-4838-9c63-c670eadec0b3}}"&gt;&lt;span class="data_pill  accepts_transform_functions" tabindex="0" contenteditable="false" data-pillvalue="{{fd_transform:ed6f447e-7f53-4838-9c63-c670eadec0b3}}"&gt;&lt;span class="data-pill-content-container"&gt;&lt;span class="pills"&gt;&lt;span class="pill-text" data-for="ah_tooltipTop" data-tip="Input &amp;gt; Signature"&gt;&lt;span class="pill-start"&gt;Input&lt;/span&gt;&lt;span class="pill-arrow"&gt;&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="pill-end"&gt;Signature&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;button id="transform_function_facade_ed6f447e-7f53-4838-9c63-c670eadec0b3" class="transform_function_facade no_transform_applied"&gt;&lt;span class="inline-script-icon"&gt;&lt;span style="display: none;"&gt;​&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;</value>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>subject1</field>
@@ -1265,10 +1379,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:39:34</sys_created_on>
         <sys_id>a6ec20c21bd2555062e50ed2cd4bcbe3</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 21:13:30</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:07</sys_updated_on>
         <ui_id>dbaa17d7-4cc6-45a6-9112-9ba31006c1dc</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -1329,7 +1443,24 @@
     </sys_element_mapping>
     <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=a6ec20c21bd2555062e50ed2cd4bcbe3"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=a6ec20c21bd2555062e50ed2cd4bcbe3"/>
-    <sys_hub_pill_compound action="delete_multiple" query="attached_to=ced7e4ce1b52555062e50ed2cd4bcbd5^sys_idNOT IN62ec60c21bd2555062e50ed2cd4bcb90,6aec60c21bd2555062e50ed2cd4bcb8f"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=ced7e4ce1b52555062e50ed2cd4bcbd5^sys_idNOT IN165564121b56d55062e50ed2cd4bcb03,62ec60c21bd2555062e50ed2cd4bcb90,6aec60c21bd2555062e50ed2cd4bcb8f"/>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>ced7e4ce1b52555062e50ed2cd4bcbd5</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{subflow.signature}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-10-04 14:45:00</sys_created_on>
+        <sys_id>165564121b56d55062e50ed2cd4bcb03</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-10-04 14:45:00</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>ed6f447e-7f53-4838-9c63-c670eadec0b3</ui_id>
+    </sys_hub_pill_compound>
     <sys_hub_pill_compound action="INSERT_OR_UPDATE">
         <attached_to>ced7e4ce1b52555062e50ed2cd4bcbd5</attached_to>
         <extra_info/>
@@ -1365,7 +1496,30 @@
         <ui_id>c469e301-b14d-454e-99c8-964fff743524</ui_id>
     </sys_hub_pill_compound>
     <sys_hub_flow_variable action="delete_multiple" query="model=ced7e4ce1b52555062e50ed2cd4bcbd5"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_ced7e4ce1b52555062e50ed2cd4bcbd5^sys_idNOT IN1c19e0061b92555062e50ed2cd4bcbc8,1eec20c21bd2555062e50ed2cd4bcb68,2019e0061b92555062e50ed2cd4bcbcc,56ba6c8a1b92555062e50ed2cd4bcb65,5aba6c8a1b92555062e50ed2cd4bcb68,d2ba6c8a1b92555062e50ed2cd4bcb60,e01924061b92555062e50ed2cd4bcb05,e019e0061b92555062e50ed2cd4bcbe2,e419e0061b92555062e50ed2cd4bcbe5,e819e0061b92555062e50ed2cd4bcbdb,ec19e0061b92555062e50ed2cd4bcbde"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_ced7e4ce1b52555062e50ed2cd4bcbd5^sys_idNOT IN0a5524121b56d55062e50ed2cd4bcb0f,1c19e0061b92555062e50ed2cd4bcbc8,1eec20c21bd2555062e50ed2cd4bcb68,2019e0061b92555062e50ed2cd4bcbcc,56ba6c8a1b92555062e50ed2cd4bcb65,5aba6c8a1b92555062e50ed2cd4bcb68,d2ba6c8a1b92555062e50ed2cd4bcb60,e01924061b92555062e50ed2cd4bcb05,e019e0061b92555062e50ed2cd4bcbe2,e419e0061b92555062e50ed2cd4bcbe5,e819e0061b92555062e50ed2cd4bcbdb,ec19e0061b92555062e50ed2cd4bcbde"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>signature</element>
+        <help/>
+        <hint/>
+        <label>Signature</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_ced7e4ce1b52555062e50ed2cd4bcbd5</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-10-04 14:44:59</sys_created_on>
+        <sys_id>0a5524121b56d55062e50ed2cd4bcb0f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-10-04 14:44:59</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>subject</element>
         <help/>
@@ -1625,19 +1779,19 @@
     <sys_flow_trigger_plan action="delete_multiple" query="plan_id=ced7e4ce1b52555062e50ed2cd4bcbd5"/>
     <sys_flow_subflow_plan action="delete_multiple" query="plan_id=ced7e4ce1b52555062e50ed2cd4bcbd5^sys_idNOT INc9fc64c21bd2555062e50ed2cd4bcb46"/>
     <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
-        <plan>com.snc.process_flow.engine.ProcessPlan@105c536</plan>
+        <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_subflow_plan","id":"c9fc64c21bd2555062e50ed2cd4bcb46","name":"plan","plan_signature":null}}</plan>
         <plan_id display_value="Send Delayed Modular Notification">ced7e4ce1b52555062e50ed2cd4bcbd5</plan_id>
-        <snapshot>50fc24c21bd2555062e50ed2cd4bcb56</snapshot>
+        <snapshot>879624561b56d55062e50ed2cd4bcb01</snapshot>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:39:45</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>c9fc64c21bd2555062e50ed2cd4bcb46</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_overrides/>
         <sys_scope/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 21:13:30</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:06</sys_updated_on>
     </sys_flow_subflow_plan>
     <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
         <access>public</access>
@@ -1650,7 +1804,7 @@
         <copied_from_name/>
         <description/>
         <internal_name>send_delayed_modular_notification</internal_name>
-        <label_cache>[{"name":"dbaa17d7-4cc6-45a6-9112-9ba31006c1dc.total_duration","label":"1 - Wait for a duration of time➛Total Duration","reference_display":"Total Duration","type":"glide_duration","base_type":"glide_duration","attributes":{"pills_draggable_inside_block":"false","pills_draggable_outside_block":"true"}},{"name":"dbaa17d7-4cc6-45a6-9112-9ba31006c1dc.scheduled_end_date_time","label":"1 - Wait for a duration of time➛Scheduled End date/time","reference_display":"Scheduled End date/time","type":"glide_date_time","base_type":"glide_date_time","attributes":{"pills_draggable_inside_block":"false","pills_draggable_outside_block":"true"}},{"name":"subflow.delay_duration","label":"Input➛Delay Duration","reference":"","reference_display":"","type":"glide_duration","base_type":"glide_duration","attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"f1abdaad-ecd6-4220-87ec-ec3d8618af25"}},{"name":"38470b6e-0873-4dc0-8439-043800d74a2e.context","label":"2 - Send Modular Notification➛Context","reference":"sys_flow_context","reference_display":"Flow engine context","type":"reference","base_type":"reference","attributes":{}},{"name":"subflow.subject","label":"Input➛Subject","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"c7be57af-d7b1-43c2-b234-641bf0c68ba8","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.information","label":"Input➛Information","reference":"","reference_display":"","type":"html","base_type":"html","column_name":"","attributes":{"uiType":"html","uiTypeLabel":"HTML","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"743ba6cc-2ad8-43ec-94e4-f1f8c09e17ad","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.varlist","label":"Input➛varList","reference":"","reference_display":"","type":"array.object","base_type":"array.object","column_name":"","attributes":{"uiTypeLabel":"Array.Object","co_type_name":"FDd419e0065792555036c867150c80b7c1","child_label":"variable","child_type_label":"Object","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"array.object","child_type":"object","child_name":"variable","child_uiUniqueId":"2991e745-cd94-4a3d-af9d-b0a2d0e11bbb","uiUniqueId":"6a9a20ca-7e26-408f-87d1-4c97313e28fd","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.table","label":"Input➛Table","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2b327a69-9f74-4013-ad2b-c5abc525c8cd","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.document_id","label":"Input➛Document ID","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"88afc6e3-f77d-4ca4-ba88-5a1d34f630e2","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.more_information","label":"Input➛More Information","reference":"","reference_display":"","type":"html","base_type":"html","column_name":"","attributes":{"uiType":"html","uiTypeLabel":"HTML","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"acd4784e-0609-4ed4-b280-8d45e280afc6","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.first_name","label":"Input➛First Name","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"d0827f79-d2e5-4ca7-99ea-2898cbb3bb45","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.recipient_csv_sys_ids","label":"Input➛Recipient CSV Sys_IDs","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"66b97b38-4c6f-44aa-9e6d-53661b738118","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.recipient_user_records","label":"Input➛Recipient User Records","reference":"sys_user","reference_display":"User","type":"records","base_type":"records","column_name":"","attributes":{"uiType":"records","uiTypeLabel":"Records","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"5f498975-e6c2-421e-9c03-2317e770cc24","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.recipient_csv_emails","label":"Input➛Recipient CSV Emails","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2a45a655-d8b0-4cf7-a525-461184577d5d","sourceUiUniqueId":"","sourceType":"","sourceId":""}}]</label_cache>
+        <label_cache>[{"name":"subflow.recipient_csv_emails","label":"Input➛Recipient CSV Emails","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2a45a655-d8b0-4cf7-a525-461184577d5d","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.recipient_user_records","label":"Input➛Recipient User Records","reference":"sys_user","reference_display":"User","type":"records","base_type":"records","column_name":"","attributes":{"uiType":"records","uiTypeLabel":"Records","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"5f498975-e6c2-421e-9c03-2317e770cc24","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.recipient_csv_sys_ids","label":"Input➛Recipient CSV Sys_IDs","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"66b97b38-4c6f-44aa-9e6d-53661b738118","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.first_name","label":"Input➛First Name","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"d0827f79-d2e5-4ca7-99ea-2898cbb3bb45","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.more_information","label":"Input➛More Information","reference":"","reference_display":"","type":"html","base_type":"html","column_name":"","attributes":{"uiType":"html","uiTypeLabel":"HTML","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"acd4784e-0609-4ed4-b280-8d45e280afc6","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.document_id","label":"Input➛Document ID","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"88afc6e3-f77d-4ca4-ba88-5a1d34f630e2","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.table","label":"Input➛Table","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2b327a69-9f74-4013-ad2b-c5abc525c8cd","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.varlist","label":"Input➛varList","reference":"","reference_display":"","type":"array.object","base_type":"array.object","column_name":"","attributes":{"uiTypeLabel":"Array.Object","co_type_name":"FDd419e0065792555036c867150c80b7c1","child_label":"variable","child_type_label":"Object","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"array.object","child_type":"object","child_name":"variable","child_uiUniqueId":"2991e745-cd94-4a3d-af9d-b0a2d0e11bbb","uiUniqueId":"6a9a20ca-7e26-408f-87d1-4c97313e28fd","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.information","label":"Input➛Information","reference":"","reference_display":"","type":"html","base_type":"html","column_name":"","attributes":{"uiType":"html","uiTypeLabel":"HTML","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"743ba6cc-2ad8-43ec-94e4-f1f8c09e17ad","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.subject","label":"Input➛Subject","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"c7be57af-d7b1-43c2-b234-641bf0c68ba8","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"38470b6e-0873-4dc0-8439-043800d74a2e.context","label":"2 - Send Modular Notification➛Context","reference":"sys_flow_context","reference_display":"Flow engine context","type":"reference","base_type":"reference","attributes":{}},{"name":"subflow.delay_duration","label":"Input➛Delay Duration","reference":"","reference_display":"","type":"glide_duration","base_type":"glide_duration","attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"f1abdaad-ecd6-4220-87ec-ec3d8618af25"}},{"name":"dbaa17d7-4cc6-45a6-9112-9ba31006c1dc.scheduled_end_date_time","label":"1 - Wait for a duration of time➛Scheduled End date/time","reference_display":"Scheduled End date/time","type":"glide_date_time","base_type":"glide_date_time","attributes":{"pills_draggable_inside_block":"false","pills_draggable_outside_block":"true"}},{"name":"dbaa17d7-4cc6-45a6-9112-9ba31006c1dc.total_duration","label":"1 - Wait for a duration of time➛Total Duration","reference_display":"Total Duration","type":"glide_duration","base_type":"glide_duration","attributes":{"pills_draggable_inside_block":"false","pills_draggable_outside_block":"true"}},{"name":"subflow.signature","label":"Input➛Signature","reference":"","reference_display":"","type":"html","base_type":"html","attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"9570a335-5891-4666-be4a-77620f050b97"}}]</label_cache>
         <master>true</master>
         <name>Send Delayed Modular Notification</name>
         <natlang/>
@@ -1667,7 +1821,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>50fc24c21bd2555062e50ed2cd4bcb56</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name/>
         <sys_overrides/>
         <sys_package/>
@@ -1675,7 +1829,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 21:13:29</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:05</sys_updated_on>
         <type>subflow</type>
     </sys_hub_flow_snapshot>
     <sys_translated_text action="delete_multiple" query="documentkey=50fc24c21bd2555062e50ed2cd4bcb56"/>
@@ -1695,7 +1849,7 @@
         <sys_updated_on>2022-10-03 20:39:43</sys_updated_on>
     </sys_flow_cat_variable_model>
     <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=14fc24c21bd2555062e50ed2cd4bcb57"/>
-    <sys_hub_flow_input action="delete_multiple" query="model=50fc24c21bd2555062e50ed2cd4bcb56^sys_idNOT IN30fc24c21bd2555062e50ed2cd4bcbb4,3cfc24c21bd2555062e50ed2cd4bcbab,60fc24c21bd2555062e50ed2cd4bcb7b,74fc24c21bd2555062e50ed2cd4bcbbc,78fc24c21bd2555062e50ed2cd4bcba3,acfc24c21bd2555062e50ed2cd4bcb5a,acfc24c21bd2555062e50ed2cd4bcb86,b0fc24c21bd2555062e50ed2cd4bcbcd,e0fc24c21bd2555062e50ed2cd4bcb73,e4fc24c21bd2555062e50ed2cd4bcb9b,f8fc24c21bd2555062e50ed2cd4bcbc4"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=50fc24c21bd2555062e50ed2cd4bcb56^sys_idNOT IN30fc24c21bd2555062e50ed2cd4bcbb4,325564121b56d55062e50ed2cd4bcb94,3cfc24c21bd2555062e50ed2cd4bcbab,60fc24c21bd2555062e50ed2cd4bcb7b,74fc24c21bd2555062e50ed2cd4bcbbc,78fc24c21bd2555062e50ed2cd4bcba3,acfc24c21bd2555062e50ed2cd4bcb5a,acfc24c21bd2555062e50ed2cd4bcb86,b0fc24c21bd2555062e50ed2cd4bcbcd,e0fc24c21bd2555062e50ed2cd4bcb73,e4fc24c21bd2555062e50ed2cd4bcb9b,f8fc24c21bd2555062e50ed2cd4bcbc4"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -1741,7 +1895,7 @@
         <model_table>sys_hub_flow_snapshot</model_table>
         <name>var__m_sys_hub_flow_input_50fc24c21bd2555062e50ed2cd4bcb56</name>
         <next_element/>
-        <order>8</order>
+        <order>9</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -1759,14 +1913,100 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:39:44</sys_created_on>
         <sys_id>30fc24c21bd2555062e50ed2cd4bcbb4</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 20:39:44</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:04</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=html,uiTypeLabel=HTML,uiUniqueId=9570a335-5891-4666-be4a-77620f050b97</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value>&lt;div class="v-text-align" style="line-height: 140%; text-align: left; word-wrap: break-word;"&gt;
+&lt;p style="font-size: 14px; line-height: 140%;"&gt;Best Regards,&lt;/p&gt;
+&lt;p style="font-size: 14px; line-height: 140%;"&gt;Field Support&lt;br /&gt;(651) 925-8511&lt;/p&gt;
+&lt;/div&gt;</default_value>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>signature</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="HTML">html</internal_type>
+        <label>Signature</label>
+        <mandatory>true</mandatory>
+        <max_length>65536</max_length>
+        <model display_value="Send Delayed Modular Notification">50fc24c21bd2555062e50ed2cd4bcb56</model>
+        <model_id>50fc24c21bd2555062e50ed2cd4bcb56</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_50fc24c21bd2555062e50ed2cd4bcb56</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-10-04 14:45:03</sys_created_on>
+        <sys_id>325564121b56d55062e50ed2cd4bcb94</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-10-04 14:45:03</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -1824,7 +2064,7 @@
         <model_table>sys_hub_flow_snapshot</model_table>
         <name>var__m_sys_hub_flow_input_50fc24c21bd2555062e50ed2cd4bcb56</name>
         <next_element/>
-        <order>7</order>
+        <order>8</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -1842,14 +2082,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:39:44</sys_created_on>
         <sys_id>3cfc24c21bd2555062e50ed2cd4bcbab</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 20:39:44</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:04</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -1907,7 +2147,7 @@
         <model_table>sys_hub_flow_snapshot</model_table>
         <name>var__m_sys_hub_flow_input_50fc24c21bd2555062e50ed2cd4bcb56</name>
         <next_element/>
-        <order>3</order>
+        <order>4</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -1925,14 +2165,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:39:43</sys_created_on>
         <sys_id>60fc24c21bd2555062e50ed2cd4bcb7b</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 21:13:26</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:03</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -1990,7 +2230,7 @@
         <model_table>sys_hub_flow_snapshot</model_table>
         <name>var__m_sys_hub_flow_input_50fc24c21bd2555062e50ed2cd4bcb56</name>
         <next_element/>
-        <order>9</order>
+        <order>10</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -2008,14 +2248,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:39:44</sys_created_on>
         <sys_id>74fc24c21bd2555062e50ed2cd4bcbbc</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 20:39:44</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:04</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -2073,7 +2313,7 @@
         <model_table>sys_hub_flow_snapshot</model_table>
         <name>var__m_sys_hub_flow_input_50fc24c21bd2555062e50ed2cd4bcb56</name>
         <next_element/>
-        <order>6</order>
+        <order>7</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -2091,14 +2331,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:39:44</sys_created_on>
         <sys_id>78fc24c21bd2555062e50ed2cd4bcba3</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 20:39:44</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:03</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -2156,7 +2396,7 @@
         <model_table>sys_hub_flow_snapshot</model_table>
         <name>var__m_sys_hub_flow_input_50fc24c21bd2555062e50ed2cd4bcb56</name>
         <next_element/>
-        <order>1</order>
+        <order>2</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -2174,14 +2414,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:39:43</sys_created_on>
         <sys_id>acfc24c21bd2555062e50ed2cd4bcb5a</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 20:39:43</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:03</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -2239,7 +2479,7 @@
         <model_table>sys_hub_flow_snapshot</model_table>
         <name>var__m_sys_hub_flow_input_50fc24c21bd2555062e50ed2cd4bcb56</name>
         <next_element/>
-        <order>4</order>
+        <order>5</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -2257,14 +2497,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:39:43</sys_created_on>
         <sys_id>acfc24c21bd2555062e50ed2cd4bcb86</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 21:13:27</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:03</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -2322,7 +2562,7 @@
         <model_table>sys_hub_flow_snapshot</model_table>
         <name>var__m_sys_hub_flow_input_50fc24c21bd2555062e50ed2cd4bcb56</name>
         <next_element/>
-        <order>11</order>
+        <order>12</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -2340,14 +2580,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:39:44</sys_created_on>
         <sys_id>b0fc24c21bd2555062e50ed2cd4bcbcd</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 20:39:44</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:04</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -2405,7 +2645,7 @@
         <model_table>sys_hub_flow_snapshot</model_table>
         <name>var__m_sys_hub_flow_input_50fc24c21bd2555062e50ed2cd4bcb56</name>
         <next_element/>
-        <order>2</order>
+        <order>3</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -2423,14 +2663,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:39:43</sys_created_on>
         <sys_id>e0fc24c21bd2555062e50ed2cd4bcb73</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 21:13:26</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:03</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -2488,7 +2728,7 @@
         <model_table>sys_hub_flow_snapshot</model_table>
         <name>var__m_sys_hub_flow_input_50fc24c21bd2555062e50ed2cd4bcb56</name>
         <next_element/>
-        <order>5</order>
+        <order>6</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -2506,14 +2746,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:39:43</sys_created_on>
         <sys_id>e4fc24c21bd2555062e50ed2cd4bcb9b</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 20:39:43</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:03</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -2571,7 +2811,7 @@
         <model_table>sys_hub_flow_snapshot</model_table>
         <name>var__m_sys_hub_flow_input_50fc24c21bd2555062e50ed2cd4bcb56</name>
         <next_element/>
-        <order>10</order>
+        <order>11</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -2589,14 +2829,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:39:44</sys_created_on>
         <sys_id>f8fc24c21bd2555062e50ed2cd4bcbc4</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 20:39:44</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:04</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -2627,10 +2867,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:39:45</sys_created_on>
         <sys_id>0dfc24c21bd2555062e50ed2cd4bcbe3</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 21:13:29</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:05</sys_updated_on>
         <ui_id>38470b6e-0873-4dc0-8439-043800d74a2e</ui_id>
     </sys_hub_sub_flow_instance>
     <sys_variable_value action="delete_multiple" query="document_key=0dfc24c21bd2555062e50ed2cd4bcbe3"/>
@@ -2675,6 +2915,20 @@
         <sys_updated_on>2022-10-03 20:39:45</sys_updated_on>
         <value>1</value>
         <variable display_value="Wait For Completion">c5fc24c21bd2555062e50ed2cd4bcbe4</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_sub_flow_instance</document>
+        <document_key>0dfc24c21bd2555062e50ed2cd4bcbe3</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-10-04 14:45:05</sys_created_on>
+        <sys_id>d755a4121b56d55062e50ed2cd4bcb35</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-10-04 14:45:05</sys_updated_on>
+        <value/>
+        <variable display_value="Signature">5105a0de1b16d55062e50ed2cd4bcb78</variable>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=0dfc24c21bd2555062e50ed2cd4bcbe3"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
@@ -2760,6 +3014,20 @@
         <sys_updated_on>2022-10-03 20:39:45</sys_updated_on>
         <table>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</table>
         <value>{{subflow.recipient_csv_sys_ids}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>signature</field>
+        <id>0dfc24c21bd2555062e50ed2cd4bcbe3</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-10-04 14:45:05</sys_created_on>
+        <sys_id>5755a4121b56d55062e50ed2cd4bcb35</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-10-04 14:45:05</sys_updated_on>
+        <table>var__m_sys_hub_flow_input_e420ef711b13fc5062e50ed2cd4bcb8a</table>
+        <value>&lt;div class="v-text-align" style="line-height: 140%; text-align: left; word-wrap: break-word;"&gt;
+&lt;p style="font-size: 14px; line-height: 140%;"&gt;&lt;span class="data_parent_pill" style="display: inline;" contenteditable="false" data-pillvalue="{{fd_transform:ed6f447e-7f53-4838-9c63-c670eadec0b3}}"&gt;&lt;span class="data_pill  accepts_transform_functions" tabindex="0" contenteditable="false" data-pillvalue="{{fd_transform:ed6f447e-7f53-4838-9c63-c670eadec0b3}}"&gt;&lt;span class="data-pill-content-container"&gt;&lt;span class="pills"&gt;&lt;span class="pill-text" data-for="ah_tooltipTop" data-tip="Input &amp;gt; Signature"&gt;&lt;span class="pill-start"&gt;Input&lt;/span&gt;&lt;span class="pill-arrow"&gt;&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="pill-end"&gt;Signature&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;button id="transform_function_facade_ed6f447e-7f53-4838-9c63-c670eadec0b3" class="transform_function_facade no_transform_applied"&gt;&lt;span class="inline-script-icon"&gt;&lt;span style="display: none;"&gt;​&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;</value>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>subject1</field>
@@ -2906,10 +3174,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-03 20:39:45</sys_created_on>
         <sys_id>bcfc24c21bd2555062e50ed2cd4bcbdc</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 21:13:29</sys_updated_on>
+        <sys_updated_on>2022-10-04 14:45:05</sys_updated_on>
         <ui_id>dbaa17d7-4cc6-45a6-9112-9ba31006c1dc</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -2970,7 +3238,7 @@
     </sys_element_mapping>
     <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=bcfc24c21bd2555062e50ed2cd4bcbdc"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=bcfc24c21bd2555062e50ed2cd4bcbdc"/>
-    <sys_hub_pill_compound action="delete_multiple" query="attached_to=50fc24c21bd2555062e50ed2cd4bcb56^sys_idNOT IN05fc24c21bd2555062e50ed2cd4bcbf5,85fc24c21bd2555062e50ed2cd4bcbf5"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=50fc24c21bd2555062e50ed2cd4bcb56^sys_idNOT IN05fc24c21bd2555062e50ed2cd4bcbf5,6355a4121b56d55062e50ed2cd4bcb81,85fc24c21bd2555062e50ed2cd4bcbf5"/>
     <sys_hub_pill_compound action="INSERT_OR_UPDATE">
         <attached_to>50fc24c21bd2555062e50ed2cd4bcb56</attached_to>
         <extra_info/>
@@ -2992,6 +3260,23 @@
         <attached_to>50fc24c21bd2555062e50ed2cd4bcb56</attached_to>
         <extra_info/>
         <order>0</order>
+        <prescription>{{subflow.signature}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-10-04 14:45:05</sys_created_on>
+        <sys_id>6355a4121b56d55062e50ed2cd4bcb81</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-10-04 14:45:05</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>ed6f447e-7f53-4838-9c63-c670eadec0b3</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>50fc24c21bd2555062e50ed2cd4bcb56</attached_to>
+        <extra_info/>
+        <order>0</order>
         <prescription>{{subflow.more_information}}</prescription>
         <source_ui_id/>
         <sys_created_by>Terry.Lillo</sys_created_by>
@@ -3006,7 +3291,7 @@
         <ui_id>c62f75e7-a03b-4ba0-bf7a-ed27d51c882a</ui_id>
     </sys_hub_pill_compound>
     <sys_hub_flow_variable action="delete_multiple" query="model=50fc24c21bd2555062e50ed2cd4bcb56"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_50fc24c21bd2555062e50ed2cd4bcb56^sys_idNOT IN28fc24c21bd2555062e50ed2cd4bcb77,30fc24c21bd2555062e50ed2cd4bcba0,3cfc24c21bd2555062e50ed2cd4bcbb8,64fc24c21bd2555062e50ed2cd4bcb83,78fc24c21bd2555062e50ed2cd4bcbc9,acfc24c21bd2555062e50ed2cd4bcb97,b0fc24c21bd2555062e50ed2cd4bcbc1,e0fc24c21bd2555062e50ed2cd4bcb63,f0fc24c21bd2555062e50ed2cd4bcba8,f4fc24c21bd2555062e50ed2cd4bcbb0,f4fc24c21bd2555062e50ed2cd4bcbd2"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_50fc24c21bd2555062e50ed2cd4bcb56^sys_idNOT IN28fc24c21bd2555062e50ed2cd4bcb77,30fc24c21bd2555062e50ed2cd4bcba0,3cfc24c21bd2555062e50ed2cd4bcbb8,64fc24c21bd2555062e50ed2cd4bcb83,78fc24c21bd2555062e50ed2cd4bcbc9,acfc24c21bd2555062e50ed2cd4bcb97,b0fc24c21bd2555062e50ed2cd4bcbc1,cb5564121b56d55062e50ed2cd4bcba2,e0fc24c21bd2555062e50ed2cd4bcb63,f0fc24c21bd2555062e50ed2cd4bcba8,f4fc24c21bd2555062e50ed2cd4bcbb0,f4fc24c21bd2555062e50ed2cd4bcbd2"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>recipient_csv_sys_ids</element>
         <help/>
@@ -3169,6 +3454,29 @@
         <url_target/>
     </sys_documentation>
     <sys_documentation action="INSERT_OR_UPDATE">
+        <element>signature</element>
+        <help/>
+        <hint/>
+        <label>Signature</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_50fc24c21bd2555062e50ed2cd4bcb56</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-10-04 14:45:03</sys_created_on>
+        <sys_id>cb5564121b56d55062e50ed2cd4bcba2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-10-04 14:45:03</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
         <element>delay_duration</element>
         <help/>
         <hint/>
@@ -3266,6 +3574,6 @@
     <sys_hub_flow action="UPDATE">
         <sys_id>ced7e4ce1b52555062e50ed2cd4bcbd5</sys_id>
         <latest_snapshot>50fc24c21bd2555062e50ed2cd4bcb56</latest_snapshot>
-        <compiler_build/>
+        <compiler_build>glide-tokyo-07-08-2022__patch0-07-19-2022_07-26-2022_2149.zip</compiler_build>
     </sys_hub_flow>
 </record_update>

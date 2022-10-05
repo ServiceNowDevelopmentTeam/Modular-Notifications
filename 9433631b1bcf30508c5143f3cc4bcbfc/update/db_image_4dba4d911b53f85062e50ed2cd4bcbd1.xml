@@ -39,6 +39,7 @@
         <sys_updated_on>2022-08-12 13:52:34</sys_updated_on>
         <table_name>ZZ_YYdb_image</table_name>
         <table_sys_id>4dba4d911b53f85062e50ed2cd4bcbd1</table_sys_id>
+        <u_private>false</u_private>
         <u_table_id/>
     </sys_attachment>
     <sys_attachment_doc action="INSERT_OR_UPDATE">

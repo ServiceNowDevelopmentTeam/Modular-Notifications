@@ -13,7 +13,10 @@ RequestedItemUtils.prototype = {
 	initialize: function() {
 		this.ignoreVariables = [
 			"Set Manager Automatic",
-			"Manager Read Only"
+			"Manager Read Only",
+			"Requires Manager Approval",
+			"Payroll Source System",
+			"User not found"
 		];
 	},
 	/**SNDOC
@@ -94,6 +97,16 @@ RequestedItemUtils.prototype = {
 	getVariables: function(gr) {
 		try{
 			var varArray = [];
+
+			varArray.push({
+				"title": "Requested Item", 
+				"value": gr.cat_item.name.toString(), 
+				"section":"", 
+				"order":"", 
+				"type":"", 
+				"variable_set":"", 
+				"variable_set_order":""
+			});
 			var catItemGr = new GlideRecord('sc_cat_item');
 			catItemGr.get(gr.cat_item.sys_id);
 
