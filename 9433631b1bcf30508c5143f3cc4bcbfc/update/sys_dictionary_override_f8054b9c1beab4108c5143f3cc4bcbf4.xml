@@ -14,7 +14,7 @@
         <mandatory>false</mandatory>
         <mandatory_override>false</mandatory_override>
         <name>sc_req_item</name>
-        <read_only>false</read_only>
+        <read_only>true</read_only>
         <read_only_override>true</read_only_override>
         <reference_qual/>
         <reference_qual_override>false</reference_qual_override>

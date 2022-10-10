@@ -24,11 +24,12 @@ ModularNotificationsBuilder.prototype = {
 		this.action = '';
 		this.type = 'sp';
 		this.sourceTable = '';
-		this.adaptiveCard = '';
+		this.adaptiveCard = '';//Adaptive card for outlook actionable messages
 		this.survey = 'false';
 		this.customVariablesOverride = 'false'; //Setting to true ignores variables normally set
 		this.customVariables = [];//Variables to include if above is true, can be blank for none
-
+		this.urls = [{label:'', url:''}]; //Custom URLs to display in the header
+		this.hideUrls = false; //Hide URLs in the header
 	@returns {void}
 	*/
 	initialize: function() {
@@ -47,11 +48,8 @@ ModularNotificationsBuilder.prototype = {
 		this.survey = 'false';
 		this.customVariablesOverride = 'false'; //Setting to true ignores variables normally set
 		this.customVariables = [];//Variables to include if above is true, can be blank for none
-		this.urls = [
-			{label:'Knowledge', url:'https://apigroup.service-now.com/sp?id=kb_view2'},
-			{label:'My Tickets', url:'https://apigroup.service-now.com/sp?id=my_requests'},
-			{label:'Portal', url:'https://apigroup.service-now.com/sp'}
-		];
+		this.urls = [];
+		this.hideUrls = false;
 		this.colors = {
 			apiBlue : '#2A3E6D'
 		};
@@ -105,13 +103,20 @@ ModularNotificationsBuilder.prototype = {
 
 				) {
 					this.ritmVals(action);
-				}
-				if(table == 'sysapproval_approver' && action != 'approved' && action != 'rejected'){
-					this.urls = [
+				}		
+				if(this.hideUrls === false){
+					this.urls = this.urls || [
 						{label:'Knowledge', url:'https://apigroup.service-now.com/sp?id=kb_view2'},
-						{label:'My Approvals', url:'https://apigroup.service-now.com/sp?id=approvals'},
+						{label:'My Tickets', url:'https://apigroup.service-now.com/sp?id=my_requests'},
 						{label:'Portal', url:'https://apigroup.service-now.com/sp'}
 					];
+					if(table == 'sysapproval_approver' && action != 'approved' && action != 'rejected' && gs.nil(this.urls)){
+						this.urls = [
+							{label:'Knowledge', url:'https://apigroup.service-now.com/sp?id=kb_view2'},
+							{label:'My Approvals', url:'https://apigroup.service-now.com/sp?id=approvals'},
+							{label:'Portal', url:'https://apigroup.service-now.com/sp'}
+						];
+					}
 				}
 				if(action == 'approved' || action == 'rejected' || action == 'created' || action == 'reminder'){
 					this.approvalVals(action);
@@ -885,7 +890,7 @@ ModularNotificationsBuilder.prototype = {
 
 			var inputs = {};
 			inputs['document_id'] = document_id; // String 
-			
+
 			// Execute Synchronously: Run in foreground. Code snippet has access to outputs.
 			var result = sn_fd.FlowAPI.getRunner()
 			.subflow('global.look_up_ritm_approvers')
@@ -1015,7 +1020,7 @@ ModularNotificationsBuilder.prototype = {
 			To modify this html section, copy between quotes into a HTML beautifier and edit
 			To pull the edited html back in, copy the edited and beautified HTML into a minifier to remove new lines
 			*/
-		
+
 		var html = '<!DOCTYPE html><head> ' + 
 			this.adaptiveCard + ' <style>table, td{color: #000}a{color: #00e; text-decoration: underline}#u_content_text_7 a{color: #FDFDFD}body{margin: 0; padding: 0}table, td, tr{border-collapse: collapse; padding: 0}p{margin: 0}</style></head><body style=margin:0;padding:0;-webkit-text-size-adjust:100%;color:#000;font-family:arial,helvetica,sans-serif;> <table style="border-collapse:collapse;table-layout:fixed;border-spacing:0;vertical-align:top;min-width:320px;Margin:0 auto;background-color:#d0e8f2;width:100%"> <tr style=vertical-align:top> <td style=word-break:break-word;border-collapse:collapse!important;vertical-align:top> <table style="border-collapse:collapse;border-spacing:0;width:100%"> <tr> <td style=text-align:center> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=padding:0; align=center> <table style=border-collapse:collapse;border-spacing:0;width:600px;background-color:#FDFDFD> <tr style=background-color:#FDFDFD> <td style="width:300px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;background-color:#FDFDFD" align=center valign=top width=300> <div style=max-width:320px;min-width:300px;display:table-cell;vertical-align:top> <div style=width:100%!important> <div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 10px 20px;" align=left> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=padding-right:0;padding-left:0 align=left class=v-text-align> <a href=https://apigroup.service-now.com/ target=_blank><img alt=Logo class="v-src-max-width v-src-width" src=' + 
 			this.images.apiLogo + ' style=text-align:left;outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:51%;max-width:65px width=65px title=Logo></a> </td></tr></table> </td></tr></table> </div></div></div><td style="width:300px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;background-color:#FDFDFD" align=center valign=top width=300> <div style=max-width:320px;min-width:300px;display:table-cell;vertical-align:top class="u-col u-col-50"> <div style=width:100%!important> <div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=overflow-wrap:break-word;word-break:break-word;padding:10px;text-align:left> <div style=text-align:center class=menu> <table style=border-collapse:collapse;border-spacing:0;text-align:center> <tr> ' + 
