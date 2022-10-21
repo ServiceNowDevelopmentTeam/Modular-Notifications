@@ -361,6 +361,14 @@ ModularNotificationsBuilder.prototype = {
 			variableName: 'Submitted By',
 			variableValue: this.requestorName
 		});
+		
+		var approv1 = gr.u_approval_is_for;
+		if(approv1 != ''){
+			this.varList.push({
+				variableName: 'Approval is For',
+				variableValue: approv1
+			});
+		}
 		if(this.sourceTable && this.sourceTable == 'sc_req_item' && gr.document_id.number.getValue()){
 
 			var estDeliveryDate = '';
