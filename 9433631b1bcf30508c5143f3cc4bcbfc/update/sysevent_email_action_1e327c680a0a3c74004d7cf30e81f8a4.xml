@@ -56,14 +56,14 @@ if(!gs.nil(current.request)){
         <omit_watermark>false</omit_watermark>
         <order/>
         <push_message_only>false</push_message_only>
-        <recipient_fields>watch_list,opened_by</recipient_fields>
+        <recipient_fields>opened_by,requested_for</recipient_fields>
         <recipient_groups/>
         <recipient_users/>
         <reply_to/>
         <send_self>false</send_self>
         <sms_alternate/>
         <style/>
-        <subject>Request ${request.number} with ${number} has been updated</subject>
+        <subject>Request ${request.number} with ${number} has been updated (?)</subject>
         <subscribable>false</subscribable>
         <sys_class_name>sysevent_email_action</sys_class_name>
         <sys_created_by>admin</sys_created_by>
