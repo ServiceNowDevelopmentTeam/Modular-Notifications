@@ -27,12 +27,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>9ccd419c1b6ccd508c5143f3cc4bcb25</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>convert string to array</sys_name>
         <sys_overrides/>
         <sys_package display_value="Global" source="global">global</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_9ccd419c1b6ccd508c5143f3cc4bcb25</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-10-03 22:08:30</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -127,6 +130,9 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-23 19:42:35</sys_created_on>
         <sys_id>f3a6d1b81b6d159062e50ed2cd4bcbc3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-10-03 22:08:30</sys_updated_on>
     </sys_claim>
     <sys_hub_step_instance action="delete_multiple" query="action=9ccd419c1b6ccd508c5143f3cc4bcb25^sys_idNOT IN2a4e4d9c1b6ccd508c5143f3cc4bcb0c"/>
     <sys_hub_step_instance action="INSERT_OR_UPDATE">

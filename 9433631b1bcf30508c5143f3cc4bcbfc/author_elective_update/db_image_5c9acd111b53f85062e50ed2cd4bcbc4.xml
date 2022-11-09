@@ -95,6 +95,7 @@
         <sys_db_object display_value="" name="db_image">db_image</sys_db_object>
         <sys_id>0405116a7537403881f7b1eceafcb4e4</sys_id>
         <sys_metadata>5c9acd111b53f85062e50ed2cd4bcbc4</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>images/image-4.png</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_parent/>
@@ -103,5 +104,7 @@
         <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
         <sys_update_name>db_image_5c9acd111b53f85062e50ed2cd4bcbc4</sys_update_name>
         <sys_update_version display_value="db_image_5c9acd111b53f85062e50ed2cd4bcbc4">d884e7a91b9401508c5143f3cc4bcb9f</sys_update_version>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-08-12 13:52:15</sys_updated_on>
     </sys_metadata_delete>
 </record_update>

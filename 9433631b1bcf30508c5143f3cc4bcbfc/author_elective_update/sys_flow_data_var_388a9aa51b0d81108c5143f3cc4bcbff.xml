@@ -132,6 +132,7 @@
         <sys_db_object display_value="" name="sys_flow_data_var">sys_flow_data_var</sys_db_object>
         <sys_id>2849c7228032430786d3670a27f1f0a1</sys_id>
         <sys_metadata>388a9aa51b0d81108c5143f3cc4bcbff</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Description</sys_name>
         <sys_package display_value="Global" source="global">global</sys_package>
         <sys_parent/>
@@ -140,5 +141,7 @@
         <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
         <sys_update_name>sys_flow_data_var_388a9aa51b0d81108c5143f3cc4bcbff</sys_update_name>
         <sys_update_version display_value="sys_flow_data_var_388a9aa51b0d81108c5143f3cc4bcbff">0ece26261b41815062e50ed2cd4bcb84</sys_update_version>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-02-15 16:57:53</sys_updated_on>
     </sys_metadata_delete>
 </record_update>

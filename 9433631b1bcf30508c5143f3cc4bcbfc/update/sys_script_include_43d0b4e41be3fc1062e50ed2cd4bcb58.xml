@@ -722,10 +722,13 @@ CustomSurveyAdaptiveCardGenerator.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-28 16:02:07</sys_created_on>
         <sys_id>43d0b4e41be3fc1062e50ed2cd4bcb58</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>CustomSurveyAdaptiveCardGenerator</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_43d0b4e41be3fc1062e50ed2cd4bcb58</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
     </sys_script_include>
 </record_update>

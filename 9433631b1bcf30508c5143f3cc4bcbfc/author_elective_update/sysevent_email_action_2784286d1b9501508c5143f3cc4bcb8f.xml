@@ -123,6 +123,7 @@ else{
         <sys_db_object display_value="" name="sysevent_email_action">sysevent_email_action</sys_db_object>
         <sys_id>030c230f4e4f4cb48a1c13a1ba59bfc4</sys_id>
         <sys_metadata>2784286d1b9501508c5143f3cc4bcb8f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Request Item Opened - Requested For</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_parent display_value="Sc Req Item">41b8ecef1be11010e7004229bc4bcb79</sys_parent>
@@ -131,5 +132,7 @@ else{
         <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
         <sys_update_name>sysevent_email_action_2784286d1b9501508c5143f3cc4bcb8f</sys_update_name>
         <sys_update_version display_value="sysevent_email_action_2784286d1b9501508c5143f3cc4bcb8f">51f46ced1b9501508c5143f3cc4bcbef</sys_update_version>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-26 17:36:04</sys_updated_on>
     </sys_metadata_delete>
 </record_update>

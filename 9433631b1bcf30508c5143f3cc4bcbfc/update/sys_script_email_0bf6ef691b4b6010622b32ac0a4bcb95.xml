@@ -14,11 +14,14 @@ var link = '/nav_to.do?uri=%2Fincident.do%3Fsys_id%3D' + current.sys_id;
         <sys_created_by>TJ.Lillo</sys_created_by>
         <sys_created_on>2021-03-22 15:09:42</sys_created_on>
         <sys_id>0bf6ef691b4b6010622b32ac0a4bcb95</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Incident_Get_URL_ITIL</sys_name>
         <sys_package display_value="Global" source="global">global</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_email_0bf6ef691b4b6010622b32ac0a4bcb95</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
     </sys_script_email>
     <sys_claim action="INSERT_OR_UPDATE">
         <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
@@ -30,5 +33,8 @@ var link = '/nav_to.do?uri=%2Fincident.do%3Fsys_id%3D' + current.sys_id;
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-12 21:43:12</sys_created_on>
         <sys_id>1b75ab9b1bcf30508c5143f3cc4bcb84</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
     </sys_claim>
 </record_update>

@@ -56,12 +56,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path/>
         <sys_id>b2c45bcfc611227100d9025488a0cb3b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Approval Rejected</sys_name>
         <sys_overrides/>
         <sys_package display_value="Service Management Basics" source="com.snc.service">0c082c6b1be11010e7004229bc4bcb99</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_b2c45bcfc611227100d9025488a0cb3b</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
         <sys_version/>
         <template/>
         <type>email</type>
@@ -77,6 +80,9 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-28 21:17:53</sys_created_on>
         <sys_id>171240981b7c09d08c5143f3cc4bcb15</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
     </sys_claim>
     <sys_claim action="INSERT_OR_UPDATE">
         <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
@@ -88,5 +94,8 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-28 21:17:53</sys_created_on>
         <sys_id>db1240981b7c09d08c5143f3cc4bcb15</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
     </sys_claim>
 </record_update>

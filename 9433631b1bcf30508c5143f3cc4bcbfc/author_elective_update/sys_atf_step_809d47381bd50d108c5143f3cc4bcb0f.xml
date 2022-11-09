@@ -149,6 +149,7 @@ Confirm the record was successfully updated</description><display_name>Record Up
         <sys_db_object display_value="" name="sys_atf_step">sys_atf_step</sys_db_object>
         <sys_id>3f40a0959baf42d89213fc6925642110</sys_id>
         <sys_metadata>809d47381bd50d108c5143f3cc4bcb0f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Record Update</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_parent/>
@@ -157,5 +158,7 @@ Confirm the record was successfully updated</description><display_name>Record Up
         <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
         <sys_update_name>sys_atf_step_809d47381bd50d108c5143f3cc4bcb0f</sys_update_name>
         <sys_update_version display_value="sys_atf_step_809d47381bd50d108c5143f3cc4bcb0f">95a213701b190d108c5143f3cc4bcbae</sys_update_version>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-01-24 22:17:20</sys_updated_on>
     </sys_metadata_delete>
 </record_update>

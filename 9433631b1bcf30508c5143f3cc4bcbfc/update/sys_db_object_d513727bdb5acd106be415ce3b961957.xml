@@ -22,11 +22,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-03-24 20:43:58</sys_created_on>
         <sys_id>d513727bdb5acd106be415ce3b961957</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Notify Message</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_db_object_d513727bdb5acd106be415ce3b961957</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
         <update_access>true</update_access>
         <user_role/>
         <ws_access>true</ws_access>
@@ -41,5 +44,8 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-09-29 18:04:06</sys_created_on>
         <sys_id>82f2a3a41b92d5108c5143f3cc4bcb14</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
     </sys_claim>
 </record_update>

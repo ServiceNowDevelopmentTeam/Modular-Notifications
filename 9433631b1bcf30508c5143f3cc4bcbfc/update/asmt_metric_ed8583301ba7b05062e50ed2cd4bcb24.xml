@@ -51,11 +51,14 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>ed8583301ba7b05062e50ed2cd4bcb24</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>New Numeric Scale</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>asmt_metric_ed8583301ba7b05062e50ed2cd4bcb24</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
         <template/>
         <value_parameters/>
         <weight>10</weight>

@@ -13,11 +13,14 @@ template.print(current.variables.u_phone_number_manual);
         <sys_created_by>TJ.Lillo</sys_created_by>
         <sys_created_on>2021-03-17 20:17:17</sys_created_on>
         <sys_id>2c8d3a081b0f2814df31da49cc4bcbaf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>incident_get_mobile_contact</sys_name>
         <sys_package display_value="Global" source="global">global</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_email_2c8d3a081b0f2814df31da49cc4bcbaf</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
     </sys_script_email>
     <sys_claim action="INSERT_OR_UPDATE">
         <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
@@ -29,5 +32,8 @@ template.print(current.variables.u_phone_number_manual);
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-12 21:43:12</sys_created_on>
         <sys_id>9375ab9b1bcf30508c5143f3cc4bcb90</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
     </sys_claim>
 </record_update>

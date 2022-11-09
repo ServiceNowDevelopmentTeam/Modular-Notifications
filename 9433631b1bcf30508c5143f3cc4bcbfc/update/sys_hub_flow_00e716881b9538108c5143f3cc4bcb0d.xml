@@ -29,12 +29,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>00e716881b9538108c5143f3cc4bcb0d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Flow Failures</sys_name>
         <sys_overrides/>
         <sys_package display_value="Global" source="global">global</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_flow_00e716881b9538108c5143f3cc4bcb0d</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
         <type>flow</type>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=00e716881b9538108c5143f3cc4bcb0d"/>
@@ -49,6 +52,9 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-27 21:43:20</sys_created_on>
         <sys_id>f0a726311bd1c1508c5143f3cc4bcb17</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
     </sys_claim>
     <sys_flow_record_trigger action="INSERT_OR_UPDATE">
         <active>true</active>

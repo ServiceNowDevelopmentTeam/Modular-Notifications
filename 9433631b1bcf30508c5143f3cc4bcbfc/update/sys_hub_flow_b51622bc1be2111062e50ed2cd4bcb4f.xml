@@ -29,12 +29,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>b51622bc1be2111062e50ed2cd4bcb4f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Create User Notification Device if Missing</sys_name>
         <sys_overrides/>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_flow_b51622bc1be2111062e50ed2cd4bcb4f</sys_update_name>
+        <sys_updated_by>richard.zheng@snc</sys_updated_by>
+        <sys_updated_on>2022-10-21 20:32:04</sys_updated_on>
         <type>subflow</type>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=b51622bc1be2111062e50ed2cd4bcb4f"/>
@@ -155,10 +158,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-12 18:39:26</sys_created_on>
         <sys_id>66b722301b26111062e50ed2cd4bcb17</sys_id>
-        <sys_mod_count>18</sys_mod_count>
+        <sys_mod_count>20</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2022-10-12 18:56:37</sys_updated_on>
+        <sys_updated_on>2022-10-31 13:30:40</sys_updated_on>
         <ui_id>617d30bb-1597-4d4b-bf2a-55dbd8d2a5fb</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=66b722301b26111062e50ed2cd4bcb17"/>
@@ -217,10 +220,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-12 18:39:26</sys_created_on>
         <sys_id>a2b722301b26111062e50ed2cd4bcb24</sys_id>
-        <sys_mod_count>18</sys_mod_count>
+        <sys_mod_count>20</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2022-10-12 18:56:37</sys_updated_on>
+        <sys_updated_on>2022-10-31 13:30:40</sys_updated_on>
         <ui_id>0c7efe25-886b-4602-877e-4e6097c71b2b</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=a2b722301b26111062e50ed2cd4bcb24"/>
@@ -373,7 +376,7 @@
     <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
         <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_subflow_plan","id":"83b722301b26111062e50ed2cd4bcbda","name":"plan","plan_signature":null}}</plan>
         <plan_id display_value="Create User Notification Device if Missing">b51622bc1be2111062e50ed2cd4bcb4f</plan_id>
-        <snapshot>46ab2efc1b2a11108c5143f3cc4bcbc0</snapshot>
+        <snapshot>2847dbf21bba95108c5143f3cc4bcbd2</snapshot>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-12 18:39:29</sys_created_on>
         <sys_domain>global</sys_domain>
@@ -758,6 +761,6 @@
     <sys_hub_flow action="UPDATE">
         <sys_id>b51622bc1be2111062e50ed2cd4bcb4f</sys_id>
         <latest_snapshot>76b722301b26111062e50ed2cd4bcb54</latest_snapshot>
-        <compiler_build>glide-tokyo-07-08-2022__patch1-09-01-2022_09-16-2022_1610.zip</compiler_build>
+        <compiler_build>glide-tokyo-07-08-2022__patch2-09-29-2022_10-07-2022_1443.zip</compiler_build>
     </sys_hub_flow>
 </record_update>

@@ -60,12 +60,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path/>
         <sys_id>30c8fc660a0a3c740153e301daacca14</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Catalog task worknoted (to assignee)</sys_name>
         <sys_overrides/>
         <sys_package display_value="Mobile UI" source="com.glide.ui.m">0bf4e4671b211010e7004229bc4bcb9b</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_30c8fc660a0a3c740153e301daacca14</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
         <sys_version/>
         <template display_value="sc_task.itil.role">03987295c0a801020007beda58d7cd66</template>
         <type>email</type>
@@ -81,6 +84,9 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-12 21:40:44</sys_created_on>
         <sys_id>d7e4ef5b1bcf30508c5143f3cc4bcbb9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
     </sys_claim>
     <sys_claim action="INSERT_OR_UPDATE">
         <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
@@ -92,5 +98,8 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-12 21:40:44</sys_created_on>
         <sys_id>9be4ef5b1bcf30508c5143f3cc4bcbb9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
     </sys_claim>
 </record_update>

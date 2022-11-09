@@ -73,6 +73,7 @@
         <sys_db_object display_value="" name="sys_ui_section">sys_ui_section</sys_db_object>
         <sys_id>3101950db673439a9216e88809b40f04</sys_id>
         <sys_metadata>b205b85d1bdfb85062e50ed2cd4bcb2d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>New Section</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_parent display_value="Catalog Item">66a868ef1be11010e7004229bc4bcb92</sys_parent>
@@ -81,5 +82,7 @@
         <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
         <sys_update_name>sys_ui_section_b205b85d1bdfb85062e50ed2cd4bcb2d</sys_update_name>
         <sys_update_version display_value="sys_ui_section_b205b85d1bdfb85062e50ed2cd4bcb2d">5b05b85d1bdfb85062e50ed2cd4bcb9b</sys_update_version>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-10-18 14:00:49</sys_updated_on>
     </sys_metadata_delete>
 </record_update>
