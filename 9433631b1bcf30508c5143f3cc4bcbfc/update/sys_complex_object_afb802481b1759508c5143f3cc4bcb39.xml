@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_complex_object">
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FDebb80248531759509b3f6de96a8c3539</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>9433631b1bcf30508c5143f3cc4bcbfc</scope_name>
+        <serialized_content>{"FlowDesigner:FDebb80248531759509b3f6de96a8c3539":{"$COCollectionField":[{"Variable":{"variableName":"String","variableName.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"variableName\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\"}"},"variableValue":"String","variableValue.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"variableValue\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\"}"}}}],"$COCollectionField.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Custom Variables\",\"mandatory\":\"false\",\"child_name\":\"Variable\",\"uiUniqueId\":\"024e6a4d-d18a-4c73-a157-318dd93e151c\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDebb80248531759509b3f6de96a8c3539\",\"child_label\":\"Variable\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"11\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"a20f14c8-b91b-433d-8803-bdb1e13eaa48\"}"},"$COCollectionField.$field_facets":{"SimpleMapFacet":"{\"up-shift-collection-level\":\"true\"}"}},"FlowDesigner:FDebb80248531759509b3f6de96a8c3539.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Custom Variables\",\"mandatory\":\"false\",\"child_name\":\"Variable\",\"uiUniqueId\":\"024e6a4d-d18a-4c73-a157-318dd93e151c\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDebb80248531759509b3f6de96a8c3539\",\"child_label\":\"Variable\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"11\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"a20f14c8-b91b-433d-8803-bdb1e13eaa48\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-11-16 15:15:44</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>afb802481b1759508c5143f3cc4bcb39</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>FDebb80248531759509b3f6de96a8c3539</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_complex_object_afb802481b1759508c5143f3cc4bcb39</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-11-16 15:55:37</sys_updated_on>
+        <type>complex_object_collection</type>
+    </sys_complex_object>
+</record_update>
