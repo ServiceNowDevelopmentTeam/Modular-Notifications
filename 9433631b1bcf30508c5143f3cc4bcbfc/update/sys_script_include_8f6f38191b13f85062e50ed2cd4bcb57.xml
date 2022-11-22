@@ -768,10 +768,10 @@ ModularNotificationsBuilder.prototype = {
 
 			var variableName = createdOnDate + ' ' + createdOnTime.getByFormat('hh:mm a') + ' - ' + commenter;
 			var variableValue = gr.value.toString();
-			if (variableName && variableValue){
+			if (variableName && variableValue && variableValue.indexOf('***New comment on ') == -1){
 				variableString += variableName + '<br>' + variableValue + '<br>';
+				i++;
 			}
-			i++;
 		}
 		return variableString;
 	},
@@ -808,48 +808,54 @@ ModularNotificationsBuilder.prototype = {
 	//Internal - Get comments to add to variables section, this applies to all tables//
 	///////////////////////////////////////////////////////////////////////////////////
 	getNoHTMLCommentString: function(documentID, table, isITIL) {
-		var variableString = '';
-		var gr = new GlideRecord('sys_journal_field');
-		gr.addQuery('element_id', documentID);
-		gr.addQuery('element', 'comments');
-		gr.addQuery('name', table);
-		gr.orderByDesc('sys_created_on');
-		gr.query();
-		if(!gr.hasNext()){
-			return '';
-		}
-		var i = 0;
-		while (gr.next() && i < 5) {
-			var commenter = '';
-			var commentedBy = gr.sys_created_by.toString();
-			if (commentedBy){
-				var userGr = new GlideRecord('sys_user');
-				userGr.addQuery('user_name',commentedBy);
-				userGr.addQuery('user_name','!=','');
-				userGr.addActiveQuery();
-				userGr.query();
-				userGr.next();
-				commenter = userGr.name.toString();
+		
+			var variableString = '';
+			var gr = new GlideRecord('sys_journal_field');
+			gr.addQuery('element_id', documentID);
+			gr.addQuery('element', 'comments');
+			gr.addQuery('name', table);
+			gr.orderByDesc('sys_created_on');
+			gr.query();
+			if(!gr.hasNext()){
+				return '';
 			}
-			else{
-				commenter = commentedBy;
-			}
-			commenter = commenter || 'System';
-			var createdOn = new GlideDateTime(gr.sys_created_on);
-			var schedTools = new ScheduleTools();
-			createdOn = new GlideDateTime(schedTools.timeZoneDiff(createdOn,'-6'));
+			var i = 0;
+			while (gr.next() && i < 5){
+				//if(gr.value.toString().indexOf('***New comment on ') != -1){
+					var commenter = '';
+					var commentedBy = gr.sys_created_by.toString();
+					if (commentedBy){
+						var userGr = new GlideRecord('sys_user');
+						userGr.addQuery('user_name',commentedBy);
+						userGr.addQuery('user_name','!=','');
+						userGr.addActiveQuery();
+						userGr.query();
+						userGr.next();
+						commenter = userGr.name.toString();
+					}
+					else{
+						commenter = commentedBy;
+					}
+					commenter = commenter || 'System';
+					var createdOn = new GlideDateTime(gr.sys_created_on);
+					var schedTools = new ScheduleTools();
+					createdOn = new GlideDateTime(schedTools.timeZoneDiff(createdOn,'-6'));
 
-			var createdOnDate = createdOn.getDate();
-			var createdOnTime = new GlideTime();
-			createdOnTime.setValue(createdOn.getTime());
+					var createdOnDate = createdOn.getDate();
+					var createdOnTime = new GlideTime();
+					createdOnTime.setValue(createdOn.getTime());
 
-			var variableName = createdOnDate + ' ' + createdOnTime.getByFormat('hh:mm a') + ' - ' + commenter;
-			var variableValue = gr.value.toString();
-			if (variableName && variableValue){
-				variableString += variableName + '\n' + variableValue + '\n';
+					var variableName = createdOnDate + ' ' + createdOnTime.getByFormat('hh:mm a') + ' - ' + commenter;
+					var variableValue = gr.value.toString();
+					if (variableName && variableValue){
+						//gs.info('value : ' + variableValue + ' index of : ' + variableValue.indexOf('***New comment on '));
+						
+						variableString += variableName + '\n' + variableValue + '\n';
+					}
+				//}
+				i++;
 			}
-			i++;
-		}
+		
 		return variableString;
 	},
 	/**SNDOC
@@ -1068,13 +1074,13 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-11-15 22:20:33</sys_updated_on>
+        <sys_updated_by>John.Schwab</sys_updated_by>
+        <sys_updated_on>2022-11-22 19:45:33</sys_updated_on>
     </sys_script_include>
 </record_update>
