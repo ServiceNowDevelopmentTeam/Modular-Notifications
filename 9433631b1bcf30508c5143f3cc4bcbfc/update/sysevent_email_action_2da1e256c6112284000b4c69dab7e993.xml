@@ -48,7 +48,7 @@
         <item_table/>
         <mandatory>false</mandatory>
         <message/>
-        <message_html><![CDATA[<p>${mail_script:modular_notifications_completed}</p>]]></message_html>
+        <message_html><![CDATA[<p>${mail_script:modular_notifications_completed_requested_for}</p>]]></message_html>
         <message_list>dd40c70253020200601fa3fc9ec58753</message_list>
         <message_text/>
         <name>Request Completed</name>
@@ -70,15 +70,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path/>
         <sys_id>2da1e256c6112284000b4c69dab7e993</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Request Completed</sys_name>
         <sys_overrides/>
         <sys_package display_value="Mobile UI" source="com.glide.ui.m">0bf4e4671b211010e7004229bc4bcb9b</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_2da1e256c6112284000b4c69dab7e993</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
+        <sys_updated_by>John.Schwab</sys_updated_by>
+        <sys_updated_on>2022-12-07 17:51:50</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="Unsubscribe and Preferences Helvetica">d465111f3b4b2200c869c2c703efc47c</template>
         <type>email</type>
