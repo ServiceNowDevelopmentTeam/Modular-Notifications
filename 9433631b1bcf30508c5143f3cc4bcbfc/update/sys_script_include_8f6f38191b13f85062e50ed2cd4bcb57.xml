@@ -33,6 +33,7 @@ ModularNotificationsBuilder.prototype = {
 	@returns {void}
 	*/
 	initialize: function() {
+		this.provideFeedbackDiscrip = 'test blank';
 		this.userID = '';
 		this.isOpenedBy = false; //OR REQUESTED FOR (dont use this if it NEEDS to be opened by)
 		this.customMoreInformation = '';
@@ -158,7 +159,7 @@ ModularNotificationsBuilder.prototype = {
 				if(this.table == 'sc_req_item'){
 					surveySysId = this.getSurveySysid('sc_request', reqGr.request.sys_id);
 					if(surveySysId){
-						this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
+						//this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
 					}
 				}
 				else{
@@ -172,7 +173,8 @@ ModularNotificationsBuilder.prototype = {
 						surveySysId = this.getSurveySysid(this.table, this.documentID);
 						//gs.info('survey sys id is : ' + surveySysId);
 						if(surveySysId){
-							this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
+							//this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
+							this.provideFeedbackDiscrip = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>here</a>';
 						}
 					}
 
@@ -602,6 +604,37 @@ ModularNotificationsBuilder.prototype = {
 	///Internal - Get custom email sections for cat items, this applies to ritm and req//
 	/////////////////////////////////////////////////////////////////////////////////////
 	getCatItemVals: function(action) {
+		var surveySysId = '';
+		if (this.action == 'completed' || this.survey == 'true'){
+				if(this.table == 'sc_req_item'){
+					surveySysId = this.getSurveySysid('sc_request', reqGr.request.sys_id);
+					if(surveySysId){
+						//this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
+					}
+				}
+				else{
+					// if it is the opened by email generate a survey so you can populate it
+					/*
+					if(this.isOpenedBy){
+						gs.info('is opened by');
+						this.getSurvey(this.table, this.documentID);
+					}*/
+					if(this.isOpenedBy){
+						surveySysId = this.getSurveySysid(this.table, this.documentID);
+						//gs.info('survey sys id is : ' + surveySysId);
+						if(surveySysId){
+							//this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
+							this.provideFeedbackDiscrip = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>here</a>';
+						}
+					}
+
+				}
+			}
+		
+		
+		
+		
+		
 		//get ritm
 		var gr = new GlideRecord(this.table);
 		gr.get(this.documentID);
@@ -624,6 +657,7 @@ ModularNotificationsBuilder.prototype = {
 				this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info_updated ? gr.cat_item.u_additional_info_updated : '';
 				break;
 			case ('completed'):
+				
 				if (gr.getRowCount() == 1) {
 					var reopenSysID = '6c9635d61b5774108c5143f3cc4bcbda';
 					var reopenRITM = gr.sys_id;
@@ -632,7 +666,8 @@ ModularNotificationsBuilder.prototype = {
 						'&sysparm_variables=%7B%22related_ritm%22:%22' + reopenRITM +'%22%7D';
 					this.customRitmSubject = gr.cat_item.u_custom_subject_completed ? gr.cat_item.u_subject_completed : '';
 					this.customRitmInfo = gr.cat_item.u_custom_info_completed ? gr.cat_item.u_info_completed : '';
-					this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info_completed ? gr.cat_item.u_additional_info_completed : 'If this request still needs attention, please <a href="' + reopenURL + '">click here</a> to reopen.';
+					this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info_completed ? gr.cat_item.u_additional_info_completed : 'If this request still needs attention, please <a href="' + reopenURL + '">click here</a> to reopen.' + 'Want to provide feedback on this ticket?  Take a survey ' + this.provideFeedbackDiscrip;
+	
 				}
 				break;
 			default:
@@ -1055,6 +1090,12 @@ ModularNotificationsBuilder.prototype = {
 			To pull the edited html back in, copy the edited and beautified HTML into a minifier to remove new lines
 			*/
 		
+		/*
+		THIS WAS PULLED OUT
+		
+		this.provideFeedback + ' </strong> </div></td></tr></table> </div></div></div></td></tr></table> </td></tr></table> </td></tr><tr> <td style=padding:0;background-color: ' + 
+		*/
+		
 		this.subject = this.customSubject || this.subject;
 		this.information = this.customInformation || this.information;
 		this.moreInformation = this.customMoreInformation || this.moreInformation;
@@ -1074,6 +1115,8 @@ ModularNotificationsBuilder.prototype = {
 			this.colors.apiBlue + '" align=center valign=top width=600> <div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top;background-color: ' + 
 			this.colors.apiBlue + ' class="u-col u-col-100"> <div style=width:100%!important> <div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0;text-align:left"> <div style=color:#FDFDFD;line-height:140%;text-align:center;word-wrap:break-word class=v-text-align> <p style=font-size:14px;line-height:140%> <strong> ' + 
 			this.provideFeedback + ' </strong> </div></td></tr></table> </div></div></div></td></tr></table> </td></tr></table> </td></tr><tr> <td style=padding:0;background-color: ' + 
+			
+			
 			this.colors.apiBlue + ' > <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=padding:0;background-color: ' + 
 			this.colors.apiBlue + ' align=center> <table style=border-collapse:collapse;border-spacing:0;width:600px> <tr> <td style="width:400px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0;background-color: ' + 
 			this.colors.apiBlue + '" align=center valign=bottom width=400> <div style=max-width:320px;min-width:400px;display:table-cell;vertical-align:bottom; class="u-col u-col-66p67"> <div style=width:100%!important;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0> <div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0;"> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style="vertical-align:bottom;overflow-wrap:break-word;word-break:break-word;padding: 0px 0px 10px 10px;text-align:left"> <img src=' + 
@@ -1088,13 +1131,13 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>21</sys_mod_count>
+        <sys_mod_count>31</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
         <sys_updated_by>John.Schwab</sys_updated_by>
-        <sys_updated_on>2022-12-07 16:50:01</sys_updated_on>
+        <sys_updated_on>2022-12-13 16:43:04</sys_updated_on>
     </sys_script_include>
 </record_update>
