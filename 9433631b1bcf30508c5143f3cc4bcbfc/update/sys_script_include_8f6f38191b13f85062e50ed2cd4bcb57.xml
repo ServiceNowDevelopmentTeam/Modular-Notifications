@@ -206,6 +206,20 @@ ModularNotificationsBuilder.prototype = {
 	//////Internal - Setting Email Template for Incidents/////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////
 	incidentVals: function(action) {
+		var surveySysId = '';
+		if (this.action == 'completed' || this.survey == 'true'){
+				//if(this.table == 'incident'){
+					surveySysId = this.getSurveySysid(this.table, this.documentID);
+						//gs.info('survey sys id is : ' + surveySysId);
+						if(surveySysId){
+							//this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
+							this.provideFeedbackDiscrip = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>here</a>';
+						}
+				//}
+				
+			}
+		
+		
 		action = action == 'completed' ? 'resolved' : action;
 		//Get ritm
 		var gr = new GlideRecord(this.table);
@@ -255,7 +269,7 @@ ModularNotificationsBuilder.prototype = {
 				var reopenURL = '/sp?id=sc_cat_item&sys_id=' + 
 					reopenSysID + 
 					'&sysparm_variables=%7B%22related_inc%22:%22' + reopenINC +'%22%7D';
-				this.moreInformation += 'If this issue still needs attention, <a href="' + reopenURL + '">click here</a> to reopen the incident.<br><br>This incident will automatically close after 3 business days. If you still need assistance after it closes, a new incident will be required.<br>';
+				this.moreInformation += 'If this issue still needs attention, <a href="' + reopenURL + '">click here</a> to reopen the incident.<br><br>This incident will automatically close after 3 business days. If you still need assistance after it closes, a new incident will be required.<br><br>' + '<b>Want to provide feedback on this ticket?  Take a survey ' + this.provideFeedbackDiscrip +'</b>.';
 				this.varList.push({
 					variableName: 'Resolution Note',
 					variableValue: gr.u_customer_notes.getDisplayValue()
@@ -666,7 +680,7 @@ ModularNotificationsBuilder.prototype = {
 						'&sysparm_variables=%7B%22related_ritm%22:%22' + reopenRITM +'%22%7D';
 					this.customRitmSubject = gr.cat_item.u_custom_subject_completed ? gr.cat_item.u_subject_completed : '';
 					this.customRitmInfo = gr.cat_item.u_custom_info_completed ? gr.cat_item.u_info_completed : '';
-					this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info_completed ? gr.cat_item.u_additional_info_completed : 'If this request still needs attention, please <a href="' + reopenURL + '">click here</a> to reopen.' + 'Want to provide feedback on this ticket?  Take a survey ' + this.provideFeedbackDiscrip;
+					this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info_completed ? gr.cat_item.u_additional_info_completed : 'If this request still needs attention, please <a href="' + reopenURL + '">click here</a> to reopen.<br><br>' + '<b>Want to provide feedback on this ticket?  Take a survey ' + this.provideFeedbackDiscrip +'</b>.';
 	
 				}
 				break;
@@ -1131,13 +1145,13 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>31</sys_mod_count>
+        <sys_mod_count>36</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
         <sys_updated_by>John.Schwab</sys_updated_by>
-        <sys_updated_on>2022-12-13 16:43:04</sys_updated_on>
+        <sys_updated_on>2022-12-14 18:22:58</sys_updated_on>
     </sys_script_include>
 </record_update>
