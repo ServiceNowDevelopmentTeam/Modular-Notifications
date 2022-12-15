@@ -5,7 +5,7 @@
         <allow_add_info>false</allow_add_info>
         <allow_not_applicable>false</allow_not_applicable>
         <auto_gen>false</auto_gen>
-        <category display_value="OAM Survey - RITM">7627cf701ba7b05062e50ed2cd4bcb62</category>
+        <category display_value="OAM Survey ">7627cf701ba7b05062e50ed2cd4bcb62</category>
         <cond_question>always</cond_question>
         <condition/>
         <context/>
