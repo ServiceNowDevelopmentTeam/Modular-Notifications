@@ -33,7 +33,7 @@ ModularNotificationsBuilder.prototype = {
 	@returns {void}
 	*/
 	initialize: function() {
-		this.provideFeedbackDiscrip = 'test blank';
+		this.provideFeedbackDiscrip = '[survey not found]';
 		this.userID = '';
 		this.isOpenedBy = false; //OR REQUESTED FOR (dont use this if it NEEDS to be opened by)
 		this.customMoreInformation = '';
@@ -269,7 +269,9 @@ ModularNotificationsBuilder.prototype = {
 				var reopenURL = '/sp?id=sc_cat_item&sys_id=' + 
 					reopenSysID + 
 					'&sysparm_variables=%7B%22related_inc%22:%22' + reopenINC +'%22%7D';
-				this.moreInformation += 'If this issue still needs attention, <a href="' + reopenURL + '">click here</a> to reopen the incident.<br><br>This incident will automatically close after 3 business days. If you still need assistance after it closes, a new incident will be required.<br><br>' + '<b>Want to provide feedback on this ticket?  Take a survey ' + this.provideFeedbackDiscrip +'</b>.';
+				if(this.provideFeedbackDiscrip != '[survey not found]'){
+					this.moreInformation += 'If this issue still needs attention, <a href="' + reopenURL + '">click here</a> to reopen the incident.<br><br>This incident will automatically close after 3 business days. If you still need assistance after it closes, a new incident will be required.<br><br>' + '<b>Want to provide feedback on this ticket?  Take a survey ' + this.provideFeedbackDiscrip +'</b>.';
+				}
 				this.varList.push({
 					variableName: 'Resolution Note',
 					variableValue: gr.u_customer_notes.getDisplayValue()
@@ -680,7 +682,9 @@ ModularNotificationsBuilder.prototype = {
 						'&sysparm_variables=%7B%22related_ritm%22:%22' + reopenRITM +'%22%7D';
 					this.customRitmSubject = gr.cat_item.u_custom_subject_completed ? gr.cat_item.u_subject_completed : '';
 					this.customRitmInfo = gr.cat_item.u_custom_info_completed ? gr.cat_item.u_info_completed : '';
-					this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info_completed ? gr.cat_item.u_additional_info_completed : 'If this request still needs attention, please <a href="' + reopenURL + '">click here</a> to reopen.<br><br>' + '<b>Want to provide feedback on this ticket?  Take a survey ' + this.provideFeedbackDiscrip +'</b>.';
+					if(this.provideFeedbackDiscrip != '[survey not found]'){
+						this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info_completed ? gr.cat_item.u_additional_info_completed : 'If this request still needs attention, please <a href="' + reopenURL + '">click here</a> to reopen.<br><br>' + '<b>Want to provide feedback on this ticket?  Take a survey ' + this.provideFeedbackDiscrip +'</b>.';
+					}
 	
 				}
 				break;
@@ -1144,13 +1148,13 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>37</sys_mod_count>
+        <sys_mod_count>38</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-12-17 23:49:17</sys_updated_on>
+        <sys_updated_by>John.Schwab</sys_updated_by>
+        <sys_updated_on>2022-12-20 20:37:22</sys_updated_on>
     </sys_script_include>
 </record_update>
