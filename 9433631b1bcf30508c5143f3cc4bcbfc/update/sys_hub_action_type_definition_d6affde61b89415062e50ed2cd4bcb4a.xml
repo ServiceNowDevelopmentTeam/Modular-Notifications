@@ -27,7 +27,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>d6affde61b89415062e50ed2cd4bcb4a</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name>Get Flow Data Field Value</sys_name>
         <sys_overrides/>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
@@ -35,7 +35,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_d6affde61b89415062e50ed2cd4bcb4a</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-12-07 21:54:15</sys_updated_on>
+        <sys_updated_on>2022-12-28 22:40:24</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -49,10 +49,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-17 16:28:27</sys_created_on>
         <sys_id>aaaffde61b89415062e50ed2cd4bcbab</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-02-11 21:07:54</sys_updated_on>
-        <value>{"version":"1.0","complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"complexObjectSchema":{"FlowDesigner:FD26affde6a28941505ff09bda9c281990":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"mapped\":\"{}\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"mapped\":\"{}\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FD26affde6a28941505ff09bda9c281990.$type_facets":{"SimpleMapFacet":"{\"sourceId\":\"\",\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"6d4b4dab-3dd5-42f0-b9e2-07eba97d1df5\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FD26affde6a28941505ff09bda9c281990\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"sourceUiUniqueId\":\"\",\"sourceType\":\"\",\"hint\":\"\",\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"serializationFormat":"JSON"}</value>
+        <sys_updated_on>2022-12-28 22:40:22</sys_updated_on>
+        <value>{"version":"1.0","complexObjectSchema":{"FlowDesigner:FD26affde6a28941505ff09bda9c281990":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"mapped\":\"{}\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"mapped\":\"{}\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FD26affde6a28941505ff09bda9c281990.$type_facets":{"SimpleMapFacet":"{\"sourceId\":\"\",\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"6d4b4dab-3dd5-42f0-b9e2-07eba97d1df5\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FD26affde6a28941505ff09bda9c281990\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"sourceUiUniqueId\":\"\",\"sourceType\":\"\",\"hint\":\"\",\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"serializationFormat":"JSON"}</value>
         <variable display_value="Action Status">e6affde61b89415062e50ed2cd4bcb94</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -124,10 +124,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-17 16:28:26</sys_created_on>
         <sys_id>9eaffde61b89415062e50ed2cd4bcb6f</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-12-07 21:54:12</sys_updated_on>
+        <sys_updated_on>2022-12-28 22:40:21</sys_updated_on>
     </sys_hub_step_instance>
     <sys_variable_value action="delete_multiple" query="document_key=9eaffde61b89415062e50ed2cd4bcb6f"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -138,39 +138,39 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-17 16:28:26</sys_created_on>
         <sys_id>6aaffde61b89415062e50ed2cd4bcb8c</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-12-07 21:54:12</sys_updated_on>
+        <sys_updated_on>2022-12-28 22:40:21</sys_updated_on>
         <value>(function execute(inputs, outputs) {
   try{
-  var flowDataSysId = inputs.FlowDataSysId;
-  var field = inputs.Field;
-  var fieldValue = '';
+    var flowDataSysId = inputs.FlowDataSysId;
+    var field = inputs.Field;
+    var fieldValue = '';
 
-//Get the variable value record
-var flowDataGr = new GlideRecord('sys_flow_data');
-flowDataGr.get(flowDataSysId);
+    //Get the variable value record
+    var flowDataGr = new GlideRecord('sys_flow_data');
+    flowDataGr.get(flowDataSysId);
 
-var variableDefinition = flowDataGr.definition.toString();
+    var variableDefinition = flowDataGr.definition.toString();
 
-//Get the variable name definition
-var variableNameGr = new GlideRecord('sys_flow_data_var');
-variableNameGr.addEncodedQuery('element=' + field + '^model_id=' + variableDefinition);
-variableNameGr.query();
+    //Get the variable name definition
+    var variableNameGr = new GlideRecord('sys_flow_data_var');
+    variableNameGr.addEncodedQuery('element=' + field + '^model_id=' + variableDefinition);
+    variableNameGr.query();
 
-if (variableNameGr.next()) {
-  var variableNameSysId = variableNameGr.getUniqueValue();
-  //Get the variable Value Record
-  var variableValueGr = new GlideRecord('sys_variable_value');
-  variableValueGr.addEncodedQuery('document=sys_flow_data^variable=' + variableNameSysId + '^document_key=' + flowDataSysId);
-  variableValueGr.query();
-  //Set the variable value
-  if (variableValueGr.next()) {
-    fieldValue = variableValueGr.getValue('value');
-    variableValueGr.update();
-  }
-}
-  outputs.field_value = fieldValue.toString();
+    if (variableNameGr.next()) {
+      var variableNameSysId = variableNameGr.getUniqueValue();
+      //Get the variable Value Record
+      var variableValueGr = new GlideRecord('sys_variable_value');
+      variableValueGr.addEncodedQuery('document=sys_flow_data^variable=' + variableNameSysId + '^document_key=' + flowDataSysId);
+      variableValueGr.query();
+      //Set the variable value
+      if (variableValueGr.next()) {
+        fieldValue = variableValueGr.getValue('value');
+        variableValueGr.update();
+      }
+    }
+    outputs.field_value = fieldValue.toString();
   }
   catch(e){
     outputs.field_value = e;
@@ -1099,17 +1099,17 @@ if (variableNameGr.next()) {
     <sys_hub_action_plan action="INSERT_OR_UPDATE">
         <action_id display_value="Get Flow Data Field Value">d6affde61b89415062e50ed2cd4bcb4a</action_id>
         <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_hub_action_plan","id":"c820c26a1b89415062e50ed2cd4bcbae","name":"plan","plan_signature":null}}</plan>
-        <snapshot>c65d233e1be3591062e50ed2cd4bcb26</snapshot>
+        <snapshot>3e4100f11b4c2d908c5143f3cc4bcb21</snapshot>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-17 16:30:28</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>c820c26a1b89415062e50ed2cd4bcbae</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_overrides/>
         <sys_scope/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-12-07 21:54:16</sys_updated_on>
+        <sys_updated_on>2022-12-28 22:40:25</sys_updated_on>
     </sys_hub_action_plan>
     <sys_hub_action_type_snapshot action="INSERT_OR_UPDATE">
         <access>public</access>
@@ -1158,10 +1158,10 @@ if (variableNameGr.next()) {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-17 16:30:27</sys_created_on>
         <sys_id>b310c26a1b89415062e50ed2cd4bcb62</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-02-11 21:07:55</sys_updated_on>
-        <value>{"version":"1.0","complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"complexObjectSchema":{"FlowDesigner:FDff10c26acf8941506dc6d953c022a23a":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"mapped\":\"{}\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"mapped\":\"{}\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDff10c26acf8941506dc6d953c022a23a.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"6d4b4dab-3dd5-42f0-b9e2-07eba97d1df5\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDff10c26acf8941506dc6d953c022a23a\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"serializationFormat":"JSON"}</value>
+        <sys_updated_on>2022-12-28 22:40:24</sys_updated_on>
+        <value>{"version":"1.0","complexObjectSchema":{"FlowDesigner:FDff10c26acf8941506dc6d953c022a23a":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"mapped\":\"{}\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"mapped\":\"{}\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDff10c26acf8941506dc6d953c022a23a.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"6d4b4dab-3dd5-42f0-b9e2-07eba97d1df5\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDff10c26acf8941506dc6d953c022a23a\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"serializationFormat":"JSON"}</value>
         <variable display_value="Action Status">b310c26a1b89415062e50ed2cd4bcb3f</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -1233,10 +1233,10 @@ if (variableNameGr.next()) {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-17 16:30:26</sys_created_on>
         <sys_id>6710826a1b89415062e50ed2cd4bcbe9</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-12-07 21:54:14</sys_updated_on>
+        <sys_updated_on>2022-12-28 22:40:23</sys_updated_on>
     </sys_hub_step_instance>
     <sys_variable_value action="delete_multiple" query="document_key=6710826a1b89415062e50ed2cd4bcbe9"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -1261,39 +1261,39 @@ if (variableNameGr.next()) {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-17 16:30:26</sys_created_on>
         <sys_id>f310c26a1b89415062e50ed2cd4bcb12</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-12-07 21:54:14</sys_updated_on>
+        <sys_updated_on>2022-12-28 22:40:23</sys_updated_on>
         <value>(function execute(inputs, outputs) {
   try{
-  var flowDataSysId = inputs.FlowDataSysId;
-  var field = inputs.Field;
-  var fieldValue = '';
+    var flowDataSysId = inputs.FlowDataSysId;
+    var field = inputs.Field;
+    var fieldValue = '';
 
-//Get the variable value record
-var flowDataGr = new GlideRecord('sys_flow_data');
-flowDataGr.get(flowDataSysId);
+    //Get the variable value record
+    var flowDataGr = new GlideRecord('sys_flow_data');
+    flowDataGr.get(flowDataSysId);
 
-var variableDefinition = flowDataGr.definition.toString();
+    var variableDefinition = flowDataGr.definition.toString();
 
-//Get the variable name definition
-var variableNameGr = new GlideRecord('sys_flow_data_var');
-variableNameGr.addEncodedQuery('element=' + field + '^model_id=' + variableDefinition);
-variableNameGr.query();
+    //Get the variable name definition
+    var variableNameGr = new GlideRecord('sys_flow_data_var');
+    variableNameGr.addEncodedQuery('element=' + field + '^model_id=' + variableDefinition);
+    variableNameGr.query();
 
-if (variableNameGr.next()) {
-  var variableNameSysId = variableNameGr.getUniqueValue();
-  //Get the variable Value Record
-  var variableValueGr = new GlideRecord('sys_variable_value');
-  variableValueGr.addEncodedQuery('document=sys_flow_data^variable=' + variableNameSysId + '^document_key=' + flowDataSysId);
-  variableValueGr.query();
-  //Set the variable value
-  if (variableValueGr.next()) {
-    fieldValue = variableValueGr.getValue('value');
-    variableValueGr.update();
-  }
-}
-  outputs.field_value = fieldValue.toString();
+    if (variableNameGr.next()) {
+      var variableNameSysId = variableNameGr.getUniqueValue();
+      //Get the variable Value Record
+      var variableValueGr = new GlideRecord('sys_variable_value');
+      variableValueGr.addEncodedQuery('document=sys_flow_data^variable=' + variableNameSysId + '^document_key=' + flowDataSysId);
+      variableValueGr.query();
+      //Set the variable value
+      if (variableValueGr.next()) {
+        fieldValue = variableValueGr.getValue('value');
+        variableValueGr.update();
+      }
+    }
+    outputs.field_value = fieldValue.toString();
   }
   catch(e){
     outputs.field_value = e;
