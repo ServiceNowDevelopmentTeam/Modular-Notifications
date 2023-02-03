@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="DELETE">
+        <name>task_assigned_to_my_group</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template, /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action, /* Optional GlideRecord */ event) {
+	//These variables will control the different sections of the modular notifications
+	//Subject will also control the email subject, don't include HTML there
+	var notification = new ModularNotificationsBuilder();
+	//URL that can be universally used for viewing a ticket on the portal
+	notification.table = current.getTableName();
+	notification.documentID = current.getUniqueValue();
+	notification.action = 'assignedtomygroup';
+	notification.name = current.assignment_group.name.toString();
+	notification.requestorName = current.sysapproval.opened_by.name.toString();
+	notification.sourceTable = current.source_table;
+	notification.type = 'itil';
+	notification.setGlobalUrl();
+	//Put it all together to get the full HTML template
+	var html = notification.getHTML();
+
+	//Print HTML to the body
+	template.print(html);
+
+	//Set email subject
+	email.setSubject(notification.subject);
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-02-01 19:51:32</sys_created_on>
+        <sys_id>e64a273c1bb82d508c5143f3cc4bcb56</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>task_assigned_to_my_group</sys_name>
+        <sys_package display_value="Invoice Portal" source="d778dcbd1b6ec9d08c5143f3cc4bcbb2">d778dcbd1b6ec9d08c5143f3cc4bcbb2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_email_e64a273c1bb82d508c5143f3cc4bcb56</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-02-01 20:35:37</sys_updated_on>
+    </sys_script_email>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
+        <claim_timestamp>1860e8aafb60000001</claim_timestamp>
+        <metadata_update_name>sys_script_email_e64a273c1bb82d508c5143f3cc4bcb56</metadata_update_name>
+        <previous_claim_app_version>1.6.13</previous_claim_app_version>
+        <previous_claim_name>Modular Notifications</previous_claim_name>
+        <previous_claim_scope>9433631b1bcf30508c5143f3cc4bcbfc</previous_claim_scope>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-02-01 19:53:35</sys_created_on>
+        <sys_id>24ca2b7c1bb82d508c5143f3cc4bcb98</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-02-01 19:53:35</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
+        <claim_timestamp>1860e8aafa80000001</claim_timestamp>
+        <metadata_update_name>sys_script_email_e64a273c1bb82d508c5143f3cc4bcb56</metadata_update_name>
+        <previous_claim_app_version>1.3.11</previous_claim_app_version>
+        <previous_claim_name>Invoice Portal</previous_claim_name>
+        <previous_claim_scope>d778dcbd1b6ec9d08c5143f3cc4bcbb2</previous_claim_scope>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-02-01 19:53:35</sys_created_on>
+        <sys_id>e4ca2b7c1bb82d508c5143f3cc4bcb98</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-02-01 19:53:35</sys_updated_on>
+    </sys_claim>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</application>
+        <file_path/>
+        <instance_id>37412023db6dd890ad8dd7c8f49619a0</instance_id>
+        <instance_name>apigroupdev</instance_name>
+        <name>sys_script_email_e64a273c1bb82d508c5143f3cc4bcb56</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_email"&gt;&lt;sys_script_email action="INSERT_OR_UPDATE"&gt;&lt;name&gt;task_assigned_to_my_group&lt;/name&gt;&lt;new_lines_to_html&gt;false&lt;/new_lines_to_html&gt;&lt;script&gt;&lt;![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template, /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action, /* Optional GlideRecord */ event) {
+	//These variables will control the different sections of the modular notifications
+	//Subject will also control the email subject, don't include HTML there
+	var notification = new ModularNotificationsBuilder();
+	//URL that can be universally used for viewing a ticket on the portal
+	notification.table = current.getTableName();
+	notification.documentID = current.getUniqueValue();
+	notification.action = 'assignedtomygroup';
+	notification.name = current.assignment_group.name.toString();
+	notification.requestorName = current.sysapproval.opened_by.name.toString();
+	notification.sourceTable = current.source_table;
+	notification.type = 'itil';
+	notification.setGlobalUrl();
+	//Put it all together to get the full HTML template
+	var html = notification.getHTML();
+
+	//Print HTML to the body
+	template.print(html);
+
+	//Set email subject
+	email.setSubject(notification.subject);
+
+})(current, template, email, email_action, event);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_email&lt;/sys_class_name&gt;&lt;sys_created_by&gt;Terry.Lillo&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-02-01 19:51:32&lt;/sys_created_on&gt;&lt;sys_id&gt;e64a273c1bb82d508c5143f3cc4bcb56&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_name&gt;task_assigned_to_my_group&lt;/sys_name&gt;&lt;sys_package display_value="Invoice Portal" source="d778dcbd1b6ec9d08c5143f3cc4bcbb2"&gt;d778dcbd1b6ec9d08c5143f3cc4bcbb2&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Modular Notifications"&gt;9433631b1bcf30508c5143f3cc4bcbfc&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_email_e64a273c1bb82d508c5143f3cc4bcb56&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;Terry.Lillo&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-02-01 20:35:37&lt;/sys_updated_on&gt;&lt;/sys_script_email&gt;&lt;sys_claim action="INSERT_OR_UPDATE"&gt;&lt;claim_owner_scope display_value="Modular Notifications"&gt;9433631b1bcf30508c5143f3cc4bcbfc&lt;/claim_owner_scope&gt;&lt;claim_timestamp&gt;1860e8aafb60000001&lt;/claim_timestamp&gt;&lt;metadata_update_name&gt;sys_script_email_e64a273c1bb82d508c5143f3cc4bcb56&lt;/metadata_update_name&gt;&lt;previous_claim_app_version&gt;1.6.13&lt;/previous_claim_app_version&gt;&lt;previous_claim_name&gt;Modular Notifications&lt;/previous_claim_name&gt;&lt;previous_claim_scope&gt;9433631b1bcf30508c5143f3cc4bcbfc&lt;/previous_claim_scope&gt;&lt;sys_created_by&gt;Terry.Lillo&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-02-01 19:53:35&lt;/sys_created_on&gt;&lt;sys_id&gt;24ca2b7c1bb82d508c5143f3cc4bcb98&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;Terry.Lillo&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-02-01 19:53:35&lt;/sys_updated_on&gt;&lt;/sys_claim&gt;&lt;sys_claim action="INSERT_OR_UPDATE"&gt;&lt;claim_owner_scope display_value="Modular Notifications"&gt;9433631b1bcf30508c5143f3cc4bcbfc&lt;/claim_owner_scope&gt;&lt;claim_timestamp&gt;1860e8aafa80000001&lt;/claim_timestamp&gt;&lt;metadata_update_name&gt;sys_script_email_e64a273c1bb82d508c5143f3cc4bcb56&lt;/metadata_update_name&gt;&lt;previous_claim_app_version&gt;1.3.11&lt;/previous_claim_app_version&gt;&lt;previous_claim_name&gt;Invoice Portal&lt;/previous_claim_name&gt;&lt;previous_claim_scope&gt;d778dcbd1b6ec9d08c5143f3cc4bcbb2&lt;/previous_claim_scope&gt;&lt;sys_created_by&gt;Terry.Lillo&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-02-01 19:53:35&lt;/sys_created_on&gt;&lt;sys_id&gt;e4ca2b7c1bb82d508c5143f3cc4bcb98&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;Terry.Lillo&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-02-01 19:53:35&lt;/sys_updated_on&gt;&lt;/sys_claim&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>708948952</payload_hash>
+        <record_name>task_assigned_to_my_group</record_name>
+        <reverted_from/>
+        <source>5ba6dba71b4691108c5143f3cc4bcb2a</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-02-01 20:35:37</sys_created_on>
+        <sys_id>5864fb341b3c2d508c5143f3cc4bcbf7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1860eb12c5f0000001</sys_recorded_at>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-02-01 20:35:37</sys_updated_on>
+        <type>Email Script</type>
+        <update_guid>9c64fb34913c2d508f48a7fc587368f6</update_guid>
+        <update_guid_history>9c64fb34913c2d508f48a7fc587368f6:708948952,00ffe77867f82d50179da7e5fcee92e0:1073084991,5c9f673885f82d508f5240ebdd223b4e:937939727,20ca2b7cf6b82d508ba58c6019709a9b:-1772015289,a6bae77c7ab82d50667fc37b68fa5697:193232007,c79a237c8db82d50118fa2f3c5cdc17a:-1076323001,a24a273cc3b82d503e0e25d4d7000d58:1821609269</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-02-01 20:46:56</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_email">sys_script_email</sys_db_object>
+        <sys_id>895f98a7ebb74a9c933e20bf15c2e409</sys_id>
+        <sys_metadata>e64a273c1bb82d508c5143f3cc4bcb56</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>task_assigned_to_my_group</sys_name>
+        <sys_package display_value="Invoice Portal" source="d778dcbd1b6ec9d08c5143f3cc4bcbb2">d778dcbd1b6ec9d08c5143f3cc4bcbb2</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
+        <sys_update_name>sys_script_email_e64a273c1bb82d508c5143f3cc4bcb56</sys_update_name>
+        <sys_update_version display_value="sys_script_email_e64a273c1bb82d508c5143f3cc4bcb56">5864fb341b3c2d508c5143f3cc4bcbf7</sys_update_version>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-02-01 20:46:56</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

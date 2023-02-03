@@ -208,18 +208,18 @@ ModularNotificationsBuilder.prototype = {
 	incidentVals: function(action) {
 		var surveySysId = '';
 		if (this.action == 'completed' || this.survey == 'true'){
-				//if(this.table == 'incident'){
-					surveySysId = this.getSurveySysid(this.table, this.documentID);
-						//gs.info('survey sys id is : ' + surveySysId);
-						if(surveySysId){
-							//this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
-							this.provideFeedbackDiscrip = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>here</a>';
-						}
-				//}
-				
+			//if(this.table == 'incident'){
+			surveySysId = this.getSurveySysid(this.table, this.documentID);
+			//gs.info('survey sys id is : ' + surveySysId);
+			if(surveySysId){
+				//this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
+				this.provideFeedbackDiscrip = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>here</a>';
 			}
-		
-		
+			//}
+
+		}
+
+
 		action = action == 'completed' ? 'resolved' : action;
 		//Get ritm
 		var gr = new GlideRecord(this.table);
@@ -320,12 +320,17 @@ ModularNotificationsBuilder.prototype = {
 			case ('assigned to you'):
 				this.subject = gr.getValue('number') + ' has been ' + action + '.';
 				break;
+			case ('assigned to your group'):
+				this.subject = gr.getValue('number') + ' has been ' + action + '.';
+				this.moreInformation += '<br><a href="' + this.globalURL + '">Click here</a> to view this record.';
+				break;
 			default:
 				break;
 		}
-		if(action != 'resolved'){
+		if(action != 'resolved' && this.type != 'itil'){
 			this.moreInformation += '<br><a href="' + this.globalURL + '">Click here</a> to add a comment or view all comment history for this record.';
 		}
+
 	},
 	//////////////////////////////////////////////////////////////////////////////////////
 	//////Internal - Setting Email Template for Approval emails///////////////////////////
@@ -393,7 +398,7 @@ ModularNotificationsBuilder.prototype = {
 			variableName: 'Submitted By',
 			variableValue: this.requestorName
 		});
-		
+
 		if(action == 'created' || action == 'reminder'){
 			var approv1 = gr.u_approval_is_for;
 			if(approv1 != ''){
@@ -403,7 +408,7 @@ ModularNotificationsBuilder.prototype = {
 				});
 			}
 		}
-		
+
 		if(this.sourceTable && this.sourceTable == 'sc_req_item' && gr.document_id.number.getValue()){
 
 			var estDeliveryDate = '';
@@ -440,7 +445,8 @@ ModularNotificationsBuilder.prototype = {
 
 		//Get approved or rejected approvers and comments
 		var approverEncodedQuery = 'stateINapproved,rejected';
-		approverEncodedQuery += '^sysapproval=' + gr.document_id;
+		var approverDocId = gr.document_id.toString() || gr.sysapproval.toString();
+		approverEncodedQuery += '^sysapproval=' + approverDocId;
 		var approverGr = new GlideRecord('sysapproval_approver');
 		approverGr.addEncodedQuery(approverEncodedQuery);
 		approverGr.query();
@@ -622,35 +628,35 @@ ModularNotificationsBuilder.prototype = {
 	getCatItemVals: function(action) {
 		var surveySysId = '';
 		if (this.action == 'completed' || this.survey == 'true'){
-				if(this.table == 'sc_req_item'){
-					surveySysId = this.getSurveySysid('sc_request', reqGr.request.sys_id);
-					if(surveySysId){
-						//this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
-					}
+			if(this.table == 'sc_req_item'){
+				surveySysId = this.getSurveySysid('sc_request', reqGr.request.sys_id);
+				if(surveySysId){
+					//this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
 				}
-				else{
-					// if it is the opened by email generate a survey so you can populate it
-					/*
+			}
+			else{
+				// if it is the opened by email generate a survey so you can populate it
+				/*
 					if(this.isOpenedBy){
 						gs.info('is opened by');
 						this.getSurvey(this.table, this.documentID);
 					}*/
-					if(this.isOpenedBy){
-						surveySysId = this.getSurveySysid(this.table, this.documentID);
-						//gs.info('survey sys id is : ' + surveySysId);
-						if(surveySysId){
-							//this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
-							this.provideFeedbackDiscrip = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>here</a>';
-						}
+				if(this.isOpenedBy){
+					surveySysId = this.getSurveySysid(this.table, this.documentID);
+					//gs.info('survey sys id is : ' + surveySysId);
+					if(surveySysId){
+						//this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
+						this.provideFeedbackDiscrip = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>here</a>';
 					}
-
 				}
+
 			}
-		
-		
-		
-		
-		
+		}
+
+
+
+
+
 		//get ritm
 		var gr = new GlideRecord(this.table);
 		gr.get(this.documentID);
@@ -673,7 +679,7 @@ ModularNotificationsBuilder.prototype = {
 				this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info_updated ? gr.cat_item.u_additional_info_updated : '';
 				break;
 			case ('completed'):
-				
+
 				if (gr.getRowCount() == 1) {
 					var reopenSysID = '6c9635d61b5774108c5143f3cc4bcbda';
 					var reopenRITM = gr.sys_id;
@@ -685,7 +691,7 @@ ModularNotificationsBuilder.prototype = {
 					if(this.provideFeedbackDiscrip != '[survey not found]'){
 						this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info_completed ? gr.cat_item.u_additional_info_completed : 'If this request still needs attention, please <a href="' + reopenURL + '">click here</a> to reopen.<br><br>' + '<b>Want to provide feedback on this ticket?  Take a survey ' + this.provideFeedbackDiscrip +'</b>.';
 					}
-	
+
 				}
 				break;
 			default:
@@ -872,54 +878,54 @@ ModularNotificationsBuilder.prototype = {
 	//Internal - Get comments to add to variables section, this applies to all tables//
 	///////////////////////////////////////////////////////////////////////////////////
 	getNoHTMLCommentString: function(documentID, table, isITIL) {
-		
-			var variableString = '';
-			var gr = new GlideRecord('sys_journal_field');
-			gr.addQuery('element_id', documentID);
-			gr.addQuery('element', 'comments');
-			gr.addQuery('name', table);
-			gr.orderByDesc('sys_created_on');
-			gr.query();
-			if(!gr.hasNext()){
-				return '';
-			}
-			var i = 0;
-			while (gr.next() && i < 5){
-				//if(gr.value.toString().indexOf('***New comment on ') != -1){
-					var commenter = '';
-					var commentedBy = gr.sys_created_by.toString();
-					if (commentedBy){
-						var userGr = new GlideRecord('sys_user');
-						userGr.addQuery('user_name',commentedBy);
-						userGr.addQuery('user_name','!=','');
-						userGr.addActiveQuery();
-						userGr.query();
-						userGr.next();
-						commenter = userGr.name.toString();
-					}
-					else{
-						commenter = commentedBy;
-					}
-					commenter = commenter || 'System';
-					var createdOn = new GlideDateTime(gr.sys_created_on);
-					var schedTools = new ScheduleTools();
-					createdOn = new GlideDateTime(schedTools.timeZoneDiff(createdOn,'-6'));
 
-					var createdOnDate = createdOn.getDate();
-					var createdOnTime = new GlideTime();
-					createdOnTime.setValue(createdOn.getTime());
-
-					var variableName = createdOnDate + ' ' + createdOnTime.getByFormat('hh:mm a') + ' - ' + commenter;
-					var variableValue = gr.value.toString();
-					if (variableName && variableValue){
-						//gs.info('value : ' + variableValue + ' index of : ' + variableValue.indexOf('***New comment on '));
-						
-						variableString += variableName + '\n' + variableValue + '\n';
-					}
-				//}
-				i++;
+		var variableString = '';
+		var gr = new GlideRecord('sys_journal_field');
+		gr.addQuery('element_id', documentID);
+		gr.addQuery('element', 'comments');
+		gr.addQuery('name', table);
+		gr.orderByDesc('sys_created_on');
+		gr.query();
+		if(!gr.hasNext()){
+			return '';
+		}
+		var i = 0;
+		while (gr.next() && i < 5){
+			//if(gr.value.toString().indexOf('***New comment on ') != -1){
+			var commenter = '';
+			var commentedBy = gr.sys_created_by.toString();
+			if (commentedBy){
+				var userGr = new GlideRecord('sys_user');
+				userGr.addQuery('user_name',commentedBy);
+				userGr.addQuery('user_name','!=','');
+				userGr.addActiveQuery();
+				userGr.query();
+				userGr.next();
+				commenter = userGr.name.toString();
 			}
-		
+			else{
+				commenter = commentedBy;
+			}
+			commenter = commenter || 'System';
+			var createdOn = new GlideDateTime(gr.sys_created_on);
+			var schedTools = new ScheduleTools();
+			createdOn = new GlideDateTime(schedTools.timeZoneDiff(createdOn,'-6'));
+
+			var createdOnDate = createdOn.getDate();
+			var createdOnTime = new GlideTime();
+			createdOnTime.setValue(createdOn.getTime());
+
+			var variableName = createdOnDate + ' ' + createdOnTime.getByFormat('hh:mm a') + ' - ' + commenter;
+			var variableValue = gr.value.toString();
+			if (variableName && variableValue){
+				//gs.info('value : ' + variableValue + ' index of : ' + variableValue.indexOf('***New comment on '));
+
+				variableString += variableName + '\n' + variableValue + '\n';
+			}
+			//}
+			i++;
+		}
+
 		return variableString;
 	},
 	/**SNDOC
@@ -938,7 +944,7 @@ ModularNotificationsBuilder.prototype = {
 	setGlobalUrl: function() {
 		if (this.table && this.documentID) {
 			this.globalURL = '/sp/?id=ticket&table=' + this.table + '&sys_id=' + this.documentID + '&sysparm_view=portal';
-			if(this.table == 'sysapproval_approver' || (this.table == 'change_request') && (this.action == 'approved' || this.action == 'rejected')){
+			if((this.action == 'assignedtomygroup' || this.action == 'assignedtome') || (this.table == 'sysapproval_approver' || (this.table == 'change_request') && (this.action == 'approved' || this.action == 'rejected'))){
 				//If it's a non-itil user
 				if(this.type == 'sp')
 				{
@@ -1107,17 +1113,17 @@ ModularNotificationsBuilder.prototype = {
 			To modify this html section, copy between quotes into a HTML beautifier and edit
 			To pull the edited html back in, copy the edited and beautified HTML into a minifier to remove new lines
 			*/
-		
+
 		/*
 		THIS WAS PULLED OUT
-		
+
 		this.provideFeedback + ' </strong> </div></td></tr></table> </div></div></div></td></tr></table> </td></tr></table> </td></tr><tr> <td style=padding:0;background-color: ' + 
 		*/
-		
+
 		this.subject = this.customSubject || this.subject;
 		this.information = this.customInformation || this.information;
 		this.moreInformation = this.customMoreInformation || this.moreInformation;
-		
+
 		var html = this.adaptiveCard + ' <style>table, td{color: #000}a{color: #00e; text-decoration: underline}#u_content_text_7 a{color: #FDFDFD}body{margin: 0; padding: 0}table, td, tr{border-collapse: collapse; padding: 0}p{margin: 0}</style><table style="border-collapse:collapse;table-layout:fixed;border-spacing:0;vertical-align:top;min-width:320px;Margin:0 auto;background-color:#d0e8f2;width:100%"> <tr style=vertical-align:top> <td style=word-break:break-word;border-collapse:collapse!important;vertical-align:top> <table style="border-collapse:collapse;border-spacing:0;width:100%"> <tr> <td style=text-align:center> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=padding:0; align=center> <table style=border-collapse:collapse;border-spacing:0;width:600px;background-color:#FDFDFD> <tr style=background-color:#FDFDFD> <td style="width:300px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;background-color:#FDFDFD" align=center valign=top width=300> <div style=max-width:320px;min-width:300px;display:table-cell;vertical-align:top> <div style=width:100%!important> <div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 10px 20px;" align=left> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=padding-right:0;padding-left:0 align=left class=v-text-align> <a href=https://apigroup.service-now.com/ target=_blank><img alt=Logo class="v-src-max-width v-src-width" src=' + 
 			this.images.apiLogo + ' style=text-align:left;outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:51%;max-width:65px width=65px title=Logo></a> </td></tr></table> </td></tr></table> </div></div></div><td style="width:300px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;background-color:#FDFDFD" align=center valign=top width=300> <div style=max-width:320px;min-width:300px;display:table-cell;vertical-align:top class="u-col u-col-50"> <div style=width:100%!important> <div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=overflow-wrap:break-word;word-break:break-word;padding:10px;text-align:left> <div style=text-align:center class=menu> <table style=border-collapse:collapse;border-spacing:0;text-align:center> <tr> ' + 
 			this.urlHTML + ' </tr></table> </div></td></tr></table> </div></div></div></td></tr></table> </td></tr></table> <tr> <td> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=padding:0;background-color:transparent align=center> <table style=border-collapse:collapse;border-spacing:0;width:600px> <tr style=background-color: ' + 
@@ -1132,14 +1138,15 @@ ModularNotificationsBuilder.prototype = {
 			this.colors.apiBlue + '" align=center valign=top width=600> <div style=max-width:320px;min-width:600px;display:table-cell;vertical-align:top;background-color: ' + 
 			this.colors.apiBlue + ' class="u-col u-col-100"> <div style=width:100%!important> <div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent"> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0;text-align:left"> <div style=color:#FDFDFD;line-height:140%;text-align:center;word-wrap:break-word class=v-text-align> <p style=font-size:14px;line-height:140%> <strong> ' + 
 			this.provideFeedback + ' </strong> </div></td></tr></table> </div></div></div></td></tr></table> </td></tr></table> </td></tr><tr> <td style=padding:0;background-color: ' + 
-			
-			
+
+
 			this.colors.apiBlue + ' > <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=padding:0;background-color: ' + 
 			this.colors.apiBlue + ' align=center> <table style=border-collapse:collapse;border-spacing:0;width:600px> <tr> <td style="width:400px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0;background-color: ' + 
 			this.colors.apiBlue + '" align=center valign=bottom width=400> <div style=max-width:320px;min-width:400px;display:table-cell;vertical-align:bottom; class="u-col u-col-66p67"> <div style=width:100%!important;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0> <div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0;"> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style="vertical-align:bottom;overflow-wrap:break-word;word-break:break-word;padding: 0px 0px 10px 10px;text-align:left"> <img src=' + 
 			this.images.footerImageLeft + ' height=23> </td></tr></table> </div></div></div><td style=" width:200px;padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0;background-color: ' + 
 			this.colors.apiBlue + '" align=center valign=bottom width=200> <div style=max-width:320px;min-width:200px;display:table-cell;vertical-align:bottom; class="u-col u-col-33p33"> <div style=width:100%!important;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0> <div style="padding:0;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0"> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=overflow-wrap:break-word;word-break:break-word;padding:10px;text-align:left> <table style=border-collapse:collapse;border-spacing:0;width:100%> <tr> <td style=padding-right:0;padding-left:0; padding-bottom:3px align=right class=v-text-align> <img class="v-src-max-width v-src-width" src=' + 
 			this.images.footerImageRight + ' style=text-align:right;outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:30%;max-width:54px width=54> </td></tr></table> </td></tr></table> </div></div></div></td></tr></table> </div></div></div></td></tr></table> </td></tr></table></td></tr></table></td></tr></table>';
+		gs.info(html);
 		return html;
 	},
 	type: 'ModularNotificationsBuilder'
@@ -1148,13 +1155,13 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>40</sys_mod_count>
+        <sys_mod_count>46</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-01-30 22:08:20</sys_updated_on>
+        <sys_updated_on>2023-02-03 16:27:28</sys_updated_on>
     </sys_script_include>
 </record_update>
