@@ -29,7 +29,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>49d49f751bdfbc5062e50ed2cd4bcbea</sys_id>
-        <sys_mod_count>41</sys_mod_count>
+        <sys_mod_count>44</sys_mod_count>
         <sys_name>Send Modular Notification</sys_name>
         <sys_overrides/>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
@@ -37,7 +37,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_flow_49d49f751bdfbc5062e50ed2cd4bcbea</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:14</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:24</sys_updated_on>
         <type>subflow</type>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=49d49f751bdfbc5062e50ed2cd4bcbea"/>
@@ -1157,10 +1157,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-20 15:00:27</sys_created_on>
         <sys_id>0e06d7f51bdfbc5062e50ed2cd4bcbe5</sys_id>
-        <sys_mod_count>258</sys_mod_count>
+        <sys_mod_count>268</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:13</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-03-01 17:28:55</sys_updated_on>
         <ui_id>576f4f09-a997-4837-898b-5a793b2f67d7</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=0e06d7f51bdfbc5062e50ed2cd4bcbe5"/>
@@ -1218,10 +1218,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:32:54</sys_created_on>
         <sys_id>17acc82e1bd911508c5143f3cc4bcb02</sys_id>
-        <sys_mod_count>192</sys_mod_count>
+        <sys_mod_count>202</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:12</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-03-01 17:28:55</sys_updated_on>
         <ui_id>1d37510a-55d1-4e78-8900-85ccf6cedaf9</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=17acc82e1bd911508c5143f3cc4bcb02"/>
@@ -1254,10 +1254,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:32:54</sys_created_on>
         <sys_id>1bacc82e1bd911508c5143f3cc4bcb0f</sys_id>
-        <sys_mod_count>192</sys_mod_count>
+        <sys_mod_count>202</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:12</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-03-01 17:28:55</sys_updated_on>
         <ui_id>04946c78-32df-45ad-b50a-f9880d2d86b4</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=1bacc82e1bd911508c5143f3cc4bcb0f"/>
@@ -1342,10 +1342,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:07:24</sys_created_on>
         <sys_id>3dd608261bd911508c5143f3cc4bcbb4</sys_id>
-        <sys_mod_count>202</sys_mod_count>
+        <sys_mod_count>212</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:12</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-03-01 17:28:55</sys_updated_on>
         <ui_id>c18ff672-7d15-41e8-9150-0b6ab4a1a682</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=3dd608261bd911508c5143f3cc4bcbb4"/>
@@ -1404,10 +1404,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-15 20:05:23</sys_created_on>
         <sys_id>732f84d61b91dd108c5143f3cc4bcb53</sys_id>
-        <sys_mod_count>224</sys_mod_count>
+        <sys_mod_count>234</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:13</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-03-01 17:28:55</sys_updated_on>
         <ui_id>7f3cb661-63d1-47f7-8318-1523a7f050a8</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=732f84d61b91dd108c5143f3cc4bcb53"/>
@@ -1466,10 +1466,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:07:24</sys_created_on>
         <sys_id>75d608261bd911508c5143f3cc4bcbbf</sys_id>
-        <sys_mod_count>200</sys_mod_count>
+        <sys_mod_count>210</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:12</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-03-01 17:28:55</sys_updated_on>
         <ui_id>c0c61a6c-2ce1-4ef6-adcb-7bf80e7ad738</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=75d608261bd911508c5143f3cc4bcbbf"/>
@@ -1514,10 +1514,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-15 20:05:23</sys_created_on>
         <sys_id>7f2f84d61b91dd108c5143f3cc4bcb47</sys_id>
-        <sys_mod_count>224</sys_mod_count>
+        <sys_mod_count>234</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:13</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-03-01 17:28:55</sys_updated_on>
         <ui_id>60f8f09d-c11b-4f51-ba2e-e8f6e4b9cf65</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=7f2f84d61b91dd108c5143f3cc4bcb47"/>
@@ -1562,10 +1562,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:10:17</sys_created_on>
         <sys_id>c0870c661bd911508c5143f3cc4bcb09</sys_id>
-        <sys_mod_count>194</sys_mod_count>
+        <sys_mod_count>204</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:13</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-03-01 17:28:55</sys_updated_on>
         <ui_id>ce7bc658-62e4-47dc-b7e3-b3ad59b23ccb</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=c0870c661bd911508c5143f3cc4bcb09"/>
@@ -1624,10 +1624,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-12-16 21:55:10</sys_created_on>
         <sys_id>afd3c2b11b37595062e50ed2cd4bcbb8</sys_id>
-        <sys_mod_count>86</sys_mod_count>
+        <sys_mod_count>92</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:13</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:24</sys_updated_on>
         <ui_id>c7637b68-edd4-44cb-b611-0038212ff3e6</ui_id>
     </sys_hub_sub_flow_instance>
     <sys_variable_value action="delete_multiple" query="document_key=afd3c2b11b37595062e50ed2cd4bcbb8"/>
@@ -1818,10 +1818,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2023-02-24 16:28:21</sys_created_on>
         <sys_id>2a585dd01b1569108c5143f3cc4bcb71</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:12</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:22</sys_updated_on>
         <ui_id>af089df4-13e4-4063-aa1a-b4a39f7d8954</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -1864,10 +1864,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:07:24</sys_created_on>
         <sys_id>31d608261bd911508c5143f3cc4bcbc1</sys_id>
-        <sys_mod_count>80</sys_mod_count>
+        <sys_mod_count>83</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:12</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:22</sys_updated_on>
         <ui_id>e26664e7-4190-4dff-bc62-d421867cac18</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -1910,10 +1910,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-15 20:05:23</sys_created_on>
         <sys_id>332f84d61b91dd108c5143f3cc4bcb4a</sys_id>
-        <sys_mod_count>93</sys_mod_count>
+        <sys_mod_count>96</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:13</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:23</sys_updated_on>
         <ui_id>469b2952-6447-48b1-aace-6110929880cf</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -1956,10 +1956,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-12 18:44:43</sys_created_on>
         <sys_id>33e8aa701b26111062e50ed2cd4bcbc1</sys_id>
-        <sys_mod_count>48</sys_mod_count>
+        <sys_mod_count>51</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:12</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:22</sys_updated_on>
         <ui_id>bc1c8ec5-1f3f-4aa7-99a6-9a60dbb64c73</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -2165,10 +2165,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-12 18:44:44</sys_created_on>
         <sys_id>44f8ea701b26111062e50ed2cd4bcb18</sys_id>
-        <sys_mod_count>48</sys_mod_count>
+        <sys_mod_count>51</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:13</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:23</sys_updated_on>
         <ui_id>94a71293-afaf-44ef-956a-d16e1c14b2b9</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -2373,10 +2373,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-12-16 21:55:09</sys_created_on>
         <sys_id>4fd3c2b11b37595062e50ed2cd4bcb15</sys_id>
-        <sys_mod_count>45</sys_mod_count>
+        <sys_mod_count>48</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:11</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:21</sys_updated_on>
         <ui_id>a62f98f0-7ac6-493c-abfd-fe2c7ed68fcb</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -2407,10 +2407,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:32:54</sys_created_on>
         <sys_id>57acc82e1bd911508c5143f3cc4bcb12</sys_id>
-        <sys_mod_count>74</sys_mod_count>
+        <sys_mod_count>77</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:12</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:22</sys_updated_on>
         <ui_id>a6949c75-bf5c-41fb-94af-6f66e5c64e3d</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -2479,10 +2479,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2023-02-16 20:35:21</sys_created_on>
         <sys_id>6e2481f91b85a1508c5143f3cc4bcbaf</sys_id>
-        <sys_mod_count>44</sys_mod_count>
+        <sys_mod_count>47</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:12</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:22</sys_updated_on>
         <ui_id>97269050-ea98-437d-a27d-01e7426b89a5</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -2496,26 +2496,26 @@
         <input_name>number</input_name>
         <instance>6e2481f91b85a1508c5143f3cc4bcbaf</instance>
         <referenced_table>sys_hub_flow_logic</referenced_table>
-        <script>{"number":{"scriptActive":true,"script":"var table \u003d fd_data.subflow_inputs.table3.toString();\nvar docId \u003d fd_data.subflow_inputs.document_id.toString();\nvar currentNumber \u003d fd_data.flow_var.number.toString();\n\t\n  //validate that the table exists\n  var tableGr \u003d new GlideRecord(\u0027sys_dictionary\u0027);\n  tableGr.addQuery(\u0027internal_type\u003dcollection^name\u003d\u0027 + table);\n  tableGr.query();\n  var tableExists \u003d tableGr.next();\nif(!tableExists){\n    return currentNumber;\n}\nvar taskGr \u003d new GlideRecord(table);\nif(taskGr.get(docId)){\n    currentNumber \u003d !gs.nil(taskGr.number.toString()) ? taskGr.number.toString() : currentNumber\n}\nreturn currentNumber;"}}</script>
+        <script>{"number":{"scriptActive":true,"script":"var table \u003d fd_data.subflow_inputs.table3.toString();\nvar docId \u003d fd_data.subflow_inputs.document_id.toString();\nvar currentNumber \u003d fd_data.flow_var.number.toString();\n\t\n  //validate that the table exists\n  var tableGr \u003d new GlideRecord(\u0027sys_dictionary\u0027);\n  tableGr.addQuery(\u0027internal_type\u003dcollection^name\u003d\u0027 + table);\n  tableGr.query();\n  var tableExists \u003d tableGr.next();\nif(!tableExists){\n    return currentNumber;\n}\nvar taskGr \u003d new GlideRecord(table);\nif(taskGr.get(docId)){\n    currentNumber \u003d !gs.nil(taskGr.number) ? taskGr.number.toString() : currentNumber\n}\nreturn currentNumber;"}}</script>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2023-02-24 16:25:55</sys_created_on>
         <sys_id>3ec719901b1569108c5143f3cc4bcba6</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:24:18</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:01:12</sys_updated_on>
     </sys_hub_input_scripts>
     <sys_hub_input_scripts action="INSERT_OR_UPDATE">
         <active>true</active>
         <input_name>debug_info</input_name>
         <instance>6e2481f91b85a1508c5143f3cc4bcbaf</instance>
         <referenced_table>sys_hub_flow_logic</referenced_table>
-        <script>{"debug_info":{"scriptActive":true,"script":"try {\n  var debugInfo \u003d \u0027\u0027;\n\n  // Get table and tableId values from subflow inputs\n  var table \u003d fd_data.subflow_inputs.table3.toString();\n  var tableId \u003d fd_data.subflow_inputs.document_id.toString();\n\n  // Initialize variables\n  var varString \u003d \u0027\u0027;\n  var subject \u003d fd_data.subflow_inputs.subject1.toString();\n  var recipientString \u003d \u0027\u0027;\n  var recipientEmails \u003d fd_data.subflow_inputs.recipient_csv_emails.toString();\n  var recipientIds \u003d fd_data.subflow_inputs.recipient_csv_sys_ids.toString();\n  var varList \u003d fd_data.subflow_inputs.varList;\n  var recipientList \u003d fd_data.subflow_inputs.recipients;\n  // Build string for a list of variables\n  for (var i \u003d 0; i \u003c varList.length; i++) {\n    varString +\u003d JSON.stringify(varList[i]) + \"\\n\";\n  }\n  \n  // Build string for a list of recipients\n  for (var j \u003d 0; j \u003c recipientList.length; j++) {\n    recipientString +\u003d recipientList[j].name.toString() + \"\\n\";\n  } \n\n  // Build debugInfo string with variable names and values\n  var debugInfo \u003d \u0027varString: \u0027 + varString + \u0027\\n\u0027 + \u0027subject: \u0027 + subject + \u0027\\n\u0027;\n      debugInfo +\u003d recipientString ? \u0027recipientString: \u0027 + recipientString + \u0027\\n\u0027 : \u0027\u0027;\n      debugInfo +\u003d recipientEmails ? \u0027recipientEmails: \u0027 + recipientEmails + \u0027\\n\u0027 : \u0027\u0027;\n      debugInfo +\u003d recipientIds ? \u0027recipientIds: \u0027 + recipientIds + \u0027\\n\u0027 : \u0027\u0027;\n  var tableInfo \u003d \u0027table: \u0027 + table + \u0027\\n\u0027 + \u0027tableId: \u0027 + tableId;\n\t\n  //validate that the table exists\n  var tableGr \u003d new GlideRecord(\u0027sys_dictionary\u0027);\n  tableGr.addQuery(\u0027internal_type\u003dcollection^name\u003d\u0027 + table);\n  tableGr.query();\n  var tableExists \u003d tableGr.next();\n  \n  // If table and tableId values are not empty, query the table for sys_id\u003dtableId\n  if (tableExists \u0026\u0026 !gs.nil(table) \u0026\u0026 !gs.nil(tableId)) {\n    var gr \u003d new GlideRecord(table);\n    gr.get(tableId);\n    gr.query();\n\n    debugInfo +\u003d gr.next() \u0026\u0026 !gs.nil(gr.number.toString()) ? \u0027Task Number: \u0027 + gr.number.toString() + \u0027\\n\u0027 : \u0027\u0027;\n  } \n  // If table or tableId value is empty, append their names and values to debugInfo\n  else {\n    debugInfo +\u003d tableInfo;\n  }\n\n  return debugInfo;\n} \n// Catch any errors that occur and return a generic error message\ncatch (e) {\n  return \u0027Failed to generate debug info: \u0027 + e;\n}"}}</script>
+        <script>{"debug_info":{"scriptActive":true,"script":"try {\n  var debugInfo \u003d \u0027\u0027;\n\n  // Get table and tableId values from subflow inputs\n  var table \u003d fd_data.subflow_inputs.table3.toString();\n  var tableId \u003d fd_data.subflow_inputs.document_id.toString();\n\n  // Initialize variables\n  var varString \u003d \u0027\u0027;\n  var subject \u003d fd_data.subflow_inputs.subject1.toString();\n  var recipientString \u003d \u0027\u0027;\n  var recipientEmails \u003d fd_data.subflow_inputs.recipient_csv_emails.toString();\n  var recipientIds \u003d fd_data.subflow_inputs.recipient_csv_sys_ids.toString();\n  var varList \u003d fd_data.subflow_inputs.varList;\n  var recipientList \u003d fd_data.subflow_inputs.recipients;\n  // Build string for a list of variables\n  for (var i \u003d 0; i \u003c varList.length; i++) {\n    varString +\u003d JSON.stringify(varList[i]) + \"\\n\";\n  }\n  \n  // Build string for a list of recipients\n  for (var j \u003d 0; j \u003c recipientList.length; j++) {\n    recipientString +\u003d recipientList[j].name.toString() + \"\\n\";\n  } \n\n  // Build debugInfo string with variable names and values\n  var debugInfo \u003d \u0027varString: \u0027 + varString + \u0027\\n\u0027 + \u0027subject: \u0027 + subject + \u0027\\n\u0027;\n      debugInfo +\u003d recipientString ? \u0027recipientString: \u0027 + recipientString + \u0027\\n\u0027 : \u0027\u0027;\n      debugInfo +\u003d recipientEmails ? \u0027recipientEmails: \u0027 + recipientEmails + \u0027\\n\u0027 : \u0027\u0027;\n      debugInfo +\u003d recipientIds ? \u0027recipientIds: \u0027 + recipientIds + \u0027\\n\u0027 : \u0027\u0027;\n  var tableInfo \u003d \u0027table: \u0027 + table + \u0027\\n\u0027 + \u0027tableId: \u0027 + tableId;\n\t\n  //validate that the table exists\n  var tableGr \u003d new GlideRecord(\u0027sys_dictionary\u0027);\n  tableGr.addQuery(\u0027internal_type\u003dcollection^name\u003d\u0027 + table);\n  tableGr.query();\n  var tableExists \u003d tableGr.next();\n  \n  // If table and tableId values are not empty, query the table for sys_id\u003dtableId\n  if (tableExists \u0026\u0026 !gs.nil(table) \u0026\u0026 !gs.nil(tableId)) {\n    var gr \u003d new GlideRecord(table);\n    gr.get(tableId);\n    gr.query();\n\n    debugInfo +\u003d gr.next() \u0026\u0026 !gs.nil(gr.number) ? \u0027Task Number: \u0027 + gr.number.toString() + \u0027\\n\u0027 : \u0027\u0027;\n  } \n  // If table or tableId value is empty, append their names and values to debugInfo\n  else {\n    debugInfo +\u003d tableInfo;\n  }\n\n  return debugInfo;\n} \n// Catch any errors that occur and return a generic error message\ncatch (e) {\n  return \u0027Failed to generate debug info: \u0027 + e;\n}"}}</script>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2023-02-16 20:35:21</sys_created_on>
         <sys_id>ee2481f91b85a1508c5143f3cc4bcbb0</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:49:32</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:01:12</sys_updated_on>
     </sys_hub_input_scripts>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
         <block display_value="">080520de1b16d55062e50ed2cd4bcb36</block>
@@ -2539,10 +2539,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:07:24</sys_created_on>
         <sys_id>7dd608261bd911508c5143f3cc4bcbb6</sys_id>
-        <sys_mod_count>80</sys_mod_count>
+        <sys_mod_count>83</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:12</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:22</sys_updated_on>
         <ui_id>b4438378-9b30-4bff-b4f0-7a83f012512b</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -2586,10 +2586,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-15 20:05:23</sys_created_on>
         <sys_id>bb2f84d61b91dd108c5143f3cc4bcb31</sys_id>
-        <sys_mod_count>93</sys_mod_count>
+        <sys_mod_count>96</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:13</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:23</sys_updated_on>
         <ui_id>48714106-4016-4041-a439-5e3764651141</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -2658,10 +2658,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-12-16 21:55:10</sys_created_on>
         <sys_id>d7d3c2b11b37595062e50ed2cd4bcbb4</sys_id>
-        <sys_mod_count>45</sys_mod_count>
+        <sys_mod_count>48</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:13</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:23</sys_updated_on>
         <ui_id>cc03d3f5-8f3c-4aba-a8ba-c6f2ed3a4be5</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -2675,10 +2675,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-12-16 21:55:10</sys_created_on>
         <sys_id>27d3c2b11b37595062e50ed2cd4bcbb8</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:24:20</sys_updated_on>
-        <value>{"version":"1.0","complexObjectSchema":{"FlowDesigner:FDACTIONSTATUS":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDACTIONSTATUS.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"4adfb7bc-9d67-498d-88d0-8d6c3d584fed\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDACTIONSTATUS\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"serializationFormat":"JSON","complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}}}</value>
+        <sys_updated_on>2023-03-01 16:01:14</sys_updated_on>
+        <value>{"version":"1.0","complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"complexObjectSchema":{"FlowDesigner:FDACTIONSTATUS":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDACTIONSTATUS.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"4adfb7bc-9d67-498d-88d0-8d6c3d584fed\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDACTIONSTATUS\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"serializationFormat":"JSON"}</value>
         <variable display_value="Error Status">c78d433e5bdb2010b61ea2013781c7f0</variable>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_49d49f751bdfbc5062e50ed2cd4bcbea^id=d7d3c2b11b37595062e50ed2cd4bcbb4"/>
@@ -2707,10 +2707,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-03-24 12:44:28</sys_created_on>
         <sys_id>dd5585b71b928dd062e50ed2cd4bcb41</sys_id>
-        <sys_mod_count>96</sys_mod_count>
+        <sys_mod_count>99</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:13</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:23</sys_updated_on>
         <ui_id>321926ed-ef56-4759-82b6-46bcfaf89483</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -2779,10 +2779,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:32:54</sys_created_on>
         <sys_id>dfacc82e1bd911508c5143f3cc4bcb1c</sys_id>
-        <sys_mod_count>75</sys_mod_count>
+        <sys_mod_count>78</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:12</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:23</sys_updated_on>
         <ui_id>1570bd91-d7a3-4802-9d1a-9dfdae45b707</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -2813,10 +2813,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-15 20:06:27</sys_created_on>
         <sys_id>e36f401a1b91dd108c5143f3cc4bcb84</sys_id>
-        <sys_mod_count>92</sys_mod_count>
+        <sys_mod_count>95</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:13</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:23</sys_updated_on>
         <ui_id>c7efd199-4a31-4d66-b4a9-5546ca4b89d5</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -2886,10 +2886,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-15 20:05:23</sys_created_on>
         <sys_id>f32f84d61b91dd108c5143f3cc4bcb2e</sys_id>
-        <sys_mod_count>93</sys_mod_count>
+        <sys_mod_count>96</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:13</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:23</sys_updated_on>
         <ui_id>1b7d9ed0-8060-45f6-8140-98f8af2c7685</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -2933,10 +2933,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:07:24</sys_created_on>
         <sys_id>f5d608261bd911508c5143f3cc4bcbab</sys_id>
-        <sys_mod_count>79</sys_mod_count>
+        <sys_mod_count>82</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:12</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:22</sys_updated_on>
         <ui_id>e49ebd9f-f56b-4a61-8caa-9b03004b685b</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -3006,10 +3006,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:00:07</sys_created_on>
         <sys_id>fe250c621bd911508c5143f3cc4bcbeb</sys_id>
-        <sys_mod_count>85</sys_mod_count>
+        <sys_mod_count>88</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:12</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:22</sys_updated_on>
         <ui_id>72b3865e-8dbe-4642-b016-cba608572e5e</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -3587,19 +3587,19 @@
     <sys_flow_trigger_plan action="delete_multiple" query="plan_id=49d49f751bdfbc5062e50ed2cd4bcbea"/>
     <sys_flow_subflow_plan action="delete_multiple" query="plan_id=49d49f751bdfbc5062e50ed2cd4bcbea^sys_idNOT IN452023b11b13fc5062e50ed2cd4bcb57"/>
     <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
-        <plan>com.snc.process_flow.engine.ProcessPlan@f7903</plan>
+        <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_subflow_plan","id":"452023b11b13fc5062e50ed2cd4bcb57","name":"plan","plan_signature":null}}</plan>
         <plan_id display_value="Send Modular Notification">49d49f751bdfbc5062e50ed2cd4bcbea</plan_id>
-        <snapshot>e420ef711b13fc5062e50ed2cd4bcb8a</snapshot>
+        <snapshot>06265b391b19a11062e50ed2cd4bcb6d</snapshot>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-20 15:44:38</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>452023b11b13fc5062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>32</sys_mod_count>
+        <sys_mod_count>33</sys_mod_count>
         <sys_overrides/>
         <sys_scope/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:10</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:21</sys_updated_on>
     </sys_flow_subflow_plan>
     <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
         <access>public</access>
@@ -3629,7 +3629,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>e420ef711b13fc5062e50ed2cd4bcb8a</sys_id>
-        <sys_mod_count>34</sys_mod_count>
+        <sys_mod_count>35</sys_mod_count>
         <sys_name/>
         <sys_overrides/>
         <sys_package/>
@@ -3637,7 +3637,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name/>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:05</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:16</sys_updated_on>
         <type>subflow</type>
     </sys_hub_flow_snapshot>
     <sys_translated_text action="delete_multiple" query="documentkey=e420ef711b13fc5062e50ed2cd4bcb8a"/>
@@ -4757,10 +4757,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-15 20:05:26</sys_created_on>
         <sys_id>243f08d61b91dd108c5143f3cc4bcbd7</sys_id>
-        <sys_mod_count>134</sys_mod_count>
+        <sys_mod_count>138</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:05</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:15</sys_updated_on>
         <ui_id>7f3cb661-63d1-47f7-8318-1523a7f050a8</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=243f08d61b91dd108c5143f3cc4bcbd7"/>
@@ -4819,10 +4819,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:33:31</sys_created_on>
         <sys_id>54dc406e1bd911508c5143f3cc4bcb8c</sys_id>
-        <sys_mod_count>118</sys_mod_count>
+        <sys_mod_count>122</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:03</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:14</sys_updated_on>
         <ui_id>1d37510a-55d1-4e78-8900-85ccf6cedaf9</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=54dc406e1bd911508c5143f3cc4bcb8c"/>
@@ -4855,10 +4855,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:33:31</sys_created_on>
         <sys_id>94dc406e1bd911508c5143f3cc4bcb96</sys_id>
-        <sys_mod_count>118</sys_mod_count>
+        <sys_mod_count>122</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:03</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:14</sys_updated_on>
         <ui_id>04946c78-32df-45ad-b50a-f9880d2d86b4</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=94dc406e1bd911508c5143f3cc4bcb96"/>
@@ -4943,10 +4943,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:33:31</sys_created_on>
         <sys_id>9cdc406e1bd911508c5143f3cc4bcba2</sys_id>
-        <sys_mod_count>118</sys_mod_count>
+        <sys_mod_count>122</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:04</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:15</sys_updated_on>
         <ui_id>ce7bc658-62e4-47dc-b7e3-b3ad59b23ccb</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=9cdc406e1bd911508c5143f3cc4bcba2"/>
@@ -5004,10 +5004,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-15 20:05:26</sys_created_on>
         <sys_id>a03f08d61b91dd108c5143f3cc4bcbce</sys_id>
-        <sys_mod_count>134</sys_mod_count>
+        <sys_mod_count>138</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:05</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:15</sys_updated_on>
         <ui_id>60f8f09d-c11b-4f51-ba2e-e8f6e4b9cf65</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=a03f08d61b91dd108c5143f3cc4bcbce"/>
@@ -5052,10 +5052,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:07:57</sys_created_on>
         <sys_id>a1f64c261bd911508c5143f3cc4bcb69</sys_id>
-        <sys_mod_count>122</sys_mod_count>
+        <sys_mod_count>126</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:03</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:14</sys_updated_on>
         <ui_id>c18ff672-7d15-41e8-9150-0b6ab4a1a682</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=a1f64c261bd911508c5143f3cc4bcb69"/>
@@ -5114,10 +5114,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-20 15:44:37</sys_created_on>
         <sys_id>c12023b11b13fc5062e50ed2cd4bcb2f</sys_id>
-        <sys_mod_count>140</sys_mod_count>
+        <sys_mod_count>144</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:05</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:15</sys_updated_on>
         <ui_id>576f4f09-a997-4837-898b-5a793b2f67d7</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=c12023b11b13fc5062e50ed2cd4bcb2f"/>
@@ -5175,10 +5175,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:07:57</sys_created_on>
         <sys_id>fdf64c261bd911508c5143f3cc4bcb72</sys_id>
-        <sys_mod_count>122</sys_mod_count>
+        <sys_mod_count>126</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:04</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:14</sys_updated_on>
         <ui_id>c0c61a6c-2ce1-4ef6-adcb-7bf80e7ad738</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=fdf64c261bd911508c5143f3cc4bcb72"/>
@@ -5224,10 +5224,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-12-16 21:55:21</sys_created_on>
         <sys_id>7de3c6b11b37595062e50ed2cd4bcb86</sys_id>
-        <sys_mod_count>74</sys_mod_count>
+        <sys_mod_count>78</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:05</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:16</sys_updated_on>
         <ui_id>c7637b68-edd4-44cb-b611-0038212ff3e6</ui_id>
     </sys_hub_sub_flow_instance>
     <sys_variable_value action="delete_multiple" query="document_key=7de3c6b11b37595062e50ed2cd4bcb86"/>
@@ -5418,10 +5418,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-12 18:44:52</sys_created_on>
         <sys_id>02f86e701b26111062e50ed2cd4bcbe5</sys_id>
-        <sys_mod_count>43</sys_mod_count>
+        <sys_mod_count>45</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:05</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:15</sys_updated_on>
         <ui_id>94a71293-afaf-44ef-956a-d16e1c14b2b9</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -5626,10 +5626,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:33:32</sys_created_on>
         <sys_id>18dc406e1bd911508c5143f3cc4bcbc5</sys_id>
-        <sys_mod_count>65</sys_mod_count>
+        <sys_mod_count>67</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:04</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:15</sys_updated_on>
         <ui_id>1570bd91-d7a3-4802-9d1a-9dfdae45b707</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -5660,10 +5660,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-15 20:05:26</sys_created_on>
         <sys_id>203f48d61b91dd108c5143f3cc4bcb25</sys_id>
-        <sys_mod_count>76</sys_mod_count>
+        <sys_mod_count>78</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:05</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:15</sys_updated_on>
         <ui_id>469b2952-6447-48b1-aace-6110929880cf</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -5705,10 +5705,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-12-16 21:55:19</sys_created_on>
         <sys_id>21e386b11b37595062e50ed2cd4bcbca</sys_id>
-        <sys_mod_count>40</sys_mod_count>
+        <sys_mod_count>42</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:03</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:14</sys_updated_on>
         <ui_id>a62f98f0-7ac6-493c-abfd-fe2c7ed68fcb</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -5739,10 +5739,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:07:57</sys_created_on>
         <sys_id>3df64c261bd911508c5143f3cc4bcb83</sys_id>
-        <sys_mod_count>67</sys_mod_count>
+        <sys_mod_count>69</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:03</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:14</sys_updated_on>
         <ui_id>b4438378-9b30-4bff-b4f0-7a83f012512b</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -5786,10 +5786,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:33:31</sys_created_on>
         <sys_id>58dc406e1bd911508c5143f3cc4bcbbc</sys_id>
-        <sys_mod_count>64</sys_mod_count>
+        <sys_mod_count>66</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:04</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:14</sys_updated_on>
         <ui_id>a6949c75-bf5c-41fb-94af-6f66e5c64e3d</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -5859,10 +5859,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-15 20:05:26</sys_created_on>
         <sys_id>603f48d61b91dd108c5143f3cc4bcb02</sys_id>
-        <sys_mod_count>76</sys_mod_count>
+        <sys_mod_count>78</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:04</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:15</sys_updated_on>
         <ui_id>321926ed-ef56-4759-82b6-46bcfaf89483</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -5932,10 +5932,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:07:57</sys_created_on>
         <sys_id>71f64c261bd911508c5143f3cc4bcb80</sys_id>
-        <sys_mod_count>66</sys_mod_count>
+        <sys_mod_count>68</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:03</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:14</sys_updated_on>
         <ui_id>e49ebd9f-f56b-4a61-8caa-9b03004b685b</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -6005,10 +6005,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:07:57</sys_created_on>
         <sys_id>7df64c261bd911508c5143f3cc4bcb86</sys_id>
-        <sys_mod_count>68</sys_mod_count>
+        <sys_mod_count>70</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:04</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:14</sys_updated_on>
         <ui_id>e26664e7-4190-4dff-bc62-d421867cac18</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -6050,10 +6050,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2023-02-16 20:50:04</sys_created_on>
         <sys_id>9287c5711bc5a1508c5143f3cc4bcba1</sys_id>
-        <sys_mod_count>40</sys_mod_count>
+        <sys_mod_count>42</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:03</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:14</sys_updated_on>
         <ui_id>97269050-ea98-437d-a27d-01e7426b89a5</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -6067,26 +6067,26 @@
         <input_name>number</input_name>
         <instance>9287c5711bc5a1508c5143f3cc4bcba1</instance>
         <referenced_table>sys_hub_flow_logic</referenced_table>
-        <script>{"number":{"scriptActive":true,"script":"var table \u003d fd_data.subflow_inputs.table3.toString();\nvar docId \u003d fd_data.subflow_inputs.document_id.toString();\nvar currentNumber \u003d fd_data.flow_var.number.toString();\n\t\n  //validate that the table exists\n  var tableGr \u003d new GlideRecord(\u0027sys_dictionary\u0027);\n  tableGr.addQuery(\u0027internal_type\u003dcollection^name\u003d\u0027 + table);\n  tableGr.query();\n  var tableExists \u003d tableGr.next();\nif(!tableExists){\n    return currentNumber;\n}\nvar taskGr \u003d new GlideRecord(table);\nif(taskGr.get(docId)){\n    currentNumber \u003d !gs.nil(taskGr.number.toString()) ? taskGr.number.toString() : currentNumber\n}\nreturn currentNumber;"}}</script>
+        <script>{"number":{"scriptActive":true,"script":"var table \u003d fd_data.subflow_inputs.table3.toString();\nvar docId \u003d fd_data.subflow_inputs.document_id.toString();\nvar currentNumber \u003d fd_data.flow_var.number.toString();\n\t\n  //validate that the table exists\n  var tableGr \u003d new GlideRecord(\u0027sys_dictionary\u0027);\n  tableGr.addQuery(\u0027internal_type\u003dcollection^name\u003d\u0027 + table);\n  tableGr.query();\n  var tableExists \u003d tableGr.next();\nif(!tableExists){\n    return currentNumber;\n}\nvar taskGr \u003d new GlideRecord(table);\nif(taskGr.get(docId)){\n    currentNumber \u003d !gs.nil(taskGr.number) ? taskGr.number.toString() : currentNumber\n}\nreturn currentNumber;"}}</script>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2023-02-24 16:26:06</sys_created_on>
         <sys_id>29d7d9901b1569108c5143f3cc4bcbe2</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:32:01</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:11</sys_updated_on>
     </sys_hub_input_scripts>
     <sys_hub_input_scripts action="INSERT_OR_UPDATE">
         <active>true</active>
         <input_name>debug_info</input_name>
         <instance>9287c5711bc5a1508c5143f3cc4bcba1</instance>
         <referenced_table>sys_hub_flow_logic</referenced_table>
-        <script>{"debug_info":{"scriptActive":true,"script":"try {\n  var debugInfo \u003d \u0027\u0027;\n\n  // Get table and tableId values from subflow inputs\n  var table \u003d fd_data.subflow_inputs.table3.toString();\n  var tableId \u003d fd_data.subflow_inputs.document_id.toString();\n\n  // Initialize variables\n  var varString \u003d \u0027\u0027;\n  var subject \u003d fd_data.subflow_inputs.subject1.toString();\n  var recipientString \u003d \u0027\u0027;\n  var recipientEmails \u003d fd_data.subflow_inputs.recipient_csv_emails.toString();\n  var recipientIds \u003d fd_data.subflow_inputs.recipient_csv_sys_ids.toString();\n  var varList \u003d fd_data.subflow_inputs.varList;\n  var recipientList \u003d fd_data.subflow_inputs.recipients;\n  // Build string for a list of variables\n  for (var i \u003d 0; i \u003c varList.length; i++) {\n    varString +\u003d JSON.stringify(varList[i]) + \"\\n\";\n  }\n  \n  // Build string for a list of recipients\n  for (var j \u003d 0; j \u003c recipientList.length; j++) {\n    recipientString +\u003d recipientList[j].name.toString() + \"\\n\";\n  } \n\n  // Build debugInfo string with variable names and values\n  var debugInfo \u003d \u0027varString: \u0027 + varString + \u0027\\n\u0027 + \u0027subject: \u0027 + subject + \u0027\\n\u0027;\n      debugInfo +\u003d recipientString ? \u0027recipientString: \u0027 + recipientString + \u0027\\n\u0027 : \u0027\u0027;\n      debugInfo +\u003d recipientEmails ? \u0027recipientEmails: \u0027 + recipientEmails + \u0027\\n\u0027 : \u0027\u0027;\n      debugInfo +\u003d recipientIds ? \u0027recipientIds: \u0027 + recipientIds + \u0027\\n\u0027 : \u0027\u0027;\n  var tableInfo \u003d \u0027table: \u0027 + table + \u0027\\n\u0027 + \u0027tableId: \u0027 + tableId;\n\t\n  //validate that the table exists\n  var tableGr \u003d new GlideRecord(\u0027sys_dictionary\u0027);\n  tableGr.addQuery(\u0027internal_type\u003dcollection^name\u003d\u0027 + table);\n  tableGr.query();\n  var tableExists \u003d tableGr.next();\n  \n  // If table and tableId values are not empty, query the table for sys_id\u003dtableId\n  if (tableExists \u0026\u0026 !gs.nil(table) \u0026\u0026 !gs.nil(tableId)) {\n    var gr \u003d new GlideRecord(table);\n    gr.get(tableId);\n    gr.query();\n\n    debugInfo +\u003d gr.next() \u0026\u0026 !gs.nil(gr.number.toString()) ? \u0027Task Number: \u0027 + gr.number.toString() + \u0027\\n\u0027 : \u0027\u0027;\n  } \n  // If table or tableId value is empty, append their names and values to debugInfo\n  else {\n    debugInfo +\u003d tableInfo;\n  }\n\n  return debugInfo;\n} \n// Catch any errors that occur and return a generic error message\ncatch (e) {\n  return \u0027Failed to generate debug info: \u0027 + e;\n}"}}</script>
+        <script>{"debug_info":{"scriptActive":true,"script":"try {\n  var debugInfo \u003d \u0027\u0027;\n\n  // Get table and tableId values from subflow inputs\n  var table \u003d fd_data.subflow_inputs.table3.toString();\n  var tableId \u003d fd_data.subflow_inputs.document_id.toString();\n\n  // Initialize variables\n  var varString \u003d \u0027\u0027;\n  var subject \u003d fd_data.subflow_inputs.subject1.toString();\n  var recipientString \u003d \u0027\u0027;\n  var recipientEmails \u003d fd_data.subflow_inputs.recipient_csv_emails.toString();\n  var recipientIds \u003d fd_data.subflow_inputs.recipient_csv_sys_ids.toString();\n  var varList \u003d fd_data.subflow_inputs.varList;\n  var recipientList \u003d fd_data.subflow_inputs.recipients;\n  // Build string for a list of variables\n  for (var i \u003d 0; i \u003c varList.length; i++) {\n    varString +\u003d JSON.stringify(varList[i]) + \"\\n\";\n  }\n  \n  // Build string for a list of recipients\n  for (var j \u003d 0; j \u003c recipientList.length; j++) {\n    recipientString +\u003d recipientList[j].name.toString() + \"\\n\";\n  } \n\n  // Build debugInfo string with variable names and values\n  var debugInfo \u003d \u0027varString: \u0027 + varString + \u0027\\n\u0027 + \u0027subject: \u0027 + subject + \u0027\\n\u0027;\n      debugInfo +\u003d recipientString ? \u0027recipientString: \u0027 + recipientString + \u0027\\n\u0027 : \u0027\u0027;\n      debugInfo +\u003d recipientEmails ? \u0027recipientEmails: \u0027 + recipientEmails + \u0027\\n\u0027 : \u0027\u0027;\n      debugInfo +\u003d recipientIds ? \u0027recipientIds: \u0027 + recipientIds + \u0027\\n\u0027 : \u0027\u0027;\n  var tableInfo \u003d \u0027table: \u0027 + table + \u0027\\n\u0027 + \u0027tableId: \u0027 + tableId;\n\t\n  //validate that the table exists\n  var tableGr \u003d new GlideRecord(\u0027sys_dictionary\u0027);\n  tableGr.addQuery(\u0027internal_type\u003dcollection^name\u003d\u0027 + table);\n  tableGr.query();\n  var tableExists \u003d tableGr.next();\n  \n  // If table and tableId values are not empty, query the table for sys_id\u003dtableId\n  if (tableExists \u0026\u0026 !gs.nil(table) \u0026\u0026 !gs.nil(tableId)) {\n    var gr \u003d new GlideRecord(table);\n    gr.get(tableId);\n    gr.query();\n\n    debugInfo +\u003d gr.next() \u0026\u0026 !gs.nil(gr.number) ? \u0027Task Number: \u0027 + gr.number.toString() + \u0027\\n\u0027 : \u0027\u0027;\n  } \n  // If table or tableId value is empty, append their names and values to debugInfo\n  else {\n    debugInfo +\u003d tableInfo;\n  }\n\n  return debugInfo;\n} \n// Catch any errors that occur and return a generic error message\ncatch (e) {\n  return \u0027Failed to generate debug info: \u0027 + e;\n}"}}</script>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2023-02-16 20:50:04</sys_created_on>
         <sys_id>5687c5711bc5a1508c5143f3cc4bcba2</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:00</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:11</sys_updated_on>
     </sys_hub_input_scripts>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
         <block display_value="">c40520de1b16d55062e50ed2cd4bcb57</block>
@@ -6110,10 +6110,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-15 20:05:26</sys_created_on>
         <sys_id>a83f48d61b91dd108c5143f3cc4bcb05</sys_id>
-        <sys_mod_count>76</sys_mod_count>
+        <sys_mod_count>78</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:04</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:15</sys_updated_on>
         <ui_id>1b7d9ed0-8060-45f6-8140-98f8af2c7685</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -6157,10 +6157,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-16 14:01:39</sys_created_on>
         <sys_id>a98544a21bd911508c5143f3cc4bcb4a</sys_id>
-        <sys_mod_count>68</sys_mod_count>
+        <sys_mod_count>70</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:03</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:14</sys_updated_on>
         <ui_id>72b3865e-8dbe-4642-b016-cba608572e5e</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -6203,10 +6203,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2023-02-24 16:28:33</sys_created_on>
         <sys_id>d96851141b1569108c5143f3cc4bcb35</sys_id>
-        <sys_mod_count>16</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:03</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:14</sys_updated_on>
         <ui_id>af089df4-13e4-4063-aa1a-b4a39f7d8954</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -6249,10 +6249,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-15 20:26:03</sys_created_on>
         <sys_id>e2e3941a1bd1dd108c5143f3cc4bcb23</sys_id>
-        <sys_mod_count>74</sys_mod_count>
+        <sys_mod_count>76</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:05</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:15</sys_updated_on>
         <ui_id>c7efd199-4a31-4d66-b4a9-5546ca4b89d5</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -6322,10 +6322,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-08-15 20:05:26</sys_created_on>
         <sys_id>e83f48d61b91dd108c5143f3cc4bcb08</sys_id>
-        <sys_mod_count>76</sys_mod_count>
+        <sys_mod_count>78</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:05</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:15</sys_updated_on>
         <ui_id>48714106-4016-4041-a439-5e3764651141</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -6394,10 +6394,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-12-16 21:55:20</sys_created_on>
         <sys_id>f5e3c6b11b37595062e50ed2cd4bcb83</sys_id>
-        <sys_mod_count>40</sys_mod_count>
+        <sys_mod_count>42</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:05</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:15</sys_updated_on>
         <ui_id>cc03d3f5-8f3c-4aba-a8ba-c6f2ed3a4be5</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
@@ -6411,10 +6411,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-12-16 21:55:21</sys_created_on>
         <sys_id>b9e3c6b11b37595062e50ed2cd4bcb86</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:32:03</sys_updated_on>
-        <value>{"version":"1.0","complexObjectSchema":{"FlowDesigner:FDACTIONSTATUS":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDACTIONSTATUS.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"4adfb7bc-9d67-498d-88d0-8d6c3d584fed\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDACTIONSTATUS\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"serializationFormat":"JSON","complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}}}</value>
+        <sys_updated_on>2023-03-01 16:02:13</sys_updated_on>
+        <value>{"version":"1.0","complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"complexObjectSchema":{"FlowDesigner:FDACTIONSTATUS":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDACTIONSTATUS.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"4adfb7bc-9d67-498d-88d0-8d6c3d584fed\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDACTIONSTATUS\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"serializationFormat":"JSON"}</value>
         <variable display_value="Error Status">c78d433e5bdb2010b61ea2013781c7f0</variable>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_e420ef711b13fc5062e50ed2cd4bcb8a^id=f5e3c6b11b37595062e50ed2cd4bcb83"/>
@@ -6443,10 +6443,10 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-12 18:44:51</sys_created_on>
         <sys_id>fdf86e701b26111062e50ed2cd4bcbb0</sys_id>
-        <sys_mod_count>43</sys_mod_count>
+        <sys_mod_count>45</sys_mod_count>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-02-28 16:50:04</sys_updated_on>
+        <sys_updated_on>2023-03-01 16:02:14</sys_updated_on>
         <ui_id>bc1c8ec5-1f3f-4aa7-99a6-9a60dbb64c73</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
