@@ -56,7 +56,7 @@ if(!gs.nil(current.request)){
         <omit_watermark>false</omit_watermark>
         <order/>
         <push_message_only>false</push_message_only>
-        <recipient_fields>opened_by,requested_for</recipient_fields>
+        <recipient_fields>opened_by</recipient_fields>
         <recipient_groups/>
         <recipient_users/>
         <reply_to/>
@@ -71,7 +71,7 @@ if(!gs.nil(current.request)){
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>1e327c680a0a3c74004d7cf30e81f8a4</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>Request Item commented</sys_name>
         <sys_overrides/>
         <sys_package display_value="Mobile UI" source="com.glide.ui.m">0bf4e4671b211010e7004229bc4bcb9b</sys_package>
@@ -79,7 +79,7 @@ if(!gs.nil(current.request)){
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_1e327c680a0a3c74004d7cf30e81f8a4</sys_update_name>
         <sys_updated_by>John.Schwab</sys_updated_by>
-        <sys_updated_on>2022-10-26 15:30:18</sys_updated_on>
+        <sys_updated_on>2023-03-22 20:41:10</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="Unsubscribe and Preferences Helvetica">d465111f3b4b2200c869c2c703efc47c</template>
         <type>email</type>
