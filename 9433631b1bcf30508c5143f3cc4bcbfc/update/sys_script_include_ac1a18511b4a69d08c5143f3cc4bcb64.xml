@@ -1125,7 +1125,7 @@ ModularNotificationsBuilder.prototype = {
 		this.information = this.customInformation || this.information;
 		this.moreInformation = this.customMoreInformation || this.moreInformation;
 
-		var html = '<style type="text/css">{{this.modularNotificationsStylesheet}}</style><center class="wrapper"><table class="main"><tr><td class="td-border"></td></tr><tr><td class="header-block"><table><tr><td class="footer-image"><a href="https://apigroup.service-now.com/" target="_blank"><img alt="Logo" src="{{this.images.apiLogo}}" class="logo-img"></a></td><td class="header-links" style="text-align:right">{{this.urlHTML}}</td></tr></table></td></tr><tr><td class="banner-text"><h3>{{this.subject}}</h3></td></tr><tr><td><table class="body-content"><tr><td><p>Dear {{this.name}},</p><p>{{this.information}}</p></td></tr></table></td></tr><tr><td class="td-border-small"></td></tr><tr><td><table class="body-content">{{this.variableInformation}}</table></td></tr><tr><td class="footer-block"><table><tr><td class="footer-image"><img src="{{this.images.footerImageLeft}}" style="margin-bottom:-5px;height:24px"></td><td class="footer-image" style="text-align:right"><img src="{{this.images.footerImageRight}}" style="height:30px"></td></tr></table></td></tr></table></center>';
+		var html = '<body><center class="wrapper"><table class="main"><tr><td class="td-border"></td></tr><tr><td class="header-block"><table><tr><td class="footer-image"><a href="https://apigroup.service-now.com/" target="_blank"><img alt="Logo" src="{{this.images.apiLogo}}" class="logo-img"></a></td><td class="header-links" style="text-align:right">{{this.urlHTML}}</td></tr></table></td></tr><tr><td class="banner-text"><h3>{{this.subject}}</h3></td></tr><tr><td><table class="body-content"><tr><td><p>Dear {{this.name}},</p><p>{{this.information}}</p></td></tr></table></td></tr><tr><td class="td-border-small"></td></tr><tr><td><table class="body-content">{{this.variableInformation}}</table></td></tr><tr><td class="footer-block"><table><tr><td class="footer-image"><img src="{{this.images.footerImageLeft}}" style="margin-bottom:-5px;height:24px"></td><td class="footer-image" style="text-align:right"><img src="{{this.images.footerImageRight}}" style="height:30px"></td></tr></table></td></tr></table></center></body>';
 
 		/*html = html.replace('{{modularNotificationsStylesheet}}', this.modularNotificationsStylesheet);
 		html = html.replace('{{apiLogo}}', this.images.apiLogo);
@@ -1137,54 +1137,129 @@ ModularNotificationsBuilder.prototype = {
 		html = html.replace('{{footerImageLeft}}', this.images.footerImageLeft);
 		html = html.replace('{{footerImageRight}}', this.images.footerImageRight);*/
 		html = this.replaceTemplateVariables(html);
+		html = this.convertClassesToInlineStyles(html, this.modularNotificationsStylesheet);
 		return html;
 	},
 	///////////////////////////////////////////////////////////////////////////////////
 	//Internal - Build variables with their values in html/////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////////
-	replaceTemplateVariables: function (html) {
+	replaceTemplateVariables: function(html) {
 		var variableNames = html.match(/\{\{this\.([\w.]+)\}\}/g);
 
 		if (variableNames) {
-			variableNames.forEach(function (variableName) {
+			variableNames.forEach(function(variableName) {
 				var name = variableName.replace('{{this.', '').replace('}}', '');
 				var value = this.getNestedValue(name);
 				html = html.replace(variableName, value || '');
-			});
+			}, this); // Pass the correct 'this' context using the second argument of forEach
 		}
 		return html;
 	},
+
 	///////////////////////////////////////////////////////////////////////////////////
 	//Internal - Get variable values///////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////////
-	getNestedValue: function (path) {
-		gs.info('test');
-		gs.info("Modular Path: " + JSON.stringify(path));
+	getNestedValue: function(path) {
 		var keys = path.split('.');
-		gs.info("Modular Keys: " + JSON.stringify(keys));
+		var value = this; // Start with the current 'this' context
+
 		for (var i = 0; i < keys.length; i++) {
-			gs.info("Modular Key: " + keys[i]);
-			value = this[keys[i]].toString();
+			// Check if the current value is an array and if the next key is a number
+			if (Array.isArray(value) && !isNaN(parseInt(keys[i], 10))) {
+				value = value[parseInt(keys[i], 10)]; // Access the array element by its index
+			} else {
+				value = value[keys[i]]; // Update 'value' to the next property in the path
+			}
+
 			if (value === undefined) {
-				return '';
+				return ''; // Return an empty string if the property is not defined
 			}
 		}
 
 		return value;
 	},
+	convertClassesToInlineStyles: function (html, css) {
+		// Function to parse the CSS string and return an object containing styles for each selector
+		function parseCSS(css) {
+			var cssRules = {};
+			var cssRuleRegex = /((?:\w+|\.[\w-]+)(?:\s*,\s*(?:\w+|\.[\w-]+))*)\s*\{([^}]+)\}/g;
+			var match;
+
+			while ((match = cssRuleRegex.exec(css)) !== null) {
+				var selectors = match[1].split(/\s*,\s*/);
+				var style = match[2].trim();
+				selectors.forEach(function(selector) {
+					cssRules[selector] = style;
+				});
+			}
+
+			return cssRules;
+		}
+
+		// Parse the CSS into an object containing styles for each selector
+		var cssRules = parseCSS(css);
+
+		// Iterate through the CSS rules and apply the inline styles to the HTML elements
+		for (var selector in cssRules) {
+			if (cssRules.hasOwnProperty(selector)) {
+				var selectorRegex;
+				var replacement;
+
+				// Check if the selector is a class, a tag, or the body tag
+				if (selector.charAt(0) === '.') {
+					var className = selector.slice(1);
+					var classSelector = 'class="' + className + '"';
+					selectorRegex = new RegExp('<([^>]*?)(' + classSelector + ')([^>]*)>', 'g');
+
+					html = html.replace(selectorRegex, function (match, p1, p2, p3) {
+						var styleAttr = 'style="' + cssRules[selector] + '"';
+						var existingStyleRegex = /style="([^"]*)"/;
+						var existingStyleMatch = p3.match(existingStyleRegex);
+
+						if (existingStyleMatch) {
+							styleAttr = 'style="' + cssRules[selector] + '; ' + existingStyleMatch[1] + '"';
+							p3 = p3.replace(existingStyleRegex, '');
+						}
+
+						return '<' + p1 + ' ' + p2 + ' ' + p3 + ' ' + styleAttr + '>';
+					});
+
+				} else {
+					selectorRegex = new RegExp('<' + selector + '\\b([^>]*)>', 'gi');
+
+					html = html.replace(selectorRegex, function (match, p1) {
+						var styleAttr = 'style="' + cssRules[selector] + '"';
+						var existingStyleRegex = /style="([^"]*)"/;
+						var existingStyleMatch = p1.match(existingStyleRegex);
+
+						if (existingStyleMatch) {
+							styleAttr = 'style="' + cssRules[selector] + '; ' + existingStyleMatch[1] + '"';
+							p1 = p1.replace(existingStyleRegex, '');
+						}
+
+						return '<' + selector + ' ' + p1 + ' ' + styleAttr + '>';
+					});
+				}
+			}
+		}
+
+		return html;
+
+	},
+
 	type: 'ModularNotificationsBuilder'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2021-10-18 14:56:24</sys_created_on>
-        <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>96</sys_mod_count>
+        <sys_created_on>2023-04-05 21:17:16</sys_created_on>
+        <sys_id>ac1a18511b4a69d08c5143f3cc4bcb64</sys_id>
+        <sys_mod_count>22</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
-        <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
+        <sys_update_name>sys_script_include_ac1a18511b4a69d08c5143f3cc4bcb64</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-04-05 21:16:32</sys_updated_on>
+        <sys_updated_on>2023-04-06 21:11:21</sys_updated_on>
     </sys_script_include>
 </record_update>

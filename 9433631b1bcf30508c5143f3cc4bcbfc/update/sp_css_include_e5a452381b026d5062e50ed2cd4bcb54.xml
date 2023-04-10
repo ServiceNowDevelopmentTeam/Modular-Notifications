@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_css_include">
+    <sp_css_include action="INSERT_OR_UPDATE">
+        <name>Modular Notifications Stylesheet</name>
+        <source>local</source>
+        <sp_css display_value="Modular Notifications Stylesheet">f76492b81b026d5062e50ed2cd4bcb64</sp_css>
+        <sys_class_name>sp_css_include</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-04-04 16:55:51</sys_created_on>
+        <sys_id>e5a452381b026d5062e50ed2cd4bcb54</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Modular Notifications Stylesheet</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sp_css_include_e5a452381b026d5062e50ed2cd4bcb54</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-04-04 16:55:51</sys_updated_on>
+        <url/>
+    </sp_css_include>
+</record_update>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_css">
+    <sp_css action="INSERT_OR_UPDATE">
+        <css>		body {&#13;
+			margin: 0;&#13;
+			font-family: Raleway, sans-serif !important;&#13;
+		}&#13;
+&#13;
+		table {&#13;
+			border-spacing: 0;&#13;
+			width: 100%;&#13;
+		}&#13;
+&#13;
+		td {&#13;
+			padding: 0;&#13;
+		}&#13;
+&#13;
+		img {&#13;
+			border: 0;&#13;
+		}&#13;
+&#13;
+		.wrapper {&#13;
+			width: 100%;&#13;
+			table-layout: fixed;&#13;
+			background-color: #d0e8f2;&#13;
+			padding-bottom: 60px;&#13;
+		}&#13;
+&#13;
+		.main {&#13;
+			max-width: 600px;&#13;
+			background-color: #ffffff;&#13;
+			color: #4a4a4a;&#13;
+		}&#13;
+&#13;
+		.td-border {&#13;
+			height: 8px;&#13;
+			background-color: #D50032;&#13;
+		}&#13;
+&#13;
+		.td-border-small {&#13;
+			height: 4px;&#13;
+			background-color: #4a4a4a;&#13;
+		}&#13;
+&#13;
+		.logo-img {&#13;
+			height: 30px;&#13;
+		}&#13;
+&#13;
+		.header-links a {&#13;
+			padding-left: 15px;&#13;
+			text-decoration: none;&#13;
+			font-weight: bold;&#13;
+			color: #4a4a4a;&#13;
+		}&#13;
+&#13;
+		.two-columns {&#13;
+			text-align: center;&#13;
+		}&#13;
+&#13;
+		.two-columns .column {&#13;
+			width: 100%;&#13;
+			max-width: 297px;&#13;
+			display: inline-block;&#13;
+			vertical-align: top;&#13;
+		}&#13;
+&#13;
+		.banner-text {&#13;
+			background-color: #2A3E6D;&#13;
+			color: #FDFDFD;&#13;
+			text-align: center;&#13;
+          vertical-align: middle;&#13;
+		}&#13;
+&#13;
+		.body-content {&#13;
+			padding: 0 22px;&#13;
+		}&#13;
+&#13;
+		.field-label {&#13;
+			text-transform: uppercase;&#13;
+			font-size: 10px;&#13;
+			font-weight: bold;&#13;
+		}&#13;
+&#13;
+		.field-block {&#13;
+			padding-top: 16px;&#13;
+		}&#13;
+&#13;
+		.header-block,&#13;
+		.footer-block {&#13;
+			padding: 5px;&#13;
+		}&#13;
+&#13;
+		.footer-block {&#13;
+			background-color: #2A3E6D;&#13;
+		}&#13;
+&#13;
+		.footer-image {&#13;
+			width: 50%;&#13;
+			max-width: 50%;&#13;
+			min-width: 50%;&#13;
+			display: inline-block;&#13;
+			vertical-align: middle;&#13;
+		}</css>
+        <name>Modular Notifications Stylesheet</name>
+        <sys_class_name>sp_css</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-04-04 16:55:51</sys_created_on>
+        <sys_id>f76492b81b026d5062e50ed2cd4bcb64</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Modular Notifications Stylesheet</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sp_css_f76492b81b026d5062e50ed2cd4bcb64</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-04-04 18:30:10</sys_updated_on>
+    </sp_css>
+</record_update>
