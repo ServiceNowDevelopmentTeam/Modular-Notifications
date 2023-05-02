@@ -14,10 +14,6 @@
 			padding: 0;&#13;
 		}&#13;
 &#13;
-		img {&#13;
-			border: 0;&#13;
-		}&#13;
-&#13;
 		.wrapper {&#13;
 			width: 100%;&#13;
 			table-layout: fixed;&#13;
@@ -39,10 +35,6 @@
 		.td-border-small {&#13;
 			height: 4px;&#13;
 			background-color: #4a4a4a;&#13;
-		}&#13;
-&#13;
-		.logo-img {&#13;
-			height: 30px;&#13;
 		}&#13;
 &#13;
 		.header-links a {&#13;
@@ -105,13 +97,13 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2023-04-04 16:55:51</sys_created_on>
         <sys_id>f76492b81b026d5062e50ed2cd4bcb64</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>Modular Notifications Stylesheet</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sp_css_f76492b81b026d5062e50ed2cd4bcb64</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-04-04 18:30:10</sys_updated_on>
+        <sys_updated_on>2023-04-19 21:25:29</sys_updated_on>
     </sp_css>
 </record_update>

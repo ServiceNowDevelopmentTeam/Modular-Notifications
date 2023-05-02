@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>Last Comment By</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template, /* Optional: ScopedGlideRecord */ email, /* Optional: GlideRecord */ email_action, /* Optional: GlideRecord */ event) {
+    // Query the sys_journal_field table to retrieve the last work note/comment for the current task
+    var jnl = new GlideRecord('sys_journal_field');
+    jnl.addQuery('element_id', current.sys_id);
+    jnl.addQuery('element', 'comments');
+    jnl.orderByDesc('sys_created_on');
+    jnl.setLimit(1);
+    jnl.query();
+    
+    if (jnl.next()) {
+        template.print(jnl.sys_created_by.getDisplayValue() + ' - ' + jnl.sys_created_on.getDisplayValue());
+    }
+})(current, template, email, email_action, event);
+]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-04-20 14:32:03</sys_created_on>
+        <sys_id>efec48021bda255062e50ed2cd4bcb54</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Last Comment By</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_email_efec48021bda255062e50ed2cd4bcb54</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-04-20 19:17:37</sys_updated_on>
+    </sys_script_email>
+</record_update>

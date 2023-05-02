@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="pa_tabs">
+    <pa_tabs action="INSERT_OR_UPDATE">
+        <canvas_page display_value="PA All that is TJs - New Tab">386118c61bda255062e50ed2cd4bcb38</canvas_page>
+        <name>All that is TJs - New Tab</name>
+        <page display_value="PA All that is TJs - New Tab">7c6118c61bda255062e50ed2cd4bcb36</page>
+        <sys_class_name>pa_tabs</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-04-20 14:50:29</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>816118c61bda255062e50ed2cd4bcb3b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>All that is TJs - New Tab</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>pa_tabs_816118c61bda255062e50ed2cd4bcb3b</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-04-20 14:50:29</sys_updated_on>
+    </pa_tabs>
+</record_update>

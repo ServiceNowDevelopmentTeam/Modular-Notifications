@@ -1,0 +1,2551 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>global.ModularNotificationsBuilder</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Use this to build out a standard Modular Notification, so all notifications match styling and wording.</description>
+        <name>ModularNotificationsBuilder</name>
+        <script><![CDATA[var ModularNotificationsBuilder = Class.create();
+ModularNotificationsBuilder.prototype = {	
+	/**SNDOC
+	@name initialize
+	@description Initialize blank variables
+
+	@example
+		this.subject = '';
+		this.information = '';
+		this.varList = [];
+		this.moreInformation = '';
+		this.name = '';
+		this.requestorName = '';
+		this.table = 'other';
+		this.action = '';
+		this.type = 'sp';
+		this.sourceTable = '';
+		this.adaptiveCard = '';//Adaptive card for outlook actionable messages
+		this.survey = 'false';
+		this.customVariablesOverride = 'false'; //Setting to true ignores variables normally set
+		this.customVariables = [];//Variables to include if above is true, can be blank for none
+		this.urls = [{label:'', url:''}]; //Custom URLs to display in the header
+		this.hideUrls = false; //Hide URLs in the header
+	@returns {void}
+	*/
+	initialize: function() {
+		this.provideFeedbackDiscrip = '[survey not found]';
+		this.userID = '';
+		this.isOpenedBy = false; //OR REQUESTED FOR (dont use this if it NEEDS to be opened by)
+		this.customMoreInformation = '';
+		this.customSubject = '';
+		this.customInformation = '';
+		this.subject = '';
+		this.information = '';
+		this.moreInformation = '';
+		this.varList = [];
+		this.name = '';
+		this.requestorName = '';
+		this.table = 'other';
+		this.action = '';
+		this.type = 'sp';
+		this.sourceTable = '';
+		this.adaptiveCard = '';
+		this.signature = '<div><p>Best Regards,<p>Field Support<br>(651) 925-8511</div>';
+		this.survey = 'false';
+		this.customVariablesOverride = 'false'; //Setting to true ignores variables normally set
+		this.customVariables = [];//Variables to include if above is true, can be blank for none
+		this.urls = [];
+		this.hideUrls = false;
+		this.colors = {
+			apiBlue : '#2A3E6D'
+		};
+		this.images = {
+			apiLogo : 'images/APiLogo.png',
+			footerImageLeft : 'images/SN_Building_Great_Leaders.png',
+			footerImageRight : 'images/SN_APi_Connect_Logo.png'
+		};
+		this.modularNotificationsStylesheet = '';
+	},
+
+	/**SNDOC
+	@name getHTML
+	@description Return the HTML for modular notifications
+
+	@example
+		var notification = new ModularNotificationsBuilder();
+
+		notification.table = 'incident';
+		notification.documentID = 'c7b4ecc61b97fc5062e50ed2cd4bcb73';
+		notification.setGlobalUrl();
+		notification.action = 'completed';
+		notification.name = current.opened_by.first_name.toString();
+
+		var html = notification.getHTML();
+
+	@returns {string} HTML email body
+	*/
+	getHTML: function() {
+
+		try{
+			var gr = new GlideRecord('sp_css');
+			gr.get('f76492b81b026d5062e50ed2cd4bcb64');
+			this.modularNotificationsStylesheet = gr.css.toString();
+			//Instantiate vars
+			var name = this.name;
+			var table = this.table;
+			var documentID = this.documentID;
+			var action = this.action;
+			var subject = this.subject;
+			var information = this.information;
+			var varList = this.varList;
+			var moreInformation = this.moreInformation;
+			var variableInformation = '';
+
+			if(!table.nil()){
+				//If opened RITM, then add template info to it
+				if (
+					(table == 'sc_req_item' && action != 'custom' && action != 'approved' && action != 'rejected') || 
+					(table == 'sc_request' && (
+						action == 'completed' || 
+						action == 'opened')
+					) && 
+					!documentID.nil()
+
+				) {
+					this.ritmVals(action);
+				}		
+				if(this.hideUrls === false){
+					this.urls = this.urls || [
+						{label:'Knowledge', url:'https://apigroup.service-now.com/sp?id=kb_view2'},
+						{label:'My Tickets', url:'https://apigroup.service-now.com/sp?id=my_requests'},
+						{label:'Portal', url:'https://apigroup.service-now.com/sp'}
+					];
+					if(table == 'sysapproval_approver' && action != 'approved' && action != 'rejected' && gs.nil(this.urls)){
+						this.urls = [
+							{label:'Knowledge', url:'https://apigroup.service-now.com/sp?id=kb_view2'},
+							{label:'My Approvals', url:'https://apigroup.service-now.com/sp?id=approvals'},
+							{label:'Portal', url:'https://apigroup.service-now.com/sp'}
+						];
+					}
+				}
+				if(action == 'approved' || action == 'rejected' || action == 'created' || action == 'reminder'){
+					this.approvalVals(action);
+				}
+				//If incident, then add template info to it
+				if (table == 'incident' && action != 'custom' && !documentID.nil()) {
+					this.incidentVals(action);
+				}
+				//If assigned to me, then add template info to it
+				if ((action == 'assignedtomygroup' || action == 'assignedtome') && !documentID.nil()) {
+					this.assignedVals(action);
+				}
+
+				if (action == 'updated') {
+					this.getComments(this.documentID, this.table, false);
+				}
+				if (action == 'assignedtomygroup' || action == 'assignedtome') {
+					this.getComments(this.documentID, this.table, true);
+				}
+			}
+			subject += this.subject || '';
+			information += this.information || '';
+			if (this.varList.length > 0) {
+				varList.push(this.varList);
+			}
+
+			var adaptiveCard = this.adaptiveCard;
+			//TODO - Add adaptive card later - Outlook actionable messages
+
+			moreInformation += this.moreInformation || '';
+			this.provideFeedback = '';
+			var surveySysId = '';
+			if (action == 'completed' || this.survey == 'true'){
+				if(this.table == 'sc_req_item'){
+					surveySysId = this.getSurveySysid('sc_request', reqGr.request.sys_id);
+					if(surveySysId){
+						//this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
+					}
+				}
+				else{
+					// if it is the opened by email generate a survey so you can populate it
+					if(this.isOpenedBy){
+						surveySysId = this.getSurveySysid(this.table, this.documentID);
+						//gs.info('survey sys id is : ' + surveySysId);
+						if(surveySysId){
+							//this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
+							this.provideFeedbackDiscrip = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>here</a>';
+						}
+					}
+
+				}
+			}
+			/*
+			Building out the variables section, we'll loop through the varList variable to build it out
+			*/
+			if(this.customVariablesOverride == 'true'){
+				varList = this.customVariables;
+			}
+			this.variableInformation = this.buildVariableInformation(varList);
+
+			/*
+			Building out the urls section, we'll loop through this.urls to build it out
+			*/	
+			this.urlHTML = '';
+			this.buildUrlHtml();
+
+			var html = this.buildHtml();
+			return html;
+		}
+		catch(e){
+			gs.error('Modular notification exception: ' + e);
+			return '';
+		}
+	},
+	//////////////////////////////////////////////////////////////////////////////////////
+	//////Internal - Setting Email Template for Incidents/////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
+	incidentVals: function(action) {
+		var surveySysId = '';
+		if (this.action == 'completed' || this.survey == 'true'){
+			//if(this.table == 'incident'){
+			surveySysId = this.getSurveySysid(this.table, this.documentID);
+			//gs.info('survey sys id is : ' + surveySysId);
+			if(surveySysId){
+				//this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
+				this.provideFeedbackDiscrip = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>here</a>';
+			}
+			//}
+
+		}
+
+
+		action = action == 'completed' ? 'resolved' : action;
+		//Get ritm
+		var gr = new GlideRecord(this.table);
+		gr.get(this.documentID);
+
+		//Get End Time
+		var slaGr = new GlideRecord("task_sla");
+		slaGr.addQuery("task", current.sys_id);
+		slaGr.addEncodedQuery('sla=35420982d732220035ae23c7ce610393^ORsla=af420982d732220035ae23c7ce6103f3^ORsla=d1524982d732220035ae23c7ce61035d^ORsla=b12a37e0d7322200f2d224837e6103ea^ORsla=44005d3d1b88bc10e7004229bc4bcb02');
+		slaGr.query();
+		while (slaGr.next()) {
+			//Get last SLA
+		}
+		if (gr.caller_id != gr.sys_created_by)
+			this.varList.push({
+				variableName: 'Submitted By',
+				variableValue: gr.opened_by.getDisplayValue()
+			});
+
+		this.varList.push({
+			variableName: 'Incident Description',
+			variableValue: gr.short_description.getDisplayValue()
+		});
+		if(action != 'resolved'){
+			this.varList.push({
+				variableName: 'Estimated Delivery Date',
+				variableValue: slaGr.planned_end_time.getDateValue()
+			});
+			this.varList.push({
+				variableName: 'Status',
+				variableValue: gr.state.getDisplayValue()
+			});
+		}
+
+		this.subject = 'Incident ' + current.number + ' has been ' + action;
+		this.information = 'Your incident has been ' + action + '.';
+		this.moreInformation = '';
+		switch (action) {
+			case ('opened'):
+				break;
+			case ('updated'):
+				this.subject = 'Incident ' + current.number + ' has new comments';
+				break;
+			case ('resolved'):
+				var reopenSysID = '6c9635d61b5774108c5143f3cc4bcbda';
+				var reopenINC = gr.sys_id;
+				var reopenURL = '/sp?id=sc_cat_item&sys_id=' + 
+					reopenSysID + 
+					'&sysparm_variables=%7B%22related_inc%22:%22' + reopenINC +'%22%7D';
+				if(this.provideFeedbackDiscrip != '[survey not found]'){
+					this.moreInformation += 'If this issue still needs attention, <a href="' + reopenURL + '">click here</a> to reopen the incident.<br><br>This incident will automatically close after 3 business days. If you still need assistance after it closes, a new incident will be required.<br><br>' + '<b>Want to provide feedback on this ticket?  Take a survey ' + this.provideFeedbackDiscrip +'</b>.';
+				}
+				this.varList.push({
+					variableName: 'Resolution Note',
+					variableValue: gr.u_customer_notes.getDisplayValue()
+				});
+				break;
+			case ('closed'):
+				break;
+			default:
+				break;
+		}
+		if(action != 'resolved'){
+			this.moreInformation += '<br><a href="' + this.globalURL + '">Click here</a> to add a comment or view all comment history for this incident.';
+		}
+	},
+	//////////////////////////////////////////////////////////////////////////////////////
+	//////Internal - Setting Email Template for ITIL Assigned to me emails////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
+	assignedVals: function(action) {
+		switch(action){
+			case 'assignedtome':
+				action = 'assigned to you';
+				break;
+			case 'assignedtomygroup':
+				action = 'assigned to your group';
+				break;
+			default:
+				break;
+		}
+		//Get record
+		var gr = new GlideRecord(this.table);
+		gr.get(this.documentID);
+
+		this.varList.push({
+			variableName: 'Description',
+			variableValue: gr.short_description.getDisplayValue()
+		});
+		this.varList.push({
+			variableName: 'Status',
+			variableValue: gr.state.getDisplayValue()
+		});
+
+		this.subject = gr.getValue('number') + ' has been ' + action;
+		this.information = gr.getValue('number') + ' has been ' + action + '.';
+		this.moreInformation = '';
+		switch (action) {
+			case ('assigned to you'):
+				this.subject = gr.getValue('number') + ' has been ' + action + '.';
+				break;
+			case ('assigned to your group'):
+				this.subject = gr.getValue('number') + ' has been ' + action + '.';
+				this.moreInformation += '<br><a href="' + this.globalURL + '">Click here</a> to view this record.';
+				break;
+			default:
+				break;
+		}
+		if(action != 'resolved' && this.type != 'itil'){
+			this.moreInformation += '<br><a href="' + this.globalURL + '">Click here</a> to add a comment or view all comment history for this record.';
+		}
+
+	},
+	//////////////////////////////////////////////////////////////////////////////////////
+	//////Internal - Setting Email Template for Approval emails///////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
+	approvalVals: function(action) {
+		//Get record
+		var gr = new GlideRecord(this.table);
+		gr.get(this.documentID);
+
+		//Get name of table the approval came from
+		var docGr = new GlideRecord('sys_documentation');
+		var encodedQuery = 'name=' + (this.sourceTable || this.table) + '^element=NULL';
+		docGr.addEncodedQuery(encodedQuery);
+		docGr.query();
+		var tableName = (docGr.next() ? docGr.label.toString() : 'request');
+		var ritmGr = new GlideRecord();
+
+		//Get base table
+		var tu = new TableUtils((this.sourceTable || this.table));
+		var baseTable = tu.getAbsoluteBase();
+
+		var sourceGr = gr;
+		if(this.table=='sysapproval_approver'){
+			sourceGr = new GlideRecord(gr.source_table.toString() || this.sourceTable);
+			sourceGr.get(this.document_id.sys_id.toString());
+		}
+		//Set subject
+		if(this.sourceTable == 'sc_req_item' || this.table == 'sc_req_item'){
+			ritmGr = new GlideRecord('sc_req_item');
+			ritmGr.get(gr.document_id.number.getValue() || gr.number.getValue());
+			this.signature = this.getSignature(ritmGr);
+		}
+
+		//Set subject
+		if(this.sourceTable == 'sc_req_item'){
+			ritmGr = new GlideRecord(this.sourceTable);
+			ritmGr.get(gr.document_id.number.getValue());
+			this.subject = 'Request ' + ritmGr.request.number.toString() + ' has been ' + action;
+			this.subject = action == 'created' || action == 'reminder' ? (action == 'reminder'? 'REMINDER' : 'ACTION REQUIRED') + ': APi Connect Approval Request From ' + this.requestorName : this.subject;
+		}
+		else{
+			this.subject = action == 'created' || action == 'reminder' ? (action == 'reminder'? 'REMINDER' : 'ACTION REQUIRED') + ': APi Connect Approval Request From ' + this.requestorName : 'APi Connect ' + tableName + ' ' + action;
+		}
+
+		//Set information section
+		var documentNumber = gr.document_id.request.number.getValue() || gr.document_id.number.getValue() || gr.number.getValue();
+		this.information = action == 'created' ? '<br>' + (this.requestorName || 'An APi Connect user') + ' has submitted the following ' + (tableName == 'Requested Item' ? 'Request' : tableName).toLowerCase() + ' for your review. Your approval is required before this request can be processed.' : 'Approval ' + documentNumber + ' has been ' + (action == 'reminder'? 'created' : action) + '.';
+		if(this.sourceTable == 'sc_req_item' && action != 'created' && action != 'reminder'){
+			this.information = 'Your request has been ' + action + '. Please review details below for more information.';
+		}
+
+		//Set more information section
+		this.moreInformation = '<br>Please click here to review the request: <a href="' + this.globalURL + '">Click here</a>';
+		if (action == 'created' || action == 'reminder'){
+			var generator = new global.CustomApprovalAdaptiveCardGenerator(gr, 'en');
+			if(this.oamRefreshUrl){
+				generator.oamRefreshUrl = this.oamRefreshUrl;
+			}
+			var content = generator.generate();
+			this.adaptiveCard = '<script type="application/adaptivecard+json">' + content +'</script>';
+		}
+
+		//Set variables
+		this.varList.push({
+			variableName: 'Submitted By',
+			variableValue: this.requestorName
+		});
+
+		if(action == 'created' || action == 'reminder'){
+			var approv1 = gr.u_approval_is_for;
+			if(approv1 != ''){
+				this.varList.push({
+					variableName: 'Approval is For',
+					variableValue: approv1
+				});
+			}
+		}
+
+		if(this.sourceTable && this.sourceTable == 'sc_req_item' && gr.document_id.number.getValue()){
+
+			var estDeliveryDate = '';
+			var startDate = new GlideDateTime();
+			var cat_item = new GlideRecord('sc_cat_item');
+			cat_item.get(ritmGr.cat_item);
+			if(cat_item.getDisplayValue('delivery_time')) {
+				//calculate the duration
+				var dur = cat_item.delivery_time;
+				var dur_in_ms = 60*60*12*1000*(dur.getByFormat('dd')-1);
+				var dur_final = new GlideDuration(dur_in_ms);
+
+				//schedule on 12 hour weekdays
+				var schedRec = new GlideRecord('cmn_schedule');
+				schedRec.get('name', '6-6 Weekdays');
+				var schedule = new GlideSchedule(schedRec.sys_id);
+
+				//calc final date
+				var end = schedule.add(startDate, dur_final);
+
+				// return the calculated value without hours
+				estDeliveryDate =  end.getDate().getDisplayValue();
+				// return the calculated value with hours
+				//return end.getDisplayValue();
+			}
+			if(action != 'rejected'){
+				this.varList.push({
+					variableName: 'Estimated Delivery Date',
+					variableValue: estDeliveryDate
+				});
+			}
+		}
+
+
+		//Get approved or rejected approvers and comments
+		var approverEncodedQuery = 'stateINapproved,rejected';
+		var approverDocId = gr.document_id.toString() || gr.sysapproval.toString();
+		approverEncodedQuery += '^sysapproval=' + approverDocId;
+		var approverGr = new GlideRecord('sysapproval_approver');
+		approverGr.addEncodedQuery(approverEncodedQuery);
+		approverGr.query();
+
+		var approverString = '';
+		var approverComments = '';
+
+		while (approverGr.next()){
+			approverString += approverGr.getDisplayValue('approver') + ': ' + approverGr.getDisplayValue('state');
+			approverString += approverGr.hasNext() ? '<br>' : '';
+			var commentString = this.getCommentString(approverGr.getUniqueValue(), 'sysapproval_approver', 'false');
+			approverComments += commentString ? commentString : ''; 
+			approverComments += approverGr.hasNext() && commentString ? '<br>' : '';
+		}
+
+		if(baseTable == 'task'){
+			var taskNumber = this.sourceTable == 'sc_req_item' ? 'Request: ' + ritmGr.request.number.getDisplayValue() + '<br>Request Item: ' + ritmGr.number.getDisplayValue() : gr.document_id.number.toString();
+			var taskShortDescription = this.sourceTable == 'sc_req_item' ? ritmGr.request.short_description.getDisplayValue() : gr.document_id.short_description.toString();
+			this.varList.push({
+				variableName: 'Number',
+				variableValue: taskNumber
+			}, {
+				variableName: 'Description',
+				variableValue: taskShortDescription
+			});
+		}
+		this.varList.push({
+			variableName: 'Approval Replies',
+			variableValue: approverString
+		}, {
+			variableName: 'Approval Comments',
+			variableValue: approverComments
+		});
+	},
+	////////////////////////////////////////////////////////////////////////////////////
+	//////Internal - Setting Email Template for REQ/RITMs///////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////
+	ritmVals: function(action) {
+
+		//Get ritm
+		var gr = new GlideRecord(this.table);
+		gr.get(this.documentID);
+		if (this.table == 'sc_request') {
+			gr=new GlideRecord('sc_req_item');
+			gr.addQuery('request', this.documentID);
+			gr.query();
+			gr.next();
+		}
+		this.signature = this.getSignature(gr);
+
+		//Find out if it's an approval using the catalog item's Approval true/false field
+		var isApproval = this.table == 'sc_request' ? (gr.request.u_cdw_order.toString() == 'true') : (gr.cat_item.u_contains_approvals.toString() == 'true');
+		var isConditionalApproval = (gr.cat_item.u_conditional_approvals.toString() == 'true');
+		var approvalCondition = gr.cat_item.u_approval_condition.toString();
+
+		//Find out if it's a cascading approval using the catalog item's Cascading Approval true/false field
+		var isCascadingApproval = gr.cat_item.u_is_multiple_approval;
+		var isConditionalCascadingApproval = (gr.cat_item.u_is_not_multiple_approver_conditional.toString() == 'false');
+		var cascadingApprovalCondition = gr.cat_item.u_multiple_approval_condition.toString();
+
+		if(action == 'opened' && isApproval){
+			if(isConditionalApproval && approvalCondition){
+				//Re-query the same RITM to see if it matches the Approval Condition field's conditions
+				var approvalGr = new GlideRecord('sc_req_item');
+				approvalGr.addQuery('sys_id', gr.getUniqueValue());
+				approvalGr.addEncodedQuery(approvalCondition);
+				approvalGr.query();
+
+				if(approvalGr.hasNext()){
+					action = 'submitted for approval';
+					if(isCascadingApproval && isConditionalCascadingApproval && cascadingApprovalCondition){
+						//Re-query the same RITM to see if it matches the Cascading Approval Condition field's conditions
+						approvalGr = new GlideRecord('sc_req_item');
+						approvalGr.addQuery('sys_id', gr.getUniqueValue());
+						approvalGr.addEncodedQuery(cascadingApprovalCondition);
+						approvalGr.query();
+						if(approvalGr.hasNext()){
+							action = 'cascadingapproval';
+						}
+					}
+					else if(isCascadingApproval && !isConditionalCascadingApproval){
+						action = 'cascadingapproval';
+					}
+				}
+			}
+			else{
+				action = 'submitted for approval';
+
+			}
+		}
+
+		var grSysId = gr.getUniqueValue();
+		var estDeliveryDate = '';
+		var startDate = new GlideDateTime();
+		var cat_item = new GlideRecord('sc_cat_item');
+		cat_item.get(gr.cat_item);
+		if(cat_item.getDisplayValue('delivery_time')) {
+			//calculate the duration
+			var dur = cat_item.delivery_time;
+			var dur_in_ms = 60*60*12*1000*(dur.getByFormat('dd')-1);
+			var dur_final = new GlideDuration(dur_in_ms);
+
+			//schedule on 12 hour weekdays
+			var schedRec = new GlideRecord('cmn_schedule');
+			schedRec.get('name', '6-6 Weekdays');
+			var schedule = new GlideSchedule(schedRec.sys_id);
+
+			//calc final date
+			var end = schedule.add(startDate, dur_final);
+
+			// return the calculated value without hours
+			estDeliveryDate =  end.getDate().getDisplayValue();
+			// return the calculated value with hours
+			//return end.getDisplayValue();
+		}
+
+		var approverStr='';
+
+		this.varList.push({
+			variableName: 'Submitted By',
+			variableValue: gr.opened_by.getDisplayValue()
+		}, {
+			variableName: 'Number',
+			variableValue: 'Request: ' + gr.request.number.getDisplayValue() + '<br>Request Item: ' + gr.number.getDisplayValue()
+		}, {
+			variableName: 'Description',
+			variableValue: gr.request.short_description.getDisplayValue()
+		});
+		if (action == 'completed'){		
+			//Do nothing
+		} else if (action == 'submitted for approval' || action == 'cascadingapproval'){
+			this.getRitmApprovers(grSysId);
+			var approverGr = new GlideRecord('sysapproval_approver');
+			approverGr.addQuery('document_id',grSysId);
+			approverGr.query();
+
+			while(approverGr.next()){
+				approverStr += approverGr.approver.name;
+				approverStr += approverGr.hasNext() ? '<br>' : '';
+			}
+			if(action == 'cascadingapproval'){
+				this.varList.push({
+					variableName: 'Approval Requested From',
+					variableValue: 'Multiple Approvers'
+				});
+			}
+			else{
+				this.varList.push({
+					variableName: 'Approval Requested From',
+					variableValue: approverStr
+				});
+			}
+		} else {
+			this.varList.push({
+				variableName: 'Estimated Delivery Date',
+				variableValue: estDeliveryDate
+			}, {
+				variableName: 'Status',
+				variableValue: gr.state.getDisplayValue()
+			});
+		}
+
+		//Get catalog item variable values
+		this.getCatItemVals(action);
+
+
+		this.subject = this.customRitmSubject ? this.customRitmSubject : 'Request ' + gr.request.number + ' has been ' + action;
+		this.subject = action != 'cascadingapproval' ? this.subject : 'Request ' + gr.request.number + ' has been submitted for approval';
+		this.information = this.customRitmInfo ? this.customRitmInfo : 'Your request has been ' + action + '.';
+		this.information += action == 'submitted for approval' ? ' Once approved, your request will be processed.' : '';
+		this.information = action == 'cascadingapproval' ? 'This request requires multiple approvals. Once all approvals are completed, your request will be processed.' : this.information;
+
+		this.moreInformation = this.moreInformation || '';
+		this.moreInformation += action == 'updated' ? '<a href="' + this.globalURL + '">Click here</a> to add a comment or view all comment history for this request.<br>' : this.customRitmMoreInformation ? this.customRitmMoreInformation : '<a href="' + this.globalURL + '">Click here</a> to update or review the latest details of this request.';
+	},
+	/////////////////////////////////////////////////////////////////////////////////////
+	///Internal - Get custom email sections for cat items, this applies to ritm and req//
+	/////////////////////////////////////////////////////////////////////////////////////
+	getCatItemVals: function(action) {
+		var surveySysId = '';
+		if (this.action == 'completed' || this.survey == 'true'){
+			if(this.table == 'sc_req_item'){
+				surveySysId = this.getSurveySysid('sc_request', reqGr.request.sys_id);
+				if(surveySysId){
+					//this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
+				}
+			}
+			else{
+				// if it is the opened by email generate a survey so you can populate it
+				/*
+					if(this.isOpenedBy){
+						gs.info('is opened by');
+						this.getSurvey(this.table, this.documentID);
+					}*/
+				if(this.isOpenedBy){
+					surveySysId = this.getSurveySysid(this.table, this.documentID);
+					//gs.info('survey sys id is : ' + surveySysId);
+					if(surveySysId){
+						//this.provideFeedback = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>Provide Feedback</a>';
+						this.provideFeedbackDiscrip = '<a href="/sp?id=take_survey&instance_id=' + surveySysId +'" target=_blank rel=noopener>here</a>';
+					}
+				}
+
+			}
+		}
+
+
+
+
+
+		//get ritm
+		var gr = new GlideRecord(this.table);
+		gr.get(this.documentID);
+		if (this.table == 'sc_request' && gr.getRowCount() == 1) {
+			gr = new GlideRecord('sc_req_item');
+			gr.addQuery('request', this.documentID);
+			gr.query();
+			gr.next();
+		}
+		this.signature = this.getSignature(gr);
+		switch (action) {
+			case ('opened'):
+				this.customRitmSubject = gr.cat_item.u_custom_subject ? gr.cat_item.u_subject : '';
+				this.customRitmInfo = gr.cat_item.u_custom_info ? gr.cat_item.u_info : '';
+				this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info ? gr.cat_item.u_additional_info : '';
+				break;
+			case ('updated'):
+				this.customRitmSubject = gr.cat_item.u_custom_subject_updated ? gr.cat_item.u_subject_updated : '';
+				this.customRitmInfo = gr.cat_item.u_custom_info_updated ? gr.cat_item.u_info_updated : '';
+				this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info_updated ? gr.cat_item.u_additional_info_updated : '';
+				break;
+			case ('completed'):
+
+				if (gr.getRowCount() == 1) {
+					var reopenSysID = '6c9635d61b5774108c5143f3cc4bcbda';
+					var reopenRITM = gr.sys_id;
+					var reopenURL = '/sp?id=sc_cat_item&sys_id=' + 
+						reopenSysID + 
+						'&sysparm_variables=%7B%22related_ritm%22:%22' + reopenRITM +'%22%7D';
+					this.customRitmSubject = gr.cat_item.u_custom_subject_completed ? gr.cat_item.u_subject_completed : '';
+					this.customRitmInfo = gr.cat_item.u_custom_info_completed ? gr.cat_item.u_info_completed : '';
+					if(this.provideFeedbackDiscrip != '[survey not found]'){
+						this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info_completed ? gr.cat_item.u_additional_info_completed : 'If this request still needs attention, please <a href="' + reopenURL + '">click here</a> to reopen.<br><br>' + '<b>Want to provide feedback on this ticket?  Take a survey ' + this.provideFeedbackDiscrip +'</b>.';
+					}
+
+				}
+				break;
+			default:
+				this.customRitmSubject = '';
+				this.customRitmInfo = '';
+				this.customRitmMoreInformation = '';
+				break;
+		}
+	},
+	///////////////////////////////////////////////////////////////////////////////////
+	//Internal - Get comments to add to variables section, this applies to all tables//
+	///////////////////////////////////////////////////////////////////////////////////
+	getComments: function(documentID, table, isITIL) {
+		var gr = new GlideRecord('sys_journal_field');
+		gr.addQuery('element_id', documentID);
+		if(isITIL){
+			gr.addQuery('element', 'comments').addOrCondition('element','work_notes');
+		}
+		else{
+			gr.addQuery('element', 'comments');
+		}
+		gr.addQuery('name', table);
+		gr.orderByDesc('sys_created_on');
+		gr.query();
+		if(gr.hasNext()){
+			if(isITIL){
+				this.varList.push({
+					variableName: "Comments and Work Notes",
+					variableValue: "Includes up to 5 most recent comments and work notes below:"
+				});
+			}
+			else{
+				this.varList.push({
+					variableName: "Comments",
+					variableValue: "Includes up to 5 most recent comments below:"
+				});
+			}
+		}
+		var i = 0;
+		while (gr.next() && i < 5) {
+			var commenter = '';
+			var commentedBy = gr.sys_created_by.toString();
+			if (commentedBy){
+				var userGr = new GlideRecord('sys_user');
+				userGr.addQuery('user_name',commentedBy);
+				userGr.addQuery('user_name','!=','');
+				userGr.addActiveQuery();
+				userGr.query();
+				userGr.next();
+				commenter = userGr.name.toString();
+			}
+			else{
+				commenter = commentedBy;
+			}
+			commenter = commenter || 'System';
+			var createdOn = new GlideDateTime(gr.sys_created_on);
+			var schedTools = new ScheduleTools();
+			createdOn = new GlideDateTime(schedTools.timeZoneDiff(createdOn,'-6'));
+
+			var createdOnDate = createdOn.getDate();
+			var createdOnTime = new GlideTime();
+			createdOnTime.setValue(createdOn.getTime());
+
+			//remove '[code]' and '[/code]' from gr
+
+			var gr_val = gr.value.toString();
+			var gr_final = gr_val;
+			while(gr_final.includes('[code]')){
+				var r = new SNC.Regex('/\\[\/?code\\]/');
+				var gr_final = r.replaceAll(gr_val, '');
+			}
+			this.varList.push({
+				variableName: createdOnDate + ' ' + createdOnTime.getByFormat('hh:mm a') + ' - ' + commenter,
+				variableValue: gr_final
+			});
+			i++;
+		}
+	},
+
+
+	/**SNDOC
+	@name getCommentString
+	@description Returns comments from the sys_journal_field table
+
+	@param {string} [documentID] - sys_id of the record on the table
+	@param {string} [table] - table the record exists on
+	@param {bool} [isITIL] - If true, it returns work notes and comments
+
+	@example
+	//Get approved or rejected approvers and comments
+	var approverEncodedQuery = 'stateINapproved';
+	approverEncodedQuery += '^sysapproval=' + current.sys_id.toString();
+	var approverGr = new GlideRecord('sysapproval_approver');
+	approverGr.addEncodedQuery(approverEncodedQuery);
+	approverGr.query();
+
+	var approverString = '';
+	var approverComments = '';
+
+		while (approverGr.next()){
+		var commentString = new global.ModularNotificationsBuilder().getCommentString(approverGr.getUniqueValue(), 'sysapproval_approver', 'false');
+		approverString += approverGr.getDisplayValue('approver') + ': ' + approverGr.getDisplayValue('state');
+		approverComments += commentString ? commentString : '';
+	}
+	gs.info(approverComments);
+
+	@returns {string} HTML formatted text comments
+	*/
+	getCommentString: function(documentID, table, isITIL) {
+		var variableString = '';
+		var gr = new GlideRecord('sys_journal_field');
+		gr.addQuery('element_id', documentID);
+		gr.addQuery('element', 'comments');
+		gr.addQuery('name', table);
+		gr.orderByDesc('sys_created_on');
+		gr.query();
+		if(!gr.hasNext()){
+			return '';
+		}
+		var i = 0;
+		while (gr.next() && i < 5) {
+			var commenter = '';
+			var commentedBy = gr.sys_created_by.toString();
+			if (commentedBy){
+				var userGr = new GlideRecord('sys_user');
+				userGr.addQuery('user_name',commentedBy);
+				userGr.addQuery('user_name','!=','');
+				userGr.addActiveQuery();
+				userGr.query();
+				userGr.next();
+				commenter = userGr.name.toString();
+			}
+			else{
+				commenter = commentedBy;
+			}
+			commenter = commenter || 'System';
+			var createdOn = new GlideDateTime(gr.sys_created_on);
+			var schedTools = new ScheduleTools();
+			createdOn = new GlideDateTime(schedTools.timeZoneDiff(createdOn,'-6'));
+
+			var createdOnDate = createdOn.getDate();
+			var createdOnTime = new GlideTime();
+			createdOnTime.setValue(createdOn.getTime());
+
+			var variableName = createdOnDate + ' ' + createdOnTime.getByFormat('hh:mm a') + ' - ' + commenter;
+			var variableValue = gr.value.toString();
+			if (variableName && variableValue && variableValue.indexOf('***New comment on ') == -1){
+				variableString += variableName + '<br>' + variableValue + '<br>';
+				i++;
+			}
+		}
+		return variableString;
+	},
+
+	/**SNDOC
+	@name getNoHTMLCommentString
+	@description Returns comments from the sys_journal_field table
+
+	@param {string} [documentID] - sys_id of the record on the table
+	@param {string} [table] - table the record exists on
+	@param {bool} [isITIL] - If true, it returns work notes and comments
+
+	@example
+	//Get approved or rejected approvers and comments
+	var approverEncodedQuery = 'stateINapproved';
+	approverEncodedQuery += '^sysapproval=' + current.sys_id.toString();
+	var approverGr = new GlideRecord('sysapproval_approver');
+	approverGr.addEncodedQuery(approverEncodedQuery);
+	approverGr.query();
+
+	var approverString = '';
+	var approverComments = '';
+
+		while (approverGr.next()){
+		var commentString = new global.ModularNotificationsBuilder().getNoHTMLCommentString(approverGr.getUniqueValue(), 'sysapproval_approver', 'false');
+		approverString += approverGr.getDisplayValue('approver') + ': ' + approverGr.getDisplayValue('state');
+		approverComments += commentString ? commentString : '';
+	}
+	gs.info(approverComments);
+
+	@returns {string} Plain text comments
+	*/
+	///////////////////////////////////////////////////////////////////////////////////
+	//Internal - Get comments to add to variables section, this applies to all tables//
+	///////////////////////////////////////////////////////////////////////////////////
+	getNoHTMLCommentString: function(documentID, table, isITIL) {
+
+		var variableString = '';
+		var gr = new GlideRecord('sys_journal_field');
+		gr.addQuery('element_id', documentID);
+		gr.addQuery('element', 'comments');
+		gr.addQuery('name', table);
+		gr.orderByDesc('sys_created_on');
+		gr.query();
+		if(!gr.hasNext()){
+			return '';
+		}
+		var i = 0;
+		while (gr.next() && i < 5){
+			//if(gr.value.toString().indexOf('***New comment on ') != -1){
+			var commenter = '';
+			var commentedBy = gr.sys_created_by.toString();
+			if (commentedBy){
+				var userGr = new GlideRecord('sys_user');
+				userGr.addQuery('user_name',commentedBy);
+				userGr.addQuery('user_name','!=','');
+				userGr.addActiveQuery();
+				userGr.query();
+				userGr.next();
+				commenter = userGr.name.toString();
+			}
+			else{
+				commenter = commentedBy;
+			}
+			commenter = commenter || 'System';
+			var createdOn = new GlideDateTime(gr.sys_created_on);
+			var schedTools = new ScheduleTools();
+			createdOn = new GlideDateTime(schedTools.timeZoneDiff(createdOn,'-6'));
+
+			var createdOnDate = createdOn.getDate();
+			var createdOnTime = new GlideTime();
+			createdOnTime.setValue(createdOn.getTime());
+
+			var variableName = createdOnDate + ' ' + createdOnTime.getByFormat('hh:mm a') + ' - ' + commenter;
+			var variableValue = gr.value.toString();
+			if (variableName && variableValue){
+				//gs.info('value : ' + variableValue + ' index of : ' + variableValue.indexOf('***New comment on '));
+
+				variableString += variableName + '\n' + variableValue + '\n';
+			}
+			//}
+			i++;
+		}
+
+		return variableString;
+	},
+	/**SNDOC
+	@name setGlobalUrl
+	@description Create a URL that should work for viewing all tickets on the portal
+
+	@example
+		var notification = new ModularNotificationsBuilder();
+		notification.table = current.getTableName();
+		notification.documentID = current.sys_id;
+		notification.setGlobalUrl();
+
+	@returns {void}
+	*/
+
+	setGlobalUrl: function() {
+		if (this.table && this.documentID) {
+			this.globalURL = '/sp/?id=ticket&table=' + this.table + '&sys_id=' + this.documentID + '&sysparm_view=portal';
+			if((this.action == 'assignedtomygroup' || this.action == 'assignedtome') || (this.table == 'sysapproval_approver' || (this.table == 'change_request') && (this.action == 'approved' || this.action == 'rejected'))){
+				//If it's a non-itil user
+				if(this.type == 'sp')
+				{
+					this.globalURL = '/sp?id=approval&table=sysapproval_approver&sys_id=' + this.documentID;
+				}
+				//If it's an itil user
+				else if(this.type == 'itil'){
+					this.globalURL = gs.generateURL(this.table, this.documentID);
+				}
+				//Everyone else
+				else
+				{
+					this.globalURL = '/sp?id=approval&table=sysapproval_approver&sys_id=' + this.documentID;
+				}
+			}
+		}
+	},	
+	/**SNDOC
+	@name getRitmApprovers
+	@description Runs a flow that looks for approvers to appear on a record returns the encoded user query for querying sys_user with.
+
+	@example
+		var grRitm = new GlideRecord('sc_req_item');
+		grRitm.get('RITM0030262');
+		var notification = new ModularNotificationsBuilder();
+		notification.getRitmApprovers(grRitm.getUniqueValue());
+
+	@returns {string}
+	*/
+
+	getRitmApprovers: function(document_id) {
+		try {
+
+			var inputs = {};
+			inputs['document_id'] = document_id; // String 
+
+			// Execute Synchronously: Run in foreground. Code snippet has access to outputs.
+			var result = sn_fd.FlowAPI.getRunner()
+			.subflow('global.look_up_ritm_approvers')
+			.inForeground()
+			.timeout(600000)
+			.withInputs(inputs)
+			.run();
+			var outputs = result.getOutputs();
+
+			// Get Outputs:
+			// Note: outputs can only be retrieved when executing synchronously.
+			var has_approvals = outputs['has_approvals']; // True/False
+			var approver_user_query = outputs['approver_user_query']; // String
+
+			var userQuery = has_approvals ? approver_user_query : '';
+			userQuery ='';
+			return userQuery;
+
+		} catch (ex) {
+			var message = ex.getMessage();
+			gs.error(message);
+			return '';
+		}
+
+	},	
+	///////////////////////////////////////////////////////////////////////////////////
+	///////////// Set signature area of email//////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	getSignature: function(ritm) {
+		var signatureContent = this.signature ? this.signature : '';
+		if((ritm.cat_item.u_custom_signature.toString() == 'true' || ritm.cat_item.u_custom_signature.toString() == 'True') && !gs.nil(ritm.cat_item.u_signature.toString())){
+			signatureContent = ritm.cat_item.u_signature.toString();
+		}
+		return signatureContent;
+	},	
+	///////////////////////////////////////////////////////////////////////////////////
+	///////////// Create outlook actionable message survey/////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	getSurvey: function(table, documentID) {
+		var surveyContent = '';
+
+		var asmtGr = new GlideRecord('asmt_assessment_instance');//Get survey instance
+		asmtGr.addQuery('trigger_table',table);
+		asmtGr.addQuery('trigger_id',documentID);
+		asmtGr.query();
+		asmtGr.next();
+
+		var asmtSysId = asmtGr.sys_id.toString();
+		var generator = new global.CustomSurveyAdaptiveCardGenerator(asmtSysId);//Instantiate survey generator
+		generator.instanceId = asmtSysId;
+		var content = generator.generate();//Start generating 
+		if(content){
+			surveyContent = '<script type="application/adaptivecard+json">' + content + '</script>';
+		}
+
+		return surveyContent;
+	},	
+	///////////////////////////////////////////////////////////////////////////////////////
+	//////////////////// Return survey sysid  /////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////
+	getSurveySysid: function(table, documentID) {
+
+		var asmtGr = new GlideRecord('asmt_assessment_instance');//Get survey instance
+		asmtGr.addQuery('trigger_table',table);
+		asmtGr.addQuery('trigger_id',documentID);
+		if(this.userID != ''){
+			asmtGr.addQuery('user', this.userID);
+		}
+		asmtGr.query();
+		asmtGr.next();
+		var asmtSysId = asmtGr.sys_id.toString();
+
+		return asmtSysId;
+	},
+	///////////////////////////////////////////////////////////////////////////////////////
+	//////////////////// Returns true if approver records exist for record ////////////////
+	///////////////////////////////////////////////////////////////////////////////////////
+	hasApprovers: function() {
+		var query = 'sysapproval=';
+		query += !gs.nil(current) && !gs.nil(current.sys_id) ? current.sys_id.toString() : this.documentID;
+		var approverGr = new GlideRecord('sysapproval_approver');
+		approverGr.addEncodedQuery(query);
+		approverGr.query();
+
+		if(this.table == 'sc_req_item'){
+			var approvalTaskQuery = 'request_item=' + current.sys_id.toString() + '^short_descriptionLIKEapprov^active=true';
+			var approvalTaskGr = new GlideRecord('sc_task');
+			approvalTaskGr.addEncodedQuery(approvalTaskQuery);
+			approvalTaskGr.query();
+		}
+		var taskQuery = '';
+
+		return approverGr.hasNext() || (this.table == 'sc_req_item' && approvalTaskGr.hasNext());
+	},
+
+	///////////////////////////////////////////////////////////////////////////////////
+	//Internal - Build HTML for URL header section of email////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	buildUrlHtml: function(){
+		this.urlHTML = '<table><tr><td class="header-links">';
+		for(var n = 0; n<this.urls.length; n++){
+			this.urlHTML += '<a href="' + 
+				this.urls[n]['url'] + 
+				'"target=_blank>' + 
+				this.urls[n]['label'];
+		}
+		this.urlHTML += '</a></td></tr></table>';
+	},
+	///////////////////////////////////////////////////////////////////////////////////
+	//Internal - Build HTML for variables section of email/////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	buildVariableInformation: function(varList){
+		var variableInformation = '';
+		for (var i = 0; i < varList.length; i++) {
+			if (varList[i].variableName && varList[i].variableValue) {
+				variableInformation += '<tr><td><div class="field-label">{{variableName}}</div><div>{{variableValue}}</div></td></tr>';
+
+				// Replace the placeholders with their actual values
+				variableInformation = variableInformation.replace(/{{variableName}}/g, function() {
+					return varList[i].variableName;
+				});
+				variableInformation = variableInformation.replace(/{{variableValue}}/g, function() {
+					return varList[i].variableValue;
+				});
+			}
+		}
+
+		return variableInformation;
+	},
+	///////////////////////////////////////////////////////////////////////////////////
+	//Internal - Build HTML for the main template of email/////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	buildHtml: function(){
+
+		/*
+			This html variable will build the whole email template
+			Modify the variables above to control the sections
+			To modify this html section, copy between quotes into a HTML beautifier and edit
+			To pull the edited html back in, copy the edited and beautified HTML into a minifier to remove new lines
+			*/
+
+		this.subject = this.customSubject || this.subject;
+		this.information = this.customInformation || this.information;
+		this.moreInformation = this.customMoreInformation || this.moreInformation;
+
+		var html = '<body><center class="wrapper"><table class="main"><tr><td class="td-border"></td></tr><tr><td class="header-block"><table><tr><td class="footer-image"><a href="https://apigroup.service-now.com/" target="_blank"><img alt="Logo" src="{{this.images.apiLogo}}" class="logo-img"></a></td><td class="header-links" style="text-align:right">{{this.urlHTML}}</td></tr></table></td></tr><tr><td class="banner-text"><h3>{{this.subject}}</h3></td></tr><tr><td><table class="body-content"><tr><td><p>Dear {{this.name}},</p><p>{{this.information}}</p></td></tr></table></td></tr><tr><td class="td-border-small"></td></tr><tr><td><table class="body-content">{{this.variableInformation}}</table></td></tr><tr><td class="footer-block"><table><tr><td class="footer-image"><img src="{{this.images.footerImageLeft}}" style="margin-bottom:-5px;height:24px"></td><td class="footer-image" style="text-align:right"><img src="{{this.images.footerImageRight}}" style="height:30px"></td></tr></table></td></tr></table></center></body>';
+
+		/*html = html.replace('{{modularNotificationsStylesheet}}', this.modularNotificationsStylesheet);
+		html = html.replace('{{apiLogo}}', this.images.apiLogo);
+		html = html.replace('{{urlHTML}}', this.urlHTML);
+		html = html.replace('{{subject}}', this.subject);
+		html = html.replace('{{name}}', this.name);
+		html = html.replace('{{information}}', this.information);
+		html = html.replace('{{variableInformation}}', this.variableInformation);
+		html = html.replace('{{footerImageLeft}}', this.images.footerImageLeft);
+		html = html.replace('{{footerImageRight}}', this.images.footerImageRight);*/
+		html = this.replaceTemplateVariables(html);
+		html = this.convertClassesToInlineStyles(html, this.modularNotificationsStylesheet);
+		return html;
+	},
+	///////////////////////////////////////////////////////////////////////////////////
+	//Internal - Build variables with their values in html/////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	replaceTemplateVariables: function(html) {
+		var variableNames = html.match(/\{\{this\.([\w.]+)\}\}/g);
+
+		if (variableNames) {
+			variableNames.forEach(function(variableName) {
+				var name = variableName.replace('{{this.', '').replace('}}', '');
+				var value = this.getNestedValue(name);
+				html = html.replace(variableName, value || '');
+			}, this); // Pass the correct 'this' context using the second argument of forEach
+		}
+		return html;
+	},
+
+	///////////////////////////////////////////////////////////////////////////////////
+	//Internal - Get variable values///////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	getNestedValue: function(path) {
+		var keys = path.split('.');
+		var value = this; // Start with the current 'this' context
+
+		for (var i = 0; i < keys.length; i++) {
+			// Check if the current value is an array and if the next key is a number
+			if (Array.isArray(value) && !isNaN(parseInt(keys[i], 10))) {
+				value = value[parseInt(keys[i], 10)]; // Access the array element by its index
+			} else {
+				value = value[keys[i]]; // Update 'value' to the next property in the path
+			}
+
+			if (value === undefined) {
+				return ''; // Return an empty string if the property is not defined
+			}
+		}
+
+		return value;
+	},
+	convertClassesToInlineStyles: function (html, css) {
+		// Function to parse the CSS string and return an object containing styles for each selector
+		function parseCSS(css) {
+			var cssRules = {};
+			var cssRuleRegex = /((?:\w+|\.[\w-]+)(?:\s*,\s*(?:\w+|\.[\w-]+))*)\s*\{([^}]+)\}/g;
+			var match;
+
+			while ((match = cssRuleRegex.exec(css)) !== null) {
+				var selectors = match[1].split(/\s*,\s*/);
+				var style = match[2].trim();
+				selectors.forEach(function(selector) {
+					cssRules[selector] = style;
+				});
+			}
+
+			return cssRules;
+		}
+
+		// Parse the CSS into an object containing styles for each selector
+		var cssRules = parseCSS(css);
+
+		// Iterate through the CSS rules and apply the inline styles to the HTML elements
+		for (var selector in cssRules) {
+			if (cssRules.hasOwnProperty(selector)) {
+				var selectorRegex;
+				var replacement;
+
+				// Check if the selector is a class, a tag, or the body tag
+				if (selector.charAt(0) === '.') {
+					var className = selector.slice(1);
+					var classSelector = 'class="' + className + '"';
+					selectorRegex = new RegExp('<([^>]*?)(' + classSelector + ')([^>]*)>', 'g');
+
+					html = html.replace(selectorRegex, function (match, p1, p2, p3) {
+						var styleAttr = 'style="' + cssRules[selector] + '"';
+						var existingStyleRegex = /style="([^"]*)"/;
+						var existingStyleMatch = p3.match(existingStyleRegex);
+
+						if (existingStyleMatch) {
+							styleAttr = 'style="' + cssRules[selector] + '; ' + existingStyleMatch[1] + '"';
+							p3 = p3.replace(existingStyleRegex, '');
+						}
+
+						return '<' + p1 + ' ' + p2 + ' ' + p3 + ' ' + styleAttr + '>';
+					});
+
+				} else {
+					selectorRegex = new RegExp('<' + selector + '\\b([^>]*)>', 'gi');
+
+					html = html.replace(selectorRegex, function (match, p1) {
+						var styleAttr = 'style="' + cssRules[selector] + '"';
+						var existingStyleRegex = /style="([^"]*)"/;
+						var existingStyleMatch = p1.match(existingStyleRegex);
+
+						if (existingStyleMatch) {
+							styleAttr = 'style="' + cssRules[selector] + '; ' + existingStyleMatch[1] + '"';
+							p1 = p1.replace(existingStyleRegex, '');
+						}
+
+						return '<' + selector + ' ' + p1 + ' ' + styleAttr + '>';
+					});
+				}
+			}
+		}
+
+		return html;
+
+	},
+
+	type: 'ModularNotificationsBuilder'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-04-05 21:17:16</sys_created_on>
+        <sys_id>ac1a18511b4a69d08c5143f3cc4bcb64</sys_id>
+        <sys_mod_count>22</sys_mod_count>
+        <sys_name>ModularNotificationsBuilder</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_include_ac1a18511b4a69d08c5143f3cc4bcb64</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-04-06 21:11:21</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</application>
+        <file_path/>
+        <instance_id>37412023db6dd890ad8dd7c8f49619a0</instance_id>
+        <instance_name>apigroupdev</instance_name>
+        <name>sys_script_include_ac1a18511b4a69d08c5143f3cc4bcb64</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;global.ModularNotificationsBuilder&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description&gt;Use this to build out a standard Modular Notification, so all notifications match styling and wording.&lt;/description&gt;&lt;name&gt;ModularNotificationsBuilder&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var ModularNotificationsBuilder = Class.create();
+ModularNotificationsBuilder.prototype = {	
+	/**SNDOC
+	@name initialize
+	@description Initialize blank variables
+
+	@example
+		this.subject = '';
+		this.information = '';
+		this.varList = [];
+		this.moreInformation = '';
+		this.name = '';
+		this.requestorName = '';
+		this.table = 'other';
+		this.action = '';
+		this.type = 'sp';
+		this.sourceTable = '';
+		this.adaptiveCard = '';//Adaptive card for outlook actionable messages
+		this.survey = 'false';
+		this.customVariablesOverride = 'false'; //Setting to true ignores variables normally set
+		this.customVariables = [];//Variables to include if above is true, can be blank for none
+		this.urls = [{label:'', url:''}]; //Custom URLs to display in the header
+		this.hideUrls = false; //Hide URLs in the header
+	@returns {void}
+	*/
+	initialize: function() {
+		this.provideFeedbackDiscrip = '[survey not found]';
+		this.userID = '';
+		this.isOpenedBy = false; //OR REQUESTED FOR (dont use this if it NEEDS to be opened by)
+		this.customMoreInformation = '';
+		this.customSubject = '';
+		this.customInformation = '';
+		this.subject = '';
+		this.information = '';
+		this.moreInformation = '';
+		this.varList = [];
+		this.name = '';
+		this.requestorName = '';
+		this.table = 'other';
+		this.action = '';
+		this.type = 'sp';
+		this.sourceTable = '';
+		this.adaptiveCard = '';
+		this.signature = '&lt;div&gt;&lt;p&gt;Best Regards,&lt;p&gt;Field Support&lt;br&gt;(651) 925-8511&lt;/div&gt;';
+		this.survey = 'false';
+		this.customVariablesOverride = 'false'; //Setting to true ignores variables normally set
+		this.customVariables = [];//Variables to include if above is true, can be blank for none
+		this.urls = [];
+		this.hideUrls = false;
+		this.colors = {
+			apiBlue : '#2A3E6D'
+		};
+		this.images = {
+			apiLogo : 'images/APiLogo.png',
+			footerImageLeft : 'images/SN_Building_Great_Leaders.png',
+			footerImageRight : 'images/SN_APi_Connect_Logo.png'
+		};
+		this.modularNotificationsStylesheet = '';
+	},
+
+	/**SNDOC
+	@name getHTML
+	@description Return the HTML for modular notifications
+
+	@example
+		var notification = new ModularNotificationsBuilder();
+
+		notification.table = 'incident';
+		notification.documentID = 'c7b4ecc61b97fc5062e50ed2cd4bcb73';
+		notification.setGlobalUrl();
+		notification.action = 'completed';
+		notification.name = current.opened_by.first_name.toString();
+
+		var html = notification.getHTML();
+
+	@returns {string} HTML email body
+	*/
+	getHTML: function() {
+
+		try{
+			var gr = new GlideRecord('sp_css');
+			gr.get('f76492b81b026d5062e50ed2cd4bcb64');
+			this.modularNotificationsStylesheet = gr.css.toString();
+			//Instantiate vars
+			var name = this.name;
+			var table = this.table;
+			var documentID = this.documentID;
+			var action = this.action;
+			var subject = this.subject;
+			var information = this.information;
+			var varList = this.varList;
+			var moreInformation = this.moreInformation;
+			var variableInformation = '';
+
+			if(!table.nil()){
+				//If opened RITM, then add template info to it
+				if (
+					(table == 'sc_req_item' &amp;&amp; action != 'custom' &amp;&amp; action != 'approved' &amp;&amp; action != 'rejected') || 
+					(table == 'sc_request' &amp;&amp; (
+						action == 'completed' || 
+						action == 'opened')
+					) &amp;&amp; 
+					!documentID.nil()
+
+				) {
+					this.ritmVals(action);
+				}		
+				if(this.hideUrls === false){
+					this.urls = this.urls || [
+						{label:'Knowledge', url:'https://apigroup.service-now.com/sp?id=kb_view2'},
+						{label:'My Tickets', url:'https://apigroup.service-now.com/sp?id=my_requests'},
+						{label:'Portal', url:'https://apigroup.service-now.com/sp'}
+					];
+					if(table == 'sysapproval_approver' &amp;&amp; action != 'approved' &amp;&amp; action != 'rejected' &amp;&amp; gs.nil(this.urls)){
+						this.urls = [
+							{label:'Knowledge', url:'https://apigroup.service-now.com/sp?id=kb_view2'},
+							{label:'My Approvals', url:'https://apigroup.service-now.com/sp?id=approvals'},
+							{label:'Portal', url:'https://apigroup.service-now.com/sp'}
+						];
+					}
+				}
+				if(action == 'approved' || action == 'rejected' || action == 'created' || action == 'reminder'){
+					this.approvalVals(action);
+				}
+				//If incident, then add template info to it
+				if (table == 'incident' &amp;&amp; action != 'custom' &amp;&amp; !documentID.nil()) {
+					this.incidentVals(action);
+				}
+				//If assigned to me, then add template info to it
+				if ((action == 'assignedtomygroup' || action == 'assignedtome') &amp;&amp; !documentID.nil()) {
+					this.assignedVals(action);
+				}
+
+				if (action == 'updated') {
+					this.getComments(this.documentID, this.table, false);
+				}
+				if (action == 'assignedtomygroup' || action == 'assignedtome') {
+					this.getComments(this.documentID, this.table, true);
+				}
+			}
+			subject += this.subject || '';
+			information += this.information || '';
+			if (this.varList.length &gt; 0) {
+				varList.push(this.varList);
+			}
+
+			var adaptiveCard = this.adaptiveCard;
+			//TODO - Add adaptive card later - Outlook actionable messages
+
+			moreInformation += this.moreInformation || '';
+			this.provideFeedback = '';
+			var surveySysId = '';
+			if (action == 'completed' || this.survey == 'true'){
+				if(this.table == 'sc_req_item'){
+					surveySysId = this.getSurveySysid('sc_request', reqGr.request.sys_id);
+					if(surveySysId){
+						//this.provideFeedback = '&lt;a href="/sp?id=take_survey&amp;instance_id=' + surveySysId +'" target=_blank rel=noopener&gt;Provide Feedback&lt;/a&gt;';
+					}
+				}
+				else{
+					// if it is the opened by email generate a survey so you can populate it
+					if(this.isOpenedBy){
+						surveySysId = this.getSurveySysid(this.table, this.documentID);
+						//gs.info('survey sys id is : ' + surveySysId);
+						if(surveySysId){
+							//this.provideFeedback = '&lt;a href="/sp?id=take_survey&amp;instance_id=' + surveySysId +'" target=_blank rel=noopener&gt;Provide Feedback&lt;/a&gt;';
+							this.provideFeedbackDiscrip = '&lt;a href="/sp?id=take_survey&amp;instance_id=' + surveySysId +'" target=_blank rel=noopener&gt;here&lt;/a&gt;';
+						}
+					}
+
+				}
+			}
+			/*
+			Building out the variables section, we'll loop through the varList variable to build it out
+			*/
+			if(this.customVariablesOverride == 'true'){
+				varList = this.customVariables;
+			}
+			this.variableInformation = this.buildVariableInformation(varList);
+
+			/*
+			Building out the urls section, we'll loop through this.urls to build it out
+			*/	
+			this.urlHTML = '';
+			this.buildUrlHtml();
+
+			var html = this.buildHtml();
+			return html;
+		}
+		catch(e){
+			gs.error('Modular notification exception: ' + e);
+			return '';
+		}
+	},
+	//////////////////////////////////////////////////////////////////////////////////////
+	//////Internal - Setting Email Template for Incidents/////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
+	incidentVals: function(action) {
+		var surveySysId = '';
+		if (this.action == 'completed' || this.survey == 'true'){
+			//if(this.table == 'incident'){
+			surveySysId = this.getSurveySysid(this.table, this.documentID);
+			//gs.info('survey sys id is : ' + surveySysId);
+			if(surveySysId){
+				//this.provideFeedback = '&lt;a href="/sp?id=take_survey&amp;instance_id=' + surveySysId +'" target=_blank rel=noopener&gt;Provide Feedback&lt;/a&gt;';
+				this.provideFeedbackDiscrip = '&lt;a href="/sp?id=take_survey&amp;instance_id=' + surveySysId +'" target=_blank rel=noopener&gt;here&lt;/a&gt;';
+			}
+			//}
+
+		}
+
+
+		action = action == 'completed' ? 'resolved' : action;
+		//Get ritm
+		var gr = new GlideRecord(this.table);
+		gr.get(this.documentID);
+
+		//Get End Time
+		var slaGr = new GlideRecord("task_sla");
+		slaGr.addQuery("task", current.sys_id);
+		slaGr.addEncodedQuery('sla=35420982d732220035ae23c7ce610393^ORsla=af420982d732220035ae23c7ce6103f3^ORsla=d1524982d732220035ae23c7ce61035d^ORsla=b12a37e0d7322200f2d224837e6103ea^ORsla=44005d3d1b88bc10e7004229bc4bcb02');
+		slaGr.query();
+		while (slaGr.next()) {
+			//Get last SLA
+		}
+		if (gr.caller_id != gr.sys_created_by)
+			this.varList.push({
+				variableName: 'Submitted By',
+				variableValue: gr.opened_by.getDisplayValue()
+			});
+
+		this.varList.push({
+			variableName: 'Incident Description',
+			variableValue: gr.short_description.getDisplayValue()
+		});
+		if(action != 'resolved'){
+			this.varList.push({
+				variableName: 'Estimated Delivery Date',
+				variableValue: slaGr.planned_end_time.getDateValue()
+			});
+			this.varList.push({
+				variableName: 'Status',
+				variableValue: gr.state.getDisplayValue()
+			});
+		}
+
+		this.subject = 'Incident ' + current.number + ' has been ' + action;
+		this.information = 'Your incident has been ' + action + '.';
+		this.moreInformation = '';
+		switch (action) {
+			case ('opened'):
+				break;
+			case ('updated'):
+				this.subject = 'Incident ' + current.number + ' has new comments';
+				break;
+			case ('resolved'):
+				var reopenSysID = '6c9635d61b5774108c5143f3cc4bcbda';
+				var reopenINC = gr.sys_id;
+				var reopenURL = '/sp?id=sc_cat_item&amp;sys_id=' + 
+					reopenSysID + 
+					'&amp;sysparm_variables=%7B%22related_inc%22:%22' + reopenINC +'%22%7D';
+				if(this.provideFeedbackDiscrip != '[survey not found]'){
+					this.moreInformation += 'If this issue still needs attention, &lt;a href="' + reopenURL + '"&gt;click here&lt;/a&gt; to reopen the incident.&lt;br&gt;&lt;br&gt;This incident will automatically close after 3 business days. If you still need assistance after it closes, a new incident will be required.&lt;br&gt;&lt;br&gt;' + '&lt;b&gt;Want to provide feedback on this ticket?  Take a survey ' + this.provideFeedbackDiscrip +'&lt;/b&gt;.';
+				}
+				this.varList.push({
+					variableName: 'Resolution Note',
+					variableValue: gr.u_customer_notes.getDisplayValue()
+				});
+				break;
+			case ('closed'):
+				break;
+			default:
+				break;
+		}
+		if(action != 'resolved'){
+			this.moreInformation += '&lt;br&gt;&lt;a href="' + this.globalURL + '"&gt;Click here&lt;/a&gt; to add a comment or view all comment history for this incident.';
+		}
+	},
+	//////////////////////////////////////////////////////////////////////////////////////
+	//////Internal - Setting Email Template for ITIL Assigned to me emails////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
+	assignedVals: function(action) {
+		switch(action){
+			case 'assignedtome':
+				action = 'assigned to you';
+				break;
+			case 'assignedtomygroup':
+				action = 'assigned to your group';
+				break;
+			default:
+				break;
+		}
+		//Get record
+		var gr = new GlideRecord(this.table);
+		gr.get(this.documentID);
+
+		this.varList.push({
+			variableName: 'Description',
+			variableValue: gr.short_description.getDisplayValue()
+		});
+		this.varList.push({
+			variableName: 'Status',
+			variableValue: gr.state.getDisplayValue()
+		});
+
+		this.subject = gr.getValue('number') + ' has been ' + action;
+		this.information = gr.getValue('number') + ' has been ' + action + '.';
+		this.moreInformation = '';
+		switch (action) {
+			case ('assigned to you'):
+				this.subject = gr.getValue('number') + ' has been ' + action + '.';
+				break;
+			case ('assigned to your group'):
+				this.subject = gr.getValue('number') + ' has been ' + action + '.';
+				this.moreInformation += '&lt;br&gt;&lt;a href="' + this.globalURL + '"&gt;Click here&lt;/a&gt; to view this record.';
+				break;
+			default:
+				break;
+		}
+		if(action != 'resolved' &amp;&amp; this.type != 'itil'){
+			this.moreInformation += '&lt;br&gt;&lt;a href="' + this.globalURL + '"&gt;Click here&lt;/a&gt; to add a comment or view all comment history for this record.';
+		}
+
+	},
+	//////////////////////////////////////////////////////////////////////////////////////
+	//////Internal - Setting Email Template for Approval emails///////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
+	approvalVals: function(action) {
+		//Get record
+		var gr = new GlideRecord(this.table);
+		gr.get(this.documentID);
+
+		//Get name of table the approval came from
+		var docGr = new GlideRecord('sys_documentation');
+		var encodedQuery = 'name=' + (this.sourceTable || this.table) + '^element=NULL';
+		docGr.addEncodedQuery(encodedQuery);
+		docGr.query();
+		var tableName = (docGr.next() ? docGr.label.toString() : 'request');
+		var ritmGr = new GlideRecord();
+
+		//Get base table
+		var tu = new TableUtils((this.sourceTable || this.table));
+		var baseTable = tu.getAbsoluteBase();
+
+		var sourceGr = gr;
+		if(this.table=='sysapproval_approver'){
+			sourceGr = new GlideRecord(gr.source_table.toString() || this.sourceTable);
+			sourceGr.get(this.document_id.sys_id.toString());
+		}
+		//Set subject
+		if(this.sourceTable == 'sc_req_item' || this.table == 'sc_req_item'){
+			ritmGr = new GlideRecord('sc_req_item');
+			ritmGr.get(gr.document_id.number.getValue() || gr.number.getValue());
+			this.signature = this.getSignature(ritmGr);
+		}
+
+		//Set subject
+		if(this.sourceTable == 'sc_req_item'){
+			ritmGr = new GlideRecord(this.sourceTable);
+			ritmGr.get(gr.document_id.number.getValue());
+			this.subject = 'Request ' + ritmGr.request.number.toString() + ' has been ' + action;
+			this.subject = action == 'created' || action == 'reminder' ? (action == 'reminder'? 'REMINDER' : 'ACTION REQUIRED') + ': APi Connect Approval Request From ' + this.requestorName : this.subject;
+		}
+		else{
+			this.subject = action == 'created' || action == 'reminder' ? (action == 'reminder'? 'REMINDER' : 'ACTION REQUIRED') + ': APi Connect Approval Request From ' + this.requestorName : 'APi Connect ' + tableName + ' ' + action;
+		}
+
+		//Set information section
+		var documentNumber = gr.document_id.request.number.getValue() || gr.document_id.number.getValue() || gr.number.getValue();
+		this.information = action == 'created' ? '&lt;br&gt;' + (this.requestorName || 'An APi Connect user') + ' has submitted the following ' + (tableName == 'Requested Item' ? 'Request' : tableName).toLowerCase() + ' for your review. Your approval is required before this request can be processed.' : 'Approval ' + documentNumber + ' has been ' + (action == 'reminder'? 'created' : action) + '.';
+		if(this.sourceTable == 'sc_req_item' &amp;&amp; action != 'created' &amp;&amp; action != 'reminder'){
+			this.information = 'Your request has been ' + action + '. Please review details below for more information.';
+		}
+
+		//Set more information section
+		this.moreInformation = '&lt;br&gt;Please click here to review the request: &lt;a href="' + this.globalURL + '"&gt;Click here&lt;/a&gt;';
+		if (action == 'created' || action == 'reminder'){
+			var generator = new global.CustomApprovalAdaptiveCardGenerator(gr, 'en');
+			if(this.oamRefreshUrl){
+				generator.oamRefreshUrl = this.oamRefreshUrl;
+			}
+			var content = generator.generate();
+			this.adaptiveCard = '&lt;script type="application/adaptivecard+json"&gt;' + content +'&lt;/script&gt;';
+		}
+
+		//Set variables
+		this.varList.push({
+			variableName: 'Submitted By',
+			variableValue: this.requestorName
+		});
+
+		if(action == 'created' || action == 'reminder'){
+			var approv1 = gr.u_approval_is_for;
+			if(approv1 != ''){
+				this.varList.push({
+					variableName: 'Approval is For',
+					variableValue: approv1
+				});
+			}
+		}
+
+		if(this.sourceTable &amp;&amp; this.sourceTable == 'sc_req_item' &amp;&amp; gr.document_id.number.getValue()){
+
+			var estDeliveryDate = '';
+			var startDate = new GlideDateTime();
+			var cat_item = new GlideRecord('sc_cat_item');
+			cat_item.get(ritmGr.cat_item);
+			if(cat_item.getDisplayValue('delivery_time')) {
+				//calculate the duration
+				var dur = cat_item.delivery_time;
+				var dur_in_ms = 60*60*12*1000*(dur.getByFormat('dd')-1);
+				var dur_final = new GlideDuration(dur_in_ms);
+
+				//schedule on 12 hour weekdays
+				var schedRec = new GlideRecord('cmn_schedule');
+				schedRec.get('name', '6-6 Weekdays');
+				var schedule = new GlideSchedule(schedRec.sys_id);
+
+				//calc final date
+				var end = schedule.add(startDate, dur_final);
+
+				// return the calculated value without hours
+				estDeliveryDate =  end.getDate().getDisplayValue();
+				// return the calculated value with hours
+				//return end.getDisplayValue();
+			}
+			if(action != 'rejected'){
+				this.varList.push({
+					variableName: 'Estimated Delivery Date',
+					variableValue: estDeliveryDate
+				});
+			}
+		}
+
+
+		//Get approved or rejected approvers and comments
+		var approverEncodedQuery = 'stateINapproved,rejected';
+		var approverDocId = gr.document_id.toString() || gr.sysapproval.toString();
+		approverEncodedQuery += '^sysapproval=' + approverDocId;
+		var approverGr = new GlideRecord('sysapproval_approver');
+		approverGr.addEncodedQuery(approverEncodedQuery);
+		approverGr.query();
+
+		var approverString = '';
+		var approverComments = '';
+
+		while (approverGr.next()){
+			approverString += approverGr.getDisplayValue('approver') + ': ' + approverGr.getDisplayValue('state');
+			approverString += approverGr.hasNext() ? '&lt;br&gt;' : '';
+			var commentString = this.getCommentString(approverGr.getUniqueValue(), 'sysapproval_approver', 'false');
+			approverComments += commentString ? commentString : ''; 
+			approverComments += approverGr.hasNext() &amp;&amp; commentString ? '&lt;br&gt;' : '';
+		}
+
+		if(baseTable == 'task'){
+			var taskNumber = this.sourceTable == 'sc_req_item' ? 'Request: ' + ritmGr.request.number.getDisplayValue() + '&lt;br&gt;Request Item: ' + ritmGr.number.getDisplayValue() : gr.document_id.number.toString();
+			var taskShortDescription = this.sourceTable == 'sc_req_item' ? ritmGr.request.short_description.getDisplayValue() : gr.document_id.short_description.toString();
+			this.varList.push({
+				variableName: 'Number',
+				variableValue: taskNumber
+			}, {
+				variableName: 'Description',
+				variableValue: taskShortDescription
+			});
+		}
+		this.varList.push({
+			variableName: 'Approval Replies',
+			variableValue: approverString
+		}, {
+			variableName: 'Approval Comments',
+			variableValue: approverComments
+		});
+	},
+	////////////////////////////////////////////////////////////////////////////////////
+	//////Internal - Setting Email Template for REQ/RITMs///////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////
+	ritmVals: function(action) {
+
+		//Get ritm
+		var gr = new GlideRecord(this.table);
+		gr.get(this.documentID);
+		if (this.table == 'sc_request') {
+			gr=new GlideRecord('sc_req_item');
+			gr.addQuery('request', this.documentID);
+			gr.query();
+			gr.next();
+		}
+		this.signature = this.getSignature(gr);
+
+		//Find out if it's an approval using the catalog item's Approval true/false field
+		var isApproval = this.table == 'sc_request' ? (gr.request.u_cdw_order.toString() == 'true') : (gr.cat_item.u_contains_approvals.toString() == 'true');
+		var isConditionalApproval = (gr.cat_item.u_conditional_approvals.toString() == 'true');
+		var approvalCondition = gr.cat_item.u_approval_condition.toString();
+
+		//Find out if it's a cascading approval using the catalog item's Cascading Approval true/false field
+		var isCascadingApproval = gr.cat_item.u_is_multiple_approval;
+		var isConditionalCascadingApproval = (gr.cat_item.u_is_not_multiple_approver_conditional.toString() == 'false');
+		var cascadingApprovalCondition = gr.cat_item.u_multiple_approval_condition.toString();
+
+		if(action == 'opened' &amp;&amp; isApproval){
+			if(isConditionalApproval &amp;&amp; approvalCondition){
+				//Re-query the same RITM to see if it matches the Approval Condition field's conditions
+				var approvalGr = new GlideRecord('sc_req_item');
+				approvalGr.addQuery('sys_id', gr.getUniqueValue());
+				approvalGr.addEncodedQuery(approvalCondition);
+				approvalGr.query();
+
+				if(approvalGr.hasNext()){
+					action = 'submitted for approval';
+					if(isCascadingApproval &amp;&amp; isConditionalCascadingApproval &amp;&amp; cascadingApprovalCondition){
+						//Re-query the same RITM to see if it matches the Cascading Approval Condition field's conditions
+						approvalGr = new GlideRecord('sc_req_item');
+						approvalGr.addQuery('sys_id', gr.getUniqueValue());
+						approvalGr.addEncodedQuery(cascadingApprovalCondition);
+						approvalGr.query();
+						if(approvalGr.hasNext()){
+							action = 'cascadingapproval';
+						}
+					}
+					else if(isCascadingApproval &amp;&amp; !isConditionalCascadingApproval){
+						action = 'cascadingapproval';
+					}
+				}
+			}
+			else{
+				action = 'submitted for approval';
+
+			}
+		}
+
+		var grSysId = gr.getUniqueValue();
+		var estDeliveryDate = '';
+		var startDate = new GlideDateTime();
+		var cat_item = new GlideRecord('sc_cat_item');
+		cat_item.get(gr.cat_item);
+		if(cat_item.getDisplayValue('delivery_time')) {
+			//calculate the duration
+			var dur = cat_item.delivery_time;
+			var dur_in_ms = 60*60*12*1000*(dur.getByFormat('dd')-1);
+			var dur_final = new GlideDuration(dur_in_ms);
+
+			//schedule on 12 hour weekdays
+			var schedRec = new GlideRecord('cmn_schedule');
+			schedRec.get('name', '6-6 Weekdays');
+			var schedule = new GlideSchedule(schedRec.sys_id);
+
+			//calc final date
+			var end = schedule.add(startDate, dur_final);
+
+			// return the calculated value without hours
+			estDeliveryDate =  end.getDate().getDisplayValue();
+			// return the calculated value with hours
+			//return end.getDisplayValue();
+		}
+
+		var approverStr='';
+
+		this.varList.push({
+			variableName: 'Submitted By',
+			variableValue: gr.opened_by.getDisplayValue()
+		}, {
+			variableName: 'Number',
+			variableValue: 'Request: ' + gr.request.number.getDisplayValue() + '&lt;br&gt;Request Item: ' + gr.number.getDisplayValue()
+		}, {
+			variableName: 'Description',
+			variableValue: gr.request.short_description.getDisplayValue()
+		});
+		if (action == 'completed'){		
+			//Do nothing
+		} else if (action == 'submitted for approval' || action == 'cascadingapproval'){
+			this.getRitmApprovers(grSysId);
+			var approverGr = new GlideRecord('sysapproval_approver');
+			approverGr.addQuery('document_id',grSysId);
+			approverGr.query();
+
+			while(approverGr.next()){
+				approverStr += approverGr.approver.name;
+				approverStr += approverGr.hasNext() ? '&lt;br&gt;' : '';
+			}
+			if(action == 'cascadingapproval'){
+				this.varList.push({
+					variableName: 'Approval Requested From',
+					variableValue: 'Multiple Approvers'
+				});
+			}
+			else{
+				this.varList.push({
+					variableName: 'Approval Requested From',
+					variableValue: approverStr
+				});
+			}
+		} else {
+			this.varList.push({
+				variableName: 'Estimated Delivery Date',
+				variableValue: estDeliveryDate
+			}, {
+				variableName: 'Status',
+				variableValue: gr.state.getDisplayValue()
+			});
+		}
+
+		//Get catalog item variable values
+		this.getCatItemVals(action);
+
+
+		this.subject = this.customRitmSubject ? this.customRitmSubject : 'Request ' + gr.request.number + ' has been ' + action;
+		this.subject = action != 'cascadingapproval' ? this.subject : 'Request ' + gr.request.number + ' has been submitted for approval';
+		this.information = this.customRitmInfo ? this.customRitmInfo : 'Your request has been ' + action + '.';
+		this.information += action == 'submitted for approval' ? ' Once approved, your request will be processed.' : '';
+		this.information = action == 'cascadingapproval' ? 'This request requires multiple approvals. Once all approvals are completed, your request will be processed.' : this.information;
+
+		this.moreInformation = this.moreInformation || '';
+		this.moreInformation += action == 'updated' ? '&lt;a href="' + this.globalURL + '"&gt;Click here&lt;/a&gt; to add a comment or view all comment history for this request.&lt;br&gt;' : this.customRitmMoreInformation ? this.customRitmMoreInformation : '&lt;a href="' + this.globalURL + '"&gt;Click here&lt;/a&gt; to update or review the latest details of this request.';
+	},
+	/////////////////////////////////////////////////////////////////////////////////////
+	///Internal - Get custom email sections for cat items, this applies to ritm and req//
+	/////////////////////////////////////////////////////////////////////////////////////
+	getCatItemVals: function(action) {
+		var surveySysId = '';
+		if (this.action == 'completed' || this.survey == 'true'){
+			if(this.table == 'sc_req_item'){
+				surveySysId = this.getSurveySysid('sc_request', reqGr.request.sys_id);
+				if(surveySysId){
+					//this.provideFeedback = '&lt;a href="/sp?id=take_survey&amp;instance_id=' + surveySysId +'" target=_blank rel=noopener&gt;Provide Feedback&lt;/a&gt;';
+				}
+			}
+			else{
+				// if it is the opened by email generate a survey so you can populate it
+				/*
+					if(this.isOpenedBy){
+						gs.info('is opened by');
+						this.getSurvey(this.table, this.documentID);
+					}*/
+				if(this.isOpenedBy){
+					surveySysId = this.getSurveySysid(this.table, this.documentID);
+					//gs.info('survey sys id is : ' + surveySysId);
+					if(surveySysId){
+						//this.provideFeedback = '&lt;a href="/sp?id=take_survey&amp;instance_id=' + surveySysId +'" target=_blank rel=noopener&gt;Provide Feedback&lt;/a&gt;';
+						this.provideFeedbackDiscrip = '&lt;a href="/sp?id=take_survey&amp;instance_id=' + surveySysId +'" target=_blank rel=noopener&gt;here&lt;/a&gt;';
+					}
+				}
+
+			}
+		}
+
+
+
+
+
+		//get ritm
+		var gr = new GlideRecord(this.table);
+		gr.get(this.documentID);
+		if (this.table == 'sc_request' &amp;&amp; gr.getRowCount() == 1) {
+			gr = new GlideRecord('sc_req_item');
+			gr.addQuery('request', this.documentID);
+			gr.query();
+			gr.next();
+		}
+		this.signature = this.getSignature(gr);
+		switch (action) {
+			case ('opened'):
+				this.customRitmSubject = gr.cat_item.u_custom_subject ? gr.cat_item.u_subject : '';
+				this.customRitmInfo = gr.cat_item.u_custom_info ? gr.cat_item.u_info : '';
+				this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info ? gr.cat_item.u_additional_info : '';
+				break;
+			case ('updated'):
+				this.customRitmSubject = gr.cat_item.u_custom_subject_updated ? gr.cat_item.u_subject_updated : '';
+				this.customRitmInfo = gr.cat_item.u_custom_info_updated ? gr.cat_item.u_info_updated : '';
+				this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info_updated ? gr.cat_item.u_additional_info_updated : '';
+				break;
+			case ('completed'):
+
+				if (gr.getRowCount() == 1) {
+					var reopenSysID = '6c9635d61b5774108c5143f3cc4bcbda';
+					var reopenRITM = gr.sys_id;
+					var reopenURL = '/sp?id=sc_cat_item&amp;sys_id=' + 
+						reopenSysID + 
+						'&amp;sysparm_variables=%7B%22related_ritm%22:%22' + reopenRITM +'%22%7D';
+					this.customRitmSubject = gr.cat_item.u_custom_subject_completed ? gr.cat_item.u_subject_completed : '';
+					this.customRitmInfo = gr.cat_item.u_custom_info_completed ? gr.cat_item.u_info_completed : '';
+					if(this.provideFeedbackDiscrip != '[survey not found]'){
+						this.customRitmMoreInformation = gr.cat_item.u_custom_additional_info_completed ? gr.cat_item.u_additional_info_completed : 'If this request still needs attention, please &lt;a href="' + reopenURL + '"&gt;click here&lt;/a&gt; to reopen.&lt;br&gt;&lt;br&gt;' + '&lt;b&gt;Want to provide feedback on this ticket?  Take a survey ' + this.provideFeedbackDiscrip +'&lt;/b&gt;.';
+					}
+
+				}
+				break;
+			default:
+				this.customRitmSubject = '';
+				this.customRitmInfo = '';
+				this.customRitmMoreInformation = '';
+				break;
+		}
+	},
+	///////////////////////////////////////////////////////////////////////////////////
+	//Internal - Get comments to add to variables section, this applies to all tables//
+	///////////////////////////////////////////////////////////////////////////////////
+	getComments: function(documentID, table, isITIL) {
+		var gr = new GlideRecord('sys_journal_field');
+		gr.addQuery('element_id', documentID);
+		if(isITIL){
+			gr.addQuery('element', 'comments').addOrCondition('element','work_notes');
+		}
+		else{
+			gr.addQuery('element', 'comments');
+		}
+		gr.addQuery('name', table);
+		gr.orderByDesc('sys_created_on');
+		gr.query();
+		if(gr.hasNext()){
+			if(isITIL){
+				this.varList.push({
+					variableName: "Comments and Work Notes",
+					variableValue: "Includes up to 5 most recent comments and work notes below:"
+				});
+			}
+			else{
+				this.varList.push({
+					variableName: "Comments",
+					variableValue: "Includes up to 5 most recent comments below:"
+				});
+			}
+		}
+		var i = 0;
+		while (gr.next() &amp;&amp; i &lt; 5) {
+			var commenter = '';
+			var commentedBy = gr.sys_created_by.toString();
+			if (commentedBy){
+				var userGr = new GlideRecord('sys_user');
+				userGr.addQuery('user_name',commentedBy);
+				userGr.addQuery('user_name','!=','');
+				userGr.addActiveQuery();
+				userGr.query();
+				userGr.next();
+				commenter = userGr.name.toString();
+			}
+			else{
+				commenter = commentedBy;
+			}
+			commenter = commenter || 'System';
+			var createdOn = new GlideDateTime(gr.sys_created_on);
+			var schedTools = new ScheduleTools();
+			createdOn = new GlideDateTime(schedTools.timeZoneDiff(createdOn,'-6'));
+
+			var createdOnDate = createdOn.getDate();
+			var createdOnTime = new GlideTime();
+			createdOnTime.setValue(createdOn.getTime());
+
+			//remove '[code]' and '[/code]' from gr
+
+			var gr_val = gr.value.toString();
+			var gr_final = gr_val;
+			while(gr_final.includes('[code]')){
+				var r = new SNC.Regex('/\\[\/?code\\]/');
+				var gr_final = r.replaceAll(gr_val, '');
+			}
+			this.varList.push({
+				variableName: createdOnDate + ' ' + createdOnTime.getByFormat('hh:mm a') + ' - ' + commenter,
+				variableValue: gr_final
+			});
+			i++;
+		}
+	},
+
+
+	/**SNDOC
+	@name getCommentString
+	@description Returns comments from the sys_journal_field table
+
+	@param {string} [documentID] - sys_id of the record on the table
+	@param {string} [table] - table the record exists on
+	@param {bool} [isITIL] - If true, it returns work notes and comments
+
+	@example
+	//Get approved or rejected approvers and comments
+	var approverEncodedQuery = 'stateINapproved';
+	approverEncodedQuery += '^sysapproval=' + current.sys_id.toString();
+	var approverGr = new GlideRecord('sysapproval_approver');
+	approverGr.addEncodedQuery(approverEncodedQuery);
+	approverGr.query();
+
+	var approverString = '';
+	var approverComments = '';
+
+		while (approverGr.next()){
+		var commentString = new global.ModularNotificationsBuilder().getCommentString(approverGr.getUniqueValue(), 'sysapproval_approver', 'false');
+		approverString += approverGr.getDisplayValue('approver') + ': ' + approverGr.getDisplayValue('state');
+		approverComments += commentString ? commentString : '';
+	}
+	gs.info(approverComments);
+
+	@returns {string} HTML formatted text comments
+	*/
+	getCommentString: function(documentID, table, isITIL) {
+		var variableString = '';
+		var gr = new GlideRecord('sys_journal_field');
+		gr.addQuery('element_id', documentID);
+		gr.addQuery('element', 'comments');
+		gr.addQuery('name', table);
+		gr.orderByDesc('sys_created_on');
+		gr.query();
+		if(!gr.hasNext()){
+			return '';
+		}
+		var i = 0;
+		while (gr.next() &amp;&amp; i &lt; 5) {
+			var commenter = '';
+			var commentedBy = gr.sys_created_by.toString();
+			if (commentedBy){
+				var userGr = new GlideRecord('sys_user');
+				userGr.addQuery('user_name',commentedBy);
+				userGr.addQuery('user_name','!=','');
+				userGr.addActiveQuery();
+				userGr.query();
+				userGr.next();
+				commenter = userGr.name.toString();
+			}
+			else{
+				commenter = commentedBy;
+			}
+			commenter = commenter || 'System';
+			var createdOn = new GlideDateTime(gr.sys_created_on);
+			var schedTools = new ScheduleTools();
+			createdOn = new GlideDateTime(schedTools.timeZoneDiff(createdOn,'-6'));
+
+			var createdOnDate = createdOn.getDate();
+			var createdOnTime = new GlideTime();
+			createdOnTime.setValue(createdOn.getTime());
+
+			var variableName = createdOnDate + ' ' + createdOnTime.getByFormat('hh:mm a') + ' - ' + commenter;
+			var variableValue = gr.value.toString();
+			if (variableName &amp;&amp; variableValue &amp;&amp; variableValue.indexOf('***New comment on ') == -1){
+				variableString += variableName + '&lt;br&gt;' + variableValue + '&lt;br&gt;';
+				i++;
+			}
+		}
+		return variableString;
+	},
+
+	/**SNDOC
+	@name getNoHTMLCommentString
+	@description Returns comments from the sys_journal_field table
+
+	@param {string} [documentID] - sys_id of the record on the table
+	@param {string} [table] - table the record exists on
+	@param {bool} [isITIL] - If true, it returns work notes and comments
+
+	@example
+	//Get approved or rejected approvers and comments
+	var approverEncodedQuery = 'stateINapproved';
+	approverEncodedQuery += '^sysapproval=' + current.sys_id.toString();
+	var approverGr = new GlideRecord('sysapproval_approver');
+	approverGr.addEncodedQuery(approverEncodedQuery);
+	approverGr.query();
+
+	var approverString = '';
+	var approverComments = '';
+
+		while (approverGr.next()){
+		var commentString = new global.ModularNotificationsBuilder().getNoHTMLCommentString(approverGr.getUniqueValue(), 'sysapproval_approver', 'false');
+		approverString += approverGr.getDisplayValue('approver') + ': ' + approverGr.getDisplayValue('state');
+		approverComments += commentString ? commentString : '';
+	}
+	gs.info(approverComments);
+
+	@returns {string} Plain text comments
+	*/
+	///////////////////////////////////////////////////////////////////////////////////
+	//Internal - Get comments to add to variables section, this applies to all tables//
+	///////////////////////////////////////////////////////////////////////////////////
+	getNoHTMLCommentString: function(documentID, table, isITIL) {
+
+		var variableString = '';
+		var gr = new GlideRecord('sys_journal_field');
+		gr.addQuery('element_id', documentID);
+		gr.addQuery('element', 'comments');
+		gr.addQuery('name', table);
+		gr.orderByDesc('sys_created_on');
+		gr.query();
+		if(!gr.hasNext()){
+			return '';
+		}
+		var i = 0;
+		while (gr.next() &amp;&amp; i &lt; 5){
+			//if(gr.value.toString().indexOf('***New comment on ') != -1){
+			var commenter = '';
+			var commentedBy = gr.sys_created_by.toString();
+			if (commentedBy){
+				var userGr = new GlideRecord('sys_user');
+				userGr.addQuery('user_name',commentedBy);
+				userGr.addQuery('user_name','!=','');
+				userGr.addActiveQuery();
+				userGr.query();
+				userGr.next();
+				commenter = userGr.name.toString();
+			}
+			else{
+				commenter = commentedBy;
+			}
+			commenter = commenter || 'System';
+			var createdOn = new GlideDateTime(gr.sys_created_on);
+			var schedTools = new ScheduleTools();
+			createdOn = new GlideDateTime(schedTools.timeZoneDiff(createdOn,'-6'));
+
+			var createdOnDate = createdOn.getDate();
+			var createdOnTime = new GlideTime();
+			createdOnTime.setValue(createdOn.getTime());
+
+			var variableName = createdOnDate + ' ' + createdOnTime.getByFormat('hh:mm a') + ' - ' + commenter;
+			var variableValue = gr.value.toString();
+			if (variableName &amp;&amp; variableValue){
+				//gs.info('value : ' + variableValue + ' index of : ' + variableValue.indexOf('***New comment on '));
+
+				variableString += variableName + '\n' + variableValue + '\n';
+			}
+			//}
+			i++;
+		}
+
+		return variableString;
+	},
+	/**SNDOC
+	@name setGlobalUrl
+	@description Create a URL that should work for viewing all tickets on the portal
+
+	@example
+		var notification = new ModularNotificationsBuilder();
+		notification.table = current.getTableName();
+		notification.documentID = current.sys_id;
+		notification.setGlobalUrl();
+
+	@returns {void}
+	*/
+
+	setGlobalUrl: function() {
+		if (this.table &amp;&amp; this.documentID) {
+			this.globalURL = '/sp/?id=ticket&amp;table=' + this.table + '&amp;sys_id=' + this.documentID + '&amp;sysparm_view=portal';
+			if((this.action == 'assignedtomygroup' || this.action == 'assignedtome') || (this.table == 'sysapproval_approver' || (this.table == 'change_request') &amp;&amp; (this.action == 'approved' || this.action == 'rejected'))){
+				//If it's a non-itil user
+				if(this.type == 'sp')
+				{
+					this.globalURL = '/sp?id=approval&amp;table=sysapproval_approver&amp;sys_id=' + this.documentID;
+				}
+				//If it's an itil user
+				else if(this.type == 'itil'){
+					this.globalURL = gs.generateURL(this.table, this.documentID);
+				}
+				//Everyone else
+				else
+				{
+					this.globalURL = '/sp?id=approval&amp;table=sysapproval_approver&amp;sys_id=' + this.documentID;
+				}
+			}
+		}
+	},	
+	/**SNDOC
+	@name getRitmApprovers
+	@description Runs a flow that looks for approvers to appear on a record returns the encoded user query for querying sys_user with.
+
+	@example
+		var grRitm = new GlideRecord('sc_req_item');
+		grRitm.get('RITM0030262');
+		var notification = new ModularNotificationsBuilder();
+		notification.getRitmApprovers(grRitm.getUniqueValue());
+
+	@returns {string}
+	*/
+
+	getRitmApprovers: function(document_id) {
+		try {
+
+			var inputs = {};
+			inputs['document_id'] = document_id; // String 
+
+			// Execute Synchronously: Run in foreground. Code snippet has access to outputs.
+			var result = sn_fd.FlowAPI.getRunner()
+			.subflow('global.look_up_ritm_approvers')
+			.inForeground()
+			.timeout(600000)
+			.withInputs(inputs)
+			.run();
+			var outputs = result.getOutputs();
+
+			// Get Outputs:
+			// Note: outputs can only be retrieved when executing synchronously.
+			var has_approvals = outputs['has_approvals']; // True/False
+			var approver_user_query = outputs['approver_user_query']; // String
+
+			var userQuery = has_approvals ? approver_user_query : '';
+			userQuery ='';
+			return userQuery;
+
+		} catch (ex) {
+			var message = ex.getMessage();
+			gs.error(message);
+			return '';
+		}
+
+	},	
+	///////////////////////////////////////////////////////////////////////////////////
+	///////////// Set signature area of email//////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	getSignature: function(ritm) {
+		var signatureContent = this.signature ? this.signature : '';
+		if((ritm.cat_item.u_custom_signature.toString() == 'true' || ritm.cat_item.u_custom_signature.toString() == 'True') &amp;&amp; !gs.nil(ritm.cat_item.u_signature.toString())){
+			signatureContent = ritm.cat_item.u_signature.toString();
+		}
+		return signatureContent;
+	},	
+	///////////////////////////////////////////////////////////////////////////////////
+	///////////// Create outlook actionable message survey/////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	getSurvey: function(table, documentID) {
+		var surveyContent = '';
+
+		var asmtGr = new GlideRecord('asmt_assessment_instance');//Get survey instance
+		asmtGr.addQuery('trigger_table',table);
+		asmtGr.addQuery('trigger_id',documentID);
+		asmtGr.query();
+		asmtGr.next();
+
+		var asmtSysId = asmtGr.sys_id.toString();
+		var generator = new global.CustomSurveyAdaptiveCardGenerator(asmtSysId);//Instantiate survey generator
+		generator.instanceId = asmtSysId;
+		var content = generator.generate();//Start generating 
+		if(content){
+			surveyContent = '&lt;script type="application/adaptivecard+json"&gt;' + content + '&lt;/script&gt;';
+		}
+
+		return surveyContent;
+	},	
+	///////////////////////////////////////////////////////////////////////////////////////
+	//////////////////// Return survey sysid  /////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////
+	getSurveySysid: function(table, documentID) {
+
+		var asmtGr = new GlideRecord('asmt_assessment_instance');//Get survey instance
+		asmtGr.addQuery('trigger_table',table);
+		asmtGr.addQuery('trigger_id',documentID);
+		if(this.userID != ''){
+			asmtGr.addQuery('user', this.userID);
+		}
+		asmtGr.query();
+		asmtGr.next();
+		var asmtSysId = asmtGr.sys_id.toString();
+
+		return asmtSysId;
+	},
+	///////////////////////////////////////////////////////////////////////////////////////
+	//////////////////// Returns true if approver records exist for record ////////////////
+	///////////////////////////////////////////////////////////////////////////////////////
+	hasApprovers: function() {
+		var query = 'sysapproval=';
+		query += !gs.nil(current) &amp;&amp; !gs.nil(current.sys_id) ? current.sys_id.toString() : this.documentID;
+		var approverGr = new GlideRecord('sysapproval_approver');
+		approverGr.addEncodedQuery(query);
+		approverGr.query();
+
+		if(this.table == 'sc_req_item'){
+			var approvalTaskQuery = 'request_item=' + current.sys_id.toString() + '^short_descriptionLIKEapprov^active=true';
+			var approvalTaskGr = new GlideRecord('sc_task');
+			approvalTaskGr.addEncodedQuery(approvalTaskQuery);
+			approvalTaskGr.query();
+		}
+		var taskQuery = '';
+
+		return approverGr.hasNext() || (this.table == 'sc_req_item' &amp;&amp; approvalTaskGr.hasNext());
+	},
+
+	///////////////////////////////////////////////////////////////////////////////////
+	//Internal - Build HTML for URL header section of email////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	buildUrlHtml: function(){
+		this.urlHTML = '&lt;table&gt;&lt;tr&gt;&lt;td class="header-links"&gt;';
+		for(var n = 0; n&lt;this.urls.length; n++){
+			this.urlHTML += '&lt;a href="' + 
+				this.urls[n]['url'] + 
+				'"target=_blank&gt;' + 
+				this.urls[n]['label'];
+		}
+		this.urlHTML += '&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;';
+	},
+	///////////////////////////////////////////////////////////////////////////////////
+	//Internal - Build HTML for variables section of email/////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	buildVariableInformation: function(varList){
+		var variableInformation = '';
+		for (var i = 0; i &lt; varList.length; i++) {
+			if (varList[i].variableName &amp;&amp; varList[i].variableValue) {
+				variableInformation += '&lt;tr&gt;&lt;td&gt;&lt;div class="field-label"&gt;{{variableName}}&lt;/div&gt;&lt;div&gt;{{variableValue}}&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;';
+
+				// Replace the placeholders with their actual values
+				variableInformation = variableInformation.replace(/{{variableName}}/g, function() {
+					return varList[i].variableName;
+				});
+				variableInformation = variableInformation.replace(/{{variableValue}}/g, function() {
+					return varList[i].variableValue;
+				});
+			}
+		}
+
+		return variableInformation;
+	},
+	///////////////////////////////////////////////////////////////////////////////////
+	//Internal - Build HTML for the main template of email/////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	buildHtml: function(){
+
+		/*
+			This html variable will build the whole email template
+			Modify the variables above to control the sections
+			To modify this html section, copy between quotes into a HTML beautifier and edit
+			To pull the edited html back in, copy the edited and beautified HTML into a minifier to remove new lines
+			*/
+
+		this.subject = this.customSubject || this.subject;
+		this.information = this.customInformation || this.information;
+		this.moreInformation = this.customMoreInformation || this.moreInformation;
+
+		var html = '&lt;body&gt;&lt;center class="wrapper"&gt;&lt;table class="main"&gt;&lt;tr&gt;&lt;td class="td-border"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="header-block"&gt;&lt;table&gt;&lt;tr&gt;&lt;td class="footer-image"&gt;&lt;a href="https://apigroup.service-now.com/" target="_blank"&gt;&lt;img alt="Logo" src="{{this.images.apiLogo}}" class="logo-img"&gt;&lt;/a&gt;&lt;/td&gt;&lt;td class="header-links" style="text-align:right"&gt;{{this.urlHTML}}&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="banner-text"&gt;&lt;h3&gt;{{this.subject}}&lt;/h3&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;table class="body-content"&gt;&lt;tr&gt;&lt;td&gt;&lt;p&gt;Dear {{this.name}},&lt;/p&gt;&lt;p&gt;{{this.information}}&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="td-border-small"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;table class="body-content"&gt;{{this.variableInformation}}&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="footer-block"&gt;&lt;table&gt;&lt;tr&gt;&lt;td class="footer-image"&gt;&lt;img src="{{this.images.footerImageLeft}}" style="margin-bottom:-5px;height:24px"&gt;&lt;/td&gt;&lt;td class="footer-image" style="text-align:right"&gt;&lt;img src="{{this.images.footerImageRight}}" style="height:30px"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;&lt;/body&gt;';
+
+		/*html = html.replace('{{modularNotificationsStylesheet}}', this.modularNotificationsStylesheet);
+		html = html.replace('{{apiLogo}}', this.images.apiLogo);
+		html = html.replace('{{urlHTML}}', this.urlHTML);
+		html = html.replace('{{subject}}', this.subject);
+		html = html.replace('{{name}}', this.name);
+		html = html.replace('{{information}}', this.information);
+		html = html.replace('{{variableInformation}}', this.variableInformation);
+		html = html.replace('{{footerImageLeft}}', this.images.footerImageLeft);
+		html = html.replace('{{footerImageRight}}', this.images.footerImageRight);*/
+		html = this.replaceTemplateVariables(html);
+		html = this.convertClassesToInlineStyles(html, this.modularNotificationsStylesheet);
+		return html;
+	},
+	///////////////////////////////////////////////////////////////////////////////////
+	//Internal - Build variables with their values in html/////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	replaceTemplateVariables: function(html) {
+		var variableNames = html.match(/\{\{this\.([\w.]+)\}\}/g);
+
+		if (variableNames) {
+			variableNames.forEach(function(variableName) {
+				var name = variableName.replace('{{this.', '').replace('}}', '');
+				var value = this.getNestedValue(name);
+				html = html.replace(variableName, value || '');
+			}, this); // Pass the correct 'this' context using the second argument of forEach
+		}
+		return html;
+	},
+
+	///////////////////////////////////////////////////////////////////////////////////
+	//Internal - Get variable values///////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////
+	getNestedValue: function(path) {
+		var keys = path.split('.');
+		var value = this; // Start with the current 'this' context
+
+		for (var i = 0; i &lt; keys.length; i++) {
+			// Check if the current value is an array and if the next key is a number
+			if (Array.isArray(value) &amp;&amp; !isNaN(parseInt(keys[i], 10))) {
+				value = value[parseInt(keys[i], 10)]; // Access the array element by its index
+			} else {
+				value = value[keys[i]]; // Update 'value' to the next property in the path
+			}
+
+			if (value === undefined) {
+				return ''; // Return an empty string if the property is not defined
+			}
+		}
+
+		return value;
+	},
+	convertClassesToInlineStyles: function (html, css) {
+		// Function to parse the CSS string and return an object containing styles for each selector
+		function parseCSS(css) {
+			var cssRules = {};
+			var cssRuleRegex = /((?:\w+|\.[\w-]+)(?:\s*,\s*(?:\w+|\.[\w-]+))*)\s*\{([^}]+)\}/g;
+			var match;
+
+			while ((match = cssRuleRegex.exec(css)) !== null) {
+				var selectors = match[1].split(/\s*,\s*/);
+				var style = match[2].trim();
+				selectors.forEach(function(selector) {
+					cssRules[selector] = style;
+				});
+			}
+
+			return cssRules;
+		}
+
+		// Parse the CSS into an object containing styles for each selector
+		var cssRules = parseCSS(css);
+
+		// Iterate through the CSS rules and apply the inline styles to the HTML elements
+		for (var selector in cssRules) {
+			if (cssRules.hasOwnProperty(selector)) {
+				var selectorRegex;
+				var replacement;
+
+				// Check if the selector is a class, a tag, or the body tag
+				if (selector.charAt(0) === '.') {
+					var className = selector.slice(1);
+					var classSelector = 'class="' + className + '"';
+					selectorRegex = new RegExp('&lt;([^&gt;]*?)(' + classSelector + ')([^&gt;]*)&gt;', 'g');
+
+					html = html.replace(selectorRegex, function (match, p1, p2, p3) {
+						var styleAttr = 'style="' + cssRules[selector] + '"';
+						var existingStyleRegex = /style="([^"]*)"/;
+						var existingStyleMatch = p3.match(existingStyleRegex);
+
+						if (existingStyleMatch) {
+							styleAttr = 'style="' + cssRules[selector] + '; ' + existingStyleMatch[1] + '"';
+							p3 = p3.replace(existingStyleRegex, '');
+						}
+
+						return '&lt;' + p1 + ' ' + p2 + ' ' + p3 + ' ' + styleAttr + '&gt;';
+					});
+
+				} else {
+					selectorRegex = new RegExp('&lt;' + selector + '\\b([^&gt;]*)&gt;', 'gi');
+
+					html = html.replace(selectorRegex, function (match, p1) {
+						var styleAttr = 'style="' + cssRules[selector] + '"';
+						var existingStyleRegex = /style="([^"]*)"/;
+						var existingStyleMatch = p1.match(existingStyleRegex);
+
+						if (existingStyleMatch) {
+							styleAttr = 'style="' + cssRules[selector] + '; ' + existingStyleMatch[1] + '"';
+							p1 = p1.replace(existingStyleRegex, '');
+						}
+
+						return '&lt;' + selector + ' ' + p1 + ' ' + styleAttr + '&gt;';
+					});
+				}
+			}
+		}
+
+		return html;
+
+	},
+
+	type: 'ModularNotificationsBuilder'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;Terry.Lillo&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-04-05 21:17:16&lt;/sys_created_on&gt;&lt;sys_id&gt;ac1a18511b4a69d08c5143f3cc4bcb64&lt;/sys_id&gt;&lt;sys_mod_count&gt;22&lt;/sys_mod_count&gt;&lt;sys_name&gt;ModularNotificationsBuilder&lt;/sys_name&gt;&lt;sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc"&gt;9433631b1bcf30508c5143f3cc4bcbfc&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Modular Notifications"&gt;9433631b1bcf30508c5143f3cc4bcbfc&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_ac1a18511b4a69d08c5143f3cc4bcb64&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;Terry.Lillo&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-04-06 21:11:21&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1960510849</payload_hash>
+        <record_name>ModularNotificationsBuilder</record_name>
+        <reverted_from/>
+        <source>9666aabc1beda1508c5143f3cc4bcb62</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-04-06 21:11:21</sys_created_on>
+        <sys_id>3b42a5a91b82619062e50ed2cd4bcbdf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1875868e18d0000001</sys_recorded_at>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-04-06 21:11:21</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>3f42a5a9b8826190a4b449418bf6bfde</update_guid>
+        <update_guid_history>3f42a5a9b8826190a4b449418bf6bfde:-1960510849,dd5d1da16c8261907cadb67f9e3f74a5:-479553860,1b3d052db902619026fe241bb6107b1e:-1482007074,312cc9a948026190022251b185e227a2:1663425322,71ca8929cb0261900cc25374969c6a2a:998622144,38098d65350261906a4a5fa05763ecf6:2134492726,17d88de179026190887e1863835cf87d:453660238,6f678c29668ea9d0e9d93c03e5e741b3:-1490905018,b496c0e5d68ea9d0ad7190b99a95e7b0:889157345,71a54c25368ea9d0f691f9a205d5505e:419957515,e2914829c84ea9d079540555d7d1306c:1043954644,e32ef791164ea9d0b2740bfbcfa98a1d:-833001916,941e37914d4ea9d022656959e6092789:1624405968,d62dbb11634ea9d0ac61f898ac18e87f:1568813185,c8ab339d4e0ea9d0fa1ec0b08a277317:-222449754,98b87bd5fd0ea9d0482fafffbfe7d834:1961185141,e6c773152b0ea9d0702e9ce89787d573:1225011935,1ba6b3d1ac0ea9d0417ca51e245615f1:347821258,8d963791230ea9d052a024e347237da6:-111698302,2745bbdde7caa9d0454f7797e773933a:-693478323,7dcdd895fb4a69d098181822dee247f1:-943522059,811cd415a34a69d0f670696a5f728105:-1810995336,681a1851044a69d04a1b844c4ceddc66:-1441907192</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-04-19 20:52:24</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>0f404635a76146708a8c37ad506be8a4</sys_id>
+        <sys_metadata>ac1a18511b4a69d08c5143f3cc4bcb64</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ModularNotificationsBuilder</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
+        <sys_update_name>sys_script_include_ac1a18511b4a69d08c5143f3cc4bcb64</sys_update_name>
+        <sys_update_version display_value="sys_script_include_ac1a18511b4a69d08c5143f3cc4bcb64">3b42a5a91b82619062e50ed2cd4bcbdf</sys_update_version>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-04-19 20:52:24</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

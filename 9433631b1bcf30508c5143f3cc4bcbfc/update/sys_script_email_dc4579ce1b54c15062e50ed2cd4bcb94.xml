@@ -14,6 +14,13 @@
 	notification.requestorName = current.sysapproval.opened_by.name.toString();
 	notification.sourceTable = current.source_table || current.sysapproval.getReferenceTable();
 	notification.type = (notification.sourceTable == 'u_external_account_request' || notification.sourceTable == 'change_request') ? 'itil' : 'sp';
+	if(notification.sourceTable == 'change_request'){
+		var changeGr = new GlideRecord('change_request');
+		changeGr.get(current.document_id.toString());
+		if (changeGr.type.toString() == 'emergency'){
+			notification.customSubject = 'ACTION REQUIRED: APi Connect Emergency Change Approval Request From ' + notification.name;
+		}
+	}
 	notification.setGlobalUrl();
 	//Put it all together to get the full HTML template
 	var html = notification.getHTML();
@@ -29,13 +36,13 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-09 19:38:54</sys_created_on>
         <sys_id>dc4579ce1b54c15062e50ed2cd4bcb94</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name>modular_new_approval_request</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_email_dc4579ce1b54c15062e50ed2cd4bcb94</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-01-31 16:21:37</sys_updated_on>
+        <sys_updated_on>2023-05-02 21:35:16</sys_updated_on>
     </sys_script_email>
 </record_update>
