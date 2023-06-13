@@ -2,7 +2,7 @@
     <sysevent_email_action action="INSERT_OR_UPDATE">
         <action_insert>true</action_insert>
         <action_update>true</action_update>
-        <active>true</active>
+        <active>false</active>
         <advanced_condition><![CDATA[if(current.u_is_multiple_approval.toString == 'true'){
 	if(current.state.getDisplayValue == 'Open'){
 		answer = hasApprovers();
@@ -76,7 +76,7 @@ function hasApprovers(){
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>3fe1714f1b820d1062e50ed2cd4bcb6f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>RITM Approved [EVENT]</sys_name>
         <sys_overrides/>
         <sys_package display_value="Global" source="global">global</sys_package>
@@ -84,7 +84,7 @@ function hasApprovers(){
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_3fe1714f1b820d1062e50ed2cd4bcb6f</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
+        <sys_updated_on>2023-06-13 13:25:24</sys_updated_on>
         <sys_version>2</sys_version>
         <template/>
         <type>email</type>

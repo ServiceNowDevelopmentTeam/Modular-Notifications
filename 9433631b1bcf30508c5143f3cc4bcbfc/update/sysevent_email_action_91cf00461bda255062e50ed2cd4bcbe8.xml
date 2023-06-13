@@ -70,7 +70,7 @@
         <sys_updated_by>Terry.Lillo</sys_updated_by>
         <sys_updated_on>2023-04-25 20:05:11</sys_updated_on>
         <sys_version>2</sys_version>
-        <template display_value="APi Ticket has new comments">cc3b408e1b9a255062e50ed2cd4bcba6</template>
+        <template display_value="APi Incident commented">cc3b408e1b9a255062e50ed2cd4bcba6</template>
         <type>email</type>
         <weight>0</weight>
     </sysevent_email_action>
