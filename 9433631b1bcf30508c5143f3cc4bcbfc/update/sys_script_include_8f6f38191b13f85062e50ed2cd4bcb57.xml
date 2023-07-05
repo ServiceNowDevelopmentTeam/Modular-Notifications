@@ -239,7 +239,7 @@ ModularNotificationsBuilder.prototype = {
 			});
 
 		this.varList.push({
-			variableName: 'Incident Description',
+			variableName: 'Ticket Description',
 			variableValue: gr.short_description.getDisplayValue()
 		});
 		if(action != 'resolved'){
@@ -253,14 +253,14 @@ ModularNotificationsBuilder.prototype = {
 			});
 		}
 
-		this.subject = 'Incident ' + current.number + ' has been ' + action;
-		this.information = 'Your incident has been ' + action + '.';
+		this.subject = 'Ticket ' + current.number + ' ' + action;
+		this.information = 'Your ticket has been ' + action + '.';
 		this.moreInformation = '';
 		switch (action) {
 			case ('opened'):
 				break;
 			case ('updated'):
-				this.subject = 'Incident ' + current.number + ' has new comments';
+				this.subject = 'Ticket ' + current.number + ' commented';
 				break;
 			case ('resolved'):
 				var reopenSysID = '6c9635d61b5774108c5143f3cc4bcbda';
@@ -312,15 +312,15 @@ ModularNotificationsBuilder.prototype = {
 			variableValue: gr.state.getDisplayValue()
 		});
 
-		this.subject = gr.getValue('number') + ' has been ' + action;
-		this.information = gr.getValue('number') + ' has been ' + action + '.';
+		this.subject = gr.getValue('number') + ' ' + action;
+		this.information = gr.getValue('number') + ' ' + action + '.';
 		this.moreInformation = '';
 		switch (action) {
 			case ('assigned to you'):
-				this.subject = gr.getValue('number') + ' has been ' + action + '.';
+				this.subject = gr.getValue('number') + ' ' + action + '.';
 				break;
 			case ('assigned to your group'):
-				this.subject = gr.getValue('number') + ' has been ' + action + '.';
+				this.subject = gr.getValue('number') + ' ' + action + '.';
 				this.moreInformation += '<br><a href="' + this.globalURL + '">Click here</a> to view this record.';
 				break;
 			default:
@@ -367,7 +367,7 @@ ModularNotificationsBuilder.prototype = {
 		if(this.sourceTable == 'sc_req_item'){
 			ritmGr = new GlideRecord(this.sourceTable);
 			ritmGr.get(gr.document_id.number.getValue());
-			this.subject = 'Request ' + ritmGr.request.number.toString() + ' has been ' + action;
+			this.subject = 'Ticket ' + ritmGr.request.number.toString() + ' ' + action;
 			this.subject = action == 'created' || action == 'reminder' ? (action == 'reminder'? 'REMINDER' : 'ACTION REQUIRED') + ': APi Connect Approval Request From ' + this.requestorName : this.subject;
 		}
 		else{
@@ -376,9 +376,9 @@ ModularNotificationsBuilder.prototype = {
 
 		//Set information section
 		var documentNumber = gr.document_id.request.number.getValue() || gr.document_id.number.getValue() || gr.number.getValue();
-		this.information = action == 'created' ? '<br>' + (this.requestorName || 'An APi Connect user') + ' has submitted the following ' + (tableName == 'Requested Item' ? 'Request' : tableName).toLowerCase() + ' for your review. Your approval is required before this request can be processed.' : 'Approval ' + documentNumber + ' has been ' + (action == 'reminder'? 'created' : action) + '.';
+		this.information = action == 'created' ? '<br>' + (this.requestorName || 'An APi Connect user') + ' has submitted the following ticket for your review. Your approval is required before this request can be processed.' : 'Approval ' + documentNumber + ' has been ' + (action == 'reminder'? 'created' : action) + '.';
 		if(this.sourceTable == 'sc_req_item' && action != 'created' && action != 'reminder'){
-			this.information = 'Your request has been ' + action + '. Please review details below for more information.';
+			this.information = 'Your ticket has been ' + action + '. Please review details below for more information.';
 		}
 
 		//Set more information section
@@ -612,8 +612,8 @@ ModularNotificationsBuilder.prototype = {
 		this.getCatItemVals(action);
 
 
-		this.subject = this.customRitmSubject ? this.customRitmSubject : 'Request ' + gr.request.number + ' has been ' + action;
-		this.subject = action != 'cascadingapproval' ? this.subject : 'Request ' + gr.request.number + ' has been submitted for approval';
+		this.subject = this.customRitmSubject ? this.customRitmSubject : 'Ticket ' + gr.request.number + ' ' + action;
+		this.subject = action != 'cascadingapproval' ? this.subject : 'Ticket ' + gr.request.number + ' submitted for approval';
 		this.information = this.customRitmInfo ? this.customRitmInfo : 'Your request has been ' + action + '.';
 		this.information += action == 'submitted for approval' ? ' Once approved, your request will be processed.' : '';
 		this.information = action == 'cascadingapproval' ? 'This request requires multiple approvals. Once all approvals are completed, your request will be processed.' : this.information;
@@ -1125,10 +1125,6 @@ ModularNotificationsBuilder.prototype = {
 		this.information = this.customInformation || this.information;
 		this.moreInformation = this.customMoreInformation || this.moreInformation;
 
-		//var html = '<head>' + this.adaptiveCard + ' </head><body><center class="wrapper"><table class="main"><tr><td class="td-border"></td></tr><tr><td class="header-block"><table><tr><td class="footer-image"><a href="https://apigroup.service-now.com/" target="_blank"><img alt="Logo" src="{{this.images.apiLogo.location}}" height="{{this.images.apiLogo.height}}"></a></td><td class="header-links" style="text-align:right">{{this.urlHTML}}</td></tr></table></td></tr><tr><td class="banner-text"><h3>{{this.subject}}</h3></td></tr><tr><td><table class="body-content"><tr><td><p>Dear {{this.name}},</p><p>{{this.information}}</p></td></tr></table></td></tr><tr><td class="td-border-small"></td></tr><tr><td><table class="body-content">{{this.variableInformation}}</table></td></tr><tr><td class="footer-block"><table><tr><td><img src="{{this.images.footerImageLeft.location}}" height="{{this.images.footerImageLeft.height}}"></td><td style="text-align:right"><img src="{{this.images.footerImageRight.location}}" height="{{this.images.footerImageRight.height}}"></td></tr></table></td></tr></table></center></body>';
-
-		
-		//var bodyHTML = '<table class="body-content"><tr><td><p>Dear {{this.name}},</p><p>{{this.information}}</p></td></tr><tr><td>{{this.moreInformation}}</td></tr></table></td></tr><tr><td class="td-border-small"></td></tr><tr><td><table class="body-content">{{this.variableInformation}}</table></td></tr></table>';
 		var bodyHTML = '<table style="border-collapse: collapse; width: 100%;" border="0" cellpadding="0"><tbody><tr><td style="background: #2a3e6d; width: 100%; text-align: center; vertical-align: middle; color: #fdfdfd; font-family: verdana; font-size: 12pt; padding-top: 10px; padding-bottom: 10px;"><strong>{{this.subject}}</strong></td></tr><tr><td style="padding: 10px; width: 100%;"><p style="margin: 0in; font-size: 10pt; font-family: Verdana;">{{this.information}}</p></td></tr><tr><td style="padding: 10px; width: 100%;"><p style="margin: 0in; font-size: 10pt; font-family: Verdana;">{{this.variableInformation}}</p></td></tr><tr><td style="padding: 10px; width: 100%;"><p style="margin: 0in; font-size: 10pt; font-family: Verdana;">{{this.moreInformation}}</p></td></tr></tbody></table>';
 		
 		bodyHTML = this.replaceTemplateVariables(bodyHTML);
@@ -1140,9 +1136,9 @@ ModularNotificationsBuilder.prototype = {
 		
 		//Replace ${notification:body} with bodyHTML
 		var newLayout = layout.replace("${notification:body}", bodyHTML);
-		var recordLink = '<a href="{{this.globalURL}}">Click here</a>'
+		var recordLink = '<a href="{{this.globalURL}}">Click here</a>';
 		recordLink = this.replaceTemplateVariables(recordLink);
-		newLayout = newLayout.replace("${mail_script:click_here_record_url}", recordLink)
+		newLayout = newLayout.replace("${mail_script:click_here_record_url}", recordLink);
 			
 		var html = '<head>' + this.adaptiveCard + ' </head>' + newLayout;
 		
@@ -1261,13 +1257,13 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>108</sys_mod_count>
+        <sys_mod_count>112</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-07-05 13:49:25</sys_updated_on>
+        <sys_updated_on>2023-07-05 17:26:47</sys_updated_on>
     </sys_script_include>
 </record_update>
