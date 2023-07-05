@@ -4,21 +4,18 @@
         <advanced_layout/>
         <description/>
         <layout><![CDATA[<div align="center" style="background-color: #d0e8f2;">
-<div>
 <table cellpadding="0" border="0" class="MsoNormalTable" style="max-width: 400px; min-width: 400px; background: white; width: 36.4407%;">
 <tbody><!-- Header -->
-<tr style="height: 1px;">
-<td style="background: #d50032; padding: 0px; font-size: 1px; height: 1px; width: 100%;"></td>
-</tr>
 <tr>
 <td style="padding: 0in; display: inline-block; width: 100%;">
+<div style="color: #d50032;"><hr /></div>
 <div align="right">
 <table cellpadding="5" border="0" class="MsoNormalTable" cellspacing="0px" style="border-collapse: collapse;">
 <tbody>
 <tr>
 <td style="width: 7.12401%; padding: 5px; text-align: center; vertical-align: middle;"><a target="_blank" href="/sp" style="color: blue; text-decoration: underline;" rel="noopener"><b><span style="color: #4a4a4a;"><img alt="Logo" height="25" width="35" border="0" src="images/APiLogo.pngx" /></span></b></a></td>
 <td style="padding: 5px;">
-<p style="margin: 0in; font-size: 10pt; font-family: Verdana; text-align: right;"><a target="_blank" href="/sp?id=my_requests" style="color: blue; text-decoration: none;" rel="noopener"> </a><a target="_blank" href="/sp?id=my_requests" style="display: inline-block; background-color: #2a3e6d; color: #ffffff; border: 1px solid blue; border-radius: 6px; line-height: 25px; width: 100px; font-family: Verdana; font-size: 10pt; font-weight: 600; text-align: center; text-decoration: none; -webkit-text-size-adjust: none;" rel="noopener">My Tickets</a><a target="_blank" href="/sp?id=my_requests" style="color: blue; text-decoration: none;" rel="noopener"> </a></p>
+<p style="margin: 0in; font-size: 10pt; font-family: Verdana; text-align: right;"><a target="_blank" href="/sp?id=my_requests" style="color: blue; text-decoration: none;" rel="noopener"><img src="/sys_attachment.do?sys_id=57e1edb11bf3ed9062e50ed2cd4bcb29" title="MyTicketsButton.png" width="62" height="23" alt="" /></a></p>
 </td>
 </tr>
 </tbody>
@@ -31,11 +28,17 @@
 <td style="padding: 0in; width: 100%;">${notification:body}</td>
 </tr>
 <!-- Footer -->
-<tr style="height: 1px;">
-<td style="background: #E2E3E2; padding: 0px; font-size: 1px; height: 1px; width: 100%;"></td>
-</tr>
 <tr style="height: 18.6562px;">
 <td style="padding: 10px; width: 100%; height: 18.6562px;">
+<table width="100%">
+<tbody>
+<tr>
+<td>
+<div style="color: #2a3e6d;"><hr /></div>
+</td>
+</tr>
+</tbody>
+</table>
 <p style="margin: 0in; font-size: 5pt; font-family: Verdana;">&nbsp;</p>
 <p style="margin: 0in; font-size: 10pt; font-family: Verdana;">${mail_script:click_here_record_url} to view all ticket details or add a comment.</p>
 <p style="margin: 0in; font-size: 5pt; font-family: Verdana;">&nbsp;</p>
@@ -55,20 +58,19 @@
 </tr>
 </tbody>
 </table>
-</div>
 </div>]]></layout>
         <name>APi Default Layout</name>
         <sys_class_name>sys_email_layout</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2023-04-20 14:13:08</sys_created_on>
         <sys_id>2848484a1b9a255062e50ed2cd4bcb4f</sys_id>
-        <sys_mod_count>54</sys_mod_count>
+        <sys_mod_count>68</sys_mod_count>
         <sys_name>APi Default Layout</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_email_layout_2848484a1b9a255062e50ed2cd4bcb4f</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-06-01 19:46:15</sys_updated_on>
+        <sys_updated_on>2023-07-03 15:53:24</sys_updated_on>
     </sys_email_layout>
 </record_update>

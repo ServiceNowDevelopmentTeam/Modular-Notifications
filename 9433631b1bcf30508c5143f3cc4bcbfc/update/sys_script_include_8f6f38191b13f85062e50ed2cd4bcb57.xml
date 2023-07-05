@@ -1095,11 +1095,11 @@ ModularNotificationsBuilder.prototype = {
 		var variableInformation = '';
 		for (var i = 0; i < varList.length; i++) {
 			if (varList[i].variableName && varList[i].variableValue) {
-				variableInformation += '<tr><td><div class="field-label">{{variableName}}</div><div>{{variableValue}}</div></td></tr>';
+				variableInformation += '<tr><td style="padding: 10px; width: 100%;"><p style="margin: 0in; font-size: 10pt; font-family: Verdana;"><strong>{{variableName}}</strong></p><p style="margin: 0in; font-size: 10pt; font-family: Verdana;">{{variableValue}}</p></td></tr>';
 
 				// Replace the placeholders with their actual values
 				variableInformation = variableInformation.replace(/{{variableName}}/g, function() {
-					return varList[i].variableName;
+					return varList[i].variableName.toUpperCase();
 				});
 				variableInformation = variableInformation.replace(/{{variableValue}}/g, function() {
 					return varList[i].variableValue;
@@ -1125,10 +1125,27 @@ ModularNotificationsBuilder.prototype = {
 		this.information = this.customInformation || this.information;
 		this.moreInformation = this.customMoreInformation || this.moreInformation;
 
-		var html = '<body><center class="wrapper"><table class="main"><tr><td class="td-border"></td></tr><tr><td class="header-block"><table><tr><td class="footer-image"><a href="https://apigroup.service-now.com/" target="_blank"><img alt="Logo" src="{{this.images.apiLogo.location}}" height="{{this.images.apiLogo.height}}"></a></td><td class="header-links" style="text-align:right">{{this.urlHTML}}</td></tr></table></td></tr><tr><td class="banner-text"><h3>{{this.subject}}</h3></td></tr><tr><td><table class="body-content"><tr><td><p>Dear {{this.name}},</p><p>{{this.information}}</p></td></tr></table></td></tr><tr><td class="td-border-small"></td></tr><tr><td><table class="body-content">{{this.variableInformation}}</table></td></tr><tr><td class="footer-block"><table><tr><td><img src="{{this.images.footerImageLeft.location}}" height="{{this.images.footerImageLeft.height}}"></td><td style="text-align:right"><img src="{{this.images.footerImageRight.location}}" height="{{this.images.footerImageRight.height}}"></td></tr></table></td></tr></table></center></body>';
+		//var html = '<head>' + this.adaptiveCard + ' </head><body><center class="wrapper"><table class="main"><tr><td class="td-border"></td></tr><tr><td class="header-block"><table><tr><td class="footer-image"><a href="https://apigroup.service-now.com/" target="_blank"><img alt="Logo" src="{{this.images.apiLogo.location}}" height="{{this.images.apiLogo.height}}"></a></td><td class="header-links" style="text-align:right">{{this.urlHTML}}</td></tr></table></td></tr><tr><td class="banner-text"><h3>{{this.subject}}</h3></td></tr><tr><td><table class="body-content"><tr><td><p>Dear {{this.name}},</p><p>{{this.information}}</p></td></tr></table></td></tr><tr><td class="td-border-small"></td></tr><tr><td><table class="body-content">{{this.variableInformation}}</table></td></tr><tr><td class="footer-block"><table><tr><td><img src="{{this.images.footerImageLeft.location}}" height="{{this.images.footerImageLeft.height}}"></td><td style="text-align:right"><img src="{{this.images.footerImageRight.location}}" height="{{this.images.footerImageRight.height}}"></td></tr></table></td></tr></table></center></body>';
 
-		html = this.replaceTemplateVariables(html);
-		html = this.convertClassesToInlineStyles(html, this.modularNotificationsStylesheet);
+		
+		//var bodyHTML = '<table class="body-content"><tr><td><p>Dear {{this.name}},</p><p>{{this.information}}</p></td></tr><tr><td>{{this.moreInformation}}</td></tr></table></td></tr><tr><td class="td-border-small"></td></tr><tr><td><table class="body-content">{{this.variableInformation}}</table></td></tr></table>';
+		var bodyHTML = '<table style="border-collapse: collapse; width: 100%;" border="0" cellpadding="0"><tbody><tr><td style="background: #2a3e6d; width: 100%; text-align: center; vertical-align: middle; color: #fdfdfd; font-family: verdana; font-size: 12pt; padding-top: 10px; padding-bottom: 10px;"><strong>{{this.subject}}</strong></td></tr><tr><td style="padding: 10px; width: 100%;"><p style="margin: 0in; font-size: 10pt; font-family: Verdana;">{{this.information}}</p></td></tr><tr><td style="padding: 10px; width: 100%;"><p style="margin: 0in; font-size: 10pt; font-family: Verdana;">{{this.variableInformation}}</p></td></tr><tr><td style="padding: 10px; width: 100%;"><p style="margin: 0in; font-size: 10pt; font-family: Verdana;">{{this.moreInformation}}</p></td></tr></tbody></table>';
+		
+		bodyHTML = this.replaceTemplateVariables(bodyHTML);
+		//bodyHTML = this.convertClassesToInlineStyles(bodyHTML, this.modularNotificationsStylesheet);
+		
+		var gr = new GlideRecord('sys_email_layout');
+		gr.get('2848484a1b9a255062e50ed2cd4bcb4f');//APi Default Layout
+		var layout = gr.layout.toString();
+		
+		//Replace ${notification:body} with bodyHTML
+		var newLayout = layout.replace("${notification:body}", bodyHTML);
+		var recordLink = '<a href="{{this.globalURL}}">Click here</a>'
+		recordLink = this.replaceTemplateVariables(recordLink);
+		newLayout = newLayout.replace("${mail_script:click_here_record_url}", recordLink)
+			
+		var html = '<head>' + this.adaptiveCard + ' </head>' + newLayout;
+		
 		return html;
 	},
 	///////////////////////////////////////////////////////////////////////////////////
@@ -1244,13 +1261,13 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>101</sys_mod_count>
+        <sys_mod_count>108</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-04-20 13:25:56</sys_updated_on>
+        <sys_updated_on>2023-07-05 13:49:25</sys_updated_on>
     </sys_script_include>
 </record_update>
