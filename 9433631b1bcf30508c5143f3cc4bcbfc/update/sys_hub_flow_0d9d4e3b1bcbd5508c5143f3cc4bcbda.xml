@@ -29,7 +29,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>0d9d4e3b1bcbd5508c5143f3cc4bcbda</sys_id>
-        <sys_mod_count>49</sys_mod_count>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Build Modular Notification From Template</sys_name>
         <sys_overrides/>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
@@ -37,7 +37,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_flow_0d9d4e3b1bcbd5508c5143f3cc4bcbda</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-11-16 15:55:38</sys_updated_on>
+        <sys_updated_on>2023-08-14 14:07:19</sys_updated_on>
         <type>subflow</type>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=0d9d4e3b1bcbd5508c5143f3cc4bcbda"/>
@@ -1799,7 +1799,7 @@
         <sys_created_on>2022-11-16 15:54:42</sys_created_on>
         <sys_id>22a1564c1b9759508c5143f3cc4bcb38</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Requestor</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1823,7 +1823,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-16 15:15:44</sys_created_on>
         <sys_id>63b802881b1759508c5143f3cc4bcb9b</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Replace Template Variables</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1846,7 +1846,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-16 15:25:33</sys_created_on>
         <sys_id>6bfa06001b5759508c5143f3cc4bcb42</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Custom Information</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1869,7 +1869,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-16 15:15:45</sys_created_on>
         <sys_id>7bb802881b1759508c5143f3cc4bcba9</sys_id>
         <sys_mod_count>1</sys_mod_count>
-        <sys_name/>
+        <sys_name>Custom Subject/Title</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1892,7 +1892,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-16 15:15:45</sys_created_on>
         <sys_id>7fb802881b1759508c5143f3cc4bcba6</sys_id>
         <sys_mod_count>1</sys_mod_count>
-        <sys_name/>
+        <sys_name>Custom URLs</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1915,7 +1915,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-16 15:25:34</sys_created_on>
         <sys_id>affa06001b5759508c5143f3cc4bcb4d</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Custom More Information</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1938,7 +1938,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-15 21:15:34</sys_created_on>
         <sys_id>b881d6b31b0fd5508c5143f3cc4bcb9e</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Recipient First Name</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1961,7 +1961,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-15 21:15:33</sys_created_on>
         <sys_id>bc81d6b31b0fd5508c5143f3cc4bcb9b</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Related Record Document ID</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1984,7 +1984,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-16 15:25:34</sys_created_on>
         <sys_id>e3fa06001b5759508c5143f3cc4bcb57</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Custom Signature</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2007,7 +2007,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-16 15:15:44</sys_created_on>
         <sys_id>efb802881b1759508c5143f3cc4bcb93</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Hide URLs</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2030,7 +2030,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-15 21:15:33</sys_created_on>
         <sys_id>f08116731b0fd5508c5143f3cc4bcb81</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Related Record Table</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2053,7 +2053,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-15 21:15:34</sys_created_on>
         <sys_id>f081d6b31b0fd5508c5143f3cc4bcba4</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Template Action</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2076,7 +2076,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-16 15:15:44</sys_created_on>
         <sys_id>fbb802881b1759508c5143f3cc4bcba3</sys_id>
         <sys_mod_count>1</sys_mod_count>
-        <sys_name/>
+        <sys_name>Custom Variables</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2086,7 +2086,7 @@ If this is false, custom variables will be added to original template variables.
         <url/>
         <url_target/>
     </sys_documentation>
-    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_0d9d4e3b1bcbd5508c5143f3cc4bcbda^sys_idNOT INf881d6b31b0fd5508c5143f3cc4bcba0,b081d6b31b0fd5508c5143f3cc4bcba1,7881d6b31b0fd5508c5143f3cc4bcba1,3081d6b31b0fd5508c5143f3cc4bcba2,f481d6b31b0fd5508c5143f3cc4bcba2,bc81d6b31b0fd5508c5143f3cc4bcba2,0d1f92ff1b4fd5508c5143f3cc4bcb30,811f92ff1b4fd5508c5143f3cc4bcb32"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_0d9d4e3b1bcbd5508c5143f3cc4bcbda^sys_idNOT INaa406ddb1ba471108c5143f3cc4bcb17,6a406ddb1ba471108c5143f3cc4bcb18,2a406ddb1ba471108c5143f3cc4bcb19,e6406ddb1ba471108c5143f3cc4bcb1a,a6406ddb1ba471108c5143f3cc4bcb1b,66406ddb1ba471108c5143f3cc4bcb1c,26406ddb1ba471108c5143f3cc4bcb1d,e2406ddb1ba471108c5143f3cc4bcb1e"/>
     <sys_choice field="template_action" table="var__m_sys_hub_flow_input_0d9d4e3b1bcbd5508c5143f3cc4bcbda">
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -2102,7 +2102,7 @@ If this is false, custom variables will be added to original template variables.
             <sys_created_on>2022-11-15 21:15:34</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>f881d6b31b0fd5508c5143f3cc4bcba0</sys_id>
+            <sys_id>aa406ddb1ba471108c5143f3cc4bcb17</sys_id>
             <sys_mod_count>1</sys_mod_count>
             <sys_updated_by>Terry.Lillo</sys_updated_by>
             <sys_updated_on>2022-11-15 21:21:16</sys_updated_on>
@@ -2122,7 +2122,7 @@ If this is false, custom variables will be added to original template variables.
             <sys_created_on>2022-11-15 21:15:34</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>b081d6b31b0fd5508c5143f3cc4bcba1</sys_id>
+            <sys_id>6a406ddb1ba471108c5143f3cc4bcb18</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>Terry.Lillo</sys_updated_by>
             <sys_updated_on>2022-11-15 21:15:34</sys_updated_on>
@@ -2142,7 +2142,7 @@ If this is false, custom variables will be added to original template variables.
             <sys_created_on>2022-11-15 21:15:34</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>7881d6b31b0fd5508c5143f3cc4bcba1</sys_id>
+            <sys_id>2a406ddb1ba471108c5143f3cc4bcb19</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>Terry.Lillo</sys_updated_by>
             <sys_updated_on>2022-11-15 21:15:34</sys_updated_on>
@@ -2162,7 +2162,7 @@ If this is false, custom variables will be added to original template variables.
             <sys_created_on>2022-11-15 21:15:34</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>3081d6b31b0fd5508c5143f3cc4bcba2</sys_id>
+            <sys_id>e6406ddb1ba471108c5143f3cc4bcb1a</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>Terry.Lillo</sys_updated_by>
             <sys_updated_on>2022-11-15 21:15:34</sys_updated_on>
@@ -2182,7 +2182,7 @@ If this is false, custom variables will be added to original template variables.
             <sys_created_on>2022-11-15 21:15:34</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>f481d6b31b0fd5508c5143f3cc4bcba2</sys_id>
+            <sys_id>a6406ddb1ba471108c5143f3cc4bcb1b</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>Terry.Lillo</sys_updated_by>
             <sys_updated_on>2022-11-15 21:15:34</sys_updated_on>
@@ -2202,7 +2202,7 @@ If this is false, custom variables will be added to original template variables.
             <sys_created_on>2022-11-15 21:15:34</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>bc81d6b31b0fd5508c5143f3cc4bcba2</sys_id>
+            <sys_id>66406ddb1ba471108c5143f3cc4bcb1c</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>Terry.Lillo</sys_updated_by>
             <sys_updated_on>2022-11-15 21:15:34</sys_updated_on>
@@ -2222,7 +2222,7 @@ If this is false, custom variables will be added to original template variables.
             <sys_created_on>2022-11-15 22:14:50</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>0d1f92ff1b4fd5508c5143f3cc4bcb30</sys_id>
+            <sys_id>26406ddb1ba471108c5143f3cc4bcb1d</sys_id>
             <sys_mod_count>1</sys_mod_count>
             <sys_updated_by>Terry.Lillo</sys_updated_by>
             <sys_updated_on>2022-11-15 22:22:30</sys_updated_on>
@@ -2242,7 +2242,7 @@ If this is false, custom variables will be added to original template variables.
             <sys_created_on>2022-11-15 22:14:50</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>811f92ff1b4fd5508c5143f3cc4bcb32</sys_id>
+            <sys_id>e2406ddb1ba471108c5143f3cc4bcb1e</sys_id>
             <sys_mod_count>1</sys_mod_count>
             <sys_updated_by>Terry.Lillo</sys_updated_by>
             <sys_updated_on>2022-11-15 22:22:30</sys_updated_on>
@@ -2263,7 +2263,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-15 21:24:15</sys_created_on>
         <sys_id>488352b71b0fd5508c5143f3cc4bcbe6</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Body</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2286,7 +2286,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-15 21:24:15</sys_created_on>
         <sys_id>4c8352b71b0fd5508c5143f3cc4bcbe3</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Subject</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2302,7 +2302,7 @@ If this is false, custom variables will be added to original template variables.
     <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
         <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_subflow_plan","id":"ebb122371b8fd5508c5143f3cc4bcb19","name":"plan","plan_signature":null}}</plan>
         <plan_id display_value="Build Modular Notification From Template">0d9d4e3b1bcbd5508c5143f3cc4bcbda</plan_id>
-        <snapshot>ba8b52531bd7251062e50ed2cd4bcb4f</snapshot>
+        <snapshot>7d306e271b64751062e50ed2cd4bcb3f</snapshot>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-11-15 22:26:28</sys_created_on>
         <sys_domain>global</sys_domain>
@@ -4112,7 +4112,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-15 22:26:27</sys_created_on>
         <sys_id>13b1eef31b8fd5508c5143f3cc4bcbb0</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Template Action</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4135,7 +4135,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-16 15:25:39</sys_created_on>
         <sys_id>450b46001b5759508c5143f3cc4bcbf8</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Custom Signature</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4158,7 +4158,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-16 15:17:09</sys_created_on>
         <sys_id>50198e881b1759508c5143f3cc4bcbba</sys_id>
         <sys_mod_count>1</sys_mod_count>
-        <sys_name/>
+        <sys_name>Custom Variables</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4181,7 +4181,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-16 15:25:39</sys_created_on>
         <sys_id>740b46001b5759508c5143f3cc4bcbb5</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Custom Information</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4204,7 +4204,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-16 15:25:39</sys_created_on>
         <sys_id>740b46001b5759508c5143f3cc4bcbda</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Custom More Information</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4227,7 +4227,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-15 22:26:27</sys_created_on>
         <sys_id>83b1eef31b8fd5508c5143f3cc4bcb98</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Related Record Document ID</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4250,7 +4250,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-15 22:26:27</sys_created_on>
         <sys_id>83b1eef31b8fd5508c5143f3cc4bcba0</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Recipient First Name</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4273,7 +4273,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-16 15:17:09</sys_created_on>
         <sys_id>9c198e881b1759508c5143f3cc4bcb88</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Replace Template Variables</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4296,7 +4296,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-16 15:17:09</sys_created_on>
         <sys_id>a4198e881b1759508c5143f3cc4bcbdb</sys_id>
         <sys_mod_count>1</sys_mod_count>
-        <sys_name/>
+        <sys_name>Custom URLs</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4319,7 +4319,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-15 22:26:27</sys_created_on>
         <sys_id>c3b1eef31b8fd5508c5143f3cc4bcb90</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Related Record Table</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4342,7 +4342,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-16 15:17:08</sys_created_on>
         <sys_id>d4198e881b1759508c5143f3cc4bcb68</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Hide URLs</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4365,7 +4365,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-16 15:17:10</sys_created_on>
         <sys_id>ec198e881b1759508c5143f3cc4bcbef</sys_id>
         <sys_mod_count>1</sys_mod_count>
-        <sys_name/>
+        <sys_name>Custom Subject/Title</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4388,7 +4388,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-16 15:55:32</sys_created_on>
         <sys_id>eed11e4c1b9759508c5143f3cc4bcb8a</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Requestor</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4398,7 +4398,7 @@ If this is false, custom variables will be added to original template variables.
         <url/>
         <url_target/>
     </sys_documentation>
-    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_43b1eef31b8fd5508c5143f3cc4bcb83^sys_idNOT IN53b1eef31b8fd5508c5143f3cc4bcba7,5fb1eef31b8fd5508c5143f3cc4bcba8,dbb1eef31b8fd5508c5143f3cc4bcba9,5bb1eef31b8fd5508c5143f3cc4bcbaa,d7b1eef31b8fd5508c5143f3cc4bcbab,57b1eef31b8fd5508c5143f3cc4bcbac,d3b1eef31b8fd5508c5143f3cc4bcbad,53b1eef31b8fd5508c5143f3cc4bcbae"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_43b1eef31b8fd5508c5143f3cc4bcb83^sys_idNOT IN72406ddb1ba471108c5143f3cc4bcb6e,32406ddb1ba471108c5143f3cc4bcb6f,fe406ddb1ba471108c5143f3cc4bcb6f,be406ddb1ba471108c5143f3cc4bcb70,7e406ddb1ba471108c5143f3cc4bcb71,3e406ddb1ba471108c5143f3cc4bcb72,fa406ddb1ba471108c5143f3cc4bcb73,ba406ddb1ba471108c5143f3cc4bcb74"/>
     <sys_choice field="template_action" table="var__m_sys_hub_flow_input_43b1eef31b8fd5508c5143f3cc4bcb83">
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -4414,10 +4414,10 @@ If this is false, custom variables will be added to original template variables.
             <sys_created_on>2022-11-15 22:26:27</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>53b1eef31b8fd5508c5143f3cc4bcba7</sys_id>
-            <sys_mod_count>23</sys_mod_count>
+            <sys_id>72406ddb1ba471108c5143f3cc4bcb6e</sys_id>
+            <sys_mod_count>1</sys_mod_count>
             <sys_updated_by>Terry.Lillo</sys_updated_by>
-            <sys_updated_on>2022-11-16 15:55:35</sys_updated_on>
+            <sys_updated_on>2022-11-15 22:45:15</sys_updated_on>
             <value/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
@@ -4434,10 +4434,10 @@ If this is false, custom variables will be added to original template variables.
             <sys_created_on>2022-11-15 22:26:27</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>5fb1eef31b8fd5508c5143f3cc4bcba8</sys_id>
-            <sys_mod_count>23</sys_mod_count>
+            <sys_id>32406ddb1ba471108c5143f3cc4bcb6f</sys_id>
+            <sys_mod_count>1</sys_mod_count>
             <sys_updated_by>Terry.Lillo</sys_updated_by>
-            <sys_updated_on>2022-11-16 15:55:35</sys_updated_on>
+            <sys_updated_on>2022-11-15 22:45:15</sys_updated_on>
             <value>opened</value>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
@@ -4454,10 +4454,10 @@ If this is false, custom variables will be added to original template variables.
             <sys_created_on>2022-11-15 22:26:27</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>dbb1eef31b8fd5508c5143f3cc4bcba9</sys_id>
-            <sys_mod_count>23</sys_mod_count>
+            <sys_id>fe406ddb1ba471108c5143f3cc4bcb6f</sys_id>
+            <sys_mod_count>1</sys_mod_count>
             <sys_updated_by>Terry.Lillo</sys_updated_by>
-            <sys_updated_on>2022-11-16 15:55:35</sys_updated_on>
+            <sys_updated_on>2022-11-15 22:45:15</sys_updated_on>
             <value>closed</value>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
@@ -4474,10 +4474,10 @@ If this is false, custom variables will be added to original template variables.
             <sys_created_on>2022-11-15 22:26:27</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>5bb1eef31b8fd5508c5143f3cc4bcbaa</sys_id>
-            <sys_mod_count>23</sys_mod_count>
+            <sys_id>be406ddb1ba471108c5143f3cc4bcb70</sys_id>
+            <sys_mod_count>1</sys_mod_count>
             <sys_updated_by>Terry.Lillo</sys_updated_by>
-            <sys_updated_on>2022-11-16 15:55:35</sys_updated_on>
+            <sys_updated_on>2022-11-15 22:45:15</sys_updated_on>
             <value>updated</value>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
@@ -4494,10 +4494,10 @@ If this is false, custom variables will be added to original template variables.
             <sys_created_on>2022-11-15 22:26:27</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>d7b1eef31b8fd5508c5143f3cc4bcbab</sys_id>
-            <sys_mod_count>23</sys_mod_count>
+            <sys_id>7e406ddb1ba471108c5143f3cc4bcb71</sys_id>
+            <sys_mod_count>1</sys_mod_count>
             <sys_updated_by>Terry.Lillo</sys_updated_by>
-            <sys_updated_on>2022-11-16 15:55:35</sys_updated_on>
+            <sys_updated_on>2022-11-15 22:45:15</sys_updated_on>
             <value>approved</value>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
@@ -4514,10 +4514,10 @@ If this is false, custom variables will be added to original template variables.
             <sys_created_on>2022-11-15 22:26:27</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>57b1eef31b8fd5508c5143f3cc4bcbac</sys_id>
-            <sys_mod_count>23</sys_mod_count>
+            <sys_id>3e406ddb1ba471108c5143f3cc4bcb72</sys_id>
+            <sys_mod_count>1</sys_mod_count>
             <sys_updated_by>Terry.Lillo</sys_updated_by>
-            <sys_updated_on>2022-11-16 15:55:35</sys_updated_on>
+            <sys_updated_on>2022-11-15 22:45:15</sys_updated_on>
             <value>rejected</value>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
@@ -4534,10 +4534,10 @@ If this is false, custom variables will be added to original template variables.
             <sys_created_on>2022-11-15 22:26:27</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>d3b1eef31b8fd5508c5143f3cc4bcbad</sys_id>
-            <sys_mod_count>23</sys_mod_count>
+            <sys_id>fa406ddb1ba471108c5143f3cc4bcb73</sys_id>
+            <sys_mod_count>1</sys_mod_count>
             <sys_updated_by>Terry.Lillo</sys_updated_by>
-            <sys_updated_on>2022-11-16 15:55:35</sys_updated_on>
+            <sys_updated_on>2022-11-15 22:45:15</sys_updated_on>
             <value>created</value>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
@@ -4554,10 +4554,10 @@ If this is false, custom variables will be added to original template variables.
             <sys_created_on>2022-11-15 22:26:27</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>53b1eef31b8fd5508c5143f3cc4bcbae</sys_id>
-            <sys_mod_count>23</sys_mod_count>
+            <sys_id>ba406ddb1ba471108c5143f3cc4bcb74</sys_id>
+            <sys_mod_count>1</sys_mod_count>
             <sys_updated_by>Terry.Lillo</sys_updated_by>
-            <sys_updated_on>2022-11-16 15:55:35</sys_updated_on>
+            <sys_updated_on>2022-11-15 22:45:15</sys_updated_on>
             <value>reminder</value>
         </sys_choice>
     </sys_choice>
@@ -4575,7 +4575,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-15 22:26:27</sys_created_on>
         <sys_id>1bb1eef31b8fd5508c5143f3cc4bcbc3</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Subject</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4598,7 +4598,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_created_on>2022-11-15 22:26:28</sys_created_on>
         <sys_id>d7b1eef31b8fd5508c5143f3cc4bcbcb</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Body</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4612,6 +4612,6 @@ If this is false, custom variables will be added to original template variables.
     <sys_hub_flow action="UPDATE">
         <sys_id>0d9d4e3b1bcbd5508c5143f3cc4bcbda</sys_id>
         <latest_snapshot>43b1eef31b8fd5508c5143f3cc4bcb83</latest_snapshot>
-        <compiler_build>glide-tokyo-07-08-2022__patch9-05-10-2023_05-25-2023_0925.zip</compiler_build>
+        <compiler_build>glide-tokyo-07-08-2022__patch9-hotfix2-06-07-2023_06-23-2023_1740.zip</compiler_build>
     </sys_hub_flow>
 </record_update>

@@ -38,7 +38,7 @@
         <label>html</label>
         <mandatory>false</mandatory>
         <max_length>8000</max_length>
-        <model display_value="Build Modular Notification From Template">9275263b1b8fd5508c5143f3cc4bcb8c</model>
+        <model display_value="">9275263b1b8fd5508c5143f3cc4bcb8c</model>
         <model_id>9275263b1b8fd5508c5143f3cc4bcb8c</model_id>
         <model_table>sys_hub_flow_snapshot</model_table>
         <name>var__m_sys_hub_flow_variable_9275263b1b8fd5508c5143f3cc4bcb8c</name>

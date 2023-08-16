@@ -40,7 +40,7 @@
         <reference_floats>false</reference_floats>
         <reference_key/>
         <reference_qual>source_type=phone_number</reference_qual>
-        <reference_qual_condition table="sys_on_call_contact_source">source_type=phone_number<item display_value="Phone number" endquery="false" field="source_type" goto="false" newquery="false" operator="=" or="false" value="phone_number"/>
+        <reference_qual_condition table="sys_on_call_contact_source">source_type=phone_number<item display_value="phone_number" endquery="false" field="source_type" goto="false" newquery="false" operator="=" or="false" value="phone_number"/>
         </reference_qual_condition>
         <reference_type/>
         <spell_check>false</spell_check>

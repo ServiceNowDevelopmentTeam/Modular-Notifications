@@ -37,7 +37,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_flow_ced7e4ce1b52555062e50ed2cd4bcbd5</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-10 13:31:33</sys_updated_on>
+        <sys_updated_on>2023-08-14 14:08:02</sys_updated_on>
         <type>subflow</type>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=ced7e4ce1b52555062e50ed2cd4bcbd5"/>
@@ -1717,7 +1717,7 @@
         <sys_created_on>2022-10-04 14:44:59</sys_created_on>
         <sys_id>0a5524121b56d55062e50ed2cd4bcb0f</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Signature</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1740,7 +1740,7 @@
         <sys_created_on>2022-10-07 19:59:04</sys_created_on>
         <sys_id>0c0a81171bde9d5062e50ed2cd4bcbad</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Custom Header URLs</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1763,7 +1763,7 @@
         <sys_created_on>2022-10-03 20:22:47</sys_created_on>
         <sys_id>1c19e0061b92555062e50ed2cd4bcbc8</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Subject</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1786,7 +1786,7 @@
         <sys_created_on>2022-10-03 20:39:33</sys_created_on>
         <sys_id>1eec20c21bd2555062e50ed2cd4bcb68</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Delay Duration</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1809,7 +1809,7 @@
         <sys_created_on>2022-10-03 20:22:47</sys_created_on>
         <sys_id>2019e0061b92555062e50ed2cd4bcbcc</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Information</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1832,7 +1832,7 @@
         <sys_created_on>2022-10-10 13:00:17</sys_created_on>
         <sys_id>4fe64bcc1bead19062e50ed2cd4bcbb2</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Hide Header URLs</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1855,7 +1855,7 @@
         <sys_created_on>2022-10-03 20:30:01</sys_created_on>
         <sys_id>56ba6c8a1b92555062e50ed2cd4bcb65</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Recipient User Records</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1878,7 +1878,7 @@
         <sys_created_on>2022-10-03 20:30:01</sys_created_on>
         <sys_id>5aba6c8a1b92555062e50ed2cd4bcb68</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Recipient CSV Emails</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1901,7 +1901,7 @@
         <sys_created_on>2022-10-03 20:30:00</sys_created_on>
         <sys_id>d2ba6c8a1b92555062e50ed2cd4bcb60</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Recipient CSV Sys_IDs</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1924,7 +1924,7 @@
         <sys_created_on>2022-10-03 20:22:47</sys_created_on>
         <sys_id>e01924061b92555062e50ed2cd4bcb05</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>varList</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1947,7 +1947,7 @@
         <sys_created_on>2022-10-03 20:22:47</sys_created_on>
         <sys_id>e019e0061b92555062e50ed2cd4bcbe2</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>More Information</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1970,7 +1970,7 @@
         <sys_created_on>2022-10-03 20:22:47</sys_created_on>
         <sys_id>e419e0061b92555062e50ed2cd4bcbe5</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>First Name</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1993,7 +1993,7 @@
         <sys_created_on>2022-10-03 20:22:47</sys_created_on>
         <sys_id>e819e0061b92555062e50ed2cd4bcbdb</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Table</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2016,7 +2016,7 @@
         <sys_created_on>2022-10-03 20:22:47</sys_created_on>
         <sys_id>ec19e0061b92555062e50ed2cd4bcbde</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Document ID</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -3762,7 +3762,7 @@
         <sys_created_on>2022-10-03 20:39:43</sys_created_on>
         <sys_id>28fc24c21bd2555062e50ed2cd4bcb77</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Recipient CSV Sys_IDs</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -3785,7 +3785,7 @@
         <sys_created_on>2022-10-03 20:39:44</sys_created_on>
         <sys_id>30fc24c21bd2555062e50ed2cd4bcba0</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Subject</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -3808,7 +3808,7 @@
         <sys_created_on>2022-10-03 20:39:44</sys_created_on>
         <sys_id>3cfc24c21bd2555062e50ed2cd4bcbb8</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Document ID</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -3831,7 +3831,7 @@
         <sys_created_on>2022-10-03 20:39:43</sys_created_on>
         <sys_id>64fc24c21bd2555062e50ed2cd4bcb83</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Recipient User Records</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -3854,7 +3854,7 @@
         <sys_created_on>2022-10-10 13:02:27</sys_created_on>
         <sys_id>6667cf001b2ed19062e50ed2cd4bcb5e</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Hide Header URLs</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -3877,7 +3877,7 @@
         <sys_created_on>2022-10-07 19:59:07</sys_created_on>
         <sys_id>780ac1171bde9d5062e50ed2cd4bcbd5</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Custom Header URLs</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -3900,7 +3900,7 @@
         <sys_created_on>2022-10-03 20:39:44</sys_created_on>
         <sys_id>78fc24c21bd2555062e50ed2cd4bcbc9</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>First Name</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -3923,7 +3923,7 @@
         <sys_created_on>2022-10-03 20:39:43</sys_created_on>
         <sys_id>acfc24c21bd2555062e50ed2cd4bcb97</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Recipient CSV Emails</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -3946,7 +3946,7 @@
         <sys_created_on>2022-10-03 20:39:44</sys_created_on>
         <sys_id>b0fc24c21bd2555062e50ed2cd4bcbc1</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>More Information</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -3969,7 +3969,7 @@
         <sys_created_on>2022-10-04 14:45:03</sys_created_on>
         <sys_id>cb5564121b56d55062e50ed2cd4bcba2</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Signature</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -3992,7 +3992,7 @@
         <sys_created_on>2022-10-03 20:39:43</sys_created_on>
         <sys_id>e0fc24c21bd2555062e50ed2cd4bcb63</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Delay Duration</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4015,7 +4015,7 @@
         <sys_created_on>2022-10-03 20:39:44</sys_created_on>
         <sys_id>f0fc24c21bd2555062e50ed2cd4bcba8</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Information</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4038,7 +4038,7 @@
         <sys_created_on>2022-10-03 20:39:44</sys_created_on>
         <sys_id>f4fc24c21bd2555062e50ed2cd4bcbb0</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Table</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -4061,7 +4061,7 @@
         <sys_created_on>2022-10-03 20:39:44</sys_created_on>
         <sys_id>f4fc24c21bd2555062e50ed2cd4bcbd2</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>varList</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>

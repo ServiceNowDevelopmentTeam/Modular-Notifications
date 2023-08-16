@@ -38,7 +38,7 @@
         <label>Recipient Sys_Ids</label>
         <mandatory>false</mandatory>
         <max_length>8000</max_length>
-        <model display_value="Send Modular Notification">e259c3441b2ed19062e50ed2cd4bcb17</model>
+        <model display_value="">e259c3441b2ed19062e50ed2cd4bcb17</model>
         <model_id>e259c3441b2ed19062e50ed2cd4bcb17</model_id>
         <model_table>sys_hub_flow_snapshot</model_table>
         <name>var__m_sys_hub_flow_variable_e259c3441b2ed19062e50ed2cd4bcb17</name>

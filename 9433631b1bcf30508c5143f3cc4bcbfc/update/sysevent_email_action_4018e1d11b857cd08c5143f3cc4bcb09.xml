@@ -36,8 +36,7 @@
         <item_table/>
         <mandatory>false</mandatory>
         <message/>
-        <message_html><![CDATA[<p>${mail_script:modular_notifications_custom_incident_to_request} <br /><br /></p>
-<p><br /><br /></p>]]></message_html>
+        <message_html/>
         <message_list/>
         <message_text/>
         <name>New Incident To Request Conversion</name>
@@ -51,7 +50,7 @@
         <send_self>true</send_self>
         <sms_alternate/>
         <style/>
-        <subject>Action Required: Converting Incident to Request</subject>
+        <subject/>
         <subscribable>false</subscribable>
         <sys_class_name>sysevent_email_action</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
@@ -59,7 +58,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>4018e1d11b857cd08c5143f3cc4bcb09</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>New Incident To Request Conversion</sys_name>
         <sys_overrides/>
         <sys_package display_value="Global" source="global">global</sys_package>
@@ -67,9 +66,9 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_4018e1d11b857cd08c5143f3cc4bcb09</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
+        <sys_updated_on>2023-08-15 18:11:37</sys_updated_on>
         <sys_version>2</sys_version>
-        <template/>
+        <template display_value="APi Incident Conversion Started">f86b22e31ba4751062e50ed2cd4bcba5</template>
         <type>email</type>
         <weight>0</weight>
     </sysevent_email_action>

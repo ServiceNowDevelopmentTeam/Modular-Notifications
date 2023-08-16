@@ -38,7 +38,7 @@
         <label>Debug Info</label>
         <mandatory>false</mandatory>
         <max_length>8000</max_length>
-        <model display_value="Send Modular Notification">6ac3c6ad1b1921108c5143f3cc4bcb93</model>
+        <model display_value="">6ac3c6ad1b1921108c5143f3cc4bcb93</model>
         <model_id>6ac3c6ad1b1921108c5143f3cc4bcb93</model_id>
         <model_table>sys_hub_flow_snapshot</model_table>
         <name>var__m_sys_hub_flow_variable_6ac3c6ad1b1921108c5143f3cc4bcb93</name>

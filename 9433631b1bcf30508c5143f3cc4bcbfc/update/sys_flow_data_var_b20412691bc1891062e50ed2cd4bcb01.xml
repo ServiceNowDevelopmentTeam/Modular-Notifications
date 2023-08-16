@@ -84,18 +84,4 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_flow_data_var>
-    <sys_claim action="INSERT_OR_UPDATE">
-        <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
-        <claim_timestamp>17e6999cff00000001</claim_timestamp>
-        <metadata_update_name>sys_flow_data_var_b20412691bc1891062e50ed2cd4bcb01</metadata_update_name>
-        <previous_claim_app_version>1.2.7</previous_claim_app_version>
-        <previous_claim_name>Modular Notifications</previous_claim_name>
-        <previous_claim_scope>9433631b1bcf30508c5143f3cc4bcbfc</previous_claim_scope>
-        <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2022-01-17 19:53:14</sys_created_on>
-        <sys_id>228e6ae21b41815062e50ed2cd4bcbff</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
-    </sys_claim>
 </record_update>

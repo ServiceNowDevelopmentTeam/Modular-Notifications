@@ -45,7 +45,7 @@
         <omit_watermark>false</omit_watermark>
         <order>100</order>
         <push_message_only>false</push_message_only>
-        <recipient_fields>caller_id</recipient_fields>
+        <recipient_fields>caller_id,opened_by</recipient_fields>
         <recipient_groups/>
         <recipient_users/>
         <reply_to/>
@@ -60,7 +60,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>91cf00461bda255062e50ed2cd4bcbe8</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>Incident Commented</sys_name>
         <sys_overrides/>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
@@ -68,7 +68,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_91cf00461bda255062e50ed2cd4bcbe8</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-04-25 20:05:11</sys_updated_on>
+        <sys_updated_on>2023-08-14 19:59:06</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="APi Incident commented">cc3b408e1b9a255062e50ed2cd4bcba6</template>
         <type>email</type>

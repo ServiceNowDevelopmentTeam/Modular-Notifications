@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="io_set_item">
     <io_set_item action="INSERT_OR_UPDATE">
         <order>200</order>
-        <sc_cat_item display_value="USB 2.0 A to B Cable">1b8545351b03f4108c5143f3cc4bcb0a</sc_cat_item>
+        <sc_cat_item display_value="Cable - USB 2.0 A to B">1b8545351b03f4108c5143f3cc4bcb0a</sc_cat_item>
         <sys_class_name>io_set_item</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-15 16:23:54</sys_created_on>

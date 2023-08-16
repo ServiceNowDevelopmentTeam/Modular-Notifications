@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="db_image">
+    <db_image action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category/>
+        <format>png</format>
+        <height>23</height>
+        <image>ecb5622f1b64751062e50ed2cd4bcb33</image>
+        <name>MyTicketsButton.png</name>
+        <size_bytes>1387</size_bytes>
+        <sys_class_name>db_image</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-15 13:50:28</sys_created_on>
+        <sys_id>30a5a22f1b64751062e50ed2cd4bcbd6</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>MyTicketsButton.png</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>db_image_30a5a22f1b64751062e50ed2cd4bcbd6</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-15 13:50:36</sys_updated_on>
+        <thumbnail/>
+        <width>62</width>
+    </db_image>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#415278</average_image_color>
+        <chunk_size_bytes>700000</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <file_name>image</file_name>
+        <hash>b05e5834f323697d49d16d2d550e746394e55662279cb39b1cba58a455851344</hash>
+        <image_height>23</image_height>
+        <image_width>62</image_width>
+        <size_bytes>1387</size_bytes>
+        <size_compressed>1410</size_compressed>
+        <state>available</state>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-15 13:50:35</sys_created_on>
+        <sys_id>ecb5622f1b64751062e50ed2cd4bcb33</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-15 13:50:36</sys_updated_on>
+        <table_name>ZZ_YYdb_image</table_name>
+        <table_sys_id>30a5a22f1b64751062e50ed2cd4bcbd6</table_sys_id>
+        <u_private>false</u_private>
+        <u_table_id/>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="image" sys_id="ecb5622f1b64751062e50ed2cd4bcb33">ecb5622f1b64751062e50ed2cd4bcb33</sys_attachment>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-15 13:50:35</sys_created_on>
+        <sys_id>20b5622f1b64751062e50ed2cd4bcb34</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>AWsFlPqJUE5HDQoaCgAAAA1JSERSAAAAPgAAABcIBgAAAFNi/LoAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAUdSURBVFiF5Zh/UFRVFMc/b/exgCIJGoIURkCikOiAG4KaqZiJNlNWGuUy4C/S1Bxr0EmjmXCk8LeIOWgz0SREZWBkKMnYYoBMkEzgoIykjsCIiWQqP3b33f7YhfixmziTmvR9c+a9e+9559e99717joQV+Gl1YUA0EAq4A27W+P7DaATqgRIgraY0vbwng9S14afVeYGUoZI1YSq1HZKkQpJU98jWfxdCKAhFQVEMKMb2AhDRNaXplzrGOx330+q0ksouX9Y4Oj+oztqCEArG9pYmoRieqylNLwWL435anZekkn+VNQOcJUn6ZykPKIQQGNtvXReK8cma0vSLsrlbypDtHJ0lM8f9tO+uQQJkO0dnQ9uNDCBc8tPqwlRqzU9qO/v7bds9gcnQhmJqD5eBaEklQ/+c6F6QVDKY2qNVQKh5W4tuNDl0NFX6FMrzt6HRqAHBjsTFVOlTSFz7Wi/+nnRgzxqq9Cnd6Pg3Gwkb70+VPgXXwQOtvjd9chBV+hQc7OXb6gCBJMHKRbPx8hzaZ34gVAbcQUL02Ntd28FjfCn+uRrtOD9aWtt7jVvDq3HJACQnxOLp4UpU3ObOsdGTltl+0SJXCHFbHQCB/l4s1c0kJ6+kT/yW77m7CnCzHSH4pfIc4dpRBPp74eCgobL6AiD4ZPtKdifFAYInfIZzujCVgJGP2pTT8Rw23p/Tham4DnZCkmD96lco+i6ZH7M3ERkR0snv4GDH56lryEqLZ+AAezQaNckJMZTmbeFQ+gZCgnwAwaZ3owE4fOB9xgZ68+W+tZwq2EnhoSQWRkXYssfttj/skrIzhIX4MyHEn4qq32i1zHjWoROEa0czyMmRWdNCOFtbR9WZi32I+N94/lktcyPDmb/kQ7btzSExfgEOjhoANics5CHngSxcvYObt1pZ8NJUxgX6MGPeBjKz9Xz0XiwA6zZ+CsCsqAQmPRXAEJdBxL61nSkvrGP/gaM2dZsdF6I3WXCyrJqRvo8wO2I8J8uqzRETkH+8nJs3W5n5TDCR00M4mFtkW47ooqNjBQiBzwgP6i83cfFSI9mHixg3bQWtLebABgV44zTAAZPRBEIw0seT4e6uFOVuZv3qebi7uTDUZVAXHYKvvi2kpraO/VtXUXJ4C/FvzrVpk8psl/UL4GxtHVevXcfXezjFZdWdfhhNJrLzilkWE8nDQweTc6TEhgzLnu0is6N9trYOT48hPOY1jKfDAqnUp+Lq4gTAizGJtLS1s2LRHASCcxcauNTwOxMi1zBq4lJGTVzKlaY/UIQCgJOTIw2N11jy9i6CZ6wkM1vPgpenIssqq37JnTPeE5Y+xaRQWn6GKeFjqKg812k2QpCVrSdmfgRHj5fT3Pyn9TXVucVF9zuC3KMnGRvgTebeeAwGI4nbMrnadB2AxivNJO3IYtemN/g69wTpX/zA4yPcOZL5AYoQ5HxfTNLOLGrPN1B7voF9W1exdc9BYqJm4DHMlWvNN0jamYXBYLRqluSn1V1Wy/Z3nH1JkkRwkC+f7X6H5fG7KThRcaci7htMxrZGGahXFMXtTs/oy2PnsPj1meTkFXOs8NTdsfAuwPLLq5f8tLo9kkod198yMlswp6umj1VAmhAKfTn19Acy+0paR1p6TJLUU/trStoB82nQVFBTmj7NkpYSLYSpQqBy7a/OCyFAKE2YS2rdKzBAPkj9rhhh/qCJJqB7BaYD5pobGUBYR9+DGoQeCUsBYL3m1hX/hyrrX0B/s9mA0Ib5AAAAAElFTkSuQmCCHeTAbGsFAAA=</data>
+        <length>1868</length>
+        <position>1</position>
+        <sys_attachment display_value="image" sys_id="ecb5622f1b64751062e50ed2cd4bcb33">ecb5622f1b64751062e50ed2cd4bcb33</sys_attachment>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-15 13:50:35</sys_created_on>
+        <sys_id>a0b5622f1b64751062e50ed2cd4bcb34</sys_id>
+    </sys_attachment_doc>
+</record_update>

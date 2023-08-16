@@ -27,7 +27,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>d6affde61b89415062e50ed2cd4bcb4a</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Get Flow Data Field Value</sys_name>
         <sys_overrides/>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
@@ -35,7 +35,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_d6affde61b89415062e50ed2cd4bcb4a</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-12-28 22:40:24</sys_updated_on>
+        <sys_updated_on>2023-08-14 14:07:09</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -217,18 +217,6 @@
         <sys_updated_on>2022-01-17 16:28:26</sys_updated_on>
         <table>var__m_sys_hub_step_ext_input_9eaffde61b89415062e50ed2cd4bcb6f</table>
         <value>{{action.flow_data_record.sys_id}}</value>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>script</field>
-        <id>9eaffde61b89415062e50ed2cd4bcb6f</id>
-        <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2022-12-07 21:53:59</sys_created_on>
-        <sys_id>164d2ffa1be3591062e50ed2cd4bcbbb</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-12-07 21:53:59</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>Value</field>
@@ -510,7 +498,7 @@
         <sys_created_on>2022-01-17 16:30:24</sys_created_on>
         <sys_id>5b10826a1b89415062e50ed2cd4bcb90</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Field Value</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -990,7 +978,7 @@
         <sys_created_on>2022-01-17 16:28:26</sys_created_on>
         <sys_id>1aaffde61b89415062e50ed2cd4bcb65</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Field Name</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1013,7 +1001,7 @@
         <sys_created_on>2022-01-17 16:28:26</sys_created_on>
         <sys_id>9eaffde61b89415062e50ed2cd4bcb5d</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Flow Data Record</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1038,7 +1026,7 @@
         <sys_created_on>2022-01-17 16:28:27</sys_created_on>
         <sys_id>22affde61b89415062e50ed2cd4bcba8</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Don't Treat as Error</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1061,7 +1049,7 @@
         <sys_created_on>2022-01-17 16:33:53</sys_created_on>
         <sys_id>9ae0c2ea1b89415062e50ed2cd4bcb64</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Value</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1084,7 +1072,7 @@
         <sys_created_on>2022-01-17 16:28:27</sys_created_on>
         <sys_id>e6affde61b89415062e50ed2cd4bcb9b</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Action Status</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1099,7 +1087,7 @@
     <sys_hub_action_plan action="INSERT_OR_UPDATE">
         <action_id display_value="Get Flow Data Field Value">d6affde61b89415062e50ed2cd4bcb4a</action_id>
         <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_hub_action_plan","id":"c820c26a1b89415062e50ed2cd4bcbae","name":"plan","plan_signature":null}}</plan>
-        <snapshot>a9729cb81b092d1062e50ed2cd4bcb89</snapshot>
+        <snapshot>729c971f1b6035108c5143f3cc4bcb93</snapshot>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-17 16:30:28</sys_created_on>
         <sys_domain>global</sys_domain>
@@ -1326,18 +1314,6 @@
         <sys_updated_on>2022-01-17 16:30:26</sys_updated_on>
         <table>var__m_sys_hub_step_ext_input_6710826a1b89415062e50ed2cd4bcbe9</table>
         <value>{{action.flow_data_record.sys_id}}</value>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>script</field>
-        <id>6710826a1b89415062e50ed2cd4bcbe9</id>
-        <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2022-12-07 21:54:02</sys_created_on>
-        <sys_id>0f4d6ffa1be3591062e50ed2cd4bcb9b</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-12-07 21:54:02</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
     </sys_element_mapping>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_step_ext_output_6710826a1b89415062e50ed2cd4bcbe9^id=6710826a1b89415062e50ed2cd4bcbe9"/>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=6710826a1b89415062e50ed2cd4bcbe9"/>
@@ -1607,7 +1583,7 @@
         <sys_created_on>2022-01-17 16:30:26</sys_created_on>
         <sys_id>3710c26a1b89415062e50ed2cd4bcb0d</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Field Value</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2087,7 +2063,7 @@
         <sys_created_on>2022-01-17 16:30:26</sys_created_on>
         <sys_id>6f10826a1b89415062e50ed2cd4bcbe6</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Field Name</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2110,7 +2086,7 @@
         <sys_created_on>2022-01-17 16:30:26</sys_created_on>
         <sys_id>e710826a1b89415062e50ed2cd4bcbdf</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Flow Data Record</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2135,7 +2111,7 @@
         <sys_created_on>2022-01-17 16:33:54</sys_created_on>
         <sys_id>26e0c2ea1b89415062e50ed2cd4bcbfb</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Value</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2158,7 +2134,7 @@
         <sys_created_on>2022-01-17 16:30:26</sys_created_on>
         <sys_id>7710c26a1b89415062e50ed2cd4bcb52</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Action Status</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2181,7 +2157,7 @@
         <sys_created_on>2022-01-17 16:30:27</sys_created_on>
         <sys_id>bb10c26a1b89415062e50ed2cd4bcb5e</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Don't Treat as Error</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -2195,6 +2171,6 @@
     <sys_hub_action_type_definition action="UPDATE">
         <sys_id>d6affde61b89415062e50ed2cd4bcb4a</sys_id>
         <latest_snapshot>2710826a1b89415062e50ed2cd4bcbd0</latest_snapshot>
-        <compiler_build>glide-tokyo-07-08-2022__patch6-01-18-2023_01-27-2023_1724.zip</compiler_build>
+        <compiler_build>glide-tokyo-07-08-2022__patch9-hotfix2-06-07-2023_06-23-2023_1740.zip</compiler_build>
     </sys_hub_action_type_definition>
 </record_update>

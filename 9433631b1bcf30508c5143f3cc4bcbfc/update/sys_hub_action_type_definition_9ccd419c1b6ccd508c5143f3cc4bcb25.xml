@@ -35,7 +35,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_9ccd419c1b6ccd508c5143f3cc4bcb25</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-03 22:08:30</sys_updated_on>
+        <sys_updated_on>2023-08-14 14:07:07</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -1707,6 +1707,6 @@
     <sys_hub_action_type_definition action="UPDATE">
         <sys_id>9ccd419c1b6ccd508c5143f3cc4bcb25</sys_id>
         <latest_snapshot>f34e4d9c1b6ccd508c5143f3cc4bcbe2</latest_snapshot>
-        <compiler_build>glide-tokyo-07-08-2022__patch0-07-19-2022_07-26-2022_2149.zip</compiler_build>
+        <compiler_build>glide-tokyo-07-08-2022__patch9-hotfix2-06-07-2023_06-23-2023_1740.zip</compiler_build>
     </sys_hub_action_type_definition>
 </record_update>
