@@ -1,0 +1,2908 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <internal_name>prof__notifications_ritm_opened__s</internal_name>
+        <label_cache>[{"name":"61a5d156-ba54-4ae8-844e-dc6c414c743d.item.sys_id","label":"6 - For Each➛Requested Item Record➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"sc_req_item","column_name":"sys_id"},{"name":"61a5d156-ba54-4ae8-844e-dc6c414c743d.item","label":"6 - For Each➛Requested Item Record","reference":"sc_req_item","reference_display":"Requested Item","type":"reference","base_type":"reference","attributes":{"pills_draggable_inside_block":"true","pills_draggable_outside_block":"false"}},{"name":"35139b25-8246-4c45-b792-ae0123d44e73.Records","label":"5 - Look Up Records➛Requested Item Records","reference":"sc_req_item","reference_display":"Requested Item","type":"records","base_type":"records","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Created_1.current","label":"Trigger - Record Created➛Request Record","reference":"sc_request","reference_display":"Request","type":"reference","base_type":"reference","attributes":{}},{"name":"2a34ba66-d81f-471e-9a3b-166abadcab83.item.parm1","label":"16 - For Each➛Event Record➛Parm1","reference":"","reference_display":"Parm1","type":"string","base_type":"string","parent_table_name":"sysevent","column_name":"parm1"},{"name":"565ea5c1-4834-4990-bc5b-a8c68daa03b0.Records","label":"15 - Look Up Records➛Event Records","reference":"sysevent","reference_display":"Event","type":"records","base_type":"records","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Created_1.current.approval","label":"Trigger - Record Created➛Request Record➛Approval","reference":"","reference_display":"Approval","type":"choice","base_type":"choice","parent_table_name":"sc_request","column_name":"approval","choices":[{"image":"","used":false,"label":"Not Yet Requested","reference":false,"rawLabel":"Not Yet Requested","selected":false,"missing":false,"value":"not requested","parameters":{"name":"task"}},{"image":"","used":false,"label":"Requested","reference":false,"rawLabel":"Requested","selected":false,"missing":false,"value":"requested","parameters":{"name":"task"}},{"image":"","used":false,"label":"Approved","reference":false,"rawLabel":"Approved","selected":false,"missing":false,"value":"approved","parameters":{"name":"task"}},{"image":"","used":false,"label":"Rejected","reference":false,"rawLabel":"Rejected","selected":false,"missing":false,"value":"rejected","parameters":{"name":"task"}}]},{"name":"Created_1.current.sys_id","label":"Trigger - Record Created➛Request Record➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"sc_request","column_name":"sys_id"},{"name":"2a34ba66-d81f-471e-9a3b-166abadcab83.item","label":"16 - For Each➛Event Record","reference":"sysevent","reference_display":"Event","type":"reference","base_type":"reference","attributes":{"pills_draggable_inside_block":"true","pills_draggable_outside_block":"false"}},{"name":"565ea5c1-4834-4990-bc5b-a8c68daa03b0.Count","label":"15 - Look Up Records➛Count","reference_display":"Count","type":"integer","base_type":"integer","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"14ca95cb-0256-46d8-a591-e8296709ea75.Count","label":"3 - Look Up Records➛Count","reference_display":"Count","type":"integer","base_type":"integer","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"3bbc1a8c-c234-4fdc-ab85-c70f5d757b4a.Count","label":"7 - Look Up Records➛Count","reference_display":"Count","type":"integer","base_type":"integer","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"flow_variable.isapproval","label":"Flow Variables➛isApproval","reference":"","reference_display":"","type":"boolean","base_type":"boolean","column_name":"","choices":[],"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"92618248-ad9a-46ae-b0ef-3536e73f0205"}},{"name":"2a34ba66-d81f-471e-9a3b-166abadcab83.item.parm2","label":"16 - For Each➛Event Record➛Parm2","reference":"","reference_display":"Parm2","type":"string","base_type":"string","parent_table_name":"sysevent","column_name":"parm2"}]</label_cache>
+        <master_snapshot>b5e947201bbc79108c5143f3cc4bcbd3</master_snapshot>
+        <name>PROF - Notifications REQ Opened - S</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id>274853241bfc79108c5143f3cc4bcbe3</remote_trigger_id>
+        <run_as>system</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:29:08</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>50c66ae41bf879108c5143f3cc4bcbb1</sys_id>
+        <sys_mod_count>28</sys_mod_count>
+        <sys_name>PROF - Notifications REQ Opened - S</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_hub_flow_50c66ae41bf879108c5143f3cc4bcbb1</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:39</sys_updated_on>
+        <type>flow</type>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=50c66ae41bf879108c5143f3cc4bcbb1"/>
+    <sys_variable_value action="delete_multiple" query="document_key=50c66ae41bf879108c5143f3cc4bcbb1"/>
+    <sys_flow_record_trigger action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition table="sc_request">^EQ<item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </condition>
+        <name/>
+        <on_delete>false</on_delete>
+        <on_insert>true</on_insert>
+        <on_update>false</on_update>
+        <run_flow_in>background</run_flow_in>
+        <run_on_extended>false</run_on_extended>
+        <run_when_setting>both</run_when_setting>
+        <run_when_user_list/>
+        <run_when_user_setting>any</run_when_user_setting>
+        <sys_class_name>sys_flow_record_trigger</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 20:05:37</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>274853241bfc79108c5143f3cc4bcbe3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:37</sys_updated_on>
+        <table>sc_request</table>
+    </sys_flow_record_trigger>
+    <sys_trigger_runner_mapping action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <data>{"run_flow_in":"background","run_when_user_list":[],"run_when_setting":"both","run_when_user_setting":"any","run_on_extended":"false"}</data>
+        <identifier>50c66ae41bf879108c5143f3cc4bcbb1</identifier>
+        <runner>FDTriggerRunner</runner>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 20:05:37</sys_created_on>
+        <sys_id>af4853241bfc79108c5143f3cc4bcbe3</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:37</sys_updated_on>
+        <trigger display_value="">274853241bfc79108c5143f3cc4bcbe3</trigger>
+    </sys_trigger_runner_mapping>
+    <sys_trigger_runner_mapping action="delete_multiple" query="identifier=50c66ae41bf879108c5143f3cc4bcbb1^sys_idNOT INaf4853241bfc79108c5143f3cc4bcbe3"/>
+    <sys_hub_trigger_instance action="delete_multiple" query="flow=50c66ae41bf879108c5143f3cc4bcbb1^sys_idNOT IN49086e6c1bf879108c5143f3cc4bcba0"/>
+    <sys_hub_trigger_instance action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <name>Created</name>
+        <remote_sys_id/>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:39</sys_created_on>
+        <sys_id>49086e6c1bf879108c5143f3cc4bcba0</sys_id>
+        <sys_mod_count>28</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:38</sys_updated_on>
+        <trigger_definition display_value="Created">798916a0c31322002841b63b12d3ae7c</trigger_definition>
+        <trigger_inputs/>
+        <trigger_outputs/>
+        <trigger_type>record_create</trigger_type>
+    </sys_hub_trigger_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=49086e6c1bf879108c5143f3cc4bcba0"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>49086e6c1bf879108c5143f3cc4bcba0</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:39</sys_created_on>
+        <sys_id>81086e6c1bf879108c5143f3cc4bcba2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:34:39</sys_updated_on>
+        <value>sc_request</value>
+        <variable display_value="Table">cfca92e0c31322002841b63b12d3ae00</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>49086e6c1bf879108c5143f3cc4bcba0</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:39</sys_created_on>
+        <sys_id>89086e6c1bf879108c5143f3cc4bcba1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:34:39</sys_updated_on>
+        <value>^EQ</value>
+        <variable display_value="Condition">66aadea0c31322002841b63b12d3aebf</variable>
+    </sys_variable_value>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=50c66ae41bf879108c5143f3cc4bcbb1"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=50c66ae41bf879108c5143f3cc4bcbb1^sys_idNOT IN1cc66ae41bf879108c5143f3cc4bcbb2"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>50c66ae41bf879108c5143f3cc4bcbb1</id>
+        <name>PROF - Notifications RITM Opened - S</name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:29:08</sys_created_on>
+        <sys_id>1cc66ae41bf879108c5143f3cc4bcbb2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:29:08</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=1cc66ae41bf879108c5143f3cc4bcbb2"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=50c66ae41bf879108c5143f3cc4bcbb1^sys_idNOT IN4d086e6c1bf879108c5143f3cc4bcb98,c5086e6c1bf879108c5143f3cc4bcb9c"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</model>
+        <model_id>50c66ae41bf879108c5143f3cc4bcbb1</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_50c66ae41bf879108c5143f3cc4bcbb1</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:39</sys_created_on>
+        <sys_id>4d086e6c1bf879108c5143f3cc4bcb98</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:37</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</model>
+        <model_id>50c66ae41bf879108c5143f3cc4bcbb1</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_50c66ae41bf879108c5143f3cc4bcbb1</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:39</sys_created_on>
+        <sys_id>c5086e6c1bf879108c5143f3cc4bcb9c</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:37</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_output action="delete_multiple" query="model=50c66ae41bf879108c5143f3cc4bcbb1"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=50c66ae41bf879108c5143f3cc4bcbb1"/>
+    <sys_hub_action_instance action="delete_multiple" query="flow=50c66ae41bf879108c5143f3cc4bcbb1^sys_idNOT IN3beba6a01b3c79108c5143f3cc4bcb25,5ebb62a01b3c79108c5143f3cc4bcbf1,706017281bbc79108c5143f3cc4bcb44,874c4fe01bbc79108c5143f3cc4bcb63,b06017281bbc79108c5143f3cc4bcb4f,cd086e6c1bf879108c5143f3cc4bcba8,d9086e6c1bf879108c5143f3cc4bcbbc"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Trigger Event on REQ">f5bcaed71be599d062e50ed2cd4bcbc0</action_type>
+        <action_type_parent/>
+        <comment>Trigger notification event</comment>
+        <display_text/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <order>17</order>
+        <parent_ui_id>2a34ba66-d81f-471e-9a3b-166abadcab83</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:51:46</sys_created_on>
+        <sys_id>3beba6a01b3c79108c5143f3cc4bcb25</sys_id>
+        <sys_mod_count>62</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-08-19 21:55:14</sys_updated_on>
+        <ui_id>70b44f31-1f3c-4265-b3b9-4105490ac5cb</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=3beba6a01b3c79108c5143f3cc4bcb25"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>3beba6a01b3c79108c5143f3cc4bcb25</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:51:47</sys_created_on>
+        <sys_id>48fba6a01b3c79108c5143f3cc4bcb27</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:51:47</sys_updated_on>
+        <value> </value>
+        <variable display_value="Parm 1">8abcaed71be599d062e50ed2cd4bcbcc</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=3beba6a01b3c79108c5143f3cc4bcb25"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>event_record</field>
+        <id>3beba6a01b3c79108c5143f3cc4bcb25</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:51:47</sys_created_on>
+        <sys_id>c4fba6a01b3c79108c5143f3cc4bcb27</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:51:47</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f5bcaed71be599d062e50ed2cd4bcbc0</table>
+        <value>{{Created_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>name</field>
+        <id>3beba6a01b3c79108c5143f3cc4bcb25</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:51:47</sys_created_on>
+        <sys_id>40fba6a01b3c79108c5143f3cc4bcb27</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:55:39</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f5bcaed71be599d062e50ed2cd4bcbc0</table>
+        <value>{{2a34ba66-d81f-471e-9a3b-166abadcab83.item.parm2}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>parm_1</field>
+        <id>3beba6a01b3c79108c5143f3cc4bcb25</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:51:47</sys_created_on>
+        <sys_id>04fba6a01b3c79108c5143f3cc4bcb27</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:51:47</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f5bcaed71be599d062e50ed2cd4bcbc0</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=3beba6a01b3c79108c5143f3cc4bcb25"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=3beba6a01b3c79108c5143f3cc4bcb25"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent/>
+        <comment/>
+        <display_text/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <order>15</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:50:50</sys_created_on>
+        <sys_id>5ebb62a01b3c79108c5143f3cc4bcbf1</sys_id>
+        <sys_mod_count>64</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-08-19 21:55:14</sys_updated_on>
+        <ui_id>565ea5c1-4834-4990-bc5b-a8c68daa03b0</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=5ebb62a01b3c79108c5143f3cc4bcbf1"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>5ebb62a01b3c79108c5143f3cc4bcbf1</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:50:51</sys_created_on>
+        <sys_id>96bb62a01b3c79108c5143f3cc4bcbf4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:50:51</sys_updated_on>
+        <value>sysevent</value>
+        <variable display_value="Table">8f400a1587003300663ca1bb36cb0b4b</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=5ebb62a01b3c79108c5143f3cc4bcbf1"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>5ebb62a01b3c79108c5143f3cc4bcbf1</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:50:51</sys_created_on>
+        <sys_id>1ebb62a01b3c79108c5143f3cc4bcbf3</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value>parm1={{Created_1.current.sys_id}}^sys_created_onRELATIVEGT@minute@ago@5</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>5ebb62a01b3c79108c5143f3cc4bcbf1</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:50:51</sys_created_on>
+        <sys_id>16bb62a01b3c79108c5143f3cc4bcbf4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:50:51</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=5ebb62a01b3c79108c5143f3cc4bcbf1"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=5ebb62a01b3c79108c5143f3cc4bcbf1"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent/>
+        <comment/>
+        <display_text/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <order>5</order>
+        <parent_ui_id>a3ca65ac-0fac-4d1a-8196-fb04332ec786</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:31:02</sys_created_on>
+        <sys_id>706017281bbc79108c5143f3cc4bcb44</sys_id>
+        <sys_mod_count>40</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-08-19 21:55:14</sys_updated_on>
+        <ui_id>35139b25-8246-4c45-b792-ae0123d44e73</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=706017281bbc79108c5143f3cc4bcb44"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>706017281bbc79108c5143f3cc4bcb44</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:31:02</sys_created_on>
+        <sys_id>fc6017281bbc79108c5143f3cc4bcb45</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:31:02</sys_updated_on>
+        <value>sc_req_item</value>
+        <variable display_value="Table">8f400a1587003300663ca1bb36cb0b4b</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=706017281bbc79108c5143f3cc4bcb44"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>706017281bbc79108c5143f3cc4bcb44</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:31:02</sys_created_on>
+        <sys_id>b86017281bbc79108c5143f3cc4bcb45</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:31:02</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value>request={{Created_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>706017281bbc79108c5143f3cc4bcb44</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:31:02</sys_created_on>
+        <sys_id>7c6017281bbc79108c5143f3cc4bcb45</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:31:02</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=706017281bbc79108c5143f3cc4bcb44"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=706017281bbc79108c5143f3cc4bcb44"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent/>
+        <comment>Look up REQ approvals</comment>
+        <display_text/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <order>3</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:13:10</sys_created_on>
+        <sys_id>874c4fe01bbc79108c5143f3cc4bcb63</sys_id>
+        <sys_mod_count>52</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-08-19 21:55:14</sys_updated_on>
+        <ui_id>14ca95cb-0256-46d8-a591-e8296709ea75</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=874c4fe01bbc79108c5143f3cc4bcb63"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>874c4fe01bbc79108c5143f3cc4bcb63</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:13:10</sys_created_on>
+        <sys_id>4f4c4fe01bbc79108c5143f3cc4bcb65</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:13:10</sys_updated_on>
+        <value>sysapproval_approver</value>
+        <variable display_value="Table">8f400a1587003300663ca1bb36cb0b4b</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=874c4fe01bbc79108c5143f3cc4bcb63"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>874c4fe01bbc79108c5143f3cc4bcb63</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:13:10</sys_created_on>
+        <sys_id>074c4fe01bbc79108c5143f3cc4bcb65</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:31:02</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value>sysapproval={{Created_1.current}}^ORdocument_id={{Created_1.current.sys_id}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>874c4fe01bbc79108c5143f3cc4bcb63</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:13:10</sys_created_on>
+        <sys_id>cb4c4fe01bbc79108c5143f3cc4bcb65</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:13:10</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=874c4fe01bbc79108c5143f3cc4bcb63"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=874c4fe01bbc79108c5143f3cc4bcb63"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent/>
+        <comment>Look up RITM approvals</comment>
+        <display_text/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <order>7</order>
+        <parent_ui_id>61a5d156-ba54-4ae8-844e-dc6c414c743d</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:31:02</sys_created_on>
+        <sys_id>b06017281bbc79108c5143f3cc4bcb4f</sys_id>
+        <sys_mod_count>40</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-08-19 21:55:14</sys_updated_on>
+        <ui_id>3bbc1a8c-c234-4fdc-ab85-c70f5d757b4a</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=b06017281bbc79108c5143f3cc4bcb4f"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>b06017281bbc79108c5143f3cc4bcb4f</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:31:02</sys_created_on>
+        <sys_id>3c6017281bbc79108c5143f3cc4bcb50</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:31:02</sys_updated_on>
+        <value>sysapproval_approver</value>
+        <variable display_value="Table">8f400a1587003300663ca1bb36cb0b4b</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=b06017281bbc79108c5143f3cc4bcb4f"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>b06017281bbc79108c5143f3cc4bcb4f</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:31:02</sys_created_on>
+        <sys_id>f46017281bbc79108c5143f3cc4bcb50</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:31:02</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value>sysapproval={{61a5d156-ba54-4ae8-844e-dc6c414c743d.item}}^ORdocument_id={{61a5d156-ba54-4ae8-844e-dc6c414c743d.item.sys_id}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>b06017281bbc79108c5143f3cc4bcb4f</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:31:02</sys_created_on>
+        <sys_id>b86017281bbc79108c5143f3cc4bcb50</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:31:02</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=b06017281bbc79108c5143f3cc4bcb4f"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=b06017281bbc79108c5143f3cc4bcb4f"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Queue Notification">1fe3e6681bf879108c5143f3cc4bcb91</action_type>
+        <action_type_parent/>
+        <comment>Add REQ opened event</comment>
+        <display_text/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:39</sys_created_on>
+        <sys_id>cd086e6c1bf879108c5143f3cc4bcba8</sys_id>
+        <sys_mod_count>70</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-08-19 21:55:14</sys_updated_on>
+        <ui_id>dec7aa21-ae67-4101-87d1-cc9ad4d9469e</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=cd086e6c1bf879108c5143f3cc4bcba8"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>cd086e6c1bf879108c5143f3cc4bcba8</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:39</sys_created_on>
+        <sys_id>c5086e6c1bf879108c5143f3cc4bcbab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:34:39</sys_updated_on>
+        <value>request.notification.opened</value>
+        <variable display_value="Notification Event Name">d3e3e6681bf879108c5143f3cc4bcb95</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=cd086e6c1bf879108c5143f3cc4bcba8"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>notification_event_name</field>
+        <id>cd086e6c1bf879108c5143f3cc4bcba8</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:39</sys_created_on>
+        <sys_id>8d086e6c1bf879108c5143f3cc4bcbaa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:34:39</sys_updated_on>
+        <table>var__m_sys_hub_action_input_1fe3e6681bf879108c5143f3cc4bcb91</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>task_sys_id</field>
+        <id>cd086e6c1bf879108c5143f3cc4bcba8</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:39</sys_created_on>
+        <sys_id>45086e6c1bf879108c5143f3cc4bcbab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:34:39</sys_updated_on>
+        <table>var__m_sys_hub_action_input_1fe3e6681bf879108c5143f3cc4bcb91</table>
+        <value>{{Created_1.current.sys_id}}</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=cd086e6c1bf879108c5143f3cc4bcba8"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=cd086e6c1bf879108c5143f3cc4bcba8"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Queue Notification">1fe3e6681bf879108c5143f3cc4bcb91</action_type>
+        <action_type_parent/>
+        <comment>Add approval requested event</comment>
+        <display_text/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <order>13</order>
+        <parent_ui_id>9b4b4f2e-0207-4007-b1bd-68dd25fae2fc</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:40</sys_created_on>
+        <sys_id>d9086e6c1bf879108c5143f3cc4bcbbc</sys_id>
+        <sys_mod_count>70</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-08-19 21:55:14</sys_updated_on>
+        <ui_id>08deb07b-77ea-477e-990d-b4dcef4a59ba</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=d9086e6c1bf879108c5143f3cc4bcbbc"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>d9086e6c1bf879108c5143f3cc4bcbbc</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:40</sys_created_on>
+        <sys_id>dd086e6c1bf879108c5143f3cc4bcbbd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:34:40</sys_updated_on>
+        <value>request.notification.requested.approval</value>
+        <variable display_value="Notification Event Name">d3e3e6681bf879108c5143f3cc4bcb95</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=d9086e6c1bf879108c5143f3cc4bcbbc"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>notification_event_name</field>
+        <id>d9086e6c1bf879108c5143f3cc4bcbbc</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:40</sys_created_on>
+        <sys_id>99086e6c1bf879108c5143f3cc4bcbbd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:34:40</sys_updated_on>
+        <table>var__m_sys_hub_action_input_1fe3e6681bf879108c5143f3cc4bcb91</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>task_sys_id</field>
+        <id>d9086e6c1bf879108c5143f3cc4bcbbc</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:40</sys_created_on>
+        <sys_id>5d086e6c1bf879108c5143f3cc4bcbbd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:34:40</sys_updated_on>
+        <table>var__m_sys_hub_action_input_1fe3e6681bf879108c5143f3cc4bcb91</table>
+        <value>{{Created_1.current.sys_id}}</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=d9086e6c1bf879108c5143f3cc4bcbbc"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=d9086e6c1bf879108c5143f3cc4bcbbc"/>
+    <sys_hub_sub_flow_instance action="delete_multiple" query="flow=50c66ae41bf879108c5143f3cc4bcbb1"/>
+    <sys_hub_flow_logic action="delete_multiple" query="flow=50c66ae41bf879108c5143f3cc4bcbb1^sys_idNOT IN05086e6c1bf879108c5143f3cc4bcbac,10b09b281bbc79108c5143f3cc4bcb45,10b09b281bbc79108c5143f3cc4bcb49,3feba6a01b3c79108c5143f3cc4bcb0f,51af87e41bbc79108c5143f3cc4bcb6f,59af87e41bbc79108c5143f3cc4bcb71,67b7dba01bfc79108c5143f3cc4bcb5e,8b5f03e41bbc79108c5143f3cc4bcb95,8d086e6c1bf879108c5143f3cc4bcbb3,b46017281bbc79108c5143f3cc4bcb46"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">4d086e6c1bf879108c5143f3cc4bcbab</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <logic_definition display_value="Wait for a duration of time">fdb2541473031300b61e66476bf6a70e</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:39</sys_created_on>
+        <sys_id>05086e6c1bf879108c5143f3cc4bcbac</sys_id>
+        <sys_mod_count>28</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:38</sys_updated_on>
+        <ui_id>ccc31283-740c-4bd9-86ca-b4f001201c4b</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=05086e6c1bf879108c5143f3cc4bcbac"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>05086e6c1bf879108c5143f3cc4bcbac</document_key>
+        <order>300</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:39</sys_created_on>
+        <sys_id>01086e6c1bf879108c5143f3cc4bcbb3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:34:39</sys_updated_on>
+        <value/>
+        <variable display_value="Timer relative duration operator">dca4105473031300b61e66476bf6a726</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>05086e6c1bf879108c5143f3cc4bcbac</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:39</sys_created_on>
+        <sys_id>c1086e6c1bf879108c5143f3cc4bcbb3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:34:39</sys_updated_on>
+        <value>1970-01-01 00:00:30</value>
+        <variable display_value="Duration">ef145c1473031300b61e66476bf6a7be</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_50c66ae41bf879108c5143f3cc4bcbb1^id=05086e6c1bf879108c5143f3cc4bcbac"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_logic_input_fdb2541473031300b61e66476bf6a70e^id=05086e6c1bf879108c5143f3cc4bcbac"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=05086e6c1bf879108c5143f3cc4bcbac"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=05086e6c1bf879108c5143f3cc4bcbac"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">5cb09b281bbc79108c5143f3cc4bcb44</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>8</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>61a5d156-ba54-4ae8-844e-dc6c414c743d</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:22</sys_created_on>
+        <sys_id>10b09b281bbc79108c5143f3cc4bcb45</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:38</sys_updated_on>
+        <ui_id>1a96330f-580e-4ff8-bdb1-40936a25fe67</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=10b09b281bbc79108c5143f3cc4bcb45"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>10b09b281bbc79108c5143f3cc4bcb45</document_key>
+        <order>10</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:22</sys_created_on>
+        <sys_id>d4b09b281bbc79108c5143f3cc4bcb48</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:22</sys_updated_on>
+        <value>RITM has approvals</value>
+        <variable display_value="Condition Label">f0af19c1c32632002841b63b12d3aea3</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_50c66ae41bf879108c5143f3cc4bcbb1^id=10b09b281bbc79108c5143f3cc4bcb45"/>
+    <sys_element_mapping action="delete_multiple" query="id=10b09b281bbc79108c5143f3cc4bcb45"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition</field>
+        <id>10b09b281bbc79108c5143f3cc4bcb45</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:22</sys_created_on>
+        <sys_id>54b09b281bbc79108c5143f3cc4bcb48</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:22</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value>{{3bbc1a8c-c234-4fdc-ab85-c70f5d757b4a.Count}}&gt;0</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition_name</field>
+        <id>10b09b281bbc79108c5143f3cc4bcb45</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:22</sys_created_on>
+        <sys_id>90b09b281bbc79108c5143f3cc4bcb48</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:22</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=10b09b281bbc79108c5143f3cc4bcb45"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=10b09b281bbc79108c5143f3cc4bcb45"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">5cb09b281bbc79108c5143f3cc4bcb48</block>
+        <comment>isApproval = true</comment>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <flow_variable/>
+        <flow_variables_assigned>isapproval</flow_variables_assigned>
+        <inputs/>
+        <logic_definition display_value="Set Flow Variables">4f787d1e0f9b0010ecf0cc52ff767ea0</logic_definition>
+        <order>9</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>1a96330f-580e-4ff8-bdb1-40936a25fe67</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:22</sys_created_on>
+        <sys_id>10b09b281bbc79108c5143f3cc4bcb49</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:38</sys_updated_on>
+        <ui_id>67c6cc30-30ce-4473-9be3-1f9e521dd60f</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=10b09b281bbc79108c5143f3cc4bcb49"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>10b09b281bbc79108c5143f3cc4bcb49</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:22</sys_created_on>
+        <sys_id>d8b09b281bbc79108c5143f3cc4bcb4b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:22</sys_updated_on>
+        <value>1</value>
+        <variable display_value="isApproval">09af87e41bbc79108c5143f3cc4bcb32</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_50c66ae41bf879108c5143f3cc4bcbb1^id=10b09b281bbc79108c5143f3cc4bcb49"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=10b09b281bbc79108c5143f3cc4bcb49"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=10b09b281bbc79108c5143f3cc4bcb49"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">77eba6a01b3c79108c5143f3cc4bcb0f</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="For Each">098e1dc5c3e232002841b63b12d3ae33</logic_definition>
+        <order>16</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:51:46</sys_created_on>
+        <sys_id>3feba6a01b3c79108c5143f3cc4bcb0f</sys_id>
+        <sys_mod_count>30</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:39</sys_updated_on>
+        <ui_id>2a34ba66-d81f-471e-9a3b-166abadcab83</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=3feba6a01b3c79108c5143f3cc4bcb0f"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_50c66ae41bf879108c5143f3cc4bcbb1^id=3feba6a01b3c79108c5143f3cc4bcb0f"/>
+    <sys_element_mapping action="delete_multiple" query="id=3feba6a01b3c79108c5143f3cc4bcb0f"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>items</field>
+        <id>3feba6a01b3c79108c5143f3cc4bcb0f</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:51:46</sys_created_on>
+        <sys_id>3beba6a01b3c79108c5143f3cc4bcb12</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:51:46</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_098e1dc5c3e232002841b63b12d3ae33</table>
+        <value>{{565ea5c1-4834-4990-bc5b-a8c68daa03b0.Records}}</value>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=3feba6a01b3c79108c5143f3cc4bcb0f"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=3feba6a01b3c79108c5143f3cc4bcb0f"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">9daf87e41bbc79108c5143f3cc4bcb6e</block>
+        <comment/>
+        <connected_to>a3ca65ac-0fac-4d1a-8196-fb04332ec786</connected_to>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <logic_definition display_value="Else">1f781bf3c32232002841b63b12d3aee6</logic_definition>
+        <order>10</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:27:47</sys_created_on>
+        <sys_id>51af87e41bbc79108c5143f3cc4bcb6f</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:38</sys_updated_on>
+        <ui_id>6e4ffc26-956b-4e90-8ab9-5d778439131a</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=51af87e41bbc79108c5143f3cc4bcb6f"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_50c66ae41bf879108c5143f3cc4bcbb1^id=51af87e41bbc79108c5143f3cc4bcb6f"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=51af87e41bbc79108c5143f3cc4bcb6f"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=51af87e41bbc79108c5143f3cc4bcb6f"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">95af87e41bbc79108c5143f3cc4bcb71</block>
+        <comment>isApproval = true</comment>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <flow_variable/>
+        <flow_variables_assigned>isapproval</flow_variables_assigned>
+        <inputs/>
+        <logic_definition display_value="Set Flow Variables">4f787d1e0f9b0010ecf0cc52ff767ea0</logic_definition>
+        <order>11</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>6e4ffc26-956b-4e90-8ab9-5d778439131a</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:27:47</sys_created_on>
+        <sys_id>59af87e41bbc79108c5143f3cc4bcb71</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:38</sys_updated_on>
+        <ui_id>f89e7b2d-1f83-4d11-b958-f374be8d1877</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=59af87e41bbc79108c5143f3cc4bcb71"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>59af87e41bbc79108c5143f3cc4bcb71</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:27:47</sys_created_on>
+        <sys_id>95af87e41bbc79108c5143f3cc4bcb74</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:27:47</sys_updated_on>
+        <value>1</value>
+        <variable display_value="isApproval">09af87e41bbc79108c5143f3cc4bcb32</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_50c66ae41bf879108c5143f3cc4bcbb1^id=59af87e41bbc79108c5143f3cc4bcb71"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=59af87e41bbc79108c5143f3cc4bcb71"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=59af87e41bbc79108c5143f3cc4bcb71"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">afb7dba01bfc79108c5143f3cc4bcb5d</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <logic_definition display_value="Wait for a duration of time">fdb2541473031300b61e66476bf6a70e</logic_definition>
+        <order>14</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>9b4b4f2e-0207-4007-b1bd-68dd25fae2fc</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 20:03:10</sys_created_on>
+        <sys_id>67b7dba01bfc79108c5143f3cc4bcb5e</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:39</sys_updated_on>
+        <ui_id>5602c6bb-bd6b-412e-9384-48d6ae8bbafc</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=67b7dba01bfc79108c5143f3cc4bcb5e"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>67b7dba01bfc79108c5143f3cc4bcb5e</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 20:03:10</sys_created_on>
+        <sys_id>afb7dba01bfc79108c5143f3cc4bcb64</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:03:10</sys_updated_on>
+        <value>1970-01-01 00:00:05</value>
+        <variable display_value="Duration">ef145c1473031300b61e66476bf6a7be</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>67b7dba01bfc79108c5143f3cc4bcb5e</document_key>
+        <order>300</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 20:03:10</sys_created_on>
+        <sys_id>e7b7dba01bfc79108c5143f3cc4bcb64</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:03:10</sys_updated_on>
+        <value/>
+        <variable display_value="Timer relative duration operator">dca4105473031300b61e66476bf6a726</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_50c66ae41bf879108c5143f3cc4bcbb1^id=67b7dba01bfc79108c5143f3cc4bcb5e"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_logic_input_fdb2541473031300b61e66476bf6a70e^id=67b7dba01bfc79108c5143f3cc4bcb5e"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=67b7dba01bfc79108c5143f3cc4bcb5e"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=67b7dba01bfc79108c5143f3cc4bcb5e"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">c35f03e41bbc79108c5143f3cc4bcb95</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>4</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:26:32</sys_created_on>
+        <sys_id>8b5f03e41bbc79108c5143f3cc4bcb95</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:38</sys_updated_on>
+        <ui_id>a3ca65ac-0fac-4d1a-8196-fb04332ec786</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=8b5f03e41bbc79108c5143f3cc4bcb95"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>8b5f03e41bbc79108c5143f3cc4bcb95</document_key>
+        <order>10</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:26:32</sys_created_on>
+        <sys_id>075f03e41bbc79108c5143f3cc4bcb99</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:26:32</sys_updated_on>
+        <value>No approvals on REQ</value>
+        <variable display_value="Condition Label">f0af19c1c32632002841b63b12d3aea3</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_50c66ae41bf879108c5143f3cc4bcbb1^id=8b5f03e41bbc79108c5143f3cc4bcb95"/>
+    <sys_element_mapping action="delete_multiple" query="id=8b5f03e41bbc79108c5143f3cc4bcb95"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition</field>
+        <id>8b5f03e41bbc79108c5143f3cc4bcb95</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:26:32</sys_created_on>
+        <sys_id>835f03e41bbc79108c5143f3cc4bcb99</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:28:57</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value>{{14ca95cb-0256-46d8-a591-e8296709ea75.Count}}=0</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition_name</field>
+        <id>8b5f03e41bbc79108c5143f3cc4bcb95</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:26:32</sys_created_on>
+        <sys_id>cb5f03e41bbc79108c5143f3cc4bcb98</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:26:32</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=8b5f03e41bbc79108c5143f3cc4bcb95"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=8b5f03e41bbc79108c5143f3cc4bcb95"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">c9086e6c1bf879108c5143f3cc4bcbb3</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>12</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:39</sys_created_on>
+        <sys_id>8d086e6c1bf879108c5143f3cc4bcbb3</sys_id>
+        <sys_mod_count>32</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:38</sys_updated_on>
+        <ui_id>9b4b4f2e-0207-4007-b1bd-68dd25fae2fc</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=8d086e6c1bf879108c5143f3cc4bcbb3"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>8d086e6c1bf879108c5143f3cc4bcbb3</document_key>
+        <order>10</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:39</sys_created_on>
+        <sys_id>05e947201bbc79108c5143f3cc4bcb29</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:22</sys_updated_on>
+        <value>isApproval = true</value>
+        <variable display_value="Condition Label">f0af19c1c32632002841b63b12d3aea3</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_50c66ae41bf879108c5143f3cc4bcbb1^id=8d086e6c1bf879108c5143f3cc4bcbb3"/>
+    <sys_element_mapping action="delete_multiple" query="id=8d086e6c1bf879108c5143f3cc4bcbb3"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition</field>
+        <id>8d086e6c1bf879108c5143f3cc4bcbb3</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:39</sys_created_on>
+        <sys_id>9d086e6c1bf879108c5143f3cc4bcbb6</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:22</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value>{{flow_variable.isapproval}}=true</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition_name</field>
+        <id>8d086e6c1bf879108c5143f3cc4bcbb3</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:39</sys_created_on>
+        <sys_id>45e947201bbc79108c5143f3cc4bcb28</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:39</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=8d086e6c1bf879108c5143f3cc4bcbb3"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=8d086e6c1bf879108c5143f3cc4bcbb3"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">f06017281bbc79108c5143f3cc4bcb46</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="For Each">098e1dc5c3e232002841b63b12d3ae33</logic_definition>
+        <order>6</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>a3ca65ac-0fac-4d1a-8196-fb04332ec786</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:31:02</sys_created_on>
+        <sys_id>b46017281bbc79108c5143f3cc4bcb46</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:38</sys_updated_on>
+        <ui_id>61a5d156-ba54-4ae8-844e-dc6c414c743d</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=b46017281bbc79108c5143f3cc4bcb46"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_50c66ae41bf879108c5143f3cc4bcbb1^id=b46017281bbc79108c5143f3cc4bcb46"/>
+    <sys_element_mapping action="delete_multiple" query="id=b46017281bbc79108c5143f3cc4bcb46"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>items</field>
+        <id>b46017281bbc79108c5143f3cc4bcb46</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:31:02</sys_created_on>
+        <sys_id>706017281bbc79108c5143f3cc4bcb49</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:31:02</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_098e1dc5c3e232002841b63b12d3ae33</table>
+        <value>{{35139b25-8246-4c45-b792-ae0123d44e73.Records}}</value>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=b46017281bbc79108c5143f3cc4bcb46"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=b46017281bbc79108c5143f3cc4bcb46"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=50c66ae41bf879108c5143f3cc4bcbb1"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=50c66ae41bf879108c5143f3cc4bcbb1^sys_idNOT IN09af87e41bbc79108c5143f3cc4bcb32"/>
+    <sys_hub_flow_variable action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=boolean,uiTypeLabel=True/False,uiUniqueId=92618248-ad9a-46ae-b0ef-3536e73f0205</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>isapproval</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">boolean</internal_type>
+        <label>isApproval</label>
+        <mandatory>false</mandatory>
+        <max_length>40</max_length>
+        <model display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</model>
+        <model_id>50c66ae41bf879108c5143f3cc4bcbb1</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_variable_50c66ae41bf879108c5143f3cc4bcbb1</name>
+        <next_element/>
+        <order>0</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_variable</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:27:46</sys_created_on>
+        <sys_id>09af87e41bbc79108c5143f3cc4bcb32</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>isApproval</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_hub_flow_variable_09af87e41bbc79108c5143f3cc4bcb32</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:38</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_variable>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_50c66ae41bf879108c5143f3cc4bcbb1^sys_idNOT IN09086e6c1bf879108c5143f3cc4bcb9e,0d086e6c1bf879108c5143f3cc4bcb9b"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_50c66ae41bf879108c5143f3cc4bcbb1</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:39</sys_created_on>
+        <sys_id>09086e6c1bf879108c5143f3cc4bcb9e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:34:39</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_50c66ae41bf879108c5143f3cc4bcbb1</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 16:34:39</sys_created_on>
+        <sys_id>0d086e6c1bf879108c5143f3cc4bcb9b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 16:34:39</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_50c66ae41bf879108c5143f3cc4bcbb1"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_50c66ae41bf879108c5143f3cc4bcbb1"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_50c66ae41bf879108c5143f3cc4bcbb1"/>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=50c66ae41bf879108c5143f3cc4bcbb1^sys_idNOT INf2e9c7201bbc79108c5143f3cc4bcb47"/>
+    <sys_flow_trigger_plan action="INSERT_OR_UPDATE">
+        <binding_strategy>com.snc.process_flow.engine.binding.OncePerRecord</binding_strategy>
+        <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_trigger_plan","id":"f2e9c7201bbc79108c5143f3cc4bcb47","name":"plan","plan_signature":null}}</plan>
+        <plan_id>50c66ae41bf879108c5143f3cc4bcbb1</plan_id>
+        <snapshot>56fa30c51b74711062e50ed2cd4bcbcb</snapshot>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:46</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f2e9c7201bbc79108c5143f3cc4bcb47</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:37</sys_updated_on>
+        <trigger display_value="">274853241bfc79108c5143f3cc4bcbe3</trigger>
+    </sys_flow_trigger_plan>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=50c66ae41bf879108c5143f3cc4bcbb1"/>
+    <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <internal_name>prof__notifications_req_opened__s</internal_name>
+        <label_cache>[{"name":"61a5d156-ba54-4ae8-844e-dc6c414c743d.item.sys_id","label":"6 - For Each➛Requested Item Record➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"sc_req_item","column_name":"sys_id"},{"name":"61a5d156-ba54-4ae8-844e-dc6c414c743d.item","label":"6 - For Each➛Requested Item Record","reference":"sc_req_item","reference_display":"Requested Item","type":"reference","base_type":"reference","attributes":{"pills_draggable_inside_block":"true","pills_draggable_outside_block":"false"}},{"name":"35139b25-8246-4c45-b792-ae0123d44e73.Records","label":"5 - Look Up Records➛Requested Item Records","reference":"sc_req_item","reference_display":"Requested Item","type":"records","base_type":"records","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Created_1.current","label":"Trigger - Record Created➛Request Record","reference":"sc_request","reference_display":"Request","type":"reference","base_type":"reference","attributes":{}},{"name":"2a34ba66-d81f-471e-9a3b-166abadcab83.item.parm1","label":"16 - For Each➛Event Record➛Parm1","reference":"","reference_display":"Parm1","type":"string","base_type":"string","parent_table_name":"sysevent","column_name":"parm1"},{"name":"565ea5c1-4834-4990-bc5b-a8c68daa03b0.Records","label":"15 - Look Up Records➛Event Records","reference":"sysevent","reference_display":"Event","type":"records","base_type":"records","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Created_1.current.approval","label":"Trigger - Record Created➛Request Record➛Approval","reference":"","reference_display":"Approval","type":"choice","base_type":"choice","parent_table_name":"sc_request","column_name":"approval","choices":[{"image":"","used":false,"label":"Not Yet Requested","reference":false,"rawLabel":"Not Yet Requested","selected":false,"missing":false,"value":"not requested","parameters":{"name":"task"}},{"image":"","used":false,"label":"Requested","reference":false,"rawLabel":"Requested","selected":false,"missing":false,"value":"requested","parameters":{"name":"task"}},{"image":"","used":false,"label":"Approved","reference":false,"rawLabel":"Approved","selected":false,"missing":false,"value":"approved","parameters":{"name":"task"}},{"image":"","used":false,"label":"Rejected","reference":false,"rawLabel":"Rejected","selected":false,"missing":false,"value":"rejected","parameters":{"name":"task"}}]},{"name":"Created_1.current.sys_id","label":"Trigger - Record Created➛Request Record➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"sc_request","column_name":"sys_id"},{"name":"2a34ba66-d81f-471e-9a3b-166abadcab83.item","label":"16 - For Each➛Event Record","reference":"sysevent","reference_display":"Event","type":"reference","base_type":"reference","attributes":{"pills_draggable_inside_block":"true","pills_draggable_outside_block":"false"}},{"name":"565ea5c1-4834-4990-bc5b-a8c68daa03b0.Count","label":"15 - Look Up Records➛Count","reference_display":"Count","type":"integer","base_type":"integer","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"14ca95cb-0256-46d8-a591-e8296709ea75.Count","label":"3 - Look Up Records➛Count","reference_display":"Count","type":"integer","base_type":"integer","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"3bbc1a8c-c234-4fdc-ab85-c70f5d757b4a.Count","label":"7 - Look Up Records➛Count","reference_display":"Count","type":"integer","base_type":"integer","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"flow_variable.isapproval","label":"Flow Variables➛isApproval","reference":"","reference_display":"","type":"boolean","base_type":"boolean","column_name":"","choices":[],"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"92618248-ad9a-46ae-b0ef-3536e73f0205"}},{"name":"2a34ba66-d81f-471e-9a3b-166abadcab83.item.parm2","label":"16 - For Each➛Event Record➛Parm2","reference":"","reference_display":"Parm2","type":"string","base_type":"string","parent_table_name":"sysevent","column_name":"parm2"}]</label_cache>
+        <master>true</master>
+        <name>PROF - Notifications REQ Opened - S</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="PROF - Notifications REQ Opened - S">50c66ae41bf879108c5143f3cc4bcbb1</parent_flow>
+        <remote_trigger_id/>
+        <run_as>system</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:42</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b5e947201bbc79108c5143f3cc4bcbd3</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:34</sys_updated_on>
+        <type>flow</type>
+    </sys_hub_flow_snapshot>
+    <sys_translated_text action="delete_multiple" query="documentkey=b5e947201bbc79108c5143f3cc4bcbd3"/>
+    <sys_variable_value action="delete_multiple" query="document_key=b5e947201bbc79108c5143f3cc4bcbd3"/>
+    <sys_hub_trigger_instance action="delete_multiple" query="flow=b5e947201bbc79108c5143f3cc4bcbd3^sys_idNOT INdee987201bbc79108c5143f3cc4bcbc2"/>
+    <sys_hub_trigger_instance action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <name>Created</name>
+        <remote_sys_id/>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:44</sys_created_on>
+        <sys_id>dee987201bbc79108c5143f3cc4bcbc2</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:37</sys_updated_on>
+        <trigger_definition display_value="Created">798916a0c31322002841b63b12d3ae7c</trigger_definition>
+        <trigger_inputs/>
+        <trigger_outputs/>
+        <trigger_type>record_create</trigger_type>
+    </sys_hub_trigger_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=dee987201bbc79108c5143f3cc4bcbc2"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>dee987201bbc79108c5143f3cc4bcbc2</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:44</sys_created_on>
+        <sys_id>1ee987201bbc79108c5143f3cc4bcbc4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:44</sys_updated_on>
+        <value>sc_request</value>
+        <variable display_value="Table">cfca92e0c31322002841b63b12d3ae00</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>dee987201bbc79108c5143f3cc4bcbc2</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:44</sys_created_on>
+        <sys_id>5ae987201bbc79108c5143f3cc4bcbc4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:44</sys_updated_on>
+        <value>^EQ</value>
+        <variable display_value="Condition">66aadea0c31322002841b63b12d3aebf</variable>
+    </sys_variable_value>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=b5e947201bbc79108c5143f3cc4bcbd3"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=b5e947201bbc79108c5143f3cc4bcbd3^sys_idNOT IN35e947201bbc79108c5143f3cc4bcbd4"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>b5e947201bbc79108c5143f3cc4bcbd3</id>
+        <name>PROF - Notifications REQ Opened - S</name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:42</sys_created_on>
+        <sys_id>35e947201bbc79108c5143f3cc4bcbd4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:42</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=35e947201bbc79108c5143f3cc4bcbd4"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=b5e947201bbc79108c5143f3cc4bcbd3^sys_idNOT INb9e947201bbc79108c5143f3cc4bcbd5,f1e987201bbc79108c5143f3cc4bcb6f"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</model>
+        <model_id>b5e947201bbc79108c5143f3cc4bcbd3</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_b5e947201bbc79108c5143f3cc4bcbd3</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:42</sys_created_on>
+        <sys_id>b9e947201bbc79108c5143f3cc4bcbd5</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:32</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</model>
+        <model_id>b5e947201bbc79108c5143f3cc4bcbd3</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_b5e947201bbc79108c5143f3cc4bcbd3</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>f1e987201bbc79108c5143f3cc4bcb6f</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:32</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_output action="delete_multiple" query="model=b5e947201bbc79108c5143f3cc4bcbd3"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=b5e947201bbc79108c5143f3cc4bcbd3"/>
+    <sys_hub_action_instance action="delete_multiple" query="flow=b5e947201bbc79108c5143f3cc4bcbd3^sys_idNOT IN0ae987201bbc79108c5143f3cc4bcb90,0ee987201bbc79108c5143f3cc4bcba1,1ae987201bbc79108c5143f3cc4bcbb8,46e987201bbc79108c5143f3cc4bcb98,5c5c8fe01bbc79108c5143f3cc4bcbec,b4d09f281bbc79108c5143f3cc4bcbf4,b8d09f281bbc79108c5143f3cc4bcbec"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Queue Notification">1fe3e6681bf879108c5143f3cc4bcb91</action_type>
+        <action_type_parent display_value="Queue Notification">6e3b92201bf879108c5143f3cc4bcbd3</action_type_parent>
+        <comment>Add REQ opened event</comment>
+        <display_text/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>0ae987201bbc79108c5143f3cc4bcb90</sys_id>
+        <sys_mod_count>30</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:33</sys_updated_on>
+        <ui_id>dec7aa21-ae67-4101-87d1-cc9ad4d9469e</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=0ae987201bbc79108c5143f3cc4bcb90"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>0ae987201bbc79108c5143f3cc4bcb90</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>46e987201bbc79108c5143f3cc4bcb92</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:43</sys_updated_on>
+        <value>request.notification.opened</value>
+        <variable display_value="Notification Event Name">d3e3e6681bf879108c5143f3cc4bcb95</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=0ae987201bbc79108c5143f3cc4bcb90"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>notification_event_name</field>
+        <id>0ae987201bbc79108c5143f3cc4bcb90</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>02e987201bbc79108c5143f3cc4bcb92</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:43</sys_updated_on>
+        <table>var__m_sys_hub_action_input_1fe3e6681bf879108c5143f3cc4bcb91</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>task_sys_id</field>
+        <id>0ae987201bbc79108c5143f3cc4bcb90</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>c2e987201bbc79108c5143f3cc4bcb92</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:43</sys_updated_on>
+        <table>var__m_sys_hub_action_input_1fe3e6681bf879108c5143f3cc4bcb91</table>
+        <value>{{Created_1.current.sys_id}}</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=0ae987201bbc79108c5143f3cc4bcb90"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=0ae987201bbc79108c5143f3cc4bcb90"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent display_value="Look Up Records">d1c56ec50b30030085c083eb37673a50</action_type_parent>
+        <comment/>
+        <display_text/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <order>15</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:44</sys_created_on>
+        <sys_id>0ee987201bbc79108c5143f3cc4bcba1</sys_id>
+        <sys_mod_count>30</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:34</sys_updated_on>
+        <ui_id>565ea5c1-4834-4990-bc5b-a8c68daa03b0</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=0ee987201bbc79108c5143f3cc4bcba1"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>0ee987201bbc79108c5143f3cc4bcba1</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:44</sys_created_on>
+        <sys_id>8ae987201bbc79108c5143f3cc4bcba3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:44</sys_updated_on>
+        <value>sysevent</value>
+        <variable display_value="Table">8f400a1587003300663ca1bb36cb0b4b</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=0ee987201bbc79108c5143f3cc4bcba1"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>0ee987201bbc79108c5143f3cc4bcba1</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:44</sys_created_on>
+        <sys_id>46e987201bbc79108c5143f3cc4bcba3</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:31</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value>parm1={{Created_1.current.sys_id}}^sys_created_onRELATIVEGT@minute@ago@5</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>0ee987201bbc79108c5143f3cc4bcba1</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:44</sys_created_on>
+        <sys_id>0ae987201bbc79108c5143f3cc4bcba3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:44</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=0ee987201bbc79108c5143f3cc4bcba1"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=0ee987201bbc79108c5143f3cc4bcba1"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Trigger Event on REQ">f5bcaed71be599d062e50ed2cd4bcbc0</action_type>
+        <action_type_parent display_value="Trigger Event on REQ">38ac2ad71be599d062e50ed2cd4bcbd8</action_type_parent>
+        <comment>Trigger notification event</comment>
+        <display_text/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <order>17</order>
+        <parent_ui_id>2a34ba66-d81f-471e-9a3b-166abadcab83</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:44</sys_created_on>
+        <sys_id>1ae987201bbc79108c5143f3cc4bcbb8</sys_id>
+        <sys_mod_count>30</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:34</sys_updated_on>
+        <ui_id>70b44f31-1f3c-4265-b3b9-4105490ac5cb</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=1ae987201bbc79108c5143f3cc4bcbb8"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>1ae987201bbc79108c5143f3cc4bcbb8</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:44</sys_created_on>
+        <sys_id>d6e987201bbc79108c5143f3cc4bcbba</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:44</sys_updated_on>
+        <value> </value>
+        <variable display_value="Parm 1">8abcaed71be599d062e50ed2cd4bcbcc</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=1ae987201bbc79108c5143f3cc4bcbb8"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>event_record</field>
+        <id>1ae987201bbc79108c5143f3cc4bcbb8</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:44</sys_created_on>
+        <sys_id>56e987201bbc79108c5143f3cc4bcbba</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:44</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f5bcaed71be599d062e50ed2cd4bcbc0</table>
+        <value>{{Created_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>name</field>
+        <id>1ae987201bbc79108c5143f3cc4bcbb8</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:44</sys_created_on>
+        <sys_id>dee987201bbc79108c5143f3cc4bcbb9</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:55:44</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f5bcaed71be599d062e50ed2cd4bcbc0</table>
+        <value>{{2a34ba66-d81f-471e-9a3b-166abadcab83.item.parm2}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>parm_1</field>
+        <id>1ae987201bbc79108c5143f3cc4bcbb8</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:44</sys_created_on>
+        <sys_id>92e987201bbc79108c5143f3cc4bcbba</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:44</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f5bcaed71be599d062e50ed2cd4bcbc0</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=1ae987201bbc79108c5143f3cc4bcbb8"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=1ae987201bbc79108c5143f3cc4bcbb8"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Queue Notification">1fe3e6681bf879108c5143f3cc4bcb91</action_type>
+        <action_type_parent display_value="Queue Notification">6e3b92201bf879108c5143f3cc4bcbd3</action_type_parent>
+        <comment>Add approval requested event</comment>
+        <display_text/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <order>13</order>
+        <parent_ui_id>9b4b4f2e-0207-4007-b1bd-68dd25fae2fc</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>46e987201bbc79108c5143f3cc4bcb98</sys_id>
+        <sys_mod_count>30</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:34</sys_updated_on>
+        <ui_id>08deb07b-77ea-477e-990d-b4dcef4a59ba</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=46e987201bbc79108c5143f3cc4bcb98"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>46e987201bbc79108c5143f3cc4bcb98</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>4ae987201bbc79108c5143f3cc4bcb99</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:43</sys_updated_on>
+        <value>request.notification.requested.approval</value>
+        <variable display_value="Notification Event Name">d3e3e6681bf879108c5143f3cc4bcb95</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=46e987201bbc79108c5143f3cc4bcb98"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>notification_event_name</field>
+        <id>46e987201bbc79108c5143f3cc4bcb98</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>06e987201bbc79108c5143f3cc4bcb99</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:43</sys_updated_on>
+        <table>var__m_sys_hub_action_input_1fe3e6681bf879108c5143f3cc4bcb91</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>task_sys_id</field>
+        <id>46e987201bbc79108c5143f3cc4bcb98</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>c6e987201bbc79108c5143f3cc4bcb99</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:43</sys_updated_on>
+        <table>var__m_sys_hub_action_input_1fe3e6681bf879108c5143f3cc4bcb91</table>
+        <value>{{Created_1.current.sys_id}}</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=46e987201bbc79108c5143f3cc4bcb98"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=46e987201bbc79108c5143f3cc4bcb98"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent display_value="Look Up Records">d1c56ec50b30030085c083eb37673a50</action_type_parent>
+        <comment>Look up REQ approvals</comment>
+        <display_text/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <order>3</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:13:15</sys_created_on>
+        <sys_id>5c5c8fe01bbc79108c5143f3cc4bcbec</sys_id>
+        <sys_mod_count>28</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:33</sys_updated_on>
+        <ui_id>14ca95cb-0256-46d8-a591-e8296709ea75</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=5c5c8fe01bbc79108c5143f3cc4bcbec"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>5c5c8fe01bbc79108c5143f3cc4bcbec</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:13:15</sys_created_on>
+        <sys_id>d45c8fe01bbc79108c5143f3cc4bcbee</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:13:15</sys_updated_on>
+        <value>sysapproval_approver</value>
+        <variable display_value="Table">8f400a1587003300663ca1bb36cb0b4b</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=5c5c8fe01bbc79108c5143f3cc4bcbec"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>5c5c8fe01bbc79108c5143f3cc4bcbec</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:13:15</sys_created_on>
+        <sys_id>905c8fe01bbc79108c5143f3cc4bcbee</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:56</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value>sysapproval={{Created_1.current}}^ORdocument_id={{Created_1.current.sys_id}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>5c5c8fe01bbc79108c5143f3cc4bcbec</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:13:15</sys_created_on>
+        <sys_id>545c8fe01bbc79108c5143f3cc4bcbee</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:13:15</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=5c5c8fe01bbc79108c5143f3cc4bcbec"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=5c5c8fe01bbc79108c5143f3cc4bcbec"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent display_value="Look Up Records">d1c56ec50b30030085c083eb37673a50</action_type_parent>
+        <comment>Look up RITM approvals</comment>
+        <display_text/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <order>7</order>
+        <parent_ui_id>61a5d156-ba54-4ae8-844e-dc6c414c743d</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:56</sys_created_on>
+        <sys_id>b4d09f281bbc79108c5143f3cc4bcbf4</sys_id>
+        <sys_mod_count>24</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:33</sys_updated_on>
+        <ui_id>3bbc1a8c-c234-4fdc-ab85-c70f5d757b4a</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=b4d09f281bbc79108c5143f3cc4bcbf4"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>b4d09f281bbc79108c5143f3cc4bcbf4</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:56</sys_created_on>
+        <sys_id>30d09f281bbc79108c5143f3cc4bcbf6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:56</sys_updated_on>
+        <value>sysapproval_approver</value>
+        <variable display_value="Table">8f400a1587003300663ca1bb36cb0b4b</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=b4d09f281bbc79108c5143f3cc4bcbf4"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>b4d09f281bbc79108c5143f3cc4bcbf4</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:56</sys_created_on>
+        <sys_id>f8d09f281bbc79108c5143f3cc4bcbf5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:56</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value>sysapproval={{61a5d156-ba54-4ae8-844e-dc6c414c743d.item}}^ORdocument_id={{61a5d156-ba54-4ae8-844e-dc6c414c743d.item.sys_id}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>b4d09f281bbc79108c5143f3cc4bcbf4</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:56</sys_created_on>
+        <sys_id>bcd09f281bbc79108c5143f3cc4bcbf5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:56</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=b4d09f281bbc79108c5143f3cc4bcbf4"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=b4d09f281bbc79108c5143f3cc4bcbf4"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent display_value="Look Up Records">d1c56ec50b30030085c083eb37673a50</action_type_parent>
+        <comment/>
+        <display_text/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <order>5</order>
+        <parent_ui_id>a3ca65ac-0fac-4d1a-8196-fb04332ec786</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:56</sys_created_on>
+        <sys_id>b8d09f281bbc79108c5143f3cc4bcbec</sys_id>
+        <sys_mod_count>24</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:33</sys_updated_on>
+        <ui_id>35139b25-8246-4c45-b792-ae0123d44e73</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=b8d09f281bbc79108c5143f3cc4bcbec"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>b8d09f281bbc79108c5143f3cc4bcbec</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:56</sys_created_on>
+        <sys_id>34d09f281bbc79108c5143f3cc4bcbee</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:56</sys_updated_on>
+        <value>sc_req_item</value>
+        <variable display_value="Table">8f400a1587003300663ca1bb36cb0b4b</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=b8d09f281bbc79108c5143f3cc4bcbec"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>b8d09f281bbc79108c5143f3cc4bcbec</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:56</sys_created_on>
+        <sys_id>fcd09f281bbc79108c5143f3cc4bcbed</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:56</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value>request={{Created_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>b8d09f281bbc79108c5143f3cc4bcbec</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:56</sys_created_on>
+        <sys_id>b0d09f281bbc79108c5143f3cc4bcbee</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:56</sys_updated_on>
+        <table>var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=b8d09f281bbc79108c5143f3cc4bcbec"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=b8d09f281bbc79108c5143f3cc4bcbec"/>
+    <sys_hub_sub_flow_instance action="delete_multiple" query="flow=b5e947201bbc79108c5143f3cc4bcbd3"/>
+    <sys_hub_flow_logic action="delete_multiple" query="flow=b5e947201bbc79108c5143f3cc4bcbd3^sys_idNOT IN06e987201bbc79108c5143f3cc4bcb81,34d0df281bbc79108c5143f3cc4bcb12,34d0df281bbc79108c5143f3cc4bcb1c,69c79fa01bfc79108c5143f3cc4bcb19,70d0df281bbc79108c5143f3cc4bcb0b,70d0df281bbc79108c5143f3cc4bcb0f,78d0df281bbc79108c5143f3cc4bcb19,8ae987201bbc79108c5143f3cc4bcb79,c2e987201bbc79108c5143f3cc4bcb85,fcd0df281bbc79108c5143f3cc4bcb15"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">c9086e6c1bf879108c5143f3cc4bcbb3</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>12</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>06e987201bbc79108c5143f3cc4bcb81</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:34</sys_updated_on>
+        <ui_id>9b4b4f2e-0207-4007-b1bd-68dd25fae2fc</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=06e987201bbc79108c5143f3cc4bcb81"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>06e987201bbc79108c5143f3cc4bcb81</document_key>
+        <order>10</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>cae987201bbc79108c5143f3cc4bcb84</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:57</sys_updated_on>
+        <value>isApproval = true</value>
+        <variable display_value="Condition Label">f0af19c1c32632002841b63b12d3aea3</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_b5e947201bbc79108c5143f3cc4bcbd3^id=06e987201bbc79108c5143f3cc4bcb81"/>
+    <sys_element_mapping action="delete_multiple" query="id=06e987201bbc79108c5143f3cc4bcb81"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition</field>
+        <id>06e987201bbc79108c5143f3cc4bcb81</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>4ae987201bbc79108c5143f3cc4bcb84</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:57</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value>{{flow_variable.isapproval}}=true</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition_name</field>
+        <id>06e987201bbc79108c5143f3cc4bcb81</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>86e987201bbc79108c5143f3cc4bcb84</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:43</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=06e987201bbc79108c5143f3cc4bcb81"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=06e987201bbc79108c5143f3cc4bcb81"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">5cb09b281bbc79108c5143f3cc4bcb44</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>8</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>61a5d156-ba54-4ae8-844e-dc6c414c743d</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:57</sys_created_on>
+        <sys_id>34d0df281bbc79108c5143f3cc4bcb12</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:33</sys_updated_on>
+        <ui_id>1a96330f-580e-4ff8-bdb1-40936a25fe67</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=34d0df281bbc79108c5143f3cc4bcb12"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>34d0df281bbc79108c5143f3cc4bcb12</document_key>
+        <order>10</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:57</sys_created_on>
+        <sys_id>f4d0df281bbc79108c5143f3cc4bcb15</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:57</sys_updated_on>
+        <value>RITM has approvals</value>
+        <variable display_value="Condition Label">f0af19c1c32632002841b63b12d3aea3</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_b5e947201bbc79108c5143f3cc4bcbd3^id=34d0df281bbc79108c5143f3cc4bcb12"/>
+    <sys_element_mapping action="delete_multiple" query="id=34d0df281bbc79108c5143f3cc4bcb12"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition</field>
+        <id>34d0df281bbc79108c5143f3cc4bcb12</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:57</sys_created_on>
+        <sys_id>74d0df281bbc79108c5143f3cc4bcb15</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:57</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value>{{3bbc1a8c-c234-4fdc-ab85-c70f5d757b4a.Count}}&gt;0</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition_name</field>
+        <id>34d0df281bbc79108c5143f3cc4bcb12</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:57</sys_created_on>
+        <sys_id>b0d0df281bbc79108c5143f3cc4bcb15</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:57</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=34d0df281bbc79108c5143f3cc4bcb12"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=34d0df281bbc79108c5143f3cc4bcb12"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">95af87e41bbc79108c5143f3cc4bcb71</block>
+        <comment>isApproval = true</comment>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <flow_variable/>
+        <flow_variables_assigned>isapproval</flow_variables_assigned>
+        <inputs/>
+        <logic_definition display_value="Set Flow Variables">4f787d1e0f9b0010ecf0cc52ff767ea0</logic_definition>
+        <order>11</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>6e4ffc26-956b-4e90-8ab9-5d778439131a</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:57</sys_created_on>
+        <sys_id>34d0df281bbc79108c5143f3cc4bcb1c</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:33</sys_updated_on>
+        <ui_id>f89e7b2d-1f83-4d11-b958-f374be8d1877</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=34d0df281bbc79108c5143f3cc4bcb1c"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>34d0df281bbc79108c5143f3cc4bcb1c</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:57</sys_created_on>
+        <sys_id>f8d0df281bbc79108c5143f3cc4bcb1e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:57</sys_updated_on>
+        <value>1</value>
+        <variable display_value="isApproval">24d09f281bbc79108c5143f3cc4bcbd7</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_b5e947201bbc79108c5143f3cc4bcbd3^id=34d0df281bbc79108c5143f3cc4bcb1c"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=34d0df281bbc79108c5143f3cc4bcb1c"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=34d0df281bbc79108c5143f3cc4bcb1c"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">afb7dba01bfc79108c5143f3cc4bcb5d</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <logic_definition display_value="Wait for a duration of time">fdb2541473031300b61e66476bf6a70e</logic_definition>
+        <order>14</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>9b4b4f2e-0207-4007-b1bd-68dd25fae2fc</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 20:03:18</sys_created_on>
+        <sys_id>69c79fa01bfc79108c5143f3cc4bcb19</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:34</sys_updated_on>
+        <ui_id>5602c6bb-bd6b-412e-9384-48d6ae8bbafc</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=69c79fa01bfc79108c5143f3cc4bcb19"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>69c79fa01bfc79108c5143f3cc4bcb19</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 20:03:18</sys_created_on>
+        <sys_id>a5c79fa01bfc79108c5143f3cc4bcb1f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:03:18</sys_updated_on>
+        <value>1970-01-01 00:00:05</value>
+        <variable display_value="Duration">ef145c1473031300b61e66476bf6a7be</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>69c79fa01bfc79108c5143f3cc4bcb19</document_key>
+        <order>300</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 20:03:18</sys_created_on>
+        <sys_id>e1c79fa01bfc79108c5143f3cc4bcb1f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:03:18</sys_updated_on>
+        <value/>
+        <variable display_value="Timer relative duration operator">dca4105473031300b61e66476bf6a726</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_b5e947201bbc79108c5143f3cc4bcbd3^id=69c79fa01bfc79108c5143f3cc4bcb19"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_logic_input_fdb2541473031300b61e66476bf6a70e^id=69c79fa01bfc79108c5143f3cc4bcb19"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=69c79fa01bfc79108c5143f3cc4bcb19"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=69c79fa01bfc79108c5143f3cc4bcb19"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">c35f03e41bbc79108c5143f3cc4bcb95</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>4</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:57</sys_created_on>
+        <sys_id>70d0df281bbc79108c5143f3cc4bcb0b</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:33</sys_updated_on>
+        <ui_id>a3ca65ac-0fac-4d1a-8196-fb04332ec786</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=70d0df281bbc79108c5143f3cc4bcb0b"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>70d0df281bbc79108c5143f3cc4bcb0b</document_key>
+        <order>10</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:57</sys_created_on>
+        <sys_id>78d0df281bbc79108c5143f3cc4bcb0e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:57</sys_updated_on>
+        <value>No approvals on REQ</value>
+        <variable display_value="Condition Label">f0af19c1c32632002841b63b12d3aea3</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_b5e947201bbc79108c5143f3cc4bcbd3^id=70d0df281bbc79108c5143f3cc4bcb0b"/>
+    <sys_element_mapping action="delete_multiple" query="id=70d0df281bbc79108c5143f3cc4bcb0b"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition</field>
+        <id>70d0df281bbc79108c5143f3cc4bcb0b</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:57</sys_created_on>
+        <sys_id>f4d0df281bbc79108c5143f3cc4bcb0e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:57</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value>{{14ca95cb-0256-46d8-a591-e8296709ea75.Count}}=0</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition_name</field>
+        <id>70d0df281bbc79108c5143f3cc4bcb0b</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:57</sys_created_on>
+        <sys_id>34d0df281bbc79108c5143f3cc4bcb0e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:57</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=70d0df281bbc79108c5143f3cc4bcb0b"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=70d0df281bbc79108c5143f3cc4bcb0b"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">f06017281bbc79108c5143f3cc4bcb46</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="For Each">098e1dc5c3e232002841b63b12d3ae33</logic_definition>
+        <order>6</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>a3ca65ac-0fac-4d1a-8196-fb04332ec786</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:57</sys_created_on>
+        <sys_id>70d0df281bbc79108c5143f3cc4bcb0f</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:33</sys_updated_on>
+        <ui_id>61a5d156-ba54-4ae8-844e-dc6c414c743d</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=70d0df281bbc79108c5143f3cc4bcb0f"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_b5e947201bbc79108c5143f3cc4bcbd3^id=70d0df281bbc79108c5143f3cc4bcb0f"/>
+    <sys_element_mapping action="delete_multiple" query="id=70d0df281bbc79108c5143f3cc4bcb0f"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>items</field>
+        <id>70d0df281bbc79108c5143f3cc4bcb0f</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:57</sys_created_on>
+        <sys_id>7cd0df281bbc79108c5143f3cc4bcb11</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:57</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_098e1dc5c3e232002841b63b12d3ae33</table>
+        <value>{{35139b25-8246-4c45-b792-ae0123d44e73.Records}}</value>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=70d0df281bbc79108c5143f3cc4bcb0f"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=70d0df281bbc79108c5143f3cc4bcb0f"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">9daf87e41bbc79108c5143f3cc4bcb6e</block>
+        <comment/>
+        <connected_to>a3ca65ac-0fac-4d1a-8196-fb04332ec786</connected_to>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <logic_definition display_value="Else">1f781bf3c32232002841b63b12d3aee6</logic_definition>
+        <order>10</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:57</sys_created_on>
+        <sys_id>78d0df281bbc79108c5143f3cc4bcb19</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:33</sys_updated_on>
+        <ui_id>6e4ffc26-956b-4e90-8ab9-5d778439131a</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=78d0df281bbc79108c5143f3cc4bcb19"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_b5e947201bbc79108c5143f3cc4bcbd3^id=78d0df281bbc79108c5143f3cc4bcb19"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=78d0df281bbc79108c5143f3cc4bcb19"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=78d0df281bbc79108c5143f3cc4bcb19"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">4d086e6c1bf879108c5143f3cc4bcbab</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <logic_definition display_value="Wait for a duration of time">fdb2541473031300b61e66476bf6a70e</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>8ae987201bbc79108c5143f3cc4bcb79</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:33</sys_updated_on>
+        <ui_id>ccc31283-740c-4bd9-86ca-b4f001201c4b</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=8ae987201bbc79108c5143f3cc4bcb79"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>8ae987201bbc79108c5143f3cc4bcb79</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>8ae987201bbc79108c5143f3cc4bcb80</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:43</sys_updated_on>
+        <value>1970-01-01 00:00:30</value>
+        <variable display_value="Duration">ef145c1473031300b61e66476bf6a7be</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>8ae987201bbc79108c5143f3cc4bcb79</document_key>
+        <order>300</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>c6e987201bbc79108c5143f3cc4bcb80</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:43</sys_updated_on>
+        <value/>
+        <variable display_value="Timer relative duration operator">dca4105473031300b61e66476bf6a726</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_b5e947201bbc79108c5143f3cc4bcbd3^id=8ae987201bbc79108c5143f3cc4bcb79"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_logic_input_fdb2541473031300b61e66476bf6a70e^id=8ae987201bbc79108c5143f3cc4bcb79"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=8ae987201bbc79108c5143f3cc4bcb79"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=8ae987201bbc79108c5143f3cc4bcb79"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">77eba6a01b3c79108c5143f3cc4bcb0f</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="For Each">098e1dc5c3e232002841b63b12d3ae33</logic_definition>
+        <order>16</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>c2e987201bbc79108c5143f3cc4bcb85</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:34</sys_updated_on>
+        <ui_id>2a34ba66-d81f-471e-9a3b-166abadcab83</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=c2e987201bbc79108c5143f3cc4bcb85"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_b5e947201bbc79108c5143f3cc4bcbd3^id=c2e987201bbc79108c5143f3cc4bcb85"/>
+    <sys_element_mapping action="delete_multiple" query="id=c2e987201bbc79108c5143f3cc4bcb85"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>items</field>
+        <id>c2e987201bbc79108c5143f3cc4bcb85</id>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>82e987201bbc79108c5143f3cc4bcb88</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:43</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_098e1dc5c3e232002841b63b12d3ae33</table>
+        <value>{{565ea5c1-4834-4990-bc5b-a8c68daa03b0.Records}}</value>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=c2e987201bbc79108c5143f3cc4bcb85"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=c2e987201bbc79108c5143f3cc4bcb85"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">5cb09b281bbc79108c5143f3cc4bcb48</block>
+        <comment>isApproval = true</comment>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</flow>
+        <flow_variable/>
+        <flow_variables_assigned>isapproval</flow_variables_assigned>
+        <inputs/>
+        <logic_definition display_value="Set Flow Variables">4f787d1e0f9b0010ecf0cc52ff767ea0</logic_definition>
+        <order>9</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>1a96330f-580e-4ff8-bdb1-40936a25fe67</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:57</sys_created_on>
+        <sys_id>fcd0df281bbc79108c5143f3cc4bcb15</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 20:05:33</sys_updated_on>
+        <ui_id>67c6cc30-30ce-4473-9be3-1f9e521dd60f</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=fcd0df281bbc79108c5143f3cc4bcb15"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>fcd0df281bbc79108c5143f3cc4bcb15</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:57</sys_created_on>
+        <sys_id>fcd0df281bbc79108c5143f3cc4bcb18</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:57</sys_updated_on>
+        <value>1</value>
+        <variable display_value="isApproval">24d09f281bbc79108c5143f3cc4bcbd7</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_b5e947201bbc79108c5143f3cc4bcbd3^id=fcd0df281bbc79108c5143f3cc4bcb15"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=fcd0df281bbc79108c5143f3cc4bcb15"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=fcd0df281bbc79108c5143f3cc4bcb15"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=b5e947201bbc79108c5143f3cc4bcbd3"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=b5e947201bbc79108c5143f3cc4bcbd3^sys_idNOT IN24d09f281bbc79108c5143f3cc4bcbd7"/>
+    <sys_hub_flow_variable action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=boolean,uiTypeLabel=True/False,uiUniqueId=92618248-ad9a-46ae-b0ef-3536e73f0205</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>isapproval</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">boolean</internal_type>
+        <label>isApproval</label>
+        <mandatory>false</mandatory>
+        <max_length>40</max_length>
+        <model display_value="PROF - Notifications REQ Opened - S">b5e947201bbc79108c5143f3cc4bcbd3</model>
+        <model_id>b5e947201bbc79108c5143f3cc4bcbd3</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_variable_b5e947201bbc79108c5143f3cc4bcbd3</name>
+        <next_element/>
+        <order>0</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_variable</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:32:56</sys_created_on>
+        <sys_id>24d09f281bbc79108c5143f3cc4bcbd7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>isApproval</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_hub_flow_variable_24d09f281bbc79108c5143f3cc4bcbd7</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:32:56</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_variable>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_b5e947201bbc79108c5143f3cc4bcbd3^sys_idNOT IN39e987201bbc79108c5143f3cc4bcb6b,46e987201bbc79108c5143f3cc4bcb73"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_b5e947201bbc79108c5143f3cc4bcbd3</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>39e987201bbc79108c5143f3cc4bcb6b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:43</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_b5e947201bbc79108c5143f3cc4bcbd3</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-08-18 19:02:43</sys_created_on>
+        <sys_id>46e987201bbc79108c5143f3cc4bcb73</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-08-18 19:02:43</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_b5e947201bbc79108c5143f3cc4bcbd3"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_b5e947201bbc79108c5143f3cc4bcbd3"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_b5e947201bbc79108c5143f3cc4bcbd3"/>
+    <sys_hub_flow action="UPDATE">
+        <sys_id>50c66ae41bf879108c5143f3cc4bcbb1</sys_id>
+        <latest_snapshot>b5e947201bbc79108c5143f3cc4bcbd3</latest_snapshot>
+        <compiler_build>glide-tokyo-07-08-2022__patch9-hotfix2a-06-26-2023_07-05-2023_1648.zip</compiler_build>
+    </sys_hub_flow>
+</record_update>
