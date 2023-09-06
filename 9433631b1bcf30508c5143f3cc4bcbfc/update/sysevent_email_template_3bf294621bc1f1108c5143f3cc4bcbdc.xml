@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_email_template">
+    <sysevent_email_template action="INSERT_OR_UPDATE">
+        <collection>sc_req_item</collection>
+        <email_layout display_value="APi Default Layout">2848484a1b9a255062e50ed2cd4bcb4f</email_layout>
+        <message/>
+        <message_html><![CDATA[<table style="border-collapse: collapse; width: 100%; height: 147.125px;" border="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="background: #2a3e6d; width: 100%; text-align: center; vertical-align: middle; color: #fdfdfd; font-family: verdana; font-size: 12pt; padding-top: 10px; padding-bottom: 10px;"><strong>Ticket ${request.number} opened</strong></td>
+</tr>
+<tr>
+<td style="padding: 10px; width: 100%;">
+<p style="margin: 0in; font-size: 10pt; font-family: Verdana;"><strong>TICKET DESCRIPTION</strong></p>
+<p style="margin: 0in; font-size: 10pt; font-family: Verdana;">${short_description}&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td style="padding: 10px; width: 100%;">
+<p style="margin: 0in; font-size: 10pt; font-family: Verdana; transform: uppercase;"><strong>COMPANY</strong></p>
+<p style="margin: 0in; font-size: 10pt; font-family: Verdana;">${variables.company}<br />&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td style="padding: 10px; width: 100%;">
+<p style="margin: 0in; font-size: 10pt; font-family: Verdana; transform: uppercase;"><strong>ROLE</strong></p>
+<p style="margin: 0in; font-size: 10pt; font-family: Verdana;">${mail_script:coins_oa_roles}<br />&nbsp;</p>
+</td>
+</tr>
+</tbody>
+</table>]]></message_html>
+        <message_list/>
+        <message_text/>
+        <name>APi Coins Request Opened</name>
+        <sms_alternate/>
+        <subject>Ticket ${request.number} opened</subject>
+        <sys_class_name>sysevent_email_template</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-09-05 21:07:07</sys_created_on>
+        <sys_id>3bf294621bc1f1108c5143f3cc4bcbdc</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>APi Coins Request Opened</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sysevent_email_template_3bf294621bc1f1108c5143f3cc4bcbdc</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-09-06 11:44:53</sys_updated_on>
+        <sys_version>2</sys_version>
+    </sysevent_email_template>
+</record_update>

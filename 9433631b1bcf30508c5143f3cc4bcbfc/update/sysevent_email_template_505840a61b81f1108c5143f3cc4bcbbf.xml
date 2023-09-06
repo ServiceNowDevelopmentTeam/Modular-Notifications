@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_email_template">
+    <sysevent_email_template action="INSERT_OR_UPDATE">
+        <collection>sc_request</collection>
+        <email_layout display_value="APi Non-Standard Layout">6e9c66271ba4751062e50ed2cd4bcbe8</email_layout>
+        <message/>
+        <message_html><![CDATA[<table style="border-collapse: collapse; width: 100%; height: 115.729px;" border="0" cellpadding="0">
+<tbody>
+<tr style="height: 22.3958px;">
+<td style="background: #2a3e6d; width: 100%; text-align: center; vertical-align: middle; color: #fdfdfd; font-family: verdana; font-size: 12pt; padding-top: 10px; padding-bottom: 10px; height: 22.3958px;"><strong>Ticket ${number} End Date Reached</strong></td>
+</tr>
+<tr style="height: 37.3333px;">
+<td style="padding: 10px; width: 100%; height: 37.3333px;">
+<p style="margin: 0in; font-size: 10pt; font-family: Verdana;"><strong>TICKET DESCRIPTION</strong></p>
+<p style="margin: 0in; font-size: 10pt; font-family: Verdana;">${short_description}&nbsp;</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table width="100%">
+<tbody>
+<tr>
+<td>
+<div style="color: #2a3e6d;"><hr /></div>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin: 0in; font-size: 5pt; font-family: Verdana;">&nbsp;</p>
+<p style="margin: 0in; font-size: 10pt; font-family: Verdana;">If you still need access to this mailbox, please submit a new <a href="https://apigroup.service-now.com/sp?id=sc_cat_item&amp;sys_id=b6a762931be6b8108c5143f3cc4bcb7f&amp;sysparm_variables=%7B%22related_ritm%22:%2294dcba451b8ae59046b60ed5604bcbdc%22%7D" rel="nofollow">Mailbox Access Request</a>.</p>]]></message_html>
+        <message_list/>
+        <message_text/>
+        <name>APi Mailbox Request Task Complete</name>
+        <sms_alternate/>
+        <subject>Ticket ${number} End Date Reached</subject>
+        <sys_class_name>sysevent_email_template</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-09-05 20:20:28</sys_created_on>
+        <sys_id>505840a61b81f1108c5143f3cc4bcbbf</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>APi Mailbox Request Task Complete</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sysevent_email_template_505840a61b81f1108c5143f3cc4bcbbf</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-09-05 20:21:57</sys_updated_on>
+        <sys_version>2</sys_version>
+    </sysevent_email_template>
+</record_update>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>coins_oa_roles</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+          /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+          /* Optional GlideRecord */ event) {
+
+var gr = new GlideRecord('sc_req_item');
+gr.get(current.sys_id.toString());
+var roleNames = [];
+var roles = gr.variables.license_type.toString();
+var otherRoles = gr.variables.other_license_types.toString();
+var mmcRoles = gr.variables.mmc_roles.toString();
+var grunauRoles = gr.variables.grunau_roles.toString();
+
+if(!gs.nil(roles)){
+    var roleArray = roles.split(',');
+    for(var i = 0; i < roleArray.length; i++){
+        var roleGr = new GlideRecord('sys_choice');
+        roleGr.addQuery('sys_id', roleArray[i]);
+        roleGr.query();
+        if(roleGr.next()){
+            roleNames.push(roleGr.label.toString());
+        }
+    }
+}
+
+if(!gs.nil(otherRoles)){
+    var otherRoleArray = otherRoles.split(',');
+    for(var i = 0; i < otherRoleArray.length; i++){
+        var otherRoleGr = new GlideRecord('sys_choice');
+        otherRoleGr.addQuery('sys_id', otherRoleArray[i]);
+        otherRoleGr.query();
+        if(otherRoleGr.next()){
+            roleNames.push(otherRoleGr.label.toString());
+        }
+    }
+}
+
+if(mmcRoles != ''){
+    roleNames.push(mmcRoles);
+}
+if(grunauRoles != ''){
+    roleNames.push(grunauRoles);
+}
+answer = roleNames.join('<br/>');
+template.print(answer);
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-09-06 11:43:17</sys_created_on>
+        <sys_id>af5b13ee1bcdf1108c5143f3cc4bcbf5</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>coins_oa_roles</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_email_af5b13ee1bcdf1108c5143f3cc4bcbf5</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-09-06 11:45:26</sys_updated_on>
+    </sys_script_email>
+</record_update>

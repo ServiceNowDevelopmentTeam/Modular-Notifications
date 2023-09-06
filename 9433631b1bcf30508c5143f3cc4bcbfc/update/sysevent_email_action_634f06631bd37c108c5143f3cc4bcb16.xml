@@ -38,7 +38,7 @@
         <item_table/>
         <mandatory>false</mandatory>
         <message/>
-        <message_html><![CDATA[<p>${mail_script:modular_notifications_mailbox_completed}</p>]]></message_html>
+        <message_html/>
         <message_list>dd40c70253020200601fa3fc9ec58753</message_list>
         <message_text/>
         <name>Mailbox Access Request Completed</name>
@@ -60,7 +60,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>634f06631bd37c108c5143f3cc4bcb16</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>Mailbox Access Request Completed</sys_name>
         <sys_overrides/>
         <sys_package display_value="Global" source="global">global</sys_package>
@@ -68,9 +68,9 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sysevent_email_action_634f06631bd37c108c5143f3cc4bcb16</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
+        <sys_updated_on>2023-09-05 20:31:45</sys_updated_on>
         <sys_version>2</sys_version>
-        <template display_value="Unsubscribe and Preferences Helvetica">d465111f3b4b2200c869c2c703efc47c</template>
+        <template display_value="APi Mailbox Request Completed">35ba8ce61b81f1108c5143f3cc4bcba1</template>
         <type>email</type>
         <weight>0</weight>
     </sysevent_email_action>

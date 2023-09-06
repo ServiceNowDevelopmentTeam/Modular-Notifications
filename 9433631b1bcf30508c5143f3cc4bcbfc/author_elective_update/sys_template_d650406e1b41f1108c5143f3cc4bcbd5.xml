@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_template">
+    <sys_template action="DELETE">
+        <active>true</active>
+        <global>false</global>
+        <group/>
+        <groups/>
+        <link_element/>
+        <name>Recurring Task - Jeff Swanson - Privileg</name>
+        <next/>
+        <next_child/>
+        <roles/>
+        <short_description>Privileged user access review</short_description>
+        <show_on_template_bar>false</show_on_template_bar>
+        <stand_alone>false</stand_alone>
+        <sys_class_name>sys_template</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-09-05 19:45:38</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>d650406e1b41f1108c5143f3cc4bcbd5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Recurring Task - Jeff Swanson - Privileg</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_template_d650406e1b41f1108c5143f3cc4bcbd5</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-09-05 19:45:38</sys_updated_on>
+        <table>x_apig_recurring_t_x_rc_task</table>
+        <template>business_service=4a3bfcac1b679450e7004229bc4bcb42^assignment_group=720aca2e1bb4e810df31da49cc4bcbe8^u_approver_control_reviewer=dad055d41b5a5c50e7004229bc4bcbec^u_control_preparer=6574b1ff875029146b4c21b9cebb3576^assigned_to=6574b1ff875029146b4c21b9cebb3576^u_sox_control=SEC07^short_description=Privileged user access review^sla_definition=25^description=Periodic review of individuals with privileged access to the IBM i is performed semi-annually. The control is performed to ensure that privileged access to the WebApps application is appropriately restricted to those users whose essential job responsibilities require this level of access. By default, this control also covers the requirements of WA.SEC11, “Developers and Programmers do not have access within the production environment to add new or modify existing code” given privileged access is controlled through the IBM i. Further, any business need for a developer or programmer to access the production environment is specifically approved and monitored through Authority on Demand.
+
+--Recurring Task Setup--
+Frequency: Semi-Annually
+Started 2023-09-01
+Assigned to Jeff Swanson^EQ</template>
+        <user display_value="Terry Lillo">b4bad8641be3a010e7004229bc4bcb57</user>
+        <view/>
+    </sys_template>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</application>
+        <file_path/>
+        <instance_id>37412023db6dd890ad8dd7c8f49619a0</instance_id>
+        <instance_name>apigroupdev</instance_name>
+        <name>sys_template_d650406e1b41f1108c5143f3cc4bcbd5</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_template"><sys_template action="INSERT_OR_UPDATE"><active>true</active><global>false</global><group/><groups/><link_element/><name>Recurring Task - Jeff Swanson - Privileg</name><next/><next_child/><roles/><short_description>Privileged user access review</short_description><show_on_template_bar>false</show_on_template_bar><stand_alone>false</stand_alone><sys_class_name>sys_template</sys_class_name><sys_created_by>Terry.Lillo</sys_created_by><sys_created_on>2023-09-05 19:45:38</sys_created_on><sys_domain>global</sys_domain><sys_id>d650406e1b41f1108c5143f3cc4bcbd5</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Recurring Task - Jeff Swanson - Privileg</sys_name><sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package><sys_policy/><sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope><sys_update_name>sys_template_d650406e1b41f1108c5143f3cc4bcbd5</sys_update_name><sys_updated_by>Terry.Lillo</sys_updated_by><sys_updated_on>2023-09-05 19:45:38</sys_updated_on><table>x_apig_recurring_t_x_rc_task</table><template>business_service=4a3bfcac1b679450e7004229bc4bcb42^assignment_group=720aca2e1bb4e810df31da49cc4bcbe8^u_approver_control_reviewer=dad055d41b5a5c50e7004229bc4bcbec^u_control_preparer=6574b1ff875029146b4c21b9cebb3576^assigned_to=6574b1ff875029146b4c21b9cebb3576^u_sox_control=SEC07^short_description=Privileged user access review^sla_definition=25^description=Periodic review of individuals with privileged access to the IBM i is performed semi-annually. The control is performed to ensure that privileged access to the WebApps application is appropriately restricted to those users whose essential job responsibilities require this level of access. By default, this control also covers the requirements of WA.SEC11, “Developers and Programmers do not have access within the production environment to add new or modify existing code” given privileged access is controlled through the IBM i. Further, any business need for a developer or programmer to access the production environment is specifically approved and monitored through Authority on Demand.
+
+--Recurring Task Setup--
+Frequency: Semi-Annually
+Started 2023-09-01
+Assigned to Jeff Swanson^EQ</template><user display_value="Terry Lillo">b4bad8641be3a010e7004229bc4bcb57</user><view/></sys_template></record_update>]]></payload>
+        <payload_hash>14318497</payload_hash>
+        <record_name>Recurring Task - Jeff Swanson - Privileg</record_name>
+        <reverted_from/>
+        <source>a365e2fc1b89b15062e50ed2cd4bcb3f</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-09-05 19:45:38</sys_created_on>
+        <sys_id>5650406e1b41f1108c5143f3cc4bcbd8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18a66e109e90000001</sys_recorded_at>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-09-05 19:45:38</sys_updated_on>
+        <type>Template</type>
+        <update_guid>5e50406eab41f110d03e82eb3bcb3fd7</update_guid>
+        <update_guid_history>5e50406eab41f110d03e82eb3bcb3fd7:14318497</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-09-05 19:48:28</sys_created_on>
+        <sys_db_object display_value="" name="sys_template">sys_template</sys_db_object>
+        <sys_id>1953169bb7184b0e848771c31134b0d9</sys_id>
+        <sys_metadata>d650406e1b41f1108c5143f3cc4bcbd5</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Recurring Task - Jeff Swanson - Privileg</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
+        <sys_update_name>sys_template_d650406e1b41f1108c5143f3cc4bcbd5</sys_update_name>
+        <sys_update_version display_value="sys_template_d650406e1b41f1108c5143f3cc4bcbd5">5650406e1b41f1108c5143f3cc4bcbd8</sys_update_version>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-09-05 19:48:28</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
