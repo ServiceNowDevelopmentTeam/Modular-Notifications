@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_template">
+    <sys_template action="DELETE">
+        <active>true</active>
+        <global>false</global>
+        <group/>
+        <groups/>
+        <link_element/>
+        <name>Recurring Task - Tanya Murray - Terminat</name>
+        <next/>
+        <next_child/>
+        <roles/>
+        <short_description>Terminated employees (platform, network, database) - Q3</short_description>
+        <show_on_template_bar>false</show_on_template_bar>
+        <stand_alone>false</stand_alone>
+        <sys_class_name>sys_template</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-09-06 20:37:40</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>02d59d321b0935108c5143f3cc4bcb43</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Recurring Task - Tanya Murray - Terminat</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_template_02d59d321b0935108c5143f3cc4bcb43</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-09-06 20:48:19</sys_updated_on>
+        <table>x_apig_recurring_t_x_rc_task</table>
+        <template>u_approver_control_reviewer=7d7019141b5a5c50e7004229bc4bcbd0^u_control_preparer=7bbf8c10874031906b4c21b9cebb3596^assigned_to=7bbf8c10874031906b4c21b9cebb3596^u_sox_control=SEC05^short_description=Terminated employees (platform, network, database) - Q3^sla_definition=25^description=PBC REQUEST:
+Utilize the SOP to provide the following documentation:
+
+1) Please provide the Starters and Terminated Employees Report (by navigating within COINS to Payroll &gt; Company Reports &gt; Starters and Terminated Employees Report) for MMC for the period 6/22/2023 - 9/15/2023 in Excel format.
+1a) Please provide the report generated in request 1 in PDF format.
+1b) Please provide a time-stamped screenshot of the parameters used to generate the report
+2) Please provide the Starters and Terminated Employees Report (by navigating within COINS to Payroll &gt; Company Reports &gt; Starters and Terminated Employees Report) for Grunau for the period 6/22/2023 - 9/15/2023 in Excel format.
+2a) Please provide the report generated in request 1 in PDF format.
+2b) Please provide a time-stamped screenshot of the parameters used to generate the report.
+3) Please provide the COINS User Workbench (by navigating within COINS to System &gt; User Maintenance &gt; User Workbench) generated as of the current date.
+3a) Please provide a time-stamped screenshot of the report generation procedures for the report included in request 3.
+
+--Recurring Task Setup--
+Frequency: Recurring
+Started 2023-09-01
+Assigned to Tanya Murray^related_instructions=https://apigroup.auditboardapp.com/sh/na^EQ</template>
+        <user display_value="Terry Lillo">b4bad8641be3a010e7004229bc4bcb57</user>
+        <view/>
+    </sys_template>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</application>
+        <file_path/>
+        <instance_id>37412023db6dd890ad8dd7c8f49619a0</instance_id>
+        <instance_name>apigroupdev</instance_name>
+        <name>sys_template_02d59d321b0935108c5143f3cc4bcb43</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_template"><sys_template action="INSERT_OR_UPDATE"><active>true</active><global>false</global><group/><groups/><link_element/><name>Recurring Task - Tanya Murray - Terminat</name><next/><next_child/><roles/><short_description>Terminated employees (platform, network, database) - Q3</short_description><show_on_template_bar>false</show_on_template_bar><stand_alone>false</stand_alone><sys_class_name>sys_template</sys_class_name><sys_created_by>Terry.Lillo</sys_created_by><sys_created_on>2023-09-06 20:37:40</sys_created_on><sys_domain>global</sys_domain><sys_id>02d59d321b0935108c5143f3cc4bcb43</sys_id><sys_mod_count>3</sys_mod_count><sys_name>Recurring Task - Tanya Murray - Terminat</sys_name><sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package><sys_policy/><sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope><sys_update_name>sys_template_02d59d321b0935108c5143f3cc4bcb43</sys_update_name><sys_updated_by>Terry.Lillo</sys_updated_by><sys_updated_on>2023-09-06 20:48:19</sys_updated_on><table>x_apig_recurring_t_x_rc_task</table><template>u_approver_control_reviewer=7d7019141b5a5c50e7004229bc4bcbd0^u_control_preparer=7bbf8c10874031906b4c21b9cebb3596^assigned_to=7bbf8c10874031906b4c21b9cebb3596^u_sox_control=SEC05^short_description=Terminated employees (platform, network, database) - Q3^sla_definition=25^description=PBC REQUEST:
+Utilize the SOP to provide the following documentation:
+
+1) Please provide the Starters and Terminated Employees Report (by navigating within COINS to Payroll &gt; Company Reports &gt; Starters and Terminated Employees Report) for MMC for the period 6/22/2023 - 9/15/2023 in Excel format.
+1a) Please provide the report generated in request 1 in PDF format.
+1b) Please provide a time-stamped screenshot of the parameters used to generate the report
+2) Please provide the Starters and Terminated Employees Report (by navigating within COINS to Payroll &gt; Company Reports &gt; Starters and Terminated Employees Report) for Grunau for the period 6/22/2023 - 9/15/2023 in Excel format.
+2a) Please provide the report generated in request 1 in PDF format.
+2b) Please provide a time-stamped screenshot of the parameters used to generate the report.
+3) Please provide the COINS User Workbench (by navigating within COINS to System &gt; User Maintenance &gt; User Workbench) generated as of the current date.
+3a) Please provide a time-stamped screenshot of the report generation procedures for the report included in request 3.
+
+--Recurring Task Setup--
+Frequency: Recurring
+Started 2023-09-01
+Assigned to Tanya Murray^related_instructions=https://apigroup.auditboardapp.com/sh/na^EQ</template><user display_value="Terry Lillo">b4bad8641be3a010e7004229bc4bcb57</user><view/></sys_template></record_update>]]></payload>
+        <payload_hash>2022601543</payload_hash>
+        <record_name>Recurring Task - Tanya Murray - Terminat</record_name>
+        <reverted_from/>
+        <source>a365e2fc1b89b15062e50ed2cd4bcb3f</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-09-06 20:48:19</sys_created_on>
+        <sys_id>8a4855f21b0935108c5143f3cc4bcbee</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18a6c40c75d0000001</sys_recorded_at>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-09-06 20:48:19</sys_updated_on>
+        <type>Template</type>
+        <update_guid>024855f2cf0935100362dbb8e245d6ee</update_guid>
+        <update_guid_history>024855f2cf0935100362dbb8e245d6ee:2022601543,394855f28e093510b86056869a75e6a1:1583384949,a6d59d3233093510f41e3faad61a699d:2022601543,0ed59d32700935103534951d7a2ab743:-798844653</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-09-06 21:15:39</sys_created_on>
+        <sys_db_object display_value="" name="sys_template">sys_template</sys_db_object>
+        <sys_id>7ac76ae61b4a40fcb3d4005645a75fd9</sys_id>
+        <sys_metadata>02d59d321b0935108c5143f3cc4bcb43</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Recurring Task - Tanya Murray - Terminat</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
+        <sys_update_name>sys_template_02d59d321b0935108c5143f3cc4bcb43</sys_update_name>
+        <sys_update_version display_value="sys_template_02d59d321b0935108c5143f3cc4bcb43">8a4855f21b0935108c5143f3cc4bcbee</sys_update_version>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-09-06 21:15:39</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

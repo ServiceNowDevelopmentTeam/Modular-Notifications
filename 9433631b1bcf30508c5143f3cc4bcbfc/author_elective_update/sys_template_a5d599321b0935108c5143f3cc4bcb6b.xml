@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_template">
+    <sys_template action="DELETE">
+        <active>true</active>
+        <global>false</global>
+        <group/>
+        <groups/>
+        <link_element/>
+        <name>Recurring Task - Ashley Shawler - Author</name>
+        <next/>
+        <next_child/>
+        <roles/>
+        <short_description>Authorization for change request - Q3</short_description>
+        <show_on_template_bar>false</show_on_template_bar>
+        <stand_alone>false</stand_alone>
+        <sys_class_name>sys_template</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-09-06 20:37:37</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>a5d599321b0935108c5143f3cc4bcb6b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Recurring Task - Ashley Shawler - Author</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_template_a5d599321b0935108c5143f3cc4bcb6b</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-09-06 20:37:37</sys_updated_on>
+        <table>x_apig_recurring_t_x_rc_task</table>
+        <template>business_service=f0840b6a1b58b850e7004229bc4bcbd3^assignment_group=760aca2e1bb4e810df31da49cc4bcbea^u_approver_control_reviewer=7d7019141b5a5c50e7004229bc4bcbd0^u_control_preparer=7d7019141b5a5c50e7004229bc4bcbd0^assigned_to=7d7019141b5a5c50e7004229bc4bcbd0^u_sox_control=CM02^short_description=Authorization for change request - Q3^sla_definition=25^description=PBC REQUEST:
+Utilizing the SOP, provide the following:
+1) Time-stamped screenshot of Process Flow Log, captured from within AX production instance of Astea showing summary page of all process flows, and .xlsx export of process flow log, as of today's date.
+1a) Time-stamped screenshots of Process Flow Audit Log captured from within AX production instance of Astea for each process flow showing the last activated/created/modified date, as of today's date.
+2) Time-stamped screenshot of Process Flow Log, captured from within WA production instance of Astea showing summary page of all process flows, and .xlsx export of process flow log, as of today's date.
+2a) Time-stamped screenshots of Process Flow Audit Log captured from within WA production instance of Astea for each process flow showing the last activated/created/modified date, as of today's date.
+
+--Recurring Task Setup--
+Frequency: Recurring
+Started 2023-09-01
+Assigned to Ashley Shawler^related_instructions=https://apigroup.auditboardapp.com/sh/na^EQ</template>
+        <user display_value="Terry Lillo">b4bad8641be3a010e7004229bc4bcb57</user>
+        <view/>
+    </sys_template>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</application>
+        <file_path/>
+        <instance_id>37412023db6dd890ad8dd7c8f49619a0</instance_id>
+        <instance_name>apigroupdev</instance_name>
+        <name>sys_template_a5d599321b0935108c5143f3cc4bcb6b</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_template"><sys_template action="INSERT_OR_UPDATE"><active>true</active><global>false</global><group/><groups/><link_element/><name>Recurring Task - Ashley Shawler - Author</name><next/><next_child/><roles/><short_description>Authorization for change request - Q3</short_description><show_on_template_bar>false</show_on_template_bar><stand_alone>false</stand_alone><sys_class_name>sys_template</sys_class_name><sys_created_by>Terry.Lillo</sys_created_by><sys_created_on>2023-09-06 20:37:37</sys_created_on><sys_domain>global</sys_domain><sys_id>a5d599321b0935108c5143f3cc4bcb6b</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Recurring Task - Ashley Shawler - Author</sys_name><sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package><sys_policy/><sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope><sys_update_name>sys_template_a5d599321b0935108c5143f3cc4bcb6b</sys_update_name><sys_updated_by>Terry.Lillo</sys_updated_by><sys_updated_on>2023-09-06 20:37:37</sys_updated_on><table>x_apig_recurring_t_x_rc_task</table><template>business_service=f0840b6a1b58b850e7004229bc4bcbd3^assignment_group=760aca2e1bb4e810df31da49cc4bcbea^u_approver_control_reviewer=7d7019141b5a5c50e7004229bc4bcbd0^u_control_preparer=7d7019141b5a5c50e7004229bc4bcbd0^assigned_to=7d7019141b5a5c50e7004229bc4bcbd0^u_sox_control=CM02^short_description=Authorization for change request - Q3^sla_definition=25^description=PBC REQUEST:
+Utilizing the SOP, provide the following:
+1) Time-stamped screenshot of Process Flow Log, captured from within AX production instance of Astea showing summary page of all process flows, and .xlsx export of process flow log, as of today's date.
+1a) Time-stamped screenshots of Process Flow Audit Log captured from within AX production instance of Astea for each process flow showing the last activated/created/modified date, as of today's date.
+2) Time-stamped screenshot of Process Flow Log, captured from within WA production instance of Astea showing summary page of all process flows, and .xlsx export of process flow log, as of today's date.
+2a) Time-stamped screenshots of Process Flow Audit Log captured from within WA production instance of Astea for each process flow showing the last activated/created/modified date, as of today's date.
+
+--Recurring Task Setup--
+Frequency: Recurring
+Started 2023-09-01
+Assigned to Ashley Shawler^related_instructions=https://apigroup.auditboardapp.com/sh/na^EQ</template><user display_value="Terry Lillo">b4bad8641be3a010e7004229bc4bcb57</user><view/></sys_template></record_update>]]></payload>
+        <payload_hash>902671843</payload_hash>
+        <record_name>Recurring Task - Ashley Shawler - Author</record_name>
+        <reverted_from/>
+        <source>a365e2fc1b89b15062e50ed2cd4bcb3f</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-09-06 20:37:37</sys_created_on>
+        <sys_id>a9d599321b0935108c5143f3cc4bcb6c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18a6c36fe200000001</sys_recorded_at>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-09-06 20:37:37</sys_updated_on>
+        <type>Template</type>
+        <update_guid>a1d5993265093510f817f6366b6ebe6c</update_guid>
+        <update_guid_history>a1d5993265093510f817f6366b6ebe6c:902671843</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-09-06 21:15:57</sys_created_on>
+        <sys_db_object display_value="" name="sys_template">sys_template</sys_db_object>
+        <sys_id>173a0c18910d485a9e35908dccce1211</sys_id>
+        <sys_metadata>a5d599321b0935108c5143f3cc4bcb6b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Recurring Task - Ashley Shawler - Author</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_scope_delete display_value="">35ee45fd2d5b4eb08f9b0bbc49deee04</sys_scope_delete>
+        <sys_update_name>sys_template_a5d599321b0935108c5143f3cc4bcb6b</sys_update_name>
+        <sys_update_version display_value="sys_template_a5d599321b0935108c5143f3cc4bcb6b">a9d599321b0935108c5143f3cc4bcb6c</sys_update_version>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-09-06 21:15:57</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

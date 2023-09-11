@@ -37,7 +37,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_flow_3fe34cac1bf889d08c5143f3cc4bcb0b</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
+        <sys_updated_on>2023-08-14 14:07:22</sys_updated_on>
         <type>flow</type>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=3fe34cac1bf889d08c5143f3cc4bcb0b"/>
@@ -63,41 +63,6 @@
         <time>1970-01-01 09:00:00</time>
         <timer_type>11</timer_type>
     </sys_flow_timer_trigger>
-    <sys_flow_trigger_auto_script action="delete_multiple" query="name=Trigger:867ac0a01b7c89d08c5143f3cc4bcb23^sys_idNOT IN4e7ac0a01b7c89d08c5143f3cc4bcb23"/>
-    <sys_flow_trigger_auto_script action="INSERT_OR_UPDATE">
-        <active>true</active>
-        <business_calendar/>
-        <condition/>
-        <conditional>false</conditional>
-        <entered_time/>
-        <name>Trigger:867ac0a01b7c89d08c5143f3cc4bcb23</name>
-        <offset/>
-        <offset_type>0</offset_type>
-        <run_as display_value="Terry Lillo">b4bad8641be3a010e7004229bc4bcb57</run_as>
-        <run_as_tz/>
-        <run_dayofmonth>1</run_dayofmonth>
-        <run_dayofweek/>
-        <run_period/>
-        <run_start>2021-12-29 16:32:52</run_start>
-        <run_time>1970-01-01 09:00:00</run_time>
-        <run_type>daily</run_type>
-        <script><![CDATA[sn_flow_trigger.FlowTriggerAPI.fireTimerTrigger('867ac0a01b7c89d08c5143f3cc4bcb23');]]></script>
-        <sys_class_name>sys_flow_trigger_auto_script</sys_class_name>
-        <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2021-12-29 16:32:52</sys_created_on>
-        <sys_id>4e7ac0a01b7c89d08c5143f3cc4bcb23</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
-        <sys_package/>
-        <sys_policy/>
-        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
-        <sys_update_name/>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-12-29 16:32:52</sys_updated_on>
-        <time_zone/>
-        <trigger display_value="">867ac0a01b7c89d08c5143f3cc4bcb23</trigger>
-        <upgrade_safe>true</upgrade_safe>
-    </sys_flow_trigger_auto_script>
     <sys_trigger_runner_mapping action="delete_multiple" query="identifier=3fe34cac1bf889d08c5143f3cc4bcb0b"/>
     <sys_hub_trigger_instance action="delete_multiple" query="flow=3fe34cac1bf889d08c5143f3cc4bcb0b^sys_idNOT IN917a40a01b7c89d08c5143f3cc4bcbeb"/>
     <sys_hub_trigger_instance action="INSERT_OR_UPDATE">
