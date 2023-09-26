@@ -4,7 +4,7 @@
         <admin_overrides>true</admin_overrides>
         <advanced>true</advanced>
         <condition/>
-        <description/>
+        <description>Allow read for records in sc_req_item, for users with role snc_internal, and if the ACL script returns true.</description>
         <name>sc_req_item</name>
         <operation display_value="read">read</operation>
         <script><![CDATA[//ACL for read access to RITM
@@ -16,7 +16,9 @@ if (!gs.getUser().hasRole('itil')) {
     //Use decision table API to get the records
     var decisionId = "2e3cb88c1b34f5108c5143f3cc4bcbb7"; //"RITM Access ACL Helper" table
     var dt = new sn_dt.DecisionTableAPI();
-    var input = { u_item: catItemSysId };
+    var input = {
+        u_item: catItemSysId
+    };
     gs.info(catItemSysId);
 
     var decisions = dt.getDecisions(decisionId, input);
@@ -29,23 +31,29 @@ if (!gs.getUser().hasRole('itil')) {
                 current.variables[thisVariable].sys_id.toString() == gs.getUser().getID()) {
                 answer = true;
                 break;
-            }
-            else answer = false;
+            } else answer = false;
         }
     }
+
+    //also give it to anyone on the watch list, and the managers of the opened by and requested for
+		//(current.requested_for.manager == gs.getUserID() || current.opened_by.manager == gs.getUserID() ||
+	if (current.request.watch_list.toString().indexOf(gs.getUserID()) != -1) {
+        answer = true;
+    }
+
 }]]></script>
         <sys_class_name>sys_security_acl</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2023-08-16 20:35:37</sys_created_on>
         <sys_id>877001041b74f5108c5143f3cc4bcb0e</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>sc_req_item</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_security_acl_877001041b74f5108c5143f3cc4bcb0e</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-08-16 20:35:37</sys_updated_on>
+        <sys_updated_by>John.Schwab</sys_updated_by>
+        <sys_updated_on>2023-09-26 20:26:36</sys_updated_on>
         <type display_value="record">record</type>
     </sys_security_acl>
 </record_update>
