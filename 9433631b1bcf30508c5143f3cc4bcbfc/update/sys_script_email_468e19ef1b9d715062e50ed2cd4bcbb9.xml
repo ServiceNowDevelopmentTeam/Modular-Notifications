@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>Button Survey</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template, /* Optional: ScopedGlideRecord */ email, /* Optional: GlideRecord */ email_action, /* Optional: GlideRecord */ event) {
+	var closedStates = {
+		incident: [6, 7, 8],
+		sc_request: [3, 4, 5, 6, 7],
+		sc_req_item: [3, 4, 7],
+	};
+	var table = current.getTableName();
+	if (current.isValidField('state') &&
+		!gs.nil(closedStates[table]) &&
+		closedStates[table].indexOf(parseInt(current.state.toString())) > -1) {
+		template.print('<a href="/sp?id=my_surveys" style="color: white"><img src="/FeedbackButton.png" title="button (3).png" width="69" height="23" alt="" /></a>');
+	}
+
+})(current, template, email, email_action, event);
+]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-09-21 15:26:45</sys_created_on>
+        <sys_id>468e19ef1b9d715062e50ed2cd4bcbb9</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>Button Survey</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_email_468e19ef1b9d715062e50ed2cd4bcbb9</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-09-26 16:35:12</sys_updated_on>
+    </sys_script_email>
+</record_update>
