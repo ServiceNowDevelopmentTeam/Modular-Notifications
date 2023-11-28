@@ -9,7 +9,7 @@
     var sysID = current.sys_id;
     var linkText = "Click here";
 
-    var glideURL = gs.getProperty('glide.servlet.uri') + "sp?id=ticket&table= " + tableName + "&sys_id=" + sysID;
+    var glideURL = gs.getProperty('glide.servlet.uri') + "sp?id=ticket&table=" + tableName + "&sys_id=" + sysID;
 
     template.print('<a href="' + glideURL + '">' + linkText + '</a>');
 })(current, template, email, email_action, event);]]></script>
@@ -17,14 +17,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2023-05-25 18:55:02</sys_created_on>
         <sys_id>e5c85d511b0ba51062e50ed2cd4bcb52</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>click_here_record_url</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_email_e5c85d511b0ba51062e50ed2cd4bcb52</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-08-18 15:30:47</sys_updated_on>
+        <sys_updated_on>2023-10-11 18:11:31</sys_updated_on>
     </sys_script_email>
     <sys_claim action="INSERT_OR_UPDATE">
         <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
