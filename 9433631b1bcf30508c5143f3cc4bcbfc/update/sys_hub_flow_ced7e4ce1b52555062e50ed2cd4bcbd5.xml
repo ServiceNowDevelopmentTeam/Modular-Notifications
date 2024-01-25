@@ -4,6 +4,7 @@
         <acls/>
         <active>true</active>
         <annotation/>
+        <attributes/>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
@@ -37,7 +38,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_flow_ced7e4ce1b52555062e50ed2cd4bcbd5</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-08-14 14:08:02</sys_updated_on>
+        <sys_updated_on>2023-12-11 17:10:27</sys_updated_on>
         <type>subflow</type>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=ced7e4ce1b52555062e50ed2cd4bcbd5"/>
@@ -141,6 +142,30 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=16ba6c8a1b92555062e50ed2cd4bcb66"/>
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FDd419e0065792555036c867150c80b7c1</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>9433631b1bcf30508c5143f3cc4bcbfc</scope_name>
+        <serialized_content>{"FlowDesigner:FDd419e0065792555036c867150c80b7c1":{"$COCollectionField":[{"variable":{"Variable_Name":"String","Variable_Name.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Variable Name\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\"}"},"Variable_Value":"String","Variable_Value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Variable Value\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\"}"}}}],"$COCollectionField.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"varList\",\"mandatory\":\"false\",\"child_name\":\"variable\",\"uiUniqueId\":\"6a9a20ca-7e26-408f-87d1-4c97313e28fd\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDd419e0065792555036c867150c80b7c1\",\"child_label\":\"variable\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"13\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"2991e745-cd94-4a3d-af9d-b0a2d0e11bbb\"}"},"$COCollectionField.$field_facets":{"SimpleMapFacet":"{\"up-shift-collection-level\":\"true\"}"}},"FlowDesigner:FDd419e0065792555036c867150c80b7c1.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"varList\",\"mandatory\":\"false\",\"child_name\":\"variable\",\"uiUniqueId\":\"6a9a20ca-7e26-408f-87d1-4c97313e28fd\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDd419e0065792555036c867150c80b7c1\",\"child_label\":\"variable\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"13\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"2991e745-cd94-4a3d-af9d-b0a2d0e11bbb\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-10-03 20:22:46</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>9819e0061b92555062e50ed2cd4bcbc1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FDd419e0065792555036c867150c80b7c1</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_complex_object_9819e0061b92555062e50ed2cd4bcbc1</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-10-10 13:31:33</sys_updated_on>
+        <type>complex_object_collection</type>
+    </sys_complex_object>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -224,6 +249,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=281924061b92555062e50ed2cd4bcb02"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -310,6 +336,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=425524121b56d55062e50ed2cd4bcb09"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -393,6 +420,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=4aec20c21bd2555062e50ed2cd4bcb3f"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -476,6 +504,30 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=7ee64bcc1bead19062e50ed2cd4bcbac"/>
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FD800a8117c9de9d501b4d1891414e819b</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>9433631b1bcf30508c5143f3cc4bcbfc</scope_name>
+        <serialized_content>{"FlowDesigner:FD800a8117c9de9d501b4d1891414e819b":{"$COCollectionField":[{"URL":{"label":"String","label.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Label\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\"}"},"url":"String","url.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"URL\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\"}"}}}],"$COCollectionField.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Custom Header URLs\",\"mandatory\":\"false\",\"child_name\":\"URL\",\"uiUniqueId\":\"c8246c36-9695-4f17-819d-aed1c2d37436\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FD800a8117c9de9d501b4d1891414e819b\",\"child_label\":\"URL\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"14\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"0626f9a9-c6a8-4bf6-8ab6-6971ec200ad5\"}"},"$COCollectionField.$field_facets":{"SimpleMapFacet":"{\"up-shift-collection-level\":\"true\"}"}},"FlowDesigner:FD800a8117c9de9d501b4d1891414e819b.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Custom Header URLs\",\"mandatory\":\"false\",\"child_name\":\"URL\",\"uiUniqueId\":\"c8246c36-9695-4f17-819d-aed1c2d37436\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FD800a8117c9de9d501b4d1891414e819b\",\"child_label\":\"URL\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"14\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"0626f9a9-c6a8-4bf6-8ab6-6971ec200ad5\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-10-07 19:59:04</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>440a81171bde9d5062e50ed2cd4bcb9b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FD800a8117c9de9d501b4d1891414e819b</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_complex_object_440a81171bde9d5062e50ed2cd4bcb9b</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-10-10 13:31:33</sys_updated_on>
+        <type>complex_object_collection</type>
+    </sys_complex_object>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -559,6 +611,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=880a81171bde9d5062e50ed2cd4bcbaa"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -642,6 +695,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=92ba6c8a1b92555062e50ed2cd4bcb61"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -725,6 +779,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=9419e0061b92555062e50ed2cd4bcbc5"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -808,6 +863,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=a019e0061b92555062e50ed2cd4bcbe3"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -891,6 +947,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=a819e0061b92555062e50ed2cd4bcbdc"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -974,6 +1031,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=ac19e0061b92555062e50ed2cd4bcbdf"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -1057,6 +1115,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=d2ba648a1b92555062e50ed2cd4bcbc8"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -1140,6 +1199,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=d819e0061b92555062e50ed2cd4bcbc9"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -1223,11 +1283,13 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=ec19e0061b92555062e50ed2cd4bcbcc"/>
     <sys_hub_flow_output action="delete_multiple" query="model=ced7e4ce1b52555062e50ed2cd4bcbd5"/>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=ced7e4ce1b52555062e50ed2cd4bcbd5"/>
     <sys_hub_action_instance action="delete_multiple" query="flow=ced7e4ce1b52555062e50ed2cd4bcbd5"/>
     <sys_hub_sub_flow_instance action="delete_multiple" query="flow=ced7e4ce1b52555062e50ed2cd4bcbd5^sys_idNOT IN6eec60c21bd2555062e50ed2cd4bcb03"/>
     <sys_hub_sub_flow_instance action="INSERT_OR_UPDATE">
+        <attributes/>
         <comment/>
         <display_text/>
         <flow display_value="Send Delayed Modular Notification">ced7e4ce1b52555062e50ed2cd4bcbd5</flow>
@@ -1565,6 +1627,7 @@
     <sys_hub_input_scripts action="delete_multiple" query="instance=6eec60c21bd2555062e50ed2cd4bcb03"/>
     <sys_hub_flow_logic action="delete_multiple" query="flow=ced7e4ce1b52555062e50ed2cd4bcbd5^sys_idNOT INa6ec20c21bd2555062e50ed2cd4bcbe3"/>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
         <block display_value="">6aec20c21bd2555062e50ed2cd4bcbe2</block>
         <comment/>
         <connected_to/>
@@ -2029,28 +2092,12 @@
     <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_ced7e4ce1b52555062e50ed2cd4bcbd5"/>
     <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_ced7e4ce1b52555062e50ed2cd4bcbd5"/>
     <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_ced7e4ce1b52555062e50ed2cd4bcbd5"/>
-    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=ced7e4ce1b52555062e50ed2cd4bcbd5"/>
-    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=ced7e4ce1b52555062e50ed2cd4bcbd5^sys_idNOT INc9fc64c21bd2555062e50ed2cd4bcb46"/>
-    <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
-        <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_subflow_plan","id":"c9fc64c21bd2555062e50ed2cd4bcb46","name":"plan","plan_signature":null}}</plan>
-        <plan_id display_value="Send Delayed Modular Notification">ced7e4ce1b52555062e50ed2cd4bcbd5</plan_id>
-        <snapshot>46292da41b45bd108c5143f3cc4bcb1c</snapshot>
-        <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2022-10-03 20:39:45</sys_created_on>
-        <sys_domain>global</sys_domain>
-        <sys_domain_path>/</sys_domain_path>
-        <sys_id>c9fc64c21bd2555062e50ed2cd4bcb46</sys_id>
-        <sys_mod_count>4</sys_mod_count>
-        <sys_overrides/>
-        <sys_scope/>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-10-10 13:02:30</sys_updated_on>
-    </sys_flow_subflow_plan>
     <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
         <access>public</access>
         <acls/>
         <active>true</active>
         <annotation/>
+        <attributes/>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
@@ -2186,6 +2233,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=1667cf001b2ed19062e50ed2cd4bcb4f"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -2269,6 +2317,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=30fc24c21bd2555062e50ed2cd4bcbb4"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -2355,6 +2404,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=325564121b56d55062e50ed2cd4bcb94"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -2438,6 +2488,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=3cfc24c21bd2555062e50ed2cd4bcbab"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -2521,6 +2572,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=60fc24c21bd2555062e50ed2cd4bcb7b"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -2604,6 +2656,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=74fc24c21bd2555062e50ed2cd4bcbbc"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -2687,6 +2740,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=78fc24c21bd2555062e50ed2cd4bcba3"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -2770,6 +2824,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=acfc24c21bd2555062e50ed2cd4bcb5a"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -2853,6 +2908,30 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=acfc24c21bd2555062e50ed2cd4bcb86"/>
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FDb40ac117abde9d50321eac5865a28d9f</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>9433631b1bcf30508c5143f3cc4bcbfc</scope_name>
+        <serialized_content>{"FlowDesigner:FDb40ac117abde9d50321eac5865a28d9f":{"$COCollectionField":[{"URL":{"label":"String","label.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Label\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\"}"},"url":"String","url.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"URL\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\"}"}}}],"$COCollectionField.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Custom Header URLs\",\"mandatory\":\"false\",\"child_name\":\"URL\",\"uiUniqueId\":\"c8246c36-9695-4f17-819d-aed1c2d37436\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDb40ac117abde9d50321eac5865a28d9f\",\"child_label\":\"URL\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"14\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"0626f9a9-c6a8-4bf6-8ab6-6971ec200ad5\"}"},"$COCollectionField.$field_facets":{"SimpleMapFacet":"{\"up-shift-collection-level\":\"true\"}"}},"FlowDesigner:FDb40ac117abde9d50321eac5865a28d9f.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Custom Header URLs\",\"mandatory\":\"false\",\"child_name\":\"URL\",\"uiUniqueId\":\"c8246c36-9695-4f17-819d-aed1c2d37436\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDb40ac117abde9d50321eac5865a28d9f\",\"child_label\":\"URL\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"14\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"0626f9a9-c6a8-4bf6-8ab6-6971ec200ad5\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-10-07 19:59:07</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>780ac1171bde9d5062e50ed2cd4bcb9f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FDb40ac117abde9d50321eac5865a28d9f</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_complex_object_780ac1171bde9d5062e50ed2cd4bcb9f</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-10-10 13:31:33</sys_updated_on>
+        <type>complex_object_collection</type>
+    </sys_complex_object>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -2936,6 +3015,30 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=b00ac1171bde9d5062e50ed2cd4bcbd0"/>
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FD64fc24c23dd255503148834b8ccc7d58</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>9433631b1bcf30508c5143f3cc4bcbfc</scope_name>
+        <serialized_content>{"FlowDesigner:FD64fc24c23dd255503148834b8ccc7d58":{"$COCollectionField":[{"variable":{"Variable_Name":"String","Variable_Name.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Variable Name\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\"}"},"Variable_Value":"String","Variable_Value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Variable Value\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\"}"}}}],"$COCollectionField.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"varList\",\"mandatory\":\"false\",\"child_name\":\"variable\",\"uiUniqueId\":\"6a9a20ca-7e26-408f-87d1-4c97313e28fd\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FD64fc24c23dd255503148834b8ccc7d58\",\"child_label\":\"variable\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"13\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"2991e745-cd94-4a3d-af9d-b0a2d0e11bbb\"}"},"$COCollectionField.$field_facets":{"SimpleMapFacet":"{\"up-shift-collection-level\":\"true\"}"}},"FlowDesigner:FD64fc24c23dd255503148834b8ccc7d58.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"varList\",\"mandatory\":\"false\",\"child_name\":\"variable\",\"uiUniqueId\":\"6a9a20ca-7e26-408f-87d1-4c97313e28fd\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FD64fc24c23dd255503148834b8ccc7d58\",\"child_label\":\"variable\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"13\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"2991e745-cd94-4a3d-af9d-b0a2d0e11bbb\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-10-03 20:39:43</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>28fc24c21bd2555062e50ed2cd4bcb58</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FD64fc24c23dd255503148834b8ccc7d58</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_complex_object_28fc24c21bd2555062e50ed2cd4bcb58</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-10-10 13:31:33</sys_updated_on>
+        <type>complex_object_collection</type>
+    </sys_complex_object>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -3019,6 +3122,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=b0fc24c21bd2555062e50ed2cd4bcbcd"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -3102,6 +3206,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=e0fc24c21bd2555062e50ed2cd4bcb73"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -3185,6 +3290,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=e4fc24c21bd2555062e50ed2cd4bcb9b"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -3268,11 +3374,13 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=f8fc24c21bd2555062e50ed2cd4bcbc4"/>
     <sys_hub_flow_output action="delete_multiple" query="model=50fc24c21bd2555062e50ed2cd4bcb56"/>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=50fc24c21bd2555062e50ed2cd4bcb56"/>
     <sys_hub_action_instance action="delete_multiple" query="flow=50fc24c21bd2555062e50ed2cd4bcb56"/>
     <sys_hub_sub_flow_instance action="delete_multiple" query="flow=50fc24c21bd2555062e50ed2cd4bcb56^sys_idNOT IN0dfc24c21bd2555062e50ed2cd4bcbe3"/>
     <sys_hub_sub_flow_instance action="INSERT_OR_UPDATE">
+        <attributes/>
         <comment/>
         <display_text/>
         <flow display_value="Send Delayed Modular Notification">50fc24c21bd2555062e50ed2cd4bcb56</flow>
@@ -3610,6 +3718,7 @@
     <sys_hub_input_scripts action="delete_multiple" query="instance=0dfc24c21bd2555062e50ed2cd4bcbe3"/>
     <sys_hub_flow_logic action="delete_multiple" query="flow=50fc24c21bd2555062e50ed2cd4bcb56^sys_idNOT INbcfc24c21bd2555062e50ed2cd4bcbdc"/>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
         <block display_value="">6aec20c21bd2555062e50ed2cd4bcbe2</block>
         <comment/>
         <connected_to/>
@@ -4079,4 +4188,21 @@
         <latest_snapshot>50fc24c21bd2555062e50ed2cd4bcb56</latest_snapshot>
         <compiler_build>glide-tokyo-07-08-2022__patch9-hotfix2a-06-26-2023_07-05-2023_1648.zip</compiler_build>
     </sys_hub_flow>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=ced7e4ce1b52555062e50ed2cd4bcbd5"/>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=ced7e4ce1b52555062e50ed2cd4bcbd5^sys_idNOT INc9fc64c21bd2555062e50ed2cd4bcb46"/>
+    <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
+        <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_subflow_plan","id":"c9fc64c21bd2555062e50ed2cd4bcb46","name":"plan","plan_signature":null}}</plan>
+        <plan_id display_value="Send Delayed Modular Notification">ced7e4ce1b52555062e50ed2cd4bcbd5</plan_id>
+        <snapshot>46292da41b45bd108c5143f3cc4bcb1c</snapshot>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-10-03 20:39:45</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>c9fc64c21bd2555062e50ed2cd4bcb46</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-10-10 13:02:30</sys_updated_on>
+    </sys_flow_subflow_plan>
 </record_update>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_css_include">
     <sp_css_include action="INSERT_OR_UPDATE">
+        <lazy_load>false</lazy_load>
         <name>Modular Notifications Stylesheet</name>
+        <rtl_css_file_url/>
         <source>local</source>
         <sp_css display_value="Modular Notifications Stylesheet">f76492b81b026d5062e50ed2cd4bcb64</sp_css>
         <sys_class_name>sp_css_include</sys_class_name>

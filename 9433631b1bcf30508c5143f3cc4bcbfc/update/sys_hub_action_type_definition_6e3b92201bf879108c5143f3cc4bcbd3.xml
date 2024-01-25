@@ -26,7 +26,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>6e3b92201bf879108c5143f3cc4bcbd3</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Queue Notification</sys_name>
         <sys_overrides/>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
@@ -34,7 +34,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_6e3b92201bf879108c5143f3cc4bcbd3</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-08-18 16:28:30</sys_updated_on>
+        <sys_updated_on>2023-12-11 17:09:23</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -128,18 +128,6 @@
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=87e3e6681bf879108c5143f3cc4bcb29"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>application</field>
-        <id>87e3e6681bf879108c5143f3cc4bcb29</id>
-        <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2023-08-18 16:16:46</sys_created_on>
-        <sys_id>8be3e6681bf879108c5143f3cc4bcb60</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-08-18 16:16:46</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>event</field>
         <id>87e3e6681bf879108c5143f3cc4bcb29</id>
         <sys_created_by>Terry.Lillo</sys_created_by>
@@ -150,18 +138,6 @@
         <sys_updated_on>2023-08-18 16:16:46</sys_updated_on>
         <table>var__m_sys_hub_step_ext_input_87e3e6681bf879108c5143f3cc4bcb29</table>
         <value>{{action.notification_event_name}}</value>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>script</field>
-        <id>87e3e6681bf879108c5143f3cc4bcb29</id>
-        <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2023-08-18 16:16:46</sys_created_on>
-        <sys_id>43e3e6681bf879108c5143f3cc4bcb61</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-08-18 16:16:46</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>taskid</field>
@@ -716,7 +692,7 @@
         <sys_created_on>2023-08-18 15:39:29</sys_created_on>
         <sys_id>386b5a201bf879108c5143f3cc4bcb66</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Task Sys_Id</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -739,7 +715,7 @@
         <sys_created_on>2023-08-18 15:39:29</sys_created_on>
         <sys_id>786b5a201bf879108c5143f3cc4bcb62</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Notification Event Name</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -764,7 +740,7 @@
         <sys_created_on>2023-08-18 16:16:46</sys_created_on>
         <sys_id>1fe3e6681bf879108c5143f3cc4bcb6e</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Don't Treat as Error</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -787,7 +763,7 @@
         <sys_created_on>2023-08-18 16:16:46</sys_created_on>
         <sys_id>47e3e6681bf879108c5143f3cc4bcb69</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Action Status</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -940,18 +916,6 @@
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=13e3e6681bf879108c5143f3cc4bcb9e"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>application</field>
-        <id>13e3e6681bf879108c5143f3cc4bcb9e</id>
-        <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2023-08-18 16:16:48</sys_created_on>
-        <sys_id>63e3e6681bf879108c5143f3cc4bcbab</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-08-18 16:16:48</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>event</field>
         <id>13e3e6681bf879108c5143f3cc4bcb9e</id>
         <sys_created_by>Terry.Lillo</sys_created_by>
@@ -962,18 +926,6 @@
         <sys_updated_on>2023-08-18 16:16:48</sys_updated_on>
         <table>var__m_sys_hub_step_ext_input_13e3e6681bf879108c5143f3cc4bcb9e</table>
         <value>{{action.notification_event_name}}</value>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>script</field>
-        <id>13e3e6681bf879108c5143f3cc4bcb9e</id>
-        <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2023-08-18 16:16:48</sys_created_on>
-        <sys_id>27e3e6681bf879108c5143f3cc4bcbab</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-08-18 16:16:48</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>taskid</field>
@@ -1528,7 +1480,7 @@
         <sys_created_on>2023-08-18 16:16:47</sys_created_on>
         <sys_id>5fe3e6681bf879108c5143f3cc4bcb98</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Notification Event Name</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1551,7 +1503,7 @@
         <sys_created_on>2023-08-18 16:16:47</sys_created_on>
         <sys_id>d3e3e6681bf879108c5143f3cc4bcb9c</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Task Sys_Id</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1576,7 +1528,7 @@
         <sys_created_on>2023-08-18 16:16:48</sys_created_on>
         <sys_id>67e3e6681bf879108c5143f3cc4bcbb2</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Action Status</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1599,7 +1551,7 @@
         <sys_created_on>2023-08-18 16:16:48</sys_created_on>
         <sys_id>e3e3e6681bf879108c5143f3cc4bcbb7</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Don't Treat as Error</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
@@ -1613,6 +1565,6 @@
     <sys_hub_action_type_definition action="UPDATE">
         <sys_id>6e3b92201bf879108c5143f3cc4bcbd3</sys_id>
         <latest_snapshot>1fe3e6681bf879108c5143f3cc4bcb91</latest_snapshot>
-        <compiler_build>glide-tokyo-07-08-2022__patch9-hotfix2-06-07-2023_06-23-2023_1740.zip</compiler_build>
+        <compiler_build>glide-vancouver-07-06-2023__patch4-11-02-2023_11-14-2023_1911.zip</compiler_build>
     </sys_hub_action_type_definition>
 </record_update>

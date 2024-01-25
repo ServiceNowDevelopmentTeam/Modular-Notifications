@@ -4,6 +4,7 @@
         <acls/>
         <active>false</active>
         <annotation/>
+        <attributes/>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
@@ -37,7 +38,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_flow_00e716881b9538108c5143f3cc4bcb0d</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
+        <sys_updated_on>2023-12-11 17:09:36</sys_updated_on>
         <type>flow</type>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=00e716881b9538108c5143f3cc4bcb0d"/>
@@ -175,6 +176,57 @@
     </sys_flow_cat_variable_model>
     <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=c8e756881b9538108c5143f3cc4bcb13"/>
     <sys_hub_flow_input action="delete_multiple" query="model=00e716881b9538108c5143f3cc4bcb0d^sys_idNOT IN6eb8960c1b9538108c5143f3cc4bcb4f,a2b8960c1b9538108c5143f3cc4bcb49,eeb8960c1b9538108c5143f3cc4bcb55"/>
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FDCollection</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>global</scope_name>
+        <serialized_content>{"FlowDesigner:FDCollection":{"$COCollectionField":[{"FDChangeDetails":{"previous_display_value":"String","previous_display_value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Previous Display Value\",\"mandatory\":\"false\",\"order\":\"4\",\"max_length\":\"0\"}"},"previous_value":"String","previous_value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Previous Value\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\"}"},"current_display_value":"String","current_display_value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Current Display Value\",\"mandatory\":\"false\",\"order\":\"5\",\"max_length\":\"0\"}"},"current_value":"String","current_value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Current Value\",\"mandatory\":\"false\",\"order\":\"3\",\"max_length\":\"0\"}"},"field_name":"String","field_name.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Field Name\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\"}"}}}],"$COCollectionField.$type_facets":{"SimpleMapFacet":"{\"pwd2droppable\":\"true\",\"default_value\":\"\",\"label\":\"Changed Fields\",\"mandatory\":\"false\",\"child_name\":\"FDChangeDetails\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDCollection\",\"child_label\":\"FDChangeDetails\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"100\",\"max_length\":\"4000\"}"},"$COCollectionField.$field_facets":{"SimpleMapFacet":"{\"up-shift-collection-level\":\"true\"}"}},"FlowDesigner:FDCollection.$type_facets":{"SimpleMapFacet":"{\"pwd2droppable\":\"true\",\"default_value\":\"\",\"label\":\"Changed Fields\",\"mandatory\":\"false\",\"child_name\":\"FDChangeDetails\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDCollection\",\"child_label\":\"FDChangeDetails\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"100\",\"max_length\":\"4000\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-13 23:19:20</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>f4f014150f023300ecf0cc52ff767eed</sys_id>
+        <sys_mod_count>164</sys_mod_count>
+        <sys_name>FDCollection</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Flow Designer Designer Model" source="com.glide.hub.designer_backend.model">75fa6ce31b651010e7004229bc4bcbae</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Global Customizations - Upgrade Plan">3fd55b6d1b837110c16ddb9ebd4bcbb9</sys_scope>
+        <sys_update_name>sys_complex_object_f4f014150f023300ecf0cc52ff767eed</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-12-11 18:53:51</sys_updated_on>
+        <type>complex_object_collection</type>
+    </sys_complex_object>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Global Customizations - Upgrade Plan">3fd55b6d1b837110c16ddb9ebd4bcbb9</claim_owner_scope>
+        <claim_timestamp>18c5a3a7b850000001</claim_timestamp>
+        <metadata_update_name>sys_complex_object_f4f014150f023300ecf0cc52ff767eed</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Global Customizations - Upgrade Plan</previous_claim_name>
+        <previous_claim_scope>3fd55b6d1b837110c16ddb9ebd4bcbb9</previous_claim_scope>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-12-11 18:53:51</sys_created_on>
+        <sys_id>ddb69b611bc37110c16ddb9ebd4bcbf2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-12-11 18:53:51</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Global Customizations - Upgrade Plan">3fd55b6d1b837110c16ddb9ebd4bcbb9</claim_owner_scope>
+        <claim_timestamp>18c5a3a7b840000001</claim_timestamp>
+        <metadata_update_name>sys_complex_object_f4f014150f023300ecf0cc52ff767eed</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.glide.hub.designer_backend.model</previous_claim_name>
+        <previous_claim_scope>com.glide.hub.designer_backend.m</previous_claim_scope>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-12-11 18:53:51</sys_created_on>
+        <sys_id>91b69b611bc37110c16ddb9ebd4bcbf3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-12-11 18:53:51</sys_updated_on>
+    </sys_claim>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -258,6 +310,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=6eb8960c1b9538108c5143f3cc4bcb4f"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -341,6 +394,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=a2b8960c1b9538108c5143f3cc4bcb49"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -424,6 +478,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=eeb8960c1b9538108c5143f3cc4bcb55"/>
     <sys_hub_flow_output action="delete_multiple" query="model=00e716881b9538108c5143f3cc4bcb0d"/>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=00e716881b9538108c5143f3cc4bcb0d"/>
     <sys_hub_action_instance action="delete_multiple" query="flow=00e716881b9538108c5143f3cc4bcb0d^sys_idNOT IN26b8960c1b9538108c5143f3cc4bcb63"/>
@@ -432,6 +487,7 @@
         <action_inputs/>
         <action_type display_value="Create Record">2de05916c31332002841b63b12d3aee1</action_type>
         <action_type_parent/>
+        <attributes/>
         <comment/>
         <display_text/>
         <flow display_value="Flow Failures">00e716881b9538108c5143f3cc4bcb0d</flow>
@@ -569,30 +625,12 @@ Affected User: {{Updated_1.current.sys_created_by}}^caller_id={"display":"System
     <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_00e716881b9538108c5143f3cc4bcb0d"/>
     <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_00e716881b9538108c5143f3cc4bcb0d"/>
     <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_00e716881b9538108c5143f3cc4bcb0d"/>
-    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=00e716881b9538108c5143f3cc4bcb0d^sys_idNOT INf8c81a0c1b9538108c5143f3cc4bcb1d"/>
-    <sys_flow_trigger_plan action="INSERT_OR_UPDATE">
-        <binding_strategy>com.snc.process_flow.engine.binding.OncePerRecord</binding_strategy>
-        <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_trigger_plan","id":"f8c81a0c1b9538108c5143f3cc4bcb1d","name":"plan","plan_signature":null}}</plan>
-        <plan_id>00e716881b9538108c5143f3cc4bcb0d</plan_id>
-        <snapshot>2867cf601b41c11062e50ed2cd4bcbde</snapshot>
-        <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2021-07-07 13:57:49</sys_created_on>
-        <sys_domain>global</sys_domain>
-        <sys_domain_path>/</sys_domain_path>
-        <sys_id>f8c81a0c1b9538108c5143f3cc4bcb1d</sys_id>
-        <sys_mod_count>7</sys_mod_count>
-        <sys_overrides/>
-        <sys_scope/>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2021-11-22 19:59:35</sys_updated_on>
-        <trigger display_value="">ddf692e41b08c110df31da49cc4bcb67</trigger>
-    </sys_flow_trigger_plan>
-    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=00e716881b9538108c5143f3cc4bcb0d"/>
     <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
         <access>public</access>
         <acls/>
         <active>true</active>
         <annotation/>
+        <attributes/>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
@@ -776,6 +814,7 @@ Affected User: {{Updated_1.current.sys_created_by}}^caller_id={"display":"System
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=24c8d60c1b9538108c5143f3cc4bcbf9"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -859,6 +898,58 @@ Affected User: {{Updated_1.current.sys_created_by}}^caller_id={"display":"System
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=68c8d60c1b9538108c5143f3cc4bcbbd"/>
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FDCollection</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>global</scope_name>
+        <serialized_content>{"FlowDesigner:FDCollection":{"$COCollectionField":[{"FDChangeDetails":{"previous_display_value":"String","previous_display_value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Previous Display Value\",\"mandatory\":\"false\",\"order\":\"4\",\"max_length\":\"0\"}"},"previous_value":"String","previous_value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Previous Value\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\"}"},"current_display_value":"String","current_display_value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Current Display Value\",\"mandatory\":\"false\",\"order\":\"5\",\"max_length\":\"0\"}"},"current_value":"String","current_value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Current Value\",\"mandatory\":\"false\",\"order\":\"3\",\"max_length\":\"0\"}"},"field_name":"String","field_name.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Field Name\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\"}"}}}],"$COCollectionField.$type_facets":{"SimpleMapFacet":"{\"pwd2droppable\":\"true\",\"default_value\":\"\",\"label\":\"Changed Fields\",\"mandatory\":\"false\",\"child_name\":\"FDChangeDetails\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDCollection\",\"child_label\":\"FDChangeDetails\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"100\",\"max_length\":\"4000\"}"},"$COCollectionField.$field_facets":{"SimpleMapFacet":"{\"up-shift-collection-level\":\"true\"}"}},"FlowDesigner:FDCollection.$type_facets":{"SimpleMapFacet":"{\"pwd2droppable\":\"true\",\"default_value\":\"\",\"label\":\"Changed Fields\",\"mandatory\":\"false\",\"child_name\":\"FDChangeDetails\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDCollection\",\"child_label\":\"FDChangeDetails\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"100\",\"max_length\":\"4000\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-13 23:19:20</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>f4f014150f023300ecf0cc52ff767eed</sys_id>
+        <sys_mod_count>164</sys_mod_count>
+        <sys_name>FDCollection</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Flow Designer Designer Model" source="com.glide.hub.designer_backend.model">75fa6ce31b651010e7004229bc4bcbae</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Global Customizations - Upgrade Plan">3fd55b6d1b837110c16ddb9ebd4bcbb9</sys_scope>
+        <sys_update_name>sys_complex_object_f4f014150f023300ecf0cc52ff767eed</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-12-11 18:53:51</sys_updated_on>
+        <type>complex_object_collection</type>
+    </sys_complex_object>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Global Customizations - Upgrade Plan">3fd55b6d1b837110c16ddb9ebd4bcbb9</claim_owner_scope>
+        <claim_timestamp>18c5a3a7b850000001</claim_timestamp>
+        <metadata_update_name>sys_complex_object_f4f014150f023300ecf0cc52ff767eed</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Global Customizations - Upgrade Plan</previous_claim_name>
+        <previous_claim_scope>3fd55b6d1b837110c16ddb9ebd4bcbb9</previous_claim_scope>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-12-11 18:53:51</sys_created_on>
+        <sys_id>ddb69b611bc37110c16ddb9ebd4bcbf2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-12-11 18:53:51</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Global Customizations - Upgrade Plan">3fd55b6d1b837110c16ddb9ebd4bcbb9</claim_owner_scope>
+        <claim_timestamp>18c5a3a7b840000001</claim_timestamp>
+        <metadata_update_name>sys_complex_object_f4f014150f023300ecf0cc52ff767eed</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.glide.hub.designer_backend.model</previous_claim_name>
+        <previous_claim_scope>com.glide.hub.designer_backend.m</previous_claim_scope>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2023-12-11 18:53:51</sys_created_on>
+        <sys_id>91b69b611bc37110c16ddb9ebd4bcbf3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2023-12-11 18:53:51</sys_updated_on>
+    </sys_claim>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -942,6 +1033,7 @@ Affected User: {{Updated_1.current.sys_created_by}}^caller_id={"display":"System
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=a8c8d60c1b9538108c5143f3cc4bcbee"/>
     <sys_hub_flow_output action="delete_multiple" query="model=14c8d60c1b9538108c5143f3cc4bcbb9"/>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=14c8d60c1b9538108c5143f3cc4bcbb9"/>
     <sys_hub_action_instance action="delete_multiple" query="flow=14c8d60c1b9538108c5143f3cc4bcbb9^sys_idNOT INa0c81a0c1b9538108c5143f3cc4bcb0b"/>
@@ -950,6 +1042,7 @@ Affected User: {{Updated_1.current.sys_created_by}}^caller_id={"display":"System
         <action_inputs/>
         <action_type display_value="Create Record">2de05916c31332002841b63b12d3aee1</action_type>
         <action_type_parent display_value="Create Record">02f0b88cc3c632002841b63b12d3aeff</action_type_parent>
+        <attributes/>
         <comment/>
         <display_text/>
         <flow display_value="Flow Failures">14c8d60c1b9538108c5143f3cc4bcbb9</flow>
@@ -1092,4 +1185,23 @@ Affected User: {{Updated_1.current.sys_created_by}}^caller_id={"display":"System
         <latest_snapshot>14c8d60c1b9538108c5143f3cc4bcbb9</latest_snapshot>
         <compiler_build>glide-rome-06-23-2021__patch4-hotfix1-12-10-2021_12-15-2021_1427.zip</compiler_build>
     </sys_hub_flow>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=00e716881b9538108c5143f3cc4bcb0d^sys_idNOT INf8c81a0c1b9538108c5143f3cc4bcb1d"/>
+    <sys_flow_trigger_plan action="INSERT_OR_UPDATE">
+        <binding_strategy>com.snc.process_flow.engine.binding.OncePerRecord</binding_strategy>
+        <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_trigger_plan","id":"f8c81a0c1b9538108c5143f3cc4bcb1d","name":"plan","plan_signature":null}}</plan>
+        <plan_id>00e716881b9538108c5143f3cc4bcb0d</plan_id>
+        <snapshot>2867cf601b41c11062e50ed2cd4bcbde</snapshot>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2021-07-07 13:57:49</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f8c81a0c1b9538108c5143f3cc4bcb1d</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2021-11-22 19:59:35</sys_updated_on>
+        <trigger display_value="">ddf692e41b08c110df31da49cc4bcb67</trigger>
+    </sys_flow_trigger_plan>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=00e716881b9538108c5143f3cc4bcb0d"/>
 </record_update>

@@ -4,6 +4,7 @@
         <acls/>
         <active>true</active>
         <annotation/>
+        <attributes/>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
@@ -37,7 +38,7 @@
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_hub_flow_0d9d4e3b1bcbd5508c5143f3cc4bcbda</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-08-14 14:07:19</sys_updated_on>
+        <sys_updated_on>2023-12-11 17:09:42</sys_updated_on>
         <type>subflow</type>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=0d9d4e3b1bcbd5508c5143f3cc4bcbda"/>
@@ -142,6 +143,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=16a1564c1b9759508c5143f3cc4bcb32"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -225,6 +227,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=23fa06001b5759508c5143f3cc4bcb40"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -308,6 +311,30 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=23fa06001b5759508c5143f3cc4bcb55"/>
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FDebb80248531759509b3f6de96a8c3539</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>9433631b1bcf30508c5143f3cc4bcbfc</scope_name>
+        <serialized_content>{"FlowDesigner:FDebb80248531759509b3f6de96a8c3539":{"$COCollectionField":[{"Variable":{"variableName":"String","variableName.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"variableName\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\"}"},"variableValue":"String","variableValue.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"variableValue\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\"}"}}}],"$COCollectionField.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Custom Variables\",\"mandatory\":\"false\",\"child_name\":\"Variable\",\"uiUniqueId\":\"024e6a4d-d18a-4c73-a157-318dd93e151c\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDebb80248531759509b3f6de96a8c3539\",\"child_label\":\"Variable\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"11\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"a20f14c8-b91b-433d-8803-bdb1e13eaa48\"}"},"$COCollectionField.$field_facets":{"SimpleMapFacet":"{\"up-shift-collection-level\":\"true\"}"}},"FlowDesigner:FDebb80248531759509b3f6de96a8c3539.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Custom Variables\",\"mandatory\":\"false\",\"child_name\":\"Variable\",\"uiUniqueId\":\"024e6a4d-d18a-4c73-a157-318dd93e151c\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDebb80248531759509b3f6de96a8c3539\",\"child_label\":\"Variable\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"11\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"a20f14c8-b91b-433d-8803-bdb1e13eaa48\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-11-16 15:15:44</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>afb802481b1759508c5143f3cc4bcb39</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>FDebb80248531759509b3f6de96a8c3539</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_complex_object_afb802481b1759508c5143f3cc4bcb39</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-11-16 15:55:37</sys_updated_on>
+        <type>complex_object_collection</type>
+    </sys_complex_object>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -391,6 +418,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=37b802881b1759508c5143f3cc4bcba1"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -474,6 +502,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=3bb802881b1759508c5143f3cc4bcba7"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -557,6 +586,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=7481d6b31b0fd5508c5143f3cc4bcb9f"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -640,6 +670,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=7881d6b31b0fd5508c5143f3cc4bcb9c"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -723,6 +754,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=7c81d6b31b0fd5508c5143f3cc4bcb99"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -806,6 +838,30 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=a7b802881b1759508c5143f3cc4bcb97"/>
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FDe3b80288f2175950ae2f548e30202d83</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>9433631b1bcf30508c5143f3cc4bcbfc</scope_name>
+        <serialized_content>{"FlowDesigner:FDe3b80288f2175950ae2f548e30202d83":{"$COCollectionField":[{"url":{"label":"String","label.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Label\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\"}"},"url":"String","url.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"URL\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\"}"}}}],"$COCollectionField.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Custom URLs\",\"mandatory\":\"false\",\"child_name\":\"url\",\"uiUniqueId\":\"1d37d75a-c47d-4d97-9e58-3ee5e37d10cc\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDe3b80288f2175950ae2f548e30202d83\",\"child_label\":\"url\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"7\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"77874ec8-caff-4c91-b15f-bc63ca07ba98\"}"},"$COCollectionField.$field_facets":{"SimpleMapFacet":"{\"up-shift-collection-level\":\"true\"}"}},"FlowDesigner:FDe3b80288f2175950ae2f548e30202d83.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Custom URLs\",\"mandatory\":\"false\",\"child_name\":\"url\",\"uiUniqueId\":\"1d37d75a-c47d-4d97-9e58-3ee5e37d10cc\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDe3b80288f2175950ae2f548e30202d83\",\"child_label\":\"url\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"7\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"77874ec8-caff-4c91-b15f-bc63ca07ba98\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-11-16 15:15:44</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a7b802881b1759508c5143f3cc4bcb83</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>FDe3b80288f2175950ae2f548e30202d83</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_complex_object_a7b802881b1759508c5143f3cc4bcb83</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-11-16 15:55:37</sys_updated_on>
+        <type>complex_object_collection</type>
+    </sys_complex_object>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -889,6 +945,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=b7b802881b1759508c5143f3cc4bcba4"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -972,6 +1029,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=e7b802881b1759508c5143f3cc4bcb8f"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -1055,6 +1113,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=ebfa06001b5759508c5143f3cc4bcb4b"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -1138,6 +1197,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=fc8116731b0fd5508c5143f3cc4bcb7d"/>
     <sys_hub_flow_output action="delete_multiple" query="model=0d9d4e3b1bcbd5508c5143f3cc4bcbda^sys_idNOT IN088352b71b0fd5508c5143f3cc4bcbe4,0c8352b71b0fd5508c5143f3cc4bcbe0"/>
     <sys_hub_flow_output action="INSERT_OR_UPDATE">
         <active>true</active>
@@ -1222,6 +1282,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=088352b71b0fd5508c5143f3cc4bcbe4"/>
     <sys_hub_flow_output action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -1305,11 +1366,13 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=0c8352b71b0fd5508c5143f3cc4bcbe0"/>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=0d9d4e3b1bcbd5508c5143f3cc4bcbda"/>
     <sys_hub_action_instance action="delete_multiple" query="flow=0d9d4e3b1bcbd5508c5143f3cc4bcbda"/>
     <sys_hub_sub_flow_instance action="delete_multiple" query="flow=0d9d4e3b1bcbd5508c5143f3cc4bcbda"/>
     <sys_hub_flow_logic action="delete_multiple" query="flow=0d9d4e3b1bcbd5508c5143f3cc4bcbda^sys_idNOT IN16b55abb1b0fd5508c5143f3cc4bcb0e,3809d2771b4fd5508c5143f3cc4bcbe4,3c09d2771b4fd5508c5143f3cc4bcbdd,445642441b1759508c5143f3cc4bcb4c,7809d2771b4fd5508c5143f3cc4bcbd8,f409d2771b4fd5508c5143f3cc4bcbe1"/>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
         <block display_value="">dab55abb1b0fd5508c5143f3cc4bcb0d</block>
         <comment>Build email body</comment>
         <connected_to/>
@@ -1357,6 +1420,7 @@
         <sys_updated_on>2022-11-16 15:55:28</sys_updated_on>
     </sys_hub_input_scripts>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
         <block display_value="">fc09d2771b4fd5508c5143f3cc4bcbe3</block>
         <comment>Set subject to generated subject</comment>
         <connected_to/>
@@ -1404,6 +1468,7 @@
         <sys_updated_on>2022-11-15 21:48:20</sys_updated_on>
     </sys_hub_input_scripts>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
         <block display_value="">f009d2771b4fd5508c5143f3cc4bcbdd</block>
         <comment>Set subject to custom subject</comment>
         <connected_to/>
@@ -1451,6 +1516,7 @@
     <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=3c09d2771b4fd5508c5143f3cc4bcbdd"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=3c09d2771b4fd5508c5143f3cc4bcbdd"/>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
         <block display_value="">085642441b1759508c5143f3cc4bcb4b</block>
         <comment/>
         <connected_to/>
@@ -1510,6 +1576,7 @@
     <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=445642441b1759508c5143f3cc4bcb4c"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=445642441b1759508c5143f3cc4bcb4c"/>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
         <block display_value="">3c09d2771b4fd5508c5143f3cc4bcbd7</block>
         <comment/>
         <connected_to/>
@@ -1584,6 +1651,7 @@
     <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=7809d2771b4fd5508c5143f3cc4bcbd8"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=7809d2771b4fd5508c5143f3cc4bcbd8"/>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
         <block display_value="">bc09d2771b4fd5508c5143f3cc4bcbe0</block>
         <comment/>
         <connected_to>14d18d81-1fe8-4ba1-a661-b23c020bde8e</connected_to>
@@ -2297,28 +2365,12 @@ If this is false, custom variables will be added to original template variables.
         <url_target/>
     </sys_documentation>
     <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_0d9d4e3b1bcbd5508c5143f3cc4bcbda"/>
-    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=0d9d4e3b1bcbd5508c5143f3cc4bcbda"/>
-    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=0d9d4e3b1bcbd5508c5143f3cc4bcbda^sys_idNOT INebb122371b8fd5508c5143f3cc4bcb19"/>
-    <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
-        <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_subflow_plan","id":"ebb122371b8fd5508c5143f3cc4bcb19","name":"plan","plan_signature":null}}</plan>
-        <plan_id display_value="Build Modular Notification From Template">0d9d4e3b1bcbd5508c5143f3cc4bcbda</plan_id>
-        <snapshot>e22cab1a1bde7110c16ddb9ebd4bcbac</snapshot>
-        <sys_created_by>Terry.Lillo</sys_created_by>
-        <sys_created_on>2022-11-15 22:26:28</sys_created_on>
-        <sys_domain>global</sys_domain>
-        <sys_domain_path>/</sys_domain_path>
-        <sys_id>ebb122371b8fd5508c5143f3cc4bcb19</sys_id>
-        <sys_mod_count>8</sys_mod_count>
-        <sys_overrides/>
-        <sys_scope/>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-11-16 15:55:37</sys_updated_on>
-    </sys_flow_subflow_plan>
     <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
         <access>public</access>
         <acls/>
         <active>true</active>
         <annotation/>
+        <attributes/>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
@@ -2455,6 +2507,7 @@ If this is false, custom variables will be added to original template variables.
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=0fb1eef31b8fd5508c5143f3cc4bcb93"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -2538,6 +2591,30 @@ If this is false, custom variables will be added to original template variables.
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=10198e881b1759508c5143f3cc4bcb80"/>
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FD84194e883d1759509a1c63c94f215bf4</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>9433631b1bcf30508c5143f3cc4bcbfc</scope_name>
+        <serialized_content>{"FlowDesigner:FD84194e883d1759509a1c63c94f215bf4":{"$COCollectionField":[{"Variable":{"variableName":"String","variableName.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"variableName\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\"}"},"variableValue":"String","variableValue.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"variableValue\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\"}"}}}],"$COCollectionField.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Custom Variables\",\"mandatory\":\"false\",\"child_name\":\"Variable\",\"uiUniqueId\":\"024e6a4d-d18a-4c73-a157-318dd93e151c\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FD84194e883d1759509a1c63c94f215bf4\",\"child_label\":\"Variable\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"11\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"a20f14c8-b91b-433d-8803-bdb1e13eaa48\"}"},"$COCollectionField.$field_facets":{"SimpleMapFacet":"{\"up-shift-collection-level\":\"true\"}"}},"FlowDesigner:FD84194e883d1759509a1c63c94f215bf4.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Custom Variables\",\"mandatory\":\"false\",\"child_name\":\"Variable\",\"uiUniqueId\":\"024e6a4d-d18a-4c73-a157-318dd93e151c\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FD84194e883d1759509a1c63c94f215bf4\",\"child_label\":\"Variable\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"11\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"a20f14c8-b91b-433d-8803-bdb1e13eaa48\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-11-16 15:17:08</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>48194e881b1759508c5143f3cc4bcbf4</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>FD84194e883d1759509a1c63c94f215bf4</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_complex_object_48194e881b1759508c5143f3cc4bcbf4</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-11-16 15:55:35</sys_updated_on>
+        <type>complex_object_collection</type>
+    </sys_complex_object>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -2621,6 +2698,30 @@ If this is false, custom variables will be added to original template variables.
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=10198e881b1759508c5143f3cc4bcbb5"/>
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FD8c198e88d1175950b727700c89747b02</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>9433631b1bcf30508c5143f3cc4bcbfc</scope_name>
+        <serialized_content>{"FlowDesigner:FD8c198e88d1175950b727700c89747b02":{"$COCollectionField":[{"url":{"label":"String","label.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Label\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\"}"},"url":"String","url.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"URL\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\"}"}}}],"$COCollectionField.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Custom URLs\",\"mandatory\":\"false\",\"child_name\":\"url\",\"uiUniqueId\":\"1d37d75a-c47d-4d97-9e58-3ee5e37d10cc\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FD8c198e88d1175950b727700c89747b02\",\"child_label\":\"url\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"7\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"77874ec8-caff-4c91-b15f-bc63ca07ba98\"}"},"$COCollectionField.$field_facets":{"SimpleMapFacet":"{\"up-shift-collection-level\":\"true\"}"}},"FlowDesigner:FD8c198e88d1175950b727700c89747b02.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Custom URLs\",\"mandatory\":\"false\",\"child_name\":\"url\",\"uiUniqueId\":\"1d37d75a-c47d-4d97-9e58-3ee5e37d10cc\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FD8c198e88d1175950b727700c89747b02\",\"child_label\":\"url\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"7\",\"max_length\":\"65000\",\"child_uiUniqueId\":\"77874ec8-caff-4c91-b15f-bc63ca07ba98\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-11-16 15:17:08</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>40198e881b1759508c5143f3cc4bcb03</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>FD8c198e88d1175950b727700c89747b02</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_complex_object_40198e881b1759508c5143f3cc4bcb03</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-11-16 15:55:35</sys_updated_on>
+        <type>complex_object_collection</type>
+    </sys_complex_object>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -2704,6 +2805,7 @@ If this is false, custom variables will be added to original template variables.
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=14198e881b1759508c5143f3cc4bcbd6"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -2787,6 +2889,7 @@ If this is false, custom variables will be added to original template variables.
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=490b46001b5759508c5143f3cc4bcbf3"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -2870,6 +2973,7 @@ If this is false, custom variables will be added to original template variables.
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=780b46001b5759508c5143f3cc4bcbb0"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -2953,6 +3057,7 @@ If this is false, custom variables will be added to original template variables.
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=780b46001b5759508c5143f3cc4bcbd5"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -3036,6 +3141,7 @@ If this is false, custom variables will be added to original template variables.
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=aed11e4c1b9759508c5143f3cc4bcb51"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -3119,6 +3225,7 @@ If this is false, custom variables will be added to original template variables.
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=cbb1eef31b8fd5508c5143f3cc4bcb9b"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -3202,6 +3309,7 @@ If this is false, custom variables will be added to original template variables.
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=cfb1eef31b8fd5508c5143f3cc4bcb86"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -3285,6 +3393,7 @@ If this is false, custom variables will be added to original template variables.
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=d0198e881b1759508c5143f3cc4bcb5f"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -3368,6 +3477,7 @@ If this is false, custom variables will be added to original template variables.
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=dbb1eef31b8fd5508c5143f3cc4bcba3"/>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -3451,6 +3561,7 @@ If this is false, custom variables will be added to original template variables.
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=e8198e881b1759508c5143f3cc4bcbde"/>
     <sys_hub_flow_output action="delete_multiple" query="model=43b1eef31b8fd5508c5143f3cc4bcb83^sys_idNOT IN1fb1eef31b8fd5508c5143f3cc4bcbbe,53b1eef31b8fd5508c5143f3cc4bcbc7"/>
     <sys_hub_flow_output action="INSERT_OR_UPDATE">
         <active>true</active>
@@ -3535,6 +3646,7 @@ If this is false, custom variables will be added to original template variables.
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=1fb1eef31b8fd5508c5143f3cc4bcbbe"/>
     <sys_hub_flow_output action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -3618,11 +3730,13 @@ If this is false, custom variables will be added to original template variables.
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=53b1eef31b8fd5508c5143f3cc4bcbc7"/>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=43b1eef31b8fd5508c5143f3cc4bcb83"/>
     <sys_hub_action_instance action="delete_multiple" query="flow=43b1eef31b8fd5508c5143f3cc4bcb83"/>
     <sys_hub_sub_flow_instance action="delete_multiple" query="flow=43b1eef31b8fd5508c5143f3cc4bcb83"/>
     <sys_hub_flow_logic action="delete_multiple" query="flow=43b1eef31b8fd5508c5143f3cc4bcb83^sys_idNOT IN1bb1eef31b8fd5508c5143f3cc4bcbf2,27b1eef31b8fd5508c5143f3cc4bcbf6,2bb1eef31b8fd5508c5143f3cc4bcbf9,895682441b1759508c5143f3cc4bcb7c,93b1eef31b8fd5508c5143f3cc4bcbea,dfb1eef31b8fd5508c5143f3cc4bcbed"/>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
         <block display_value="">f009d2771b4fd5508c5143f3cc4bcbdd</block>
         <comment>Set subject to custom subject</comment>
         <connected_to/>
@@ -3670,6 +3784,7 @@ If this is false, custom variables will be added to original template variables.
     <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=1bb1eef31b8fd5508c5143f3cc4bcbf2"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=1bb1eef31b8fd5508c5143f3cc4bcbf2"/>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
         <block display_value="">bc09d2771b4fd5508c5143f3cc4bcbe0</block>
         <comment/>
         <connected_to>14d18d81-1fe8-4ba1-a661-b23c020bde8e</connected_to>
@@ -3704,6 +3819,7 @@ If this is false, custom variables will be added to original template variables.
     <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=27b1eef31b8fd5508c5143f3cc4bcbf6"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=27b1eef31b8fd5508c5143f3cc4bcbf6"/>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
         <block display_value="">fc09d2771b4fd5508c5143f3cc4bcbe3</block>
         <comment>Set subject to generated subject</comment>
         <connected_to/>
@@ -3751,6 +3867,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_updated_on>2022-11-15 22:26:28</sys_updated_on>
     </sys_hub_input_scripts>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
         <block display_value="">085642441b1759508c5143f3cc4bcb4b</block>
         <comment/>
         <connected_to/>
@@ -3810,6 +3927,7 @@ If this is false, custom variables will be added to original template variables.
     <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=895682441b1759508c5143f3cc4bcb7c"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=895682441b1759508c5143f3cc4bcb7c"/>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
         <block display_value="">dab55abb1b0fd5508c5143f3cc4bcb0d</block>
         <comment>Build email body</comment>
         <connected_to/>
@@ -3857,6 +3975,7 @@ If this is false, custom variables will be added to original template variables.
         <sys_updated_on>2022-11-16 15:55:34</sys_updated_on>
     </sys_hub_input_scripts>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
         <block display_value="">3c09d2771b4fd5508c5143f3cc4bcbd7</block>
         <comment/>
         <connected_to/>
@@ -4612,6 +4731,23 @@ If this is false, custom variables will be added to original template variables.
     <sys_hub_flow action="UPDATE">
         <sys_id>0d9d4e3b1bcbd5508c5143f3cc4bcbda</sys_id>
         <latest_snapshot>43b1eef31b8fd5508c5143f3cc4bcb83</latest_snapshot>
-        <compiler_build>glide-tokyo-07-08-2022__patch10-hotfix1a-09-18-2023_10-06-2023_1603.zip</compiler_build>
+        <compiler_build>glide-vancouver-07-06-2023__patch5-12-01-2023_12-11-2023_2006.zip</compiler_build>
     </sys_hub_flow>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=0d9d4e3b1bcbd5508c5143f3cc4bcbda"/>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=0d9d4e3b1bcbd5508c5143f3cc4bcbda^sys_idNOT INebb122371b8fd5508c5143f3cc4bcb19"/>
+    <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
+        <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_subflow_plan","id":"ebb122371b8fd5508c5143f3cc4bcb19","name":"plan","plan_signature":null}}</plan>
+        <plan_id display_value="Build Modular Notification From Template">0d9d4e3b1bcbd5508c5143f3cc4bcbda</plan_id>
+        <snapshot>02dc67e21b4f711062e50ed2cd4bcb82</snapshot>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2022-11-15 22:26:28</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ebb122371b8fd5508c5143f3cc4bcb19</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2022-11-16 15:55:37</sys_updated_on>
+    </sys_flow_subflow_plan>
 </record_update>

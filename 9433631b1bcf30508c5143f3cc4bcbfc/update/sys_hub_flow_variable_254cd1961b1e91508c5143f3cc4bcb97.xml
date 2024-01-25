@@ -59,6 +59,7 @@
         <sys_class_name>sys_hub_flow_variable</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-10-04 18:44:58</sys_created_on>
+        <sys_id>254cd1961b1e91508c5143f3cc4bcb97</sys_id>
         <sys_name>Approval State</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>

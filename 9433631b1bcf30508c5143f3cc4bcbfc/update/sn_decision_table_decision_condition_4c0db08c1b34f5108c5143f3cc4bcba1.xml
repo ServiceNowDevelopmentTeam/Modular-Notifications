@@ -9,6 +9,7 @@
         <field_parent_table/>
         <label>Item</label>
         <order>100</order>
+        <parent/>
         <reference display_value="Catalog Item" name="sc_cat_item">66a868ef1be11010e7004229bc4bcb92</reference>
         <sys_class_name>sn_decision_table_decision_condition</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>

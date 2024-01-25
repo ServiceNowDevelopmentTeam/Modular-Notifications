@@ -5,6 +5,7 @@
         <enforce_license>log</enforce_license>
         <guided_setup_guid/>
         <hide_on_ui>false</hide_on_ui>
+        <ide_created/>
         <installed_as_dependency>false</installed_as_dependency>
         <js_level>helsinki_es5</js_level>
         <licensable>true</licensable>
@@ -22,22 +23,23 @@
         <scoped_administration>false</scoped_administration>
         <short_description/>
         <source>9433631b1bcf30508c5143f3cc4bcbfc</source>
-        <store_correlation_id>REPOAPP0001101508</store_correlation_id>
+        <store_correlation_id>REPOAPP0001164968</store_correlation_id>
         <store_url/>
+        <subscription_entitlement/>
         <sys_class_name>sys_app</sys_class_name>
         <sys_code/>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-11-05 21:50:52</sys_created_on>
         <sys_id>9433631b1bcf30508c5143f3cc4bcbfc</sys_id>
-        <sys_mod_count>92</sys_mod_count>
+        <sys_mod_count>96</sys_mod_count>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2023-12-08 16:55:09</sys_updated_on>
+        <sys_updated_on>2024-01-25 18:58:23</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <uninstall_blocked>false</uninstall_blocked>
         <user_role/>
         <vendor/>
         <vendor_prefix/>
-        <version>2.0.12</version>
+        <version>2.0.14</version>
     </sys_app>
 </record_update>

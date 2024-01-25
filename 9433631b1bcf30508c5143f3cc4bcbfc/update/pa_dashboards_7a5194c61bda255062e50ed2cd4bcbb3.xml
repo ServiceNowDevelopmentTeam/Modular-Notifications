@@ -11,6 +11,9 @@
         <managed_publisher/>
         <name>All that is TJs</name>
         <no_tabs>false</no_tabs>
+        <notification_link_label/>
+        <notification_link_url/>
+        <notification_text/>
         <order/>
         <owner display_value="Terry Lillo">b4bad8641be3a010e7004229bc4bcb57</owner>
         <restrict_to_roles/>

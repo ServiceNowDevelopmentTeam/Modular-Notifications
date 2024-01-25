@@ -105,5 +105,6 @@
         <sys_update_name>sp_css_f76492b81b026d5062e50ed2cd4bcb64</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
         <sys_updated_on>2023-04-19 21:25:29</sys_updated_on>
+        <turn_off_scss_compilation>false</turn_off_scss_compilation>
     </sp_css>
 </record_update>
