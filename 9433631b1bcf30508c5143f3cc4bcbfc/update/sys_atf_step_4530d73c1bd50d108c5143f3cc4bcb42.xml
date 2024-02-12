@@ -7,7 +7,8 @@ Agent Type = DISPATCHER
 and Warehouse (Select all that apply) = 1025-110 - St. Paul
 and Action Group = 1025-BETHEL-ALARM
 and Include in Dispatch Console? = No
-and Will this person approve timesheets? = No</description>
+and Will this person approve timesheets? = No
+and Prod = true</description>
         <display_name>Set Variable Values (SP)</display_name>
         <inputs/>
         <mugshots_cache_json/>
@@ -18,14 +19,14 @@ and Will this person approve timesheets? = No</description>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-24 22:06:40</sys_created_on>
         <sys_id>4530d73c1bd50d108c5143f3cc4bcb42</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Set Variable Values (SP)</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_atf_step_4530d73c1bd50d108c5143f3cc4bcb42</sys_update_name>
         <sys_updated_by>John.Schwab</sys_updated_by>
-        <sys_updated_on>2023-02-08 18:34:28</sys_updated_on>
+        <sys_updated_on>2024-01-31 17:28:52</sys_updated_on>
         <table/>
         <test display_value="TC - 279 - Astea Access - Request - Astea Approval - IT">5f8d07381bd50d108c5143f3cc4bcb32</test>
         <timeout/>
@@ -54,10 +55,10 @@ and Will this person approve timesheets? = No</description>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-01-24 22:06:41</sys_created_on>
         <sys_id>6d301b3c1bd50d108c5143f3cc4bcbad</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_updated_by>John.Schwab</sys_updated_by>
-        <sys_updated_on>2022-09-22 19:46:40</sys_updated_on>
-        <value>IO:101a06a41ba478908c5143f3cc4bcbbf=4723db301be4fc90e7004229bc4bcb85^IO:363a862c1b6478908c5143f3cc4bcb64=d2e4e1241b3938d08c5143f3cc4bcb2a^IO:4e2a02e41ba478908c5143f3cc4bcbb2=eee4e1241b3938d08c5143f3cc4bcb47^IO:3f4f61971b34fc50e7004229bc4bcbf9=No^IO:e56a4aa41ba478908c5143f3cc4bcbe8=No^EQ</value>
+        <sys_updated_on>2024-01-31 17:28:52</sys_updated_on>
+        <value>IO:101a06a41ba478908c5143f3cc4bcbbf=4723db301be4fc90e7004229bc4bcb85^IO:363a862c1b6478908c5143f3cc4bcb64=d2e4e1241b3938d08c5143f3cc4bcb2a^IO:4e2a02e41ba478908c5143f3cc4bcbb2=eee4e1241b3938d08c5143f3cc4bcb47^IO:3f4f61971b34fc50e7004229bc4bcbf9=No^IO:e56a4aa41ba478908c5143f3cc4bcbe8=No^IO:bce814461b67e1508c5143f3cc4bcbe1=true^EQ</value>
         <variable display_value="Variable Values">3f3525f48703030070870cf888cb0b37</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
