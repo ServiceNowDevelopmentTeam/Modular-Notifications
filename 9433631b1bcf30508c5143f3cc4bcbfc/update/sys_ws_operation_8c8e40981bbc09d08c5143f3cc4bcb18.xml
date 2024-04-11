@@ -10,11 +10,13 @@
         <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
 	
     var payload = request.body.data, isValidUser, refreshCard, writer;
-	
+	var isAdmin = gs.hasRole('admin') || gs.hasRole('approval_admin');
 	isValidUser = function(current) {		
 		if (current.approver == gs.getUserID())
 			return true;
-
+		if (isAdmin){
+			return true;
+		}
 		// check if the email is from a delegate of the approver
 		var g = new GlideRecord("sys_user_delegate");
 		g.addQuery("user", current.approver.toString());
@@ -124,14 +126,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-28 22:12:00</sys_created_on>
         <sys_id>8c8e40981bbc09d08c5143f3cc4bcb18</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>apiapproval</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_ws_operation_8c8e40981bbc09d08c5143f3cc4bcb18</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2022-09-29 18:04:58</sys_updated_on>
+        <sys_updated_on>2024-03-27 13:18:21</sys_updated_on>
         <web_service_definition display_value="Outlook Actionable Message">1f71028073171300295ac1f52ff6a70a</web_service_definition>
         <web_service_version/>
     </sys_ws_operation>
