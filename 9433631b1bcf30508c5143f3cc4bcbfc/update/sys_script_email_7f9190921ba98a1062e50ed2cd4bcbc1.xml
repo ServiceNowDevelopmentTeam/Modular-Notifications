@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>get_task_approver_names</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[//Mail script: get_task_approver_names
+
+(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+          /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+          /* Optional GlideRecord */ event) {
+            var table = current.getTableName();
+            var task = new GlideRecord(table);
+            task.get(current.sys_id.toString());
+            var approvers = [];
+            var approver = new GlideRecord('sysapproval_approver');
+            approver.addQuery('document_id', task.sys_id.toString());
+            approver.addOrCondition('sysapproval', task.sys_id.toString());
+            approver.query();
+            while (approver.next()) {
+                var user = new GlideRecord('sys_user');
+                user.get(approver.approver.sys_id.toString());
+                if(approvers.indexOf(user.name.toString()) == -1){
+                    approvers.push(user.name.toString());
+                }
+            }
+			if(table == 'sc_request'){
+                var ritms = new GlideRecord('sc_req_item');
+                ritms.addQuery('request', task.sys_id.toString());
+                ritms.query();
+                while (ritms.next()) {
+                    var ritm_approvers = [];
+                    var ritm_approver = new GlideRecord('sysapproval_approver');
+                    ritm_approver.addQuery('document_id', ritms.sys_id.toString());
+                    ritm_approver.addOrCondition('sysapproval', ritms.sys_id.toString());
+                    ritm_approver.query();
+                    while (ritm_approver.next()) {
+                        var ritm_user = new GlideRecord('sys_user');
+                        ritm_user.get(ritm_approver.approver.sys_id.toString());
+                        if(ritm_approvers.indexOf(ritm_user.name.toString()) == -1){
+                            ritm_approvers.push(ritm_user.name.toString());
+                        }
+                    }
+                    approvers.push(ritm_approvers.join('<br>'));
+                }
+            }
+            template.print(approvers.join('<br>'));
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2024-04-15 19:05:30</sys_created_on>
+        <sys_id>7f9190921ba98a1062e50ed2cd4bcbc1</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>get_task_approver_names</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_email_7f9190921ba98a1062e50ed2cd4bcbc1</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2024-04-15 19:21:02</sys_updated_on>
+    </sys_script_email>
+</record_update>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>get_task_approver_states</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(current, template, email, email_action, event) {
+    var table = current.getTableName();
+    var task = new GlideRecord(table);
+    task.get(current.sys_id.toString());
+    var approvers = [];
+
+    function collectApproverStates(taskRecord) {
+        var approver = new GlideRecord('sysapproval_approver');
+        approver.addQuery('document_id', taskRecord.sys_id.toString());
+        approver.addOrCondition('sysapproval', taskRecord.sys_id.toString());
+        approver.addQuery('state', 'IN', 'approved,rejected');
+        approver.query();
+        while (approver.next()) {
+            var user = new GlideRecord('sys_user');
+            user.get(approver.approver);
+            var userNameState = user.name + ": " + approver.state.getDisplayValue();
+            if (approvers.indexOf(userNameState) === -1) {
+                approvers.push(userNameState);
+            }
+        }
+    }
+
+    collectApproverStates(task);
+
+    if (table === 'sc_request') {
+        var ritms = new GlideRecord('sc_req_item');
+        ritms.addQuery('request', task.sys_id.toString());
+        ritms.query();
+        while (ritms.next()) {
+            collectApproverStates(ritms);
+        }
+    }
+
+    template.print(approvers.join('<br>'));
+})(current, template, email, email_action, event);
+]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2024-04-15 19:36:42</sys_created_on>
+        <sys_id>3ae7545a1ba98a1062e50ed2cd4bcb3b</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>get_task_approver_states</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sys_script_email_3ae7545a1ba98a1062e50ed2cd4bcb3b</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2024-04-16 19:47:51</sys_updated_on>
+    </sys_script_email>
+</record_update>
