@@ -30,6 +30,7 @@ ModularNotificationsBuilder.prototype = {
 		this.customVariables = [];//Variables to include if above is true, can be blank for none
 		this.urls = [{label:'', url:''}]; //Custom URLs to display in the header
 		this.hideUrls = false; //Hide URLs in the header
+		this.adaptiveJSON = ''; //Adaptive card JSON
 	@returns {void}
 	*/
 	initialize: function() {
@@ -65,6 +66,7 @@ ModularNotificationsBuilder.prototype = {
 			footerImageRight : {location:'images/SN_APi_Connect_Logo.png',height:'30px'}
 		};
 		this.modularNotificationsStylesheet = '';
+		this.adaptiveJSON = ''; //Adaptive card JSON
 	},
 
 	/**SNDOC
@@ -382,7 +384,10 @@ ModularNotificationsBuilder.prototype = {
 		}
 
 		//Set more information section
+		//sys approval, is the record being approved instead of the record of approval
 		this.moreInformation = '<br>Please click here to review the request: <a href="' + this.globalURL + '">Click here</a>';
+		//this.moreInformation = '<br>Please click here to review the request: <a href="' + this.sysapproval.globalUrl + '">Click here</a>';
+
 		if (action == 'created' || action == 'reminder'){
 		this.oamRefreshRequestBody = "";
 			var generator = new global.CustomApprovalAdaptiveCardGenerator(gr, 'en');
@@ -390,6 +395,7 @@ ModularNotificationsBuilder.prototype = {
 				generator.oamRefreshUrl = this.oamRefreshUrl;
 			}
 			var content = generator.generate();
+			this.adaptiveJSON = content; //Adaptive card JSON
 			this.adaptiveCard = '<script type="application/adaptivecard+json">' + content +'</script>';
 		}
 
@@ -1032,6 +1038,7 @@ ModularNotificationsBuilder.prototype = {
 		var generator = new global.CustomSurveyAdaptiveCardGenerator(asmtSysId);//Instantiate survey generator
 		generator.instanceId = asmtSysId;
 		var content = generator.generate();//Start generating 
+			this.adaptiveJSON = content; //Adaptive card JSON
 		if(content){
 			surveyContent = '<script type="application/adaptivecard+json">' + content + '</script>';
 		}
@@ -1261,13 +1268,13 @@ ModularNotificationsBuilder.prototype = {
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-10-18 14:56:24</sys_created_on>
         <sys_id>8f6f38191b13f85062e50ed2cd4bcb57</sys_id>
-        <sys_mod_count>114</sys_mod_count>
+        <sys_mod_count>117</sys_mod_count>
         <sys_name>ModularNotificationsBuilder</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_include_8f6f38191b13f85062e50ed2cd4bcb57</sys_update_name>
-        <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2024-03-27 14:33:18</sys_updated_on>
+        <sys_updated_by>John.Schwab</sys_updated_by>
+        <sys_updated_on>2024-05-22 17:11:29</sys_updated_on>
     </sys_script_include>
 </record_update>

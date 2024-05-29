@@ -17,8 +17,17 @@
 	if(notification.sourceTable == 'change_request'){
 		var changeGr = new GlideRecord('change_request');
 		changeGr.get(current.document_id.toString());
+		
 		if (changeGr.type.toString() == 'emergency'){
 			notification.customSubject = 'ACTION REQUIRED: APi Connect Emergency Change Approval Request From ' + notification.requestorName;
+		}
+		//state -4 = peer assessment
+		else if(changeGr.state.toString() == '-4'){
+			notification.customSubject = 'ACTION REQUIRED: Change Peer Assessment Request From ' + notification.requestorName;
+		}
+		//state -3 = CAB
+		else if(changeGr.state.toString() == '-3'){
+			notification.customSubject = 'ACTION REQUIRED: Change CAB Authorization Request From ' + notification.requestorName;
 		}
 	}
 	if(notification.sourceTable == 'sys_user'){
@@ -39,13 +48,13 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2021-12-09 19:38:54</sys_created_on>
         <sys_id>dc4579ce1b54c15062e50ed2cd4bcb94</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name>modular_new_approval_request</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_email_dc4579ce1b54c15062e50ed2cd4bcb94</sys_update_name>
         <sys_updated_by>John.Schwab</sys_updated_by>
-        <sys_updated_on>2024-03-05 14:29:30</sys_updated_on>
+        <sys_updated_on>2024-05-29 16:57:29</sys_updated_on>
     </sys_script_email>
 </record_update>
