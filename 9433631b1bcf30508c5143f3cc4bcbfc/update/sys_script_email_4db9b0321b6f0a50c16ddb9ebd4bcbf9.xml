@@ -7,36 +7,24 @@
           /* Optional GlideRecord */ event) {
     var tableName = current.getTableName();
     var sysID = current.sys_id;
-
-	//if request, send to ritm
-	if(tableName == 'sc_request'){
-		tableName = 'sc_req_item';
-		var gr = new GlideRecord('sc_req_item');
-		gr.addQuery('request', sysID);
-		gr.query();
-		if(gr.next()){
-			sysID = gr.sys_id;
-		}
-	}
 	
     var linkText = "Click here";
 
     var glideURL = gs.getProperty('glide.servlet.uri') + 'sp?id=sc_request&is_new_order=true&table=' + tableName + '&sys_id=' + sysID;
 	
-
     template.print('<a href="' + glideURL + '">' + linkText + '</a>');
 })(current, template, email, email_action, event);]]></script>
         <sys_class_name>sys_script_email</sys_class_name>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2024-07-25 21:22:51</sys_created_on>
         <sys_id>4db9b0321b6f0a50c16ddb9ebd4bcbf9</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>click_here_record_url_req</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_email_4db9b0321b6f0a50c16ddb9ebd4bcbf9</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2024-07-25 21:25:12</sys_updated_on>
+        <sys_updated_on>2024-08-05 14:22:19</sys_updated_on>
     </sys_script_email>
 </record_update>

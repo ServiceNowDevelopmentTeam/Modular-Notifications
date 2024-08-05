@@ -6,22 +6,28 @@
           /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
           /* Optional GlideRecord */ event) {
     var tableName = current.getTableName();
-    var sysID = current.sys_id;
-
-	//if request, send to ritm
-	if(tableName == 'sc_request'){
-		tableName = 'sc_req_item';
-		var gr = new GlideRecord('sc_req_item');
-		gr.addQuery('request', sysID);
-		gr.query();
-		if(gr.next()){
-			sysID = gr.sys_id;
-		}
-	}
-	
+    var reqSysId = tableName == 'sc_request' ? current.sys_id.toString() : current.request.sys_id.toString();
+    var ritmGa = new GlideAggregate('sc_req_item');
+    var glideURL = gs.getProperty('glide.servlet.uri')
     var linkText = "Click here";
 
-    var glideURL = gs.getProperty('glide.servlet.uri') + "sp?id=ticket&table=" + tableName + "&sys_id=" + sysID;
+    ritmGa.addQuery('request', reqSysId);
+    ritmGa.addAggregate('COUNT');
+    ritmGa.query();
+    var ritmCount = 0;
+    if (ritmGa.next()){
+        ritmCount = ritmGa.getAggregate('COUNT');
+    }
+    if(ritmCount > 1) {
+      glideURL += 'sp?id=sc_request&is_new_order=true&table=' + tableName + '&sys_id=' + reqSysId;
+    } else {
+      var firstRitm = new GlideRecord('sc_req_item');
+      firstRitm.addQuery('request', reqSysId);
+      firstRitm.query();
+      if(firstRitm.next()) {
+        glideURL += 'sp?id=ticket&is_new_order=true&table=sc_req_item&sys_id=' + firstRitm.sys_id;
+      }
+    }
 
     template.print('<a href="' + glideURL + '">' + linkText + '</a>');
 })(current, template, email, email_action, event);]]></script>
@@ -29,14 +35,14 @@
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2023-05-25 18:55:02</sys_created_on>
         <sys_id>e5c85d511b0ba51062e50ed2cd4bcb52</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>click_here_record_url</sys_name>
         <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_script_email_e5c85d511b0ba51062e50ed2cd4bcb52</sys_update_name>
-        <sys_updated_by>John.Schwab</sys_updated_by>
-        <sys_updated_on>2024-04-10 18:06:11</sys_updated_on>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2024-08-05 14:35:34</sys_updated_on>
     </sys_script_email>
     <sys_claim action="INSERT_OR_UPDATE">
         <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
