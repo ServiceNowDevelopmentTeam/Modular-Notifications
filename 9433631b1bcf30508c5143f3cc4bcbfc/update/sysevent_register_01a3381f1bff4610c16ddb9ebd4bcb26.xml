@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_register">
+    <sysevent_register action="INSERT_OR_UPDATE">
+        <caller_access/>
+        <derived_priority>100</derived_priority>
+        <description>The catalog task has been rejected by the approver</description>
+        <event_name>req.approval.approved</event_name>
+        <fired_by>approval events</fired_by>
+        <priority>100</priority>
+        <queue/>
+        <suffix/>
+        <sys_class_name>sysevent_register</sys_class_name>
+        <sys_created_by>Terry.Lillo</sys_created_by>
+        <sys_created_on>2024-08-08 20:29:00</sys_created_on>
+        <sys_id>01a3381f1bff4610c16ddb9ebd4bcb26</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>req.approval.approved</sys_name>
+        <sys_package display_value="Modular Notifications" source="9433631b1bcf30508c5143f3cc4bcbfc">9433631b1bcf30508c5143f3cc4bcbfc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
+        <sys_update_name>sysevent_register_01a3381f1bff4610c16ddb9ebd4bcb26</sys_update_name>
+        <sys_updated_by>Terry.Lillo</sys_updated_by>
+        <sys_updated_on>2024-08-08 20:29:00</sys_updated_on>
+        <table>sc_request</table>
+    </sysevent_register>
+</record_update>
