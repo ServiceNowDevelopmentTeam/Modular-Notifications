@@ -4731,14 +4731,14 @@ If this is false, custom variables will be added to original template variables.
     <sys_hub_flow action="UPDATE">
         <sys_id>0d9d4e3b1bcbd5508c5143f3cc4bcbda</sys_id>
         <latest_snapshot>43b1eef31b8fd5508c5143f3cc4bcb83</latest_snapshot>
-        <compiler_build>glide-vancouver-07-06-2023__patch7-hotfix1-03-05-2024_03-06-2024_1225.zip</compiler_build>
+        <compiler_build>glide-vancouver-07-06-2023__patch10-hotfix2-08-01-2024_08-12-2024_1557.zip</compiler_build>
     </sys_hub_flow>
     <sys_flow_trigger_plan action="delete_multiple" query="plan_id=0d9d4e3b1bcbd5508c5143f3cc4bcbda"/>
     <sys_flow_subflow_plan action="delete_multiple" query="plan_id=0d9d4e3b1bcbd5508c5143f3cc4bcbda^sys_idNOT INebb122371b8fd5508c5143f3cc4bcb19"/>
     <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
         <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_subflow_plan","id":"ebb122371b8fd5508c5143f3cc4bcb19","name":"plan","plan_signature":null}}</plan>
         <plan_id display_value="Build Modular Notification From Template">0d9d4e3b1bcbd5508c5143f3cc4bcbda</plan_id>
-        <snapshot>f17045031b35ce5062e50ed2cd4bcbae</snapshot>
+        <snapshot>0e3f5b02fba0d210e070fff26eefdccc</snapshot>
         <sys_created_by>Terry.Lillo</sys_created_by>
         <sys_created_on>2022-11-15 22:26:28</sys_created_on>
         <sys_domain>global</sys_domain>
