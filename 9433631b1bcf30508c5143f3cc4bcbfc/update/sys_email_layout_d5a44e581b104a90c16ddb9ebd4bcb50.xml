@@ -52,11 +52,11 @@
 <tbody>
 <tr>
 <td style="a{color: white; } font-size: 12pt; font-family: Verdana; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; color: #ffffff; width: auto;" rowspan="2"><span style="color: #ffffff;"> <strong>Call for support:</strong></span></td>
-<td style="a{color: white; } font-size: 12pt; font-family: Verdana; padding-left: 0px; padding-top: 0px; padding-bottom: 0px; color: #ffffff;"><span style="color: #ffffff;"><strong>US - 651-925-8511</strong></span></td>
+<td style="a{color: white; } font-size: 12pt; font-family: Verdana; padding-left: 0px; padding-top: 0px; padding-bottom: 0px; color: #ffffff;"><span style="color: #ffffff;"><strong>USA: 651-925-8511</strong></span></td>
 <td style="padding: 5px; text-align: center; vertical-align: middle;" rowspan="2"><img height="25" width="44" border="0" src="images/SN_APi_Connect_Logo.pngx" /></td>
 </tr>
 <tr>
-<td style="a{color: white; } font-size: 12pt; font-family: Verdana; padding-left: 0px; padding-top: 0px; padding-bottom: 0px; color: #ffffff;"><span style="color: #ffffff;"><strong>CA - 905-298-7777</strong></span></td>
+<td style="a{color: white; } font-size: 12pt; font-family: Verdana; padding-left: 0px; padding-top: 0px; padding-bottom: 0px; color: #ffffff;"><span style="color: #ffffff;"><strong>Canada: 905-298-7777</strong></span></td>
 </tr>
 </tbody>
 </table>
@@ -70,14 +70,14 @@
         <sys_created_by>John.Schwab</sys_created_by>
         <sys_created_on>2024-02-07 19:01:24</sys_created_on>
         <sys_id>d5a44e581b104a90c16ddb9ebd4bcb50</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>APi Completed Layout</sys_name>
         <sys_package display_value="Mergers and Acquisitions" source="eb0cede41b177d10c16ddb9ebd4bcbec">eb0cede41b177d10c16ddb9ebd4bcbec</sys_package>
         <sys_policy/>
         <sys_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</sys_scope>
         <sys_update_name>sys_email_layout_d5a44e581b104a90c16ddb9ebd4bcb50</sys_update_name>
         <sys_updated_by>Terry.Lillo</sys_updated_by>
-        <sys_updated_on>2024-09-17 14:47:50</sys_updated_on>
+        <sys_updated_on>2024-09-27 16:17:39</sys_updated_on>
     </sys_email_layout>
     <sys_claim action="INSERT_OR_UPDATE">
         <claim_owner_scope display_value="Modular Notifications">9433631b1bcf30508c5143f3cc4bcbfc</claim_owner_scope>
